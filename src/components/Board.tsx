@@ -171,7 +171,8 @@ export default function Board({
           files.map((f) => {
             const square = `${f}${r}` as Square;
             const s = info.get(square)!;
-            const dark = (FILES.indexOf(f) + r) % 2 === 0;
+            // a1 must be DARK ("light square on the right"): dark ⇔ file+rank odd.
+            const dark = (FILES.indexOf(f) + r) % 2 === 1;
             const isSel = selected === square || beamSource === square;
             const inBeam = beamTargets.has(square);
             const isLast = Boolean(last && (last.from === square || last.to === square));
