@@ -2,13 +2,13 @@
 
 import GamesTable from "@/components/GamesTable";
 import { useI18n } from "@/lib/i18n";
-import { useHydrated } from "@/lib/use-hydrated";
-import { loadGames } from "@/lib/storage";
+import { useGames, useStoreHydrated } from "@/lib/store";
 
 export default function GamesPage() {
   const { t } = useI18n();
-  const hydrated = useHydrated();
-  const games = hydrated ? loadGames().slice(0, 300) : null;
+  const hydrated = useStoreHydrated();
+  const allGames = useGames();
+  const games = hydrated ? allGames.slice(0, 300) : null;
 
   if (!games) return null;
 

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useReducer } from "react";
 import { BookOpen } from "lucide-react";
 import AnalysisRunner from "@/components/AnalysisRunner";
 import GamesTable from "@/components/GamesTable";
@@ -9,23 +8,23 @@ import RatingChart from "@/components/RatingChart";
 import SyncButton from "@/components/SyncButton";
 import { useI18n } from "@/lib/i18n";
 import { computeDashboardStats } from "@/lib/stats";
-import { useHydrated } from "@/lib/use-hydrated";
-import { loadAnalyses, loadGames, loadSettings } from "@/lib/storage";
+import { useAnalyses, useGames, useSettings, useStoreHydrated } from "@/lib/store";
 
 export default function DashboardPage() {
   const { t } = useI18n();
-  const hydrated = useHydrated();
-  // Bumped by sync/analysis actions to re-read localStorage during render.
-  const [, refresh] = useReducer((x) => x + 1, 0);
+  const hydrated = useStoreHydrated();
+  const games = useGames();
+  const analyses = useAnalyses();
+  const settings = useSettings();
 
-  const stats = hydrated ? computeDashboardStats(loadGames(), loadAnalyses()) : null;
-  const settings = hydrated ? loadSettings() : null;
+  // Reactive: sync/analysis write to the store, so this recomputes on its own.
+  const stats = hydrated ? computeDashboardStats(games, analyses) : null;
 
   if (!stats) return null;
 
   const accounts = [
-    settings?.chesscomUsername && `${settings.chesscomUsername} (Chess.com)`,
-    settings?.lichessUsername && `${settings.lichessUsername} (Lichess)`,
+    settings.chesscomUsername && `${settings.chesscomUsername} (Chess.com)`,
+    settings.lichessUsername && `${settings.lichessUsername} (Lichess)`,
   ]
     .filter(Boolean)
     .join(" · ");
@@ -45,7 +44,7 @@ export default function DashboardPage() {
             </p>
           )}
         </div>
-        <SyncButton onSynced={refresh} />
+        <SyncButton />
       </div>
 
       {stats.totalGames === 0 ? (
@@ -66,7 +65,7 @@ export default function DashboardPage() {
             />
           </div>
 
-          <AnalysisRunner pendingCount={stats.pendingCount} onProgress={refresh} />
+          <AnalysisRunner pendingCount={stats.pendingCount} />
 
           <section className="rounded-xl border border-border bg-card p-5">
             <div className="flex items-center justify-between mb-4">

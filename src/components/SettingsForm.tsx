@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import ApiKeyField from "./ApiKeyField";
 import {
   AlertDialog,
@@ -15,19 +16,20 @@ import {
 } from "@/components/ui/alert-dialog";
 import { BOARD_THEMES } from "@/lib/board-themes";
 import { useI18n, type Locale } from "@/lib/i18n";
-import { useHydrated } from "@/lib/use-hydrated";
+import { useStoreHydrated } from "@/lib/store";
 import { clearAllData, loadSettings, saveSettings } from "@/lib/storage";
 
 export default function SettingsForm() {
-  // Render nothing until hydrated, so the inner form can lazy-init its editable
-  // state straight from localStorage without an SSR mismatch.
-  const hydrated = useHydrated();
+  // Render nothing until the store is hydrated, so the inner form can lazy-init
+  // its editable state straight from the store without an SSR mismatch.
+  const hydrated = useStoreHydrated();
   if (!hydrated) return null;
   return <SettingsFormInner />;
 }
 
 function SettingsFormInner() {
   const { t, locale, setLocale } = useI18n();
+  const router = useRouter();
   const [form, setForm] = useState(() => loadSettings());
   const [state, setState] = useState<"idle" | "saved" | "cleared">("idle");
 
@@ -43,8 +45,8 @@ function SettingsFormInner() {
 
   function clearData() {
     clearAllData();
-    // Back to a fresh start: home + onboarding modal.
-    window.location.href = "/";
+    // Store reset is reactive (onboarding reopens); just navigate home — no reload.
+    router.push("/");
   }
 
   const input =

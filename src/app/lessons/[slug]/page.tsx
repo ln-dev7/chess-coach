@@ -4,26 +4,27 @@ import { use } from "react";
 import Link from "next/link";
 import LessonView, { AiLessonView } from "@/components/LessonView";
 import { useI18n } from "@/lib/i18n";
-import { useHydrated } from "@/lib/use-hydrated";
-import { loadAiLessons, loadLessons } from "@/lib/storage";
+import { useAiLessons, useLessons, useStoreHydrated } from "@/lib/store";
 import type { AiLessonRow, GeneratedLesson } from "@/lib/types";
 
 type Found = { kind: "template"; lesson: GeneratedLesson } | { kind: "ai"; lesson: AiLessonRow } | null;
 
-function findLesson(slug: string): Found {
+function findLesson(slug: string, lessons: GeneratedLesson[], aiLessons: AiLessonRow[]): Found {
   if (slug.startsWith("ai-")) {
-    const ai = loadAiLessons().find((l) => l.id === slug);
+    const ai = aiLessons.find((l) => l.id === slug);
     return ai ? { kind: "ai", lesson: ai } : null;
   }
-  const tpl = loadLessons().find((l) => l.slug === slug);
+  const tpl = lessons.find((l) => l.slug === slug);
   return tpl ? { kind: "template", lesson: tpl } : null;
 }
 
 export default function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const { t } = useI18n();
-  const hydrated = useHydrated();
-  const found: Found | undefined = hydrated ? findLesson(slug) : undefined;
+  const hydrated = useStoreHydrated();
+  const lessons = useLessons();
+  const aiLessons = useAiLessons();
+  const found: Found | undefined = hydrated ? findLesson(slug, lessons, aiLessons) : undefined;
 
   if (found === undefined) return null;
 

@@ -24,7 +24,8 @@
     "react-dom": "19.2.4",
     "recharts": "^3",
     "stockfish": "^18.0.7",
-    "tailwind-merge": "^3"
+    "tailwind-merge": "^3",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

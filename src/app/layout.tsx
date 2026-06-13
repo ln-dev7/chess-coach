@@ -4,6 +4,7 @@ import { Github, Twitter } from "lucide-react";
 import { ThemeProvider } from "next-themes";
 import Nav from "@/components/Nav";
 import OnboardingModal from "@/components/OnboardingModal";
+import StoreHydrator from "@/components/StoreHydrator";
 import { I18nProvider } from "@/lib/i18n";
 import { site, siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -95,6 +96,7 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <I18nProvider>
+            <StoreHydrator />
             <OnboardingModal />
             <Nav />
             <div className="flex-1">{children}</div>

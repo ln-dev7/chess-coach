@@ -10,19 +10,21 @@ import {
 } from "@/components/ui/alert-dialog";
 import Logo from "./Logo";
 import { useI18n } from "@/lib/i18n";
-import { useHydrated } from "@/lib/use-hydrated";
-import { isOnboarded, loadSettings, saveSettings, setOnboarded } from "@/lib/storage";
+import { useOnboardedFlag, useSettings, useStoreHydrated } from "@/lib/store";
+import { loadSettings, saveSettings, setOnboarded } from "@/lib/storage";
 
 /** First-visit gate: requires at least one platform username before using the app. */
 export default function OnboardingModal() {
   const { t } = useI18n();
-  const hydrated = useHydrated();
+  const hydrated = useStoreHydrated();
+  const onboardedFlag = useOnboardedFlag();
+  const settings = useSettings();
   const [chesscom, setChesscom] = useState("");
   const [lichess, setLichess] = useState("");
   const [error, setError] = useState(false);
 
-  // Known only once localStorage is readable; stays closed during SSR / first render.
-  const open = hydrated && !isOnboarded();
+  // Known only once the store is hydrated; stays closed during SSR / first render.
+  const open = hydrated && !(onboardedFlag || settings.chesscomUsername || settings.lichessUsername);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -32,7 +34,7 @@ export default function OnboardingModal() {
     }
     saveSettings({ ...loadSettings(), chesscomUsername: chesscom.trim(), lichessUsername: lichess.trim() });
     setOnboarded();
-    window.location.reload();
+    // The reactive store update closes the modal — no reload needed.
   }
 
   const input =

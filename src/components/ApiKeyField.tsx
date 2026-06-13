@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { AI_PROVIDERS, DEFAULT_PROVIDER_ID, getProvider, type AiProviderId } from "@/lib/providers";
-import { clearAiKey, loadAiKey, saveAiKey, type StoredAiKey } from "@/lib/storage";
+import { useApiKey } from "@/lib/store";
+import { clearAiKey, saveAiKey } from "@/lib/storage";
 import {
   Select,
   SelectContent,
@@ -23,9 +24,9 @@ import {
  */
 export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   const { t } = useI18n();
+  const saved = useApiKey(); // reactive: reflects save/remove immediately
   const [value, setValue] = useState("");
   const [provider, setProvider] = useState<AiProviderId>(DEFAULT_PROVIDER_ID);
-  const [saved, setSaved] = useState<StoredAiKey | null>(() => loadAiKey());
   const [serverCfg, setServerCfg] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -38,14 +39,12 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   function save() {
     if (!value.trim()) return;
     saveAiKey(provider, value);
-    setSaved({ provider, key: value.trim() });
     setValue("");
     onChanged?.();
   }
 
   function remove() {
     clearAiKey();
-    setSaved(null);
     setValue("");
     onChanged?.();
   }

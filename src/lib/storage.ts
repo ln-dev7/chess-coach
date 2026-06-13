@@ -1,230 +1,126 @@
 "use client";
 
-import { type AiProviderId, isProviderId } from "./providers";
+import {
+  DEFAULT_SETTINGS,
+  purgeLegacyKeys,
+  type StoredAiKey,
+  useStore,
+} from "./store";
+import type { AiProviderId } from "./providers";
 import type { AiLessonRow, AnalysisSummary, GameRow, GeneratedLesson, PuzzleRow, Settings } from "./types";
 
 /**
- * MVP persistence: everything lives in this browser's localStorage.
- * No account, no server, no database. See docs/POST-MVP-GUIDE.md for the
- * planned migration path (IndexedDB → hosted DB + auth).
+ * Imperative facade over the Zustand store (see store.ts). Same signatures as
+ * before so non-reactive callers (sync, analysis, generators, handlers) need no
+ * changes; components that render data subscribe with the selector hooks from
+ * store.ts instead. Persistence is handled by the store.
  */
-const KEYS = {
-  settings: "cc:settings",
-  games: "cc:games",
-  analyses: "cc:analyses",
-  puzzles: "cc:puzzles",
-  lessons: "cc:lessons",
-  aiLessons: "cc:aiLessons",
-  apiKey: "cc:apiKey",
-  onboarded: "cc:onboarded",
-} as const;
 
-const isBrowser = typeof window !== "undefined";
+export { DEFAULT_SETTINGS };
+export type { StoredAiKey };
 
-function read<T>(key: string, fallback: T): T {
-  if (!isBrowser) return fallback;
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function write<T>(key: string, value: T): void {
-  if (!isBrowser) return;
-  localStorage.setItem(key, JSON.stringify(value));
-}
+const st = () => useStore.getState();
 
 // ---------- Settings ----------
-
-export const DEFAULT_SETTINGS: Settings = {
-  chesscomUsername: "",
-  lichessUsername: "",
-  analyzeLastN: 50,
-  engineMovetimeMs: 90,
-  boardTheme: "classic",
-  soundEnabled: true,
-};
-
 export function loadSettings(): Settings {
-  return { ...DEFAULT_SETTINGS, ...read<Partial<Settings>>(KEYS.settings, {}) };
+  return st().settings;
 }
-
 export function saveSettings(s: Settings): void {
-  write(KEYS.settings, s);
+  st().setSettings(s);
 }
 
 // ---------- Games ----------
-
 export function loadGames(): GameRow[] {
-  return read<GameRow[]>(KEYS.games, []);
+  return st().games;
 }
-
 export function saveGames(games: GameRow[]): void {
-  write(KEYS.games, games);
+  st().setGames(games);
 }
-
 /** Merge new games, dedupe by id, newest first. Returns number inserted. */
 export function upsertGames(incoming: GameRow[]): number {
-  const existing = loadGames();
-  const seen = new Set(existing.map((g) => g.id));
-  const fresh = incoming.filter((g) => !seen.has(g.id));
-  if (fresh.length) {
-    const all = [...existing, ...fresh].sort(
-      (a, b) => new Date(b.played_at).getTime() - new Date(a.played_at).getTime()
-    );
-    saveGames(all);
-  }
-  return fresh.length;
+  return st().upsertGames(incoming);
 }
-
-export function setGameStatus(gameId: string, status: GameRow["analysis_status"], accuracy?: number | null): void {
-  const games = loadGames();
-  const g = games.find((x) => x.id === gameId);
-  if (!g) return;
-  g.analysis_status = status;
-  if (accuracy != null && g.accuracy_user == null) g.accuracy_user = accuracy;
-  saveGames(games);
+export function setGameStatus(
+  gameId: string,
+  status: GameRow["analysis_status"],
+  accuracy?: number | null
+): void {
+  st().setGameStatus(gameId, status, accuracy);
 }
 
 // ---------- Analyses ----------
-
 export function loadAnalyses(): Record<string, AnalysisSummary> {
-  return read<Record<string, AnalysisSummary>>(KEYS.analyses, {});
+  return st().analyses;
 }
-
 export function saveAnalysis(gameId: string, summary: AnalysisSummary): void {
-  const all = loadAnalyses();
-  all[gameId] = summary;
-  write(KEYS.analyses, all);
+  st().setAnalysis(gameId, summary);
 }
 
 // ---------- Puzzles ----------
-
 export function loadPuzzles(): PuzzleRow[] {
-  return read<PuzzleRow[]>(KEYS.puzzles, []);
+  return st().puzzles;
 }
-
 export function upsertPuzzles(incoming: PuzzleRow[]): void {
-  const existing = loadPuzzles();
-  const seen = new Set(existing.map((p) => p.id));
-  const fresh = incoming.filter((p) => !seen.has(p.id));
-  if (fresh.length) write(KEYS.puzzles, [...fresh, ...existing]);
+  st().upsertPuzzles(incoming);
 }
-
 export function updatePuzzle(id: string, patch: Partial<Pick<PuzzleRow, "attempts" | "solved">>): void {
-  const puzzles = loadPuzzles();
-  const p = puzzles.find((x) => x.id === id);
-  if (!p) return;
-  Object.assign(p, patch);
-  write(KEYS.puzzles, puzzles);
+  st().updatePuzzle(id, patch);
 }
 
 // ---------- Lessons ----------
-
 export function loadLessons(): GeneratedLesson[] {
-  return read<GeneratedLesson[]>(KEYS.lessons, []);
+  return st().lessons;
 }
-
 export function saveLessons(lessons: GeneratedLesson[]): void {
-  write(KEYS.lessons, lessons);
+  st().setLessons(lessons);
 }
-
 export function setLessonCompleted(slug: string, completed: boolean): void {
-  const lessons = loadLessons();
-  const l = lessons.find((x) => x.slug === slug);
-  if (!l) return;
-  l.completed = completed;
-  saveLessons(lessons);
+  st().setLessonCompletedAction(slug, completed);
 }
-
 export function removeLesson(slug: string): void {
-  saveLessons(loadLessons().filter((l) => l.slug !== slug));
+  st().removeLessonAction(slug);
 }
 
 // ---------- AI lessons ----------
-
 export function loadAiLessons(): AiLessonRow[] {
-  return read<AiLessonRow[]>(KEYS.aiLessons, []);
+  return st().aiLessons;
 }
-
 export function addAiLesson(lesson: AiLessonRow): void {
-  write(KEYS.aiLessons, [lesson, ...loadAiLessons()]);
+  st().addAiLessonAction(lesson);
 }
-
 export function setAiLessonCompleted(id: string, completed: boolean): void {
-  const lessons = loadAiLessons();
-  const l = lessons.find((x) => x.id === id);
-  if (!l) return;
-  l.completed = completed;
-  write(KEYS.aiLessons, lessons);
+  st().setAiLessonCompletedAction(id, completed);
 }
-
 export function removeAiLesson(id: string): void {
-  write(KEYS.aiLessons, loadAiLessons().filter((l) => l.id !== id));
+  st().removeAiLessonAction(id);
 }
 
 // ---------- Onboarding ----------
-
 export function isOnboarded(): boolean {
-  if (!isBrowser) return true; // never flash the modal during SSR
-  if (localStorage.getItem(KEYS.onboarded) === "1") return true;
-  const s = loadSettings();
-  return Boolean(s.chesscomUsername || s.lichessUsername);
+  const s = st();
+  if (!s.hydrated) return true; // never flash the modal before we've read storage
+  return s.onboardedFlag || Boolean(s.settings.chesscomUsername || s.settings.lichessUsername);
 }
-
 export function setOnboarded(): void {
-  if (isBrowser) localStorage.setItem(KEYS.onboarded, "1");
+  st().setOnboardedFlag();
 }
 
 // ---------- User AI provider API key (BYOK) ----------
 // Stored in THIS browser only, together with the chosen provider. It is sent
 // directly from the browser to that provider — it never reaches this app's
 // server and is never stored anywhere else.
-
-export interface StoredAiKey {
-  provider: AiProviderId;
-  key: string;
-}
-
 export function loadAiKey(): StoredAiKey | null {
-  if (!isBrowser) return null;
-  const raw = localStorage.getItem(KEYS.apiKey);
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw) as unknown;
-    // Legacy format: a bare JSON string was an Anthropic key.
-    if (typeof parsed === "string") {
-      const k = parsed.trim();
-      return k ? { provider: "anthropic", key: k } : null;
-    }
-    if (parsed && typeof parsed === "object") {
-      const obj = parsed as { provider?: unknown; key?: unknown };
-      const key = typeof obj.key === "string" ? obj.key.trim() : "";
-      if (!key) return null;
-      return { provider: isProviderId(obj.provider) ? obj.provider : "anthropic", key };
-    }
-    return null;
-  } catch {
-    return null;
-  }
+  return st().apiKey;
 }
-
 export function saveAiKey(provider: AiProviderId, key: string): void {
-  if (!isBrowser) return;
-  const k = key.trim();
-  if (k) localStorage.setItem(KEYS.apiKey, JSON.stringify({ provider, key: k }));
-  else localStorage.removeItem(KEYS.apiKey);
+  st().setApiKeyAction(provider, key);
 }
-
 export function clearAiKey(): void {
-  if (isBrowser) localStorage.removeItem(KEYS.apiKey);
+  st().clearApiKeyAction();
 }
 
 // ---------- Maintenance ----------
-
 export function clearAllData(): void {
-  if (!isBrowser) return;
-  for (const key of Object.values(KEYS)) localStorage.removeItem(key);
+  st().clearAllAction();
+  purgeLegacyKeys();
 }
