@@ -171,9 +171,10 @@ const en = {
   },
   onboarding: {
     title: "Welcome to Chess Coach ♞",
-    desc: "Enter at least one username so we can fetch your games and turn them into lessons. Everything stays in your browser — no account, no server.",
+    desc: "Enter at least one username — you don't need both. We'll fetch your games and turn them into lessons. Everything stays in your browser — no account, no server.",
     required: "Enter at least one of the two usernames.",
     start: "Let's go",
+    syncing: "Importing your games…",
   },
   board: {
     whiteAttacks: "White attacks",

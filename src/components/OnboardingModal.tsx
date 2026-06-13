@@ -12,6 +12,7 @@ import Logo from "./Logo";
 import { useI18n } from "@/lib/i18n";
 import { useOnboardedFlag, useSettings, useStoreHydrated } from "@/lib/store";
 import { loadSettings, saveSettings, setOnboarded } from "@/lib/storage";
+import { syncGames } from "@/lib/sync";
 
 /** First-visit gate: requires at least one platform username before using the app. */
 export default function OnboardingModal() {
@@ -22,19 +23,31 @@ export default function OnboardingModal() {
   const [chesscom, setChesscom] = useState("");
   const [lichess, setLichess] = useState("");
   const [error, setError] = useState(false);
+  const [syncing, setSyncing] = useState(false);
 
   // Known only once the store is hydrated; stays closed during SSR / first render.
   const open = hydrated && !(onboardedFlag || settings.chesscomUsername || settings.lichessUsername);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!chesscom.trim() && !lichess.trim()) {
+    if (syncing) return;
+    const c = chesscom.trim();
+    const l = lichess.trim();
+    if (!c && !l) {
       setError(true);
       return;
     }
-    saveSettings({ ...loadSettings(), chesscomUsername: chesscom.trim(), lichessUsername: lichess.trim() });
+    // Run the one and only automatic sync before closing, so games are already
+    // importing when the user lands on the dashboard. Save settings + mark
+    // onboarded last — that flips `open` to false and closes the modal.
+    setSyncing(true);
+    try {
+      await syncGames({ chesscomUsername: c, lichessUsername: l });
+    } catch {
+      /* let the user in even if the first sync fails — they can retry manually */
+    }
+    saveSettings({ ...loadSettings(), chesscomUsername: c, lichessUsername: l });
     setOnboarded();
-    // The reactive store update closes the modal — no reload needed.
   }
 
   const input =
@@ -82,9 +95,10 @@ export default function OnboardingModal() {
 
           <button
             type="submit"
-            className="self-end rounded-lg bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 text-sm font-medium text-white transition"
+            disabled={syncing}
+            className="self-end rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 px-5 py-2.5 text-sm font-medium text-white transition"
           >
-            {t.onboarding.start}
+            {syncing ? t.onboarding.syncing : t.onboarding.start}
           </button>
         </form>
       </AlertDialogContent>

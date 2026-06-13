@@ -1,27 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import AiLessonGenerator from "@/components/AiLessonGenerator";
 import ApiKeyField from "@/components/ApiKeyField";
 import DeleteLessonButton from "@/components/DeleteLessonButton";
 import GenerateLessonsButton from "@/components/GenerateLessonsButton";
 import { useI18n } from "@/lib/i18n";
 import { lessonConcept, lessonTitle } from "@/lib/lessons";
-import { coachAvailability } from "@/lib/coach-client";
+import { useCoachAvailability } from "@/lib/coach-client";
 import { useAiLessons, useLessons, useStoreHydrated } from "@/lib/store";
 import { removeAiLesson, removeLesson } from "@/lib/storage";
 
 export default function LessonsPage() {
   const { t, locale } = useI18n();
   const hydrated = useStoreHydrated();
-  const [keyVersion, setKeyVersion] = useState(0);
-  // true while loading to avoid a flash; checks BOTH the server env key and the browser key.
-  const [aiAvailable, setAiAvailable] = useState(true);
-
-  useEffect(() => {
-    coachAvailability().then((a) => setAiAvailable(a.available));
-  }, [keyVersion]);
+  // Reactive availability — reflects a key added in Settings without a reload.
+  const { available: aiAvailable } = useCoachAvailability();
 
   // Reactive: delete/generate write to the store, so these update on their own.
   const lessons = useLessons();
@@ -40,11 +34,11 @@ export default function LessonsPage() {
           <p className="text-sm text-muted-foreground max-w-2xl">{t.lessons.personalizedSub}</p>
         </div>
 
-        <AiLessonGenerator key={keyVersion} />
+        <AiLessonGenerator />
 
         {/* BYOK field — shown directly, and ONLY when no key exists anywhere
             (neither the server env key nor a key saved in this browser). */}
-        {!aiAvailable && <ApiKeyField onChanged={() => setKeyVersion((v) => v + 1)} />}
+        {!aiAvailable && <ApiKeyField />}
 
         {aiLessons.length > 0 && (
           <ul className="grid sm:grid-cols-2 gap-4">

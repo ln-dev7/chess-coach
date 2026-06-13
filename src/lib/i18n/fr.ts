@@ -172,9 +172,10 @@ const fr: Dict = {
   },
   onboarding: {
     title: "Bienvenue sur Chess Coach ♞",
-    desc: "Renseigne au moins un pseudo pour qu'on récupère tes parties et qu'on les transforme en leçons. Tout reste dans ton navigateur — pas de compte, pas de serveur.",
+    desc: "Renseigne au moins un pseudo — pas besoin des deux. On récupère tes parties et on les transforme en leçons. Tout reste dans ton navigateur — pas de compte, pas de serveur.",
     required: "Renseigne au moins un des deux pseudos.",
     start: "C'est parti",
+    syncing: "Import de tes parties…",
   },
   board: {
     whiteAttacks: "Attaques blanches",

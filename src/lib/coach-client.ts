@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { buildUserContent, parseModelText, sanitize, SYSTEM_PROMPT } from "./coach";
 import type { CoachingDossier } from "./dossier";
 import { getProvider } from "./providers";
+import { useApiKey, useStoreHydrated } from "./store";
 import { loadAiKey } from "./storage";
 import type { LessonContent } from "./types";
 
@@ -13,16 +15,38 @@ export interface CoachRequest {
   focus?: string;
 }
 
-/** Is the AI coach usable right now (user key in this browser OR server key)? */
-export async function coachAvailability(): Promise<{ available: boolean; viaUserKey: boolean }> {
-  if (loadAiKey()) return { available: true, viaUserKey: true };
-  try {
-    const r = await fetch("/api/coach-lesson");
-    const d = await r.json();
-    return { available: Boolean(d.configured), viaUserKey: false };
-  } catch {
-    return { available: false, viaUserKey: false };
-  }
+/**
+ * Reactive AI-coach availability: usable if a key is saved in this browser
+ * (reflected live from the store) OR a server env key is configured. `ready`
+ * is false until both the store has hydrated and the server probe has resolved,
+ * so callers can avoid flashing the "no key" state on first paint.
+ */
+export function useCoachAvailability(): { available: boolean; viaUserKey: boolean; ready: boolean } {
+  const apiKey = useApiKey();
+  const hydrated = useStoreHydrated();
+  const [serverConfigured, setServerConfigured] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/coach-lesson")
+      .then((r) => r.json())
+      .then((d) => {
+        if (alive) setServerConfigured(Boolean(d.configured));
+      })
+      .catch(() => {
+        if (alive) setServerConfigured(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const viaUserKey = Boolean(apiKey);
+  return {
+    available: viaUserKey || serverConfigured === true,
+    viaUserKey,
+    ready: hydrated && serverConfigured !== null,
+  };
 }
 
 /**

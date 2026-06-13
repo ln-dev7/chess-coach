@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookOpen } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { coachAvailability, requestAiLesson } from "@/lib/coach-client";
+import { requestAiLesson, useCoachAvailability } from "@/lib/coach-client";
 import { buildDossier } from "@/lib/dossier";
 import { useI18n } from "@/lib/i18n";
 import { addAiLesson, loadAiLessons, loadAnalyses, loadGames } from "@/lib/storage";
@@ -95,12 +95,8 @@ function GameLessonButton({
 
 export default function GamesTable({ games, showStatus = false }: { games: GameRow[]; showStatus?: boolean }) {
   const { t, locale } = useI18n();
-  const [aiConfigured, setAiConfigured] = useState(false);
+  const { available: aiConfigured } = useCoachAvailability();
   const [busyId, setBusyId] = useState<string | null>(null);
-
-  useEffect(() => {
-    coachAvailability().then((a) => setAiConfigured(a.available));
-  }, []);
 
   return (
     <TooltipProvider delayDuration={200}>

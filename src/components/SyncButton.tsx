@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { fetchChesscomGames } from "@/lib/fetchers/chesscom";
-import { fetchLichessGames } from "@/lib/fetchers/lichess";
 import { useI18n } from "@/lib/i18n";
-import { loadSettings, upsertGames } from "@/lib/storage";
+import { NoUsernamesError, syncGames } from "@/lib/sync";
 
 export default function SyncButton({ onSynced }: { onSynced?: () => void }) {
   const { t } = useI18n();
@@ -15,21 +13,12 @@ export default function SyncButton({ onSynced }: { onSynced?: () => void }) {
     setState("busy");
     setMsg("");
     try {
-      const settings = loadSettings();
-      if (!settings.chesscomUsername && !settings.lichessUsername) {
-        throw new Error(t.sync.noUsernames);
-      }
-      const maxGames = Math.max(settings.analyzeLastN * 2, 200);
-      const [chesscom, lichess] = await Promise.all([
-        settings.chesscomUsername ? fetchChesscomGames(settings.chesscomUsername, maxGames) : Promise.resolve([]),
-        settings.lichessUsername ? fetchLichessGames(settings.lichessUsername, maxGames) : Promise.resolve([]),
-      ]);
-      const inserted = upsertGames([...chesscom, ...lichess]);
-      setMsg(t.sync.result(inserted, chesscom.length, lichess.length));
+      const { inserted, chesscom, lichess } = await syncGames();
+      setMsg(t.sync.result(inserted, chesscom, lichess));
       setState("done");
       onSynced?.();
     } catch (e) {
-      setMsg((e as Error).message || t.sync.error);
+      setMsg(e instanceof NoUsernamesError ? t.sync.noUsernames : (e as Error).message || t.sync.error);
       setState("error");
     }
   }
