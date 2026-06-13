@@ -1,5 +1,6 @@
 "use client";
 
+import { type AiProviderId, isProviderId } from "./providers";
 import type { AiLessonRow, AnalysisSummary, GameRow, GeneratedLesson, PuzzleRow, Settings } from "./types";
 
 /**
@@ -176,23 +177,47 @@ export function setOnboarded(): void {
   if (isBrowser) localStorage.setItem(KEYS.onboarded, "1");
 }
 
-// ---------- User Anthropic API key (BYOK) ----------
-// Stored in THIS browser only. It is sent directly from the browser to
-// api.anthropic.com — it never reaches this app's server and is never stored
-// anywhere else.
+// ---------- User AI provider API key (BYOK) ----------
+// Stored in THIS browser only, together with the chosen provider. It is sent
+// directly from the browser to that provider — it never reaches this app's
+// server and is never stored anywhere else.
 
-export function loadApiKey(): string {
-  if (!isBrowser) return "";
-  return localStorage.getItem(KEYS.apiKey) ?? "";
+export interface StoredAiKey {
+  provider: AiProviderId;
+  key: string;
 }
 
-export function saveApiKey(key: string): void {
+export function loadAiKey(): StoredAiKey | null {
+  if (!isBrowser) return null;
+  const raw = localStorage.getItem(KEYS.apiKey);
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    // Legacy format: a bare JSON string was an Anthropic key.
+    if (typeof parsed === "string") {
+      const k = parsed.trim();
+      return k ? { provider: "anthropic", key: k } : null;
+    }
+    if (parsed && typeof parsed === "object") {
+      const obj = parsed as { provider?: unknown; key?: unknown };
+      const key = typeof obj.key === "string" ? obj.key.trim() : "";
+      if (!key) return null;
+      return { provider: isProviderId(obj.provider) ? obj.provider : "anthropic", key };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveAiKey(provider: AiProviderId, key: string): void {
   if (!isBrowser) return;
-  if (key.trim()) localStorage.setItem(KEYS.apiKey, key.trim());
+  const k = key.trim();
+  if (k) localStorage.setItem(KEYS.apiKey, JSON.stringify({ provider, key: k }));
   else localStorage.removeItem(KEYS.apiKey);
 }
 
-export function clearApiKey(): void {
+export function clearAiKey(): void {
   if (isBrowser) localStorage.removeItem(KEYS.apiKey);
 }
 

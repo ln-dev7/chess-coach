@@ -36,9 +36,9 @@ No environment variables needed. Deploy anywhere that serves a Next.js app (Verc
 - **Engine analysis** — blunder/mistake detection with motif classification (hanging pieces, missed tactics, allowed forks, mating-net issues, bad trades) and phase breakdown
 - **Puzzles** — every blunder becomes a "find the best move" puzzle from your real games
 - **Lessons (FR/EN)** — generated from your weakness profile; each teaches one mental model with interactive boards (attack overlays — *see the lines of force*), drills from your games, and retrieval-practice quizzes. Lesson text is rendered in the current site language.
-- **AI coach lessons (optional)** — the "✦ AI coach lesson" button compiles a full coaching dossier (weaknesses, key positions with engine-verified facts, clock habits via `%clk`, winning-position conversion) and asks Claude to write a bespoke lesson in your language, with filters (theme, date range, opponent Elo, platform). Two ways to enable it:
-  - **Bring your own key**: paste your Anthropic API key in Settings. It is stored in your browser only and sent **directly from your browser to Anthropic** — it never reaches this app's server and is never stored anywhere else. Removable anytime in Settings.
-  - **Server key**: set `ANTHROPIC_API_KEY` in `.env.local` (self-hosting).
+- **AI coach lessons (optional)** — the "✦ AI coach lesson" button compiles a full coaching dossier (weaknesses, key positions with engine-verified facts, clock habits via `%clk`, winning-position conversion) and asks an AI model to write a bespoke lesson in your language, with filters (theme, date range, opponent Elo, platform). Works with **Anthropic (Claude), OpenAI (GPT) or Google (Gemini)**. Two ways to enable it:
+  - **Bring your own key**: pick a provider and paste your API key in Settings. It is stored in your browser only and sent **directly from your browser to that provider** (these three all allow direct browser calls) — it never reaches this app's server and is never stored anywhere else. Removable anytime in Settings.
+  - **Server key**: set `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` or `GEMINI_API_KEY` in `.env.local` (self-hosting). When several are set, priority is Anthropic > OpenAI > Google.
 
   **Fallback**: without any key, a notice appears and template lessons keep working.
 - **Board themes & pieces** — Colorful piece set and 12 board themes (ported from the chess-game project), selectable in Settings.

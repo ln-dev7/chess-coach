@@ -146,5 +146,3 @@ export function sanitize(
     primarySource: { label: String(model.primarySource?.label ?? "Lichess Practice"), url },
   };
 }
-
-export const DEFAULT_MODEL = "claude-sonnet-4-6";

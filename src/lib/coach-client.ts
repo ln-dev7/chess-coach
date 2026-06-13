@@ -1,8 +1,9 @@
 "use client";
 
-import { buildUserContent, DEFAULT_MODEL, parseModelText, sanitize, SYSTEM_PROMPT } from "./coach";
+import { buildUserContent, parseModelText, sanitize, SYSTEM_PROMPT } from "./coach";
 import type { CoachingDossier } from "./dossier";
-import { loadApiKey } from "./storage";
+import { getProvider } from "./providers";
+import { loadAiKey } from "./storage";
 import type { LessonContent } from "./types";
 
 export interface CoachRequest {
@@ -14,7 +15,7 @@ export interface CoachRequest {
 
 /** Is the AI coach usable right now (user key in this browser OR server key)? */
 export async function coachAvailability(): Promise<{ available: boolean; viaUserKey: boolean }> {
-  if (loadApiKey()) return { available: true, viaUserKey: true };
+  if (loadAiKey()) return { available: true, viaUserKey: true };
   try {
     const r = await fetch("/api/coach-lesson");
     const d = await r.json();
@@ -25,14 +26,15 @@ export async function coachAvailability(): Promise<{ available: boolean; viaUser
 }
 
 /**
- * Generate a lesson. If the user saved their own Anthropic key, the request
- * goes STRAIGHT from this browser to api.anthropic.com (the key never touches
- * our server). Otherwise it goes through /api/coach-lesson (owner's env key).
+ * Generate a lesson. If the user saved their own key, the request goes STRAIGHT
+ * from this browser to the chosen provider (Anthropic, OpenAI or Google) — the
+ * key never touches our server. Otherwise it goes through /api/coach-lesson
+ * (owner's env key).
  */
 export async function requestAiLesson(args: CoachRequest): Promise<LessonContent & { title: string }> {
-  const userKey = loadApiKey();
+  const stored = loadAiKey();
 
-  if (!userKey) {
+  if (!stored) {
     const res = await fetch("/api/coach-lesson", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -43,30 +45,28 @@ export async function requestAiLesson(args: CoachRequest): Promise<LessonContent
     return data.lesson;
   }
 
-  // BYOK: browser → Anthropic, directly.
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  // BYOK: browser → provider, directly.
+  const provider = getProvider(stored.provider);
+  const { url, headers, body } = provider.buildRequest({
+    key: stored.key,
+    system: SYSTEM_PROMPT,
+    user: buildUserContent(args),
+    browser: true,
+  });
+
+  const res = await fetch(url, {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": userKey,
-      "anthropic-version": "2023-06-01",
-      "anthropic-dangerous-direct-browser-access": "true",
-    },
-    body: JSON.stringify({
-      model: DEFAULT_MODEL,
-      max_tokens: 4096,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: buildUserContent(args) }],
-    }),
+    headers,
+    body: JSON.stringify(body),
   });
 
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`Claude API error (${res.status}): ${detail.slice(0, 200)}`);
+    throw new Error(`${provider.label} API error (${res.status}): ${detail.slice(0, 200)}`);
   }
 
   const data = await res.json();
-  const text: string = data?.content?.find((b: { type: string }) => b.type === "text")?.text ?? "";
+  const text = provider.extractText(data);
   const parsed = parseModelText(text);
   if (!parsed) throw new Error("Model did not return valid JSON.");
   const lesson = sanitize(parsed, args.dossier);

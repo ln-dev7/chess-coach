@@ -2,24 +2,34 @@
 
 import { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
-import { clearApiKey, loadApiKey, saveApiKey } from "@/lib/storage";
+import { AI_PROVIDERS, DEFAULT_PROVIDER_ID, getProvider, type AiProviderId } from "@/lib/providers";
+import { clearAiKey, loadAiKey, saveAiKey, type StoredAiKey } from "@/lib/storage";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 /**
- * BYOK field (Settings + Lessons page). Display rules:
+ * BYOK field (Settings + Lessons page). The user picks an AI provider
+ * (Anthropic, OpenAI or Google) and pastes their key. Display rules:
  * - server env key configured and no browser key → render nothing
- * - browser key saved → show "key saved" + remove button
- * - no key anywhere → show the full input + save + privacy note
- * The key lives in this browser's localStorage only and is sent straight to
- * Anthropic — never to our server.
+ * - browser key saved → show "key saved (provider)" + remove button
+ * - no key anywhere → show provider picker + input + save + privacy note
+ * The key lives in this browser's localStorage only and is sent straight to the
+ * chosen provider — never to our server.
  */
 export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   const { t } = useI18n();
   const [value, setValue] = useState("");
-  const [hasKey, setHasKey] = useState(false);
+  const [provider, setProvider] = useState<AiProviderId>(DEFAULT_PROVIDER_ID);
+  const [saved, setSaved] = useState<StoredAiKey | null>(null);
   const [serverCfg, setServerCfg] = useState<boolean | null>(null);
 
   useEffect(() => {
-    setHasKey(Boolean(loadApiKey()));
+    setSaved(loadAiKey());
     fetch("/api/coach-lesson")
       .then((r) => r.json())
       .then((d) => setServerCfg(Boolean(d.configured)))
@@ -28,15 +38,15 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
 
   function save() {
     if (!value.trim()) return;
-    saveApiKey(value);
+    saveAiKey(provider, value);
+    setSaved({ provider, key: value.trim() });
     setValue("");
-    setHasKey(true);
     onChanged?.();
   }
 
   function remove() {
-    clearApiKey();
-    setHasKey(false);
+    clearAiKey();
+    setSaved(null);
     setValue("");
     onChanged?.();
   }
@@ -44,12 +54,14 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   if (serverCfg === null) return null;
 
   // Browser key present → only offer removal.
-  if (hasKey) {
+  if (saved) {
     return (
       <div className="flex flex-col gap-2 max-w-md">
         <p className="text-sm text-muted-foreground">{t.settings.apiKey}</p>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-emerald-600 dark:text-emerald-400">✓ {t.settings.apiKeySaved}</span>
+          <span className="text-xs text-emerald-600 dark:text-emerald-400">
+            ✓ {t.settings.apiKeySaved} · {getProvider(saved.provider).label}
+          </span>
           <button type="button" onClick={remove} className="text-xs text-red-500 underline hover:text-red-400">
             {t.settings.apiKeyRemove}
           </button>
@@ -62,9 +74,27 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   // Server env key covers everything → nothing to show.
   if (serverCfg) return null;
 
-  // No key anywhere → full field.
+  const active = getProvider(provider);
+
+  // No key anywhere → provider picker + full field.
   return (
     <div className="flex flex-col gap-2 max-w-md">
+      <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+        {t.settings.aiProvider}
+        <Select value={provider} onValueChange={(v) => setProvider(v as AiProviderId)}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {AI_PROVIDERS.map((p) => (
+              <SelectItem key={p.id} value={p.id}>
+                {p.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </label>
+
       <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
         {t.settings.apiKey}
         <div className="flex gap-2">
@@ -73,7 +103,7 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
             className="h-9 rounded-lg border border-input bg-transparent px-3 text-sm text-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40 outline-none w-full"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder={t.settings.apiKeyPlaceholder}
+            placeholder={active.placeholder}
             autoComplete="off"
           />
           <button
@@ -86,7 +116,18 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
           </button>
         </div>
       </label>
-      <p className="text-xs text-muted-foreground/80 leading-relaxed">{t.settings.apiKeyNote}</p>
+
+      <p className="text-xs text-muted-foreground/80 leading-relaxed">
+        {t.settings.apiKeyNote}{" "}
+        <a
+          href={active.consoleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-foreground"
+        >
+          {t.settings.apiKeyGet}
+        </a>
+      </p>
     </div>
   );
 }
