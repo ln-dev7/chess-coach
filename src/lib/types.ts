@@ -153,11 +153,17 @@ export interface LessonExample {
   source_url: string | null;
 }
 
+/** Engine analysis depth preset. "fast" uses engineMovetimeMs; "deep" is slower but more accurate. */
+export type AnalysisMode = "fast" | "deep";
+
 export interface Settings {
   chesscomUsername: string;
   lichessUsername: string;
   analyzeLastN: number;
+  /** Engine time per position (ms) used by the "fast" analysis mode. */
   engineMovetimeMs: number;
+  /** Default analysis depth used by the dashboard runner. Defaults to "fast". */
+  analysisMode?: AnalysisMode;
   boardTheme: string;
   /** Lesson feedback sounds (correct / wrong / complete). Defaults to on. */
   soundEnabled?: boolean;

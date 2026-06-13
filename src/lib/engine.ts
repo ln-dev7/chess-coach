@@ -12,13 +12,13 @@ export class Engine {
   private worker: Worker | null = null;
   private ready = false;
 
-  async init(): Promise<void> {
+  async init(hashMb = 32): Promise<void> {
     if (this.ready) return;
     const manifest = await fetch("/stockfish/manifest.json").then((r) => r.json());
     this.worker = new Worker(`/stockfish/${manifest.js}`);
     await this.send("uci", (line) => line === "uciok");
     await this.send("setoption name Threads value 1");
-    await this.send("setoption name Hash value 32");
+    await this.send(`setoption name Hash value ${Math.max(16, Math.round(hashMb))}`);
     await this.send("isready", (line) => line === "readyok");
     this.ready = true;
   }

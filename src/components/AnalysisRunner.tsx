@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Engine } from "@/lib/engine";
 import { summarizeGame, type PositionEval } from "@/lib/analysis";
+import { resolveAnalysisParams } from "@/lib/analysis-modes";
 import { useI18n } from "@/lib/i18n";
 import { parsePgn } from "@/lib/pgn";
 import {
@@ -12,7 +13,7 @@ import {
   setGameStatus,
   upsertPuzzles,
 } from "@/lib/storage";
-import type { PuzzleRow } from "@/lib/types";
+import type { AnalysisMode, PuzzleRow } from "@/lib/types";
 
 type Status = "idle" | "running" | "done" | "error";
 
@@ -27,15 +28,18 @@ export default function AnalysisRunner({
   const [status, setStatus] = useState<Status>("idle");
   const [label, setLabel] = useState("");
   const [progress, setProgress] = useState(0);
+  const [runningMode, setRunningMode] = useState<AnalysisMode>("fast");
   const stopRef = useRef(false);
 
-  async function run() {
+  async function run(mode: AnalysisMode) {
     setStatus("running");
+    setRunningMode(mode);
     stopRef.current = false;
     const engine = new Engine();
 
     try {
       const settings = loadSettings();
+      const params = resolveAnalysisParams(settings, mode);
       const games = loadGames()
         .filter((g) => g.analysis_status === "pending")
         .slice(0, settings.analyzeLastN);
@@ -45,7 +49,7 @@ export default function AnalysisRunner({
         setLabel(t.analysis.none);
         return;
       }
-      await engine.init();
+      await engine.init(params.hashMb);
 
       for (let gi = 0; gi < games.length; gi++) {
         if (stopRef.current) break;
@@ -59,7 +63,7 @@ export default function AnalysisRunner({
         const evals: PositionEval[] = [];
         for (let i = 0; i < parsed.fens.length; i++) {
           if (stopRef.current) break;
-          evals.push(await engine.evaluate(parsed.fens[i], settings.engineMovetimeMs));
+          evals.push(await engine.evaluate(parsed.fens[i], params.movetimeMs));
           setLabel(
             `${t.analysis.progress(gi + 1, games.length)} — ${t.analysis.moveProgress(i + 1, parsed.fens.length)}`
           );
@@ -72,7 +76,7 @@ export default function AnalysisRunner({
           moves: parsed.moves,
           userColor: game.user_color,
           evals,
-          engineLabel: `movetime ${settings.engineMovetimeMs}ms`,
+          engineLabel: params.label,
         });
 
         saveAnalysis(game.id, summary);
@@ -113,10 +117,18 @@ export default function AnalysisRunner({
       {status === "running" ? (
         <>
           <div className="h-2 rounded-full bg-accent overflow-hidden">
-            <div className="h-full bg-emerald-500 transition-all" style={{ width: `${progress}%` }} />
+            <div
+              className={`h-full transition-all ${runningMode === "deep" ? "bg-violet-500" : "bg-emerald-500"}`}
+              style={{ width: `${progress}%` }}
+            />
           </div>
           <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <span>{label}</span>
+            <span>
+              <span className="text-foreground/80">
+                {runningMode === "deep" ? t.analysis.deep : t.analysis.fast} ·{" "}
+              </span>
+              {label}
+            </span>
             <button onClick={() => (stopRef.current = true)} className="text-red-500 hover:text-red-600 dark:text-red-300">
               {t.analysis.stop}
             </button>
@@ -124,16 +136,30 @@ export default function AnalysisRunner({
           <p className="text-xs text-muted-foreground/70">{t.analysis.keepOpen}</p>
         </>
       ) : (
-        <div className="flex items-center gap-3">
-          <button
-            onClick={run}
-            disabled={pendingCount === 0}
-            className="rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed px-4 py-2 text-sm font-medium text-white transition"
-          >
-            {t.analysis.start}
-          </button>
-          <span className="text-sm text-muted-foreground">{label || (pendingCount === 0 ? t.analysis.none : "")}</span>
-        </div>
+        <>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => run("fast")}
+              disabled={pendingCount === 0}
+              className="rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed px-4 py-2 text-sm font-medium text-white transition"
+            >
+              {t.analysis.fast}
+            </button>
+            <button
+              onClick={() => run("deep")}
+              disabled={pendingCount === 0}
+              className="rounded-lg border border-violet-500/60 text-violet-600 dark:text-violet-300 hover:bg-violet-500/10 disabled:opacity-40 disabled:cursor-not-allowed px-4 py-2 text-sm font-medium transition"
+            >
+              {t.analysis.deep}
+            </button>
+            {label && <span className="text-sm text-muted-foreground">{label}</span>}
+            {!label && pendingCount === 0 && <span className="text-sm text-muted-foreground">{t.analysis.none}</span>}
+          </div>
+          <p className="text-xs text-muted-foreground/70">
+            <span className="text-emerald-600 dark:text-emerald-400">{t.analysis.fast}</span> {t.analysis.fastHint} ·{" "}
+            <span className="text-violet-600 dark:text-violet-400">{t.analysis.deep}</span> {t.analysis.deepHint}
+          </p>
+        </>
       )}
     </div>
   );

@@ -217,6 +217,34 @@ function SettingsFormInner() {
           ))}
       </div>
 
+      <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+        {t.settings.analysisMode}
+        <div className="flex gap-2">
+          {(["fast", "deep"] as const).map((m) => {
+            const active = (form.analysisMode ?? "fast") === m;
+            return (
+              <button
+                key={m}
+                type="button"
+                onClick={() => {
+                  setForm({ ...form, analysisMode: m });
+                  saveSettings({ ...loadSettings(), analysisMode: m });
+                }}
+                className={[
+                  "rounded-lg border px-4 py-2 text-sm transition",
+                  active
+                    ? "border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300"
+                    : "border-input text-muted-foreground hover:border-ring/60",
+                ].join(" ")}
+              >
+                {m === "fast" ? t.settings.analysisModeFast : t.settings.analysisModeDeep}
+              </button>
+            );
+          })}
+        </div>
+        <p className="text-xs text-muted-foreground/70">{t.settings.analysisModeHint}</p>
+      </div>
+
       <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
         {t.settings.analyzeLastN}
         <input

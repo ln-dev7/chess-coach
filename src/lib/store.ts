@@ -32,6 +32,7 @@ export const DEFAULT_SETTINGS: Settings = {
   lichessUsername: "",
   analyzeLastN: 50,
   engineMovetimeMs: 90,
+  analysisMode: "fast",
   boardTheme: "classic",
   soundEnabled: true,
   voiceEnabled: true,
