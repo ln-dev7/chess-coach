@@ -138,6 +138,7 @@ export interface PuzzleCandidate {
   user_side: "w" | "b";
   kind: "tactic" | "save";
   difficulty: "easy" | "medium" | "hard";
+  played_san: string;
 }
 
 export function summarizeGame(g: GameForAnalysis): { summary: AnalysisSummary; puzzles: PuzzleCandidate[] } {
@@ -262,6 +263,7 @@ export function summarizeGame(g: GameForAnalysis): { summary: AnalysisSummary; p
             user_side: g.userColor,
             kind: isTactic ? "tactic" : "save",
             difficulty,
+            played_san: move.san,
           });
         }
       }

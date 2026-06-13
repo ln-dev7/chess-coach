@@ -402,6 +402,7 @@ function toExamples(puzzles: PuzzleRow[], theme: Motif | Motif[], n: number): Le
       user_side: p.user_side,
       solution_san: p.solution_san,
       reply_san: p.reply_san,
+      played: p.played_san,
       source_url: p.source_url,
     }));
 }
@@ -475,6 +476,7 @@ export function renderLesson(lesson: GeneratedLesson, locale: Locale): (LessonCo
         orientation: ex.user_side,
         task: loc.drill,
         theory: loc.theorySteps[i % loc.theorySteps.length],
+        playedSan: ex.played,
         answerSan: ex.solution_san.slice(0, 1),
         answerLine: toLine(ex),
         explain: loc.answerExplain,

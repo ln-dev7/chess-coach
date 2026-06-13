@@ -75,6 +75,8 @@ export interface PuzzleRow {
   /** "tactic" = find the winning shot; "save" = find the only holding move. */
   kind?: "tactic" | "save";
   difficulty?: "easy" | "medium" | "hard";
+  /** The move actually played in the source game. */
+  played_san?: string;
 }
 
 export interface LessonSectionText {
@@ -97,6 +99,8 @@ export interface LessonSectionBoard {
   orientation: "w" | "b";
   task: string;
   answerSan?: string[]; // if present, board is in "find the move" mode
+  /** The move actually played in the user's game (shown after solving). */
+  playedSan?: string;
   /** Short theory note shown BEFORE solving: the philosophy behind the choice (no spoilers). */
   theory?: string;
   /** Full continuation (user + opponent moves interleaved) playable after success. */
@@ -144,6 +148,8 @@ export interface LessonExample {
   user_side: "w" | "b";
   solution_san: string[];
   reply_san?: string[];
+  /** The move actually played in the user's game. */
+  played?: string;
   source_url: string | null;
 }
 

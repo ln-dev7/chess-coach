@@ -26,6 +26,7 @@ CHESS ACCURACY — ZERO TOLERANCE:
 - Each key position carries a "facts" object verified by a chess engine: sideToMove, playedMove, bestMove (with exact from→to squares and captures), bestGivesCheck, hangingPieces.
 - You may ONLY name squares, piece locations, captures, checks, or claim a piece is "hanging"/"attacked"/"en prise" if that exact fact appears in that position's facts. NOTHING else about the board may be asserted.
 - If a detail you want is not in facts, describe the IDEA without naming squares ("a piece was left undefended", "the winning capture").
+- When "explain" refers to the move the player actually played in their game, NAME it explicitly using facts.playedMove (e.g. "ton Rd1→d2 a éloigné la tour de la défense") — never a vague "the move you played".
 - Never compute chess yourself. Never guess coordinates. A single wrong square destroys the lesson's credibility.
 
 Hard rules:
@@ -104,6 +105,7 @@ export function sanitize(
         task: String(s.task ?? ""),
         theory: typeof s.theory === "string" ? s.theory.slice(0, 400) : undefined,
         explain: typeof s.explain === "string" ? s.explain.slice(0, 600) : undefined,
+        playedSan: pos.played, // dossier truth — shown to the user after solving
         answerSan: pos.best ? [pos.best] : undefined,
         answerLine: pos.best ? [pos.best] : undefined,
         overlays: {

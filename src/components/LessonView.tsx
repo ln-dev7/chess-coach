@@ -206,6 +206,23 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
         <div className="flex flex-col gap-3">
           <p className="text-sm text-emerald-600 dark:text-emerald-400">✓ {t.lessons.correct}</p>
 
+          {section.playedSan && (
+            <p className="text-sm text-muted-foreground">
+              {t.lessons.youPlayed}{" "}
+              <strong className="rounded bg-red-500/10 px-1.5 py-0.5 font-mono text-red-600 dark:text-red-400">
+                {section.playedSan}
+              </strong>
+              {section.answerSan?.[0] && (
+                <>
+                  {" "}→{" "}
+                  <strong className="rounded bg-emerald-500/10 px-1.5 py-0.5 font-mono text-emerald-600 dark:text-emerald-400">
+                    {section.answerSan[0]}
+                  </strong>
+                </>
+              )}
+            </p>
+          )}
+
           {section.explain && (
             <div className="rounded-xl border-l-4 border-violet-500 bg-card p-4">
               <p className="text-sm text-foreground/90 leading-relaxed">
