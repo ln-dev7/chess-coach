@@ -28,12 +28,38 @@ export default function Nav() {
 
   return (
     <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur">
-      <div className="mx-auto max-w-5xl px-4 h-14 flex items-center gap-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-foreground tracking-tight whitespace-nowrap">
+      {/* Mobile: 2 rows (logo + controls, then scrollable nav). Desktop: single row. */}
+      <div className="mx-auto max-w-5xl px-4 py-2 md:py-0 md:h-14 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        <Link
+          href="/"
+          className="order-1 flex items-center gap-2 font-semibold text-foreground tracking-tight whitespace-nowrap"
+        >
           <Logo className="w-5 h-5" />
           {t.app.name}
         </Link>
-        <nav className="flex items-center gap-1 text-sm overflow-x-auto">
+
+        <div className="order-2 ml-auto flex items-center gap-2 md:order-3">
+          <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
+            <SelectTrigger className="h-8 w-[72px] md:w-[120px] text-xs" aria-label="Language">
+              <SelectValue>
+                <span className="md:hidden">{LOCALES.find((l) => l.value === locale)?.flag}</span>
+                <span className="hidden md:inline">
+                  {LOCALES.find((l) => l.value === locale)?.flag} {LOCALES.find((l) => l.value === locale)?.label}
+                </span>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {LOCALES.map((l) => (
+                <SelectItem key={l.value} value={l.value}>
+                  <span className="mr-1">{l.flag}</span> {l.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <ThemeToggle />
+        </div>
+
+        <nav className="order-3 w-full -mx-1 px-1 overflow-x-auto md:order-2 md:w-auto md:flex-1 md:mx-0 md:px-0 flex items-center gap-1 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {links.map((l) => {
             const active = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
             return (
@@ -50,21 +76,6 @@ export default function Nav() {
             );
           })}
         </nav>
-        <div className="ml-auto flex items-center gap-2">
-          <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
-            <SelectTrigger className="h-8 w-[120px] text-xs">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {LOCALES.map((l) => (
-                <SelectItem key={l.value} value={l.value}>
-                  <span className="mr-1">{l.flag}</span> {l.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <ThemeToggle />
-        </div>
       </div>
     </header>
   );
@@ -81,7 +92,7 @@ function ThemeToggle() {
     <button
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="flex w-8 h-8 items-center justify-center rounded-lg border border-input text-muted-foreground hover:text-foreground hover:border-ring/60 transition"
+      className="flex w-8 h-8 shrink-0 items-center justify-center rounded-lg border border-input text-muted-foreground hover:text-foreground hover:border-ring/60 transition"
     >
       {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </button>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Github, Twitter } from "lucide-react";
 import { ThemeProvider } from "next-themes";
 import Nav from "@/components/Nav";
 import OnboardingModal from "@/components/OnboardingModal";
@@ -39,8 +40,30 @@ export default function RootLayout({
             <OnboardingModal />
             <Nav />
             <div className="flex-1">{children}</div>
-            <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground/70">
-              Chess Coach · Stockfish WASM
+            <footer className="border-t border-border py-6">
+              <div className="mx-auto max-w-5xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground/70">
+                <span>Chess Coach · Stockfish WASM · MIT</span>
+                <div className="flex items-center gap-5">
+                  <a
+                    href="https://github.com/ln-dev7/chess-coach"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-foreground transition"
+                  >
+                    <Github className="size-3.5" />
+                    GitHub
+                  </a>
+                  <a
+                    href="https://x.com/ln_dev7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-foreground transition"
+                  >
+                    <Twitter className="size-3.5" />
+                    @ln_dev7
+                  </a>
+                </div>
+              </div>
             </footer>
           </I18nProvider>
         </ThemeProvider>

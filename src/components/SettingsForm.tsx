@@ -89,7 +89,7 @@ export default function SettingsForm() {
 
       <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
         {t.settings.boardTheme}
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {BOARD_THEMES.map((th) => {
             const active = form.boardTheme === th.id;
             return (
