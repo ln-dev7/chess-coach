@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Chess } from "chess.js";
-import { Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Telescope } from "lucide-react";
 import Board from "./Board";
+import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { renderLesson } from "@/lib/lessons";
 import { setAiLessonCompleted, setLessonCompleted } from "@/lib/storage";
@@ -123,6 +124,15 @@ function LessonContentView({
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** One position of the engine exploration line. */
+interface LineStep {
+  fen: string;
+  lastMove: { from: string; to: string } | null;
+  san: string | null;
+}
+
+const EXPLORE_PLIES = 10; // 5 full moves, both sides
+
 function BoardSection({ section }: { section: LessonSectionBoard }) {
   const { t } = useI18n();
   const [state, setState] = useState<"idle" | "right" | "wrong">("idle");
@@ -130,6 +140,10 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
   const [lastMove, setLastMove] = useState<{ from: string; to: string } | null>(null);
   const [boardKey, setBoardKey] = useState(0);
   const [playing, setPlaying] = useState(false);
+  // Engine exploration: best play for BOTH sides, computed on demand.
+  const [steps, setSteps] = useState<LineStep[] | null>(null);
+  const [stepIdx, setStepIdx] = useState(0);
+  const [computing, setComputing] = useState<number | null>(null);
   const cancelRef = useRef(false);
   const clean = (s: string) => s.replace(/[+#?!]/g, "");
 
@@ -166,6 +180,63 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
       setLastMove({ from: m.from, to: m.to });
     }
     setPlaying(false);
+  }
+
+  /**
+   * Build the engine line on demand: the validated best move first, then
+   * Stockfish's best move for EACH side alternately, up to EXPLORE_PLIES.
+   */
+  async function exploreLine() {
+    if (computing !== null) return;
+    setComputing(0);
+    const engine = new Engine();
+    try {
+      await engine.init();
+      const c = new Chess(section.fen);
+      const out: LineStep[] = [{ fen: section.fen, lastMove: null, san: null }];
+
+      // Ply 1 = the lesson's validated answer, for continuity with the drill.
+      if (section.answerSan?.[0]) {
+        const m = c.move(section.answerSan[0]);
+        if (m) out.push({ fen: c.fen(), lastMove: { from: m.from, to: m.to }, san: m.san });
+      }
+
+      while (out.length <= EXPLORE_PLIES && !c.isGameOver()) {
+        if (cancelRef.current) break;
+        setComputing(out.length);
+        const ev = await engine.evaluate(c.fen(), 300);
+        if (!ev.bestUci) break;
+        let m;
+        try {
+          m = c.move({ from: ev.bestUci.slice(0, 2), to: ev.bestUci.slice(2, 4), promotion: ev.bestUci[4] });
+        } catch {
+          break;
+        }
+        if (!m) break;
+        out.push({ fen: c.fen(), lastMove: { from: m.from, to: m.to }, san: m.san });
+      }
+
+      if (!cancelRef.current && out.length > 1) {
+        setSteps(out);
+        setStepIdx(1); // land on the first move, animated
+        setFen(out[1].fen);
+        setLastMove(out[1].lastMove);
+        setBoardKey((k) => k + 1);
+      }
+    } catch {
+      /* engine unavailable — leave the replay button as fallback */
+    } finally {
+      engine.destroy();
+      setComputing(null);
+    }
+  }
+
+  function goTo(i: number) {
+    if (!steps) return;
+    const clamped = Math.max(0, Math.min(steps.length - 1, i));
+    setStepIdx(clamped);
+    setFen(steps[clamped].fen);
+    setLastMove(steps[clamped].lastMove);
   }
 
   return (
@@ -248,6 +319,64 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
               <span className="text-xs text-muted-foreground">
                 {t.lessons.lineLabel}: <strong className="text-foreground/80">{line.join(", ")}</strong>
               </span>
+            </div>
+          )}
+
+          {/* Engine exploration: stepper through best play for both sides. */}
+          {steps === null ? (
+            <button
+              onClick={exploreLine}
+              disabled={computing !== null}
+              className={[
+                "self-start inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/50 px-3 py-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-300 hover:bg-emerald-500/10 disabled:opacity-60 transition",
+                computing !== null ? "animate-pulse" : "",
+              ].join(" ")}
+            >
+              <Telescope className="size-3.5" />
+              {computing !== null ? t.lessons.computingLine(computing, EXPLORE_PLIES) : t.lessons.exploreLine}
+            </button>
+          ) : (
+            <div className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => goTo(stepIdx - 1)}
+                  disabled={stepIdx === 0}
+                  aria-label={t.lessons.stepBack}
+                  className="flex w-8 h-8 items-center justify-center rounded-lg border border-input text-foreground/80 hover:border-ring/60 disabled:opacity-30 transition"
+                >
+                  <ChevronLeft className="size-4" />
+                </button>
+                <button
+                  onClick={() => goTo(stepIdx + 1)}
+                  disabled={stepIdx === steps.length - 1}
+                  aria-label={t.lessons.stepForward}
+                  className="flex w-8 h-8 items-center justify-center rounded-lg border border-input text-foreground/80 hover:border-ring/60 disabled:opacity-30 transition"
+                >
+                  <ChevronRight className="size-4" />
+                </button>
+                <span className="text-xs text-muted-foreground tabular-nums">
+                  {stepIdx}/{steps.length - 1}
+                </span>
+                <div className="flex flex-wrap gap-1 ml-1">
+                  {steps.slice(1).map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goTo(i + 1)}
+                      className={[
+                        "rounded px-1.5 py-0.5 text-[11px] font-mono transition",
+                        i + 1 === stepIdx
+                          ? "bg-emerald-600 text-white"
+                          : i % 2 === 0
+                          ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20"
+                          : "bg-accent text-foreground/80 hover:bg-accent/70",
+                      ].join(" ")}
+                    >
+                      {s.san}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <p className="text-[11px] text-muted-foreground/80">{t.lessons.engineLineNote}</p>
             </div>
           )}
         </div>

@@ -121,6 +121,11 @@ const en = {
     playLine: "Replay the line",
     playingLine: "Playing…",
     lineLabel: "Line",
+    exploreLine: "Explore the engine line",
+    computingLine: (i: number, n: number) => `Stockfish is thinking… ${i}/${n}`,
+    engineLineNote: "Best play for BOTH sides, computed live by Stockfish in your browser.",
+    stepBack: "Previous move",
+    stepForward: "Next move",
   },
   games: {
     title: "Games",

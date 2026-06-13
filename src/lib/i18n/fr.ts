@@ -122,6 +122,11 @@ const fr: Dict = {
     playLine: "Rejouer la séquence",
     playingLine: "Lecture…",
     lineLabel: "Suite",
+    exploreLine: "Explorer la suite (moteur)",
+    computingLine: (i: number, n: number) => `Stockfish réfléchit… ${i}/${n}`,
+    engineLineNote: "Le meilleur jeu pour LES DEUX camps, calculé en direct par Stockfish dans ton navigateur.",
+    stepBack: "Coup précédent",
+    stepForward: "Coup suivant",
   },
   games: {
     title: "Parties",
