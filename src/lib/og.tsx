@@ -110,7 +110,7 @@ export function renderOgImage() {
           <div style={{ display: "flex", gap: 16 }}>
             <Pill>Chess.com + Lichess</Pill>
             <Pill>Stockfish in-browser</Pill>
-            <Pill>Puzzles from real games</Pill>
+            <Pill>Learn from the masters</Pill>
             <Pill>Private · no account</Pill>
           </div>
           <div style={{ display: "flex", height: 6, gap: 8 }}>
