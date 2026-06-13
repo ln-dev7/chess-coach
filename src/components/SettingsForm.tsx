@@ -142,9 +142,7 @@ export default function SettingsForm() {
         />
       </label>
 
-      <div className="border-t border-border pt-5">
-        <ApiKeyField />
-      </div>
+      <ApiKeyField />
 
       <div className="flex items-center gap-3">
         <button
