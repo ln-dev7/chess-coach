@@ -7,6 +7,7 @@ import Board from "./Board";
 import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { renderLesson } from "@/lib/lessons";
+import { useLessonSounds } from "@/lib/sound/lesson-sounds";
 import { setAiLessonCompleted, setLessonCompleted } from "@/lib/storage";
 import type {
   AiLessonRow,
@@ -62,10 +63,12 @@ function LessonContentView({
   onComplete: () => void;
 }) {
   const { t } = useI18n();
+  const sounds = useLessonSounds();
   const [completed, setCompleted] = useState(initialCompleted);
 
   function markDone() {
     setCompleted(true);
+    sounds.complete();
     onComplete();
   }
 
@@ -135,6 +138,7 @@ const EXPLORE_PLIES = 10; // 5 full moves, both sides
 
 function BoardSection({ section }: { section: LessonSectionBoard }) {
   const { t } = useI18n();
+  const sounds = useLessonSounds();
   const [state, setState] = useState<"idle" | "right" | "wrong">("idle");
   const [fen, setFen] = useState(section.fen);
   const [lastMove, setLastMove] = useState<{ from: string; to: string } | null>(null);
@@ -267,6 +271,8 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
             ? (san) => {
                 const ok = section.answerSan!.some((a) => clean(a) === clean(san));
                 setState(ok ? "right" : "wrong");
+                if (ok) sounds.correct();
+                else sounds.wrong();
                 return ok;
               }
             : undefined
@@ -421,7 +427,16 @@ function QuizQuestion({
   answerIdx: number;
   explain: string;
 }) {
+  const sounds = useLessonSounds();
   const [picked, setPicked] = useState<number | null>(null);
+
+  function pick(i: number) {
+    if (picked !== null) return;
+    setPicked(i);
+    if (i === answerIdx) sounds.correct();
+    else sounds.wrong();
+  }
+
   return (
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-3">
       <p className="text-foreground font-medium">{q}</p>
@@ -433,7 +448,7 @@ function QuizQuestion({
           return (
             <button
               key={i}
-              onClick={() => picked === null && setPicked(i)}
+              onClick={() => pick(i)}
               className={[
                 "text-left rounded-lg border px-4 py-2.5 text-sm transition",
                 showResult && right ? "border-emerald-500 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200" : "",

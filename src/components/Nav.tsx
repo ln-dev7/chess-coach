@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "next-themes";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useI18n, type Locale } from "@/lib/i18n";
+import { useHydrated } from "@/lib/use-hydrated";
 
 const LOCALES: { value: Locale; flag: string; label: string }[] = [
   { value: "fr", flag: "🇫🇷", label: "Français" },
@@ -18,9 +19,14 @@ export default function Nav() {
   const pathname = usePathname();
   const { t, locale, setLocale } = useI18n();
   const [open, setOpen] = useState(false);
+  const [lastPath, setLastPath] = useState(pathname);
 
-  // Close the burger menu on navigation.
-  useEffect(() => setOpen(false), [pathname]);
+  // Close the burger menu on navigation — adjust state during render rather
+  // than in an effect (React's "store info from previous render" pattern).
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   const links = [
     { href: "/", label: t.nav.dashboard },
@@ -111,8 +117,7 @@ export default function Nav() {
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
   if (!mounted) return <span className="w-8 h-8" />;
 
   const dark = resolvedTheme === "dark";

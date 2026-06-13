@@ -44,6 +44,7 @@ export const DEFAULT_SETTINGS: Settings = {
   analyzeLastN: 50,
   engineMovetimeMs: 90,
   boardTheme: "classic",
+  soundEnabled: true,
 };
 
 export function loadSettings(): Settings {

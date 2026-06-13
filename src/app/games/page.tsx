@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import GamesTable from "@/components/GamesTable";
 import { useI18n } from "@/lib/i18n";
+import { useHydrated } from "@/lib/use-hydrated";
 import { loadGames } from "@/lib/storage";
-import type { GameRow } from "@/lib/types";
 
 export default function GamesPage() {
   const { t } = useI18n();
-  const [games, setGames] = useState<GameRow[] | null>(null);
-
-  useEffect(() => {
-    setGames(loadGames().slice(0, 300));
-  }, []);
+  const hydrated = useHydrated();
+  const games = hydrated ? loadGames().slice(0, 300) : null;
 
   if (!games) return null;
 

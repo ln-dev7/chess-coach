@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -10,19 +10,19 @@ import {
 } from "@/components/ui/alert-dialog";
 import Logo from "./Logo";
 import { useI18n } from "@/lib/i18n";
+import { useHydrated } from "@/lib/use-hydrated";
 import { isOnboarded, loadSettings, saveSettings, setOnboarded } from "@/lib/storage";
 
 /** First-visit gate: requires at least one platform username before using the app. */
 export default function OnboardingModal() {
   const { t } = useI18n();
-  const [open, setOpen] = useState(false);
+  const hydrated = useHydrated();
   const [chesscom, setChesscom] = useState("");
   const [lichess, setLichess] = useState("");
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    if (!isOnboarded()) setOpen(true);
-  }, []);
+  // Known only once localStorage is readable; stays closed during SSR / first render.
+  const open = hydrated && !isOnboarded();
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -32,7 +32,6 @@ export default function OnboardingModal() {
     }
     saveSettings({ ...loadSettings(), chesscomUsername: chesscom.trim(), lichessUsername: lichess.trim() });
     setOnboarded();
-    setOpen(false);
     window.location.reload();
   }
 

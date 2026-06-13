@@ -1,28 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useReducer } from "react";
 import { BookOpen } from "lucide-react";
 import AnalysisRunner from "@/components/AnalysisRunner";
 import GamesTable from "@/components/GamesTable";
 import RatingChart from "@/components/RatingChart";
 import SyncButton from "@/components/SyncButton";
 import { useI18n } from "@/lib/i18n";
-import { computeDashboardStats, type DashboardStats } from "@/lib/stats";
+import { computeDashboardStats } from "@/lib/stats";
+import { useHydrated } from "@/lib/use-hydrated";
 import { loadAnalyses, loadGames, loadSettings } from "@/lib/storage";
-import type { Settings } from "@/lib/types";
 
 export default function DashboardPage() {
   const { t } = useI18n();
-  const [stats, setStats] = useState<DashboardStats | null>(null);
-  const [settings, setSettings] = useState<Settings | null>(null);
+  const hydrated = useHydrated();
+  // Bumped by sync/analysis actions to re-read localStorage during render.
+  const [, refresh] = useReducer((x) => x + 1, 0);
 
-  const refresh = useCallback(() => {
-    setStats(computeDashboardStats(loadGames(), loadAnalyses()));
-    setSettings(loadSettings());
-  }, []);
-
-  useEffect(refresh, [refresh]);
+  const stats = hydrated ? computeDashboardStats(loadGames(), loadAnalyses()) : null;
+  const settings = hydrated ? loadSettings() : null;
 
   if (!stats) return null;
 

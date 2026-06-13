@@ -159,6 +159,8 @@ export interface Settings {
   analyzeLastN: number;
   engineMovetimeMs: number;
   boardTheme: string;
+  /** Lesson feedback sounds (correct / wrong / complete). Defaults to on. */
+  soundEnabled?: boolean;
 }
 
 /** A lesson written by the AI coach. Text is in `locale` (generated in the site language). */

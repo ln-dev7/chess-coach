@@ -65,7 +65,7 @@ const fr: Dict = {
     lesson: "Leçon",
     generate: "Générer des leçons depuis mes faiblesses",
     generating: "Génération…",
-    needAnalysis: "Analyse d'abord quelques parties — les leçons sont construites à partir de tes faiblesses.",
+    needAnalysis: "Analyse d'abord quelques parties depuis l'accueil — les leçons sont construites à partir de tes faiblesses.",
     markDone: "Marquer comme terminée",
     completed: "Terminée",
     aiGenerate: "✦ Leçon du coach IA",
@@ -151,6 +151,9 @@ const fr: Dict = {
     saved: "Enregistré",
     language: "Langue",
     boardTheme: "Thème de l'échiquier",
+    sound: "Sons des leçons",
+    soundOn: "Activés",
+    soundOff: "Désactivés",
     aiProvider: "Fournisseur IA",
     apiKey: "Clé API (optionnelle — débloque le coach IA)",
     apiKeyNote:

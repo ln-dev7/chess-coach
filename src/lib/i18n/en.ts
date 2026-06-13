@@ -64,7 +64,7 @@ const en = {
     lesson: "Lesson",
     generate: "Generate lessons from my weaknesses",
     generating: "Generating…",
-    needAnalysis: "Analyze some games first — lessons are built from your weaknesses.",
+    needAnalysis: "Analyze some games first from the home page — lessons are built from your weaknesses.",
     markDone: "Mark as completed",
     completed: "Completed",
     aiGenerate: "✦ AI coach lesson",
@@ -150,6 +150,9 @@ const en = {
     saved: "Saved",
     language: "Language",
     boardTheme: "Board theme",
+    sound: "Lesson sounds",
+    soundOn: "On",
+    soundOff: "Off",
     aiProvider: "AI provider",
     apiKey: "API key (optional — unlocks the AI coach)",
     apiKeyNote:

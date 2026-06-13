@@ -25,11 +25,10 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   const { t } = useI18n();
   const [value, setValue] = useState("");
   const [provider, setProvider] = useState<AiProviderId>(DEFAULT_PROVIDER_ID);
-  const [saved, setSaved] = useState<StoredAiKey | null>(null);
+  const [saved, setSaved] = useState<StoredAiKey | null>(() => loadAiKey());
   const [serverCfg, setServerCfg] = useState<boolean | null>(null);
 
   useEffect(() => {
-    setSaved(loadAiKey());
     fetch("/api/coach-lesson")
       .then((r) => r.json())
       .then((d) => setServerCfg(Boolean(d.configured)))
@@ -56,7 +55,7 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
   // Browser key present → only offer removal.
   if (saved) {
     return (
-      <div className="flex flex-col gap-2 max-w-md">
+      <div className="flex flex-col gap-2 max-w-lg">
         <p className="text-sm text-muted-foreground">{t.settings.apiKey}</p>
         <div className="flex items-center gap-3">
           <span className="text-xs text-emerald-600 dark:text-emerald-400">
@@ -78,7 +77,7 @@ export default function ApiKeyField({ onChanged }: { onChanged?: () => void }) {
 
   // No key anywhere → provider picker + full field.
   return (
-    <div className="flex flex-col gap-2 max-w-md">
+    <div className="flex flex-col gap-2 max-w-lg">
       <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
         {t.settings.aiProvider}
         <Select value={provider} onValueChange={(v) => setProvider(v as AiProviderId)}>

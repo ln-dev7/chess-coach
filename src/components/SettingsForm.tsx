@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ApiKeyField from "./ApiKeyField";
 import {
   AlertDialog,
@@ -15,16 +15,21 @@ import {
 } from "@/components/ui/alert-dialog";
 import { BOARD_THEMES } from "@/lib/board-themes";
 import { useI18n, type Locale } from "@/lib/i18n";
-import { clearAllData, DEFAULT_SETTINGS, loadSettings, saveSettings } from "@/lib/storage";
+import { useHydrated } from "@/lib/use-hydrated";
+import { clearAllData, loadSettings, saveSettings } from "@/lib/storage";
 
 export default function SettingsForm() {
-  const { t, locale, setLocale } = useI18n();
-  const [form, setForm] = useState(DEFAULT_SETTINGS);
-  const [state, setState] = useState<"idle" | "saved" | "cleared">("idle");
+  // Render nothing until hydrated, so the inner form can lazy-init its editable
+  // state straight from localStorage without an SSR mismatch.
+  const hydrated = useHydrated();
+  if (!hydrated) return null;
+  return <SettingsFormInner />;
+}
 
-  useEffect(() => {
-    setForm(loadSettings());
-  }, []);
+function SettingsFormInner() {
+  const { t, locale, setLocale } = useI18n();
+  const [form, setForm] = useState(() => loadSettings());
+  const [state, setState] = useState<"idle" | "saved" | "cleared">("idle");
 
   function save(e: React.FormEvent) {
     e.preventDefault();
@@ -112,6 +117,33 @@ export default function SettingsForm() {
                   <span style={{ backgroundColor: th.lightSquare }} />
                 </span>
                 <span className={`text-[11px] ${active ? "text-emerald-600 dark:text-emerald-300" : "text-muted-foreground"}`}>{th.name}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+        {t.settings.sound}
+        <div className="flex gap-2">
+          {([true, false] as const).map((on) => {
+            const active = (form.soundEnabled ?? true) === on;
+            return (
+              <button
+                key={String(on)}
+                type="button"
+                onClick={() => {
+                  setForm({ ...form, soundEnabled: on });
+                  saveSettings({ ...loadSettings(), soundEnabled: on });
+                }}
+                className={[
+                  "rounded-lg border px-4 py-2 text-sm transition",
+                  active
+                    ? "border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300"
+                    : "border-input text-muted-foreground hover:border-ring/60",
+                ].join(" ")}
+              >
+                {on ? t.settings.soundOn : t.settings.soundOff}
               </button>
             );
           })}

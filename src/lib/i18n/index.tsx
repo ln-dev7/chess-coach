@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 import en, { type Dict } from "./en";
 import fr from "./fr";
 
@@ -16,25 +16,40 @@ interface I18n {
 
 const I18nContext = createContext<I18n>({ locale: "en", setLocale: () => {}, t: en });
 
+// localStorage-backed locale store, read through useSyncExternalStore so the
+// persisted choice applies without a setState-in-effect on mount. The snapshot
+// is a primitive string, so it stays referentially stable across renders.
+const listeners = new Set<() => void>();
+
+function subscribe(cb: () => void) {
+  listeners.add(cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    listeners.delete(cb);
+    window.removeEventListener("storage", cb);
+  };
+}
+
+function getLocaleSnapshot(): Locale {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === "en" || stored === "fr") return stored;
+  return navigator.language.toLowerCase().startsWith("fr") ? "fr" : "en";
+}
+
+function setStoredLocale(l: Locale) {
+  localStorage.setItem(STORAGE_KEY, l);
+  document.documentElement.lang = l;
+  listeners.forEach((cb) => cb());
+}
+
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const locale = useSyncExternalStore(subscribe, getLocaleSnapshot, () => "en" as Locale);
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored === "en" || stored === "fr") {
-      setLocaleState(stored);
-    } else if (navigator.language.toLowerCase().startsWith("fr")) {
-      setLocaleState("fr");
-    }
-  }, []);
-
-  function setLocale(l: Locale) {
-    setLocaleState(l);
-    localStorage.setItem(STORAGE_KEY, l);
-    document.documentElement.lang = l;
-  }
-
-  return <I18nContext.Provider value={{ locale, setLocale, t: DICTS[locale] }}>{children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={{ locale, setLocale: setStoredLocale, t: DICTS[locale] }}>
+      {children}
+    </I18nContext.Provider>
+  );
 }
 
 export function useI18n(): I18n {

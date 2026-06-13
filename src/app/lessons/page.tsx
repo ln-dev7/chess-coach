@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import AiLessonGenerator from "@/components/AiLessonGenerator";
 import ApiKeyField from "@/components/ApiKeyField";
 import DeleteLessonButton from "@/components/DeleteLessonButton";
@@ -9,13 +9,14 @@ import GenerateLessonsButton from "@/components/GenerateLessonsButton";
 import { useI18n } from "@/lib/i18n";
 import { lessonConcept, lessonTitle } from "@/lib/lessons";
 import { coachAvailability } from "@/lib/coach-client";
+import { useHydrated } from "@/lib/use-hydrated";
 import { loadAiLessons, loadLessons, removeAiLesson, removeLesson } from "@/lib/storage";
-import type { AiLessonRow, GeneratedLesson } from "@/lib/types";
 
 export default function LessonsPage() {
   const { t, locale } = useI18n();
-  const [lessons, setLessons] = useState<GeneratedLesson[] | null>(null);
-  const [aiLessons, setAiLessons] = useState<AiLessonRow[]>([]);
+  const hydrated = useHydrated();
+  // Bumped after delete/generate actions to re-read localStorage during render.
+  const [, refresh] = useReducer((x) => x + 1, 0);
   const [keyVersion, setKeyVersion] = useState(0);
   // true while loading to avoid a flash; checks BOTH the server env key and the browser key.
   const [aiAvailable, setAiAvailable] = useState(true);
@@ -24,11 +25,8 @@ export default function LessonsPage() {
     coachAvailability().then((a) => setAiAvailable(a.available));
   }, [keyVersion]);
 
-  const refresh = useCallback(() => {
-    setLessons(loadLessons());
-    setAiLessons(loadAiLessons());
-  }, []);
-  useEffect(refresh, [refresh]);
+  const lessons = hydrated ? loadLessons() : null;
+  const aiLessons = hydrated ? loadAiLessons() : [];
 
   if (!lessons) return null;
 
