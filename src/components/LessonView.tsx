@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import { ChevronLeft, ChevronRight, Play, Telescope } from "lucide-react";
 import Board from "./Board";
+import SpeakButton from "./SpeakButton";
 import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { renderLesson } from "@/lib/lessons";
@@ -82,10 +83,13 @@ function LessonContentView({
         )}
         <h1 className="text-3xl font-semibold tracking-tight text-foreground">{title}</h1>
         <div className="rounded-xl border-l-4 border-emerald-500 bg-card p-5">
-          <p className="text-foreground leading-relaxed">
-            <strong className="text-emerald-600 dark:text-emerald-400">{t.lessons.mentalModel}: </strong>
-            {content.concept}
-          </p>
+          <div className="flex items-start justify-between gap-3">
+            <p className="text-foreground leading-relaxed">
+              <strong className="text-emerald-600 dark:text-emerald-400">{t.lessons.mentalModel}: </strong>
+              {content.concept}
+            </p>
+            <SpeakButton text={`${content.concept}. ${content.mission}`} />
+          </div>
         </div>
         <p className="text-sm text-muted-foreground italic leading-relaxed">{content.mission}</p>
         {note && <p className="text-xs text-muted-foreground/70">{note}</p>}
@@ -95,7 +99,14 @@ function LessonContentView({
         if (s.type === "text") {
           return (
             <section key={i} className="flex flex-col gap-2">
-              {s.heading && <h2 className="text-xl font-medium text-foreground">{s.heading}</h2>}
+              <div className="flex items-center justify-between gap-3">
+                {s.heading ? (
+                  <h2 className="text-xl font-medium text-foreground">{s.heading}</h2>
+                ) : (
+                  <span />
+                )}
+                <SpeakButton text={`${s.heading ? s.heading + ". " : ""}${s.body}`} />
+              </div>
               <p className="text-foreground/90 leading-relaxed">{s.body}</p>
             </section>
           );
@@ -251,10 +262,13 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
 
       {section.theory && (
         <div className="rounded-xl border border-border bg-card p-4">
-          <p className="text-sm text-foreground/90 leading-relaxed">
-            <strong className="text-emerald-600 dark:text-emerald-400">📖 {t.lessons.theory}: </strong>
-            {section.theory}
-          </p>
+          <div className="flex items-start justify-between gap-3">
+            <p className="text-sm text-foreground/90 leading-relaxed">
+              <strong className="text-emerald-600 dark:text-emerald-400">📖 {t.lessons.theory}: </strong>
+              {section.theory}
+            </p>
+            <SpeakButton text={section.theory} />
+          </div>
         </div>
       )}
 
@@ -302,10 +316,13 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
 
           {section.explain && (
             <div className="rounded-xl border-l-4 border-violet-500 bg-card p-4">
-              <p className="text-sm text-foreground/90 leading-relaxed">
-                <strong className="text-violet-600 dark:text-violet-400">{t.lessons.whyItWorks}: </strong>
-                {section.explain}
-              </p>
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-sm text-foreground/90 leading-relaxed">
+                  <strong className="text-violet-600 dark:text-violet-400">{t.lessons.whyItWorks}: </strong>
+                  {section.explain}
+                </p>
+                <SpeakButton text={section.explain} />
+              </div>
             </div>
           )}
 

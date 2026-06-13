@@ -14,8 +14,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BOARD_THEMES } from "@/lib/board-themes";
 import { useI18n, type Locale } from "@/lib/i18n";
+import { isSpeechSupported, speak, useVoices } from "@/lib/speech";
 import { useStoreHydrated } from "@/lib/store";
 import { clearAllData, loadSettings, saveSettings } from "@/lib/storage";
 
@@ -30,6 +32,8 @@ export default function SettingsForm() {
 function SettingsFormInner() {
   const { t, locale, setLocale } = useI18n();
   const router = useRouter();
+  const voices = useVoices(locale);
+  const speechSupported = isSpeechSupported();
   const [form, setForm] = useState(() => loadSettings());
   const [state, setState] = useState<"idle" | "saved" | "cleared">("idle");
 
@@ -150,6 +154,67 @@ function SettingsFormInner() {
             );
           })}
         </div>
+      </div>
+
+      <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+        {t.settings.voice}
+        <div className="flex gap-2">
+          {([true, false] as const).map((on) => {
+            const active = (form.voiceEnabled ?? true) === on;
+            return (
+              <button
+                key={String(on)}
+                type="button"
+                onClick={() => {
+                  setForm({ ...form, voiceEnabled: on });
+                  saveSettings({ ...loadSettings(), voiceEnabled: on });
+                }}
+                className={[
+                  "rounded-lg border px-4 py-2 text-sm transition",
+                  active
+                    ? "border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300"
+                    : "border-input text-muted-foreground hover:border-ring/60",
+                ].join(" ")}
+              >
+                {on ? t.settings.soundOn : t.settings.soundOff}
+              </button>
+            );
+          })}
+        </div>
+        {(form.voiceEnabled ?? true) &&
+          (!speechSupported ? (
+            <p className="text-xs text-muted-foreground/70">{t.settings.voiceUnsupported}</p>
+          ) : (
+            <div className="flex gap-2 max-w-md">
+              <Select
+                value={form.voiceURI ?? "auto"}
+                onValueChange={(v) => {
+                  const voiceURI = v === "auto" ? undefined : v;
+                  setForm({ ...form, voiceURI });
+                  saveSettings({ ...loadSettings(), voiceURI });
+                }}
+              >
+                <SelectTrigger className="h-9 flex-1">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="auto">{t.settings.voiceAuto}</SelectItem>
+                  {voices.map((v) => (
+                    <SelectItem key={v.voiceURI} value={v.voiceURI}>
+                      {v.name} ({v.lang})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <button
+                type="button"
+                onClick={() => speak("settings-preview", t.app.tagline, locale, form.voiceURI)}
+                className="rounded-lg border border-input px-3 h-9 text-sm text-foreground/80 hover:border-ring/60 transition whitespace-nowrap"
+              >
+                {t.settings.voicePreview}
+              </button>
+            </div>
+          ))}
       </div>
 
       <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
