@@ -8,7 +8,8 @@ import DeleteLessonButton from "@/components/DeleteLessonButton";
 import GenerateLessonsButton from "@/components/GenerateLessonsButton";
 import { useI18n } from "@/lib/i18n";
 import { lessonConcept, lessonTitle } from "@/lib/lessons";
-import { loadAiLessons, loadApiKey, loadLessons, removeAiLesson, removeLesson } from "@/lib/storage";
+import { coachAvailability } from "@/lib/coach-client";
+import { loadAiLessons, loadLessons, removeAiLesson, removeLesson } from "@/lib/storage";
 import type { AiLessonRow, GeneratedLesson } from "@/lib/types";
 
 export default function LessonsPage() {
@@ -16,10 +17,11 @@ export default function LessonsPage() {
   const [lessons, setLessons] = useState<GeneratedLesson[] | null>(null);
   const [aiLessons, setAiLessons] = useState<AiLessonRow[]>([]);
   const [keyVersion, setKeyVersion] = useState(0);
-  const [hasKey, setHasKey] = useState(true); // assume yes until checked — avoids a flash
+  // true while loading to avoid a flash; checks BOTH the server env key and the browser key.
+  const [aiAvailable, setAiAvailable] = useState(true);
 
   useEffect(() => {
-    setHasKey(Boolean(loadApiKey()));
+    coachAvailability().then((a) => setAiAvailable(a.available));
   }, [keyVersion]);
 
   const refresh = useCallback(() => {
@@ -43,17 +45,9 @@ export default function LessonsPage() {
 
         <AiLessonGenerator key={keyVersion} />
 
-        {/* BYOK prompt — only shown while no key is saved in this browser. */}
-        {!hasKey && (
-          <details className="group">
-            <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground transition list-none">
-              🔑 {t.settings.apiKey}
-            </summary>
-            <div className="mt-3">
-              <ApiKeyField onChanged={() => setKeyVersion((v) => v + 1)} />
-            </div>
-          </details>
-        )}
+        {/* BYOK field — shown directly, and ONLY when no key exists anywhere
+            (neither the server env key nor a key saved in this browser). */}
+        {!aiAvailable && <ApiKeyField onChanged={() => setKeyVersion((v) => v + 1)} />}
 
         {aiLessons.length > 0 && (
           <ul className="grid sm:grid-cols-2 gap-4">
