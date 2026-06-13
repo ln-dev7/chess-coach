@@ -104,9 +104,6 @@ export default function DashboardPage() {
                 <Link href="/lessons" className="text-sm text-emerald-600 dark:text-emerald-400 underline">
                   {t.nav.lessons} →
                 </Link>
-                <Link href="/puzzles" className="text-sm text-emerald-600 dark:text-emerald-400 underline">
-                  {t.nav.puzzles} →
-                </Link>
               </div>
             </section>
           )}

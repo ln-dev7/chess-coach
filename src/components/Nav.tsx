@@ -25,7 +25,6 @@ export default function Nav() {
   const links = [
     { href: "/", label: t.nav.dashboard },
     { href: "/games", label: t.nav.games },
-    { href: "/puzzles", label: t.nav.puzzles },
     { href: "/lessons", label: t.nav.lessons },
     { href: "/settings", label: t.nav.settings },
   ];
