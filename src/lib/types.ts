@@ -161,6 +161,10 @@ export interface Settings {
   boardTheme: string;
   /** Lesson feedback sounds (correct / wrong / complete). Defaults to on. */
   soundEnabled?: boolean;
+  /** Read-aloud (text-to-speech) buttons in lessons & masters. Defaults to on. */
+  voiceEnabled?: boolean;
+  /** Preferred speech-synthesis voice (voiceURI). Empty = auto-pick the best. */
+  voiceURI?: string;
 }
 
 /** A lesson written by the AI coach. Text is in `locale` (generated in the site language). */
@@ -180,4 +184,38 @@ export interface WeaknessProfile {
   topMotifs: { motif: Motif; count: number }[];
   weakestPhase: { phase: Phase; blunderRate: number } | null;
   worstOpenings: { eco: string; name: string | null; games: number; score: number }[];
+}
+
+// ---------- Masters: learn from iconic grandmaster games ----------
+
+/** A curated, build-time-validated iconic game (see src/lib/masters/catalog.json). */
+export interface MasterGame {
+  id: string; // stable slug, e.g. "byrne-fischer-1956"
+  pgn: string; // validated by parsePgn at build time
+  title: string;
+  white: string;
+  black: string;
+  event: string | null;
+  year: number;
+  result: string; // "1-0" | "0-1" | "1/2-1/2" | "*"
+  studySide: "w" | "b"; // whose plan we narrate
+  tags: string[];
+  sourceUrl: string | null;
+  teaser: { en: string; fr: string };
+}
+
+/** One ply's generated reasoning. */
+export interface MasterMoveNote {
+  ply: number; // 1-based, matches parsePgn move index
+  reasoning: string; // the plan/logic — full, may be long
+  motif?: Motif; // optional tactical/strategic tag
+}
+
+/** Cached AI generation for ONE game in ONE locale. */
+export interface MasterAnnotation {
+  gameId: string;
+  locale: "en" | "fr";
+  created_at: string;
+  intro: string; // game-level framing
+  notes: MasterMoveNote[];
 }

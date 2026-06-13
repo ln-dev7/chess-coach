@@ -7,7 +7,15 @@ import {
   useStore,
 } from "./store";
 import type { AiProviderId } from "./providers";
-import type { AiLessonRow, AnalysisSummary, GameRow, GeneratedLesson, PuzzleRow, Settings } from "./types";
+import type {
+  AiLessonRow,
+  AnalysisSummary,
+  GameRow,
+  GeneratedLesson,
+  MasterAnnotation,
+  PuzzleRow,
+  Settings,
+} from "./types";
 
 /**
  * Imperative facade over the Zustand store (see store.ts). Same signatures as
@@ -93,6 +101,17 @@ export function setAiLessonCompleted(id: string, completed: boolean): void {
 }
 export function removeAiLesson(id: string): void {
   st().removeAiLessonAction(id);
+}
+
+// ---------- Masters: cached AI annotations per game+locale ----------
+export function loadMasterAnnotations(): MasterAnnotation[] {
+  return st().masterAnnotations;
+}
+export function addMasterAnnotation(annotation: MasterAnnotation): void {
+  st().addMasterAnnotationAction(annotation);
+}
+export function removeMasterAnnotation(gameId: string, locale: "en" | "fr"): void {
+  st().removeMasterAnnotationAction(gameId, locale);
 }
 
 // ---------- Onboarding ----------

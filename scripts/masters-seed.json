@@ -1,0 +1,114 @@
+{
+  "source": "https://raw.githubusercontent.com/tonymorris/immortalgames/master/immortal_games.pgn",
+  "_comment": "Curated overlays for the most iconic games. Matched by case-insensitive substring on the White/Black headers. Games without an overlay still ship with auto-derived metadata (title, year, winner as studySide). studySide overrides the auto winner when set.",
+  "overlays": [
+    {
+      "white": "Anderssen",
+      "black": "Kieseritzky",
+      "title": "The Immortal Game",
+      "studySide": "w",
+      "tags": ["sacrifice", "attack", "romantic"],
+      "teaser_en": "Anderssen gives up a bishop, both rooks and the queen — and mates with three minor pieces. The most famous game ever played.",
+      "teaser_fr": "Anderssen sacrifie un fou, ses deux tours et la dame — puis mate avec trois pièces mineures. La partie la plus célèbre de l'histoire."
+    },
+    {
+      "white": "Anderssen",
+      "black": "Dufresne",
+      "title": "The Evergreen Game",
+      "studySide": "w",
+      "tags": ["sacrifice", "attack", "romantic"],
+      "teaser_en": "A cascade of sacrifices crowned by a quiet, deadly queen move. Romantic chess at its peak.",
+      "teaser_fr": "Une cascade de sacrifices couronnée par un coup de dame tranquille et mortel. L'apogée du jeu romantique."
+    },
+    {
+      "white": "Donald Byrne",
+      "black": "Fischer",
+      "title": "The Game of the Century",
+      "studySide": "b",
+      "tags": ["sacrifice", "tactics", "prodigy"],
+      "teaser_en": "13-year-old Bobby Fischer unleashes a windmill and a queen sacrifice against a leading master. Genius announced.",
+      "teaser_fr": "À 13 ans, Bobby Fischer déchaîne un moulin à vent et un sacrifice de dame contre un maître reconnu. Le génie se révèle."
+    },
+    {
+      "white": "Rotlewi",
+      "black": "Rubinstein",
+      "title": "Rubinstein's Immortal",
+      "studySide": "b",
+      "tags": ["sacrifice", "attack", "harmony"],
+      "teaser_en": "Rubinstein coordinates every piece into one overwhelming combination — a model of attacking harmony.",
+      "teaser_fr": "Rubinstein coordonne chaque pièce dans une combinaison écrasante — un modèle d'harmonie à l'attaque."
+    },
+    {
+      "white": "Levitsky",
+      "black": "Marshall",
+      "title": "The Gold Coins Game",
+      "studySide": "b",
+      "tags": ["tactics", "quiet-move"],
+      "teaser_en": "Marshall's stunning queen move to g3 — spectators reportedly showered the board with gold coins.",
+      "teaser_fr": "Le coup de dame stupéfiant de Marshall en g3 — les spectateurs auraient couvert l'échiquier de pièces d'or."
+    },
+    {
+      "white": "Edward Lasker",
+      "black": "Thomas",
+      "title": "The King Walk",
+      "studySide": "w",
+      "tags": ["attack", "king-hunt", "mate"],
+      "teaser_en": "A queen sacrifice drags the black king up the board to be mated on g1 — a textbook king hunt.",
+      "teaser_fr": "Un sacrifice de dame entraîne le roi noir jusqu'à se faire mater en g1 — une chasse au roi d'école."
+    },
+    {
+      "white": "Glucksberg",
+      "black": "Najdorf",
+      "title": "The Polish Immortal",
+      "studySide": "b",
+      "tags": ["sacrifice", "attack"],
+      "teaser_en": "Najdorf sacrifices all four minor pieces to mate. Brilliance with no material left to spare.",
+      "teaser_fr": "Najdorf sacrifie ses quatre pièces mineures pour mater. Une brillance sans la moindre pièce de réserve."
+    },
+    {
+      "white": "Kasparov",
+      "black": "Topalov",
+      "title": "Kasparov's Immortal",
+      "studySide": "w",
+      "tags": ["sacrifice", "attack", "calculation"],
+      "teaser_en": "A rook sacrifice opens a king hunt across the whole board — perhaps the greatest game of the modern era.",
+      "teaser_fr": "Un sacrifice de tour ouvre une chasse au roi à travers tout l'échiquier — peut-être la plus grande partie de l'ère moderne."
+    },
+    {
+      "white": "Topalov",
+      "black": "Shirov",
+      "title": "Shirov's Bishop Sacrifice",
+      "studySide": "b",
+      "tags": ["endgame", "sacrifice", "calculation"],
+      "teaser_en": "In an endgame, Shirov plays ...Bh3!! — one of the most famous moves ever, sacrificing a bishop for a passed pawn.",
+      "teaser_fr": "En finale, Shirov joue ...Fh3!! — l'un des coups les plus célèbres de l'histoire, un fou sacrifié pour un pion passé."
+    },
+    {
+      "white": "Larsen",
+      "black": "Spassky",
+      "title": "Spassky's Lightning",
+      "studySide": "b",
+      "tags": ["attack", "miniature"],
+      "teaser_en": "Spassky demolishes Larsen in 17 moves, finishing with a rook lift and ...Qxh2 mate threats.",
+      "teaser_fr": "Spassky démolit Larsen en 17 coups, concluant par une montée de tour et des menaces de mat ...Dxh2."
+    },
+    {
+      "white": "Tal",
+      "black": "Larsen",
+      "title": "Tal's Attack",
+      "studySide": "w",
+      "tags": ["attack", "sacrifice", "initiative"],
+      "teaser_en": "The magician from Riga sacrifices to rip open the king and never lets the initiative cool.",
+      "teaser_fr": "Le magicien de Riga sacrifie pour éventrer le roi et ne laisse jamais l'initiative retomber."
+    },
+    {
+      "white": "Steinitz",
+      "black": "Bardeleben",
+      "title": "Steinitz's Combination",
+      "studySide": "w",
+      "tags": ["attack", "calculation"],
+      "teaser_en": "Steinitz keeps his rook en prise for moves on end, calculating a forced mate to the very last check.",
+      "teaser_fr": "Steinitz laisse sa tour en prise pendant plusieurs coups, calculant un mat forcé jusqu'au dernier échec."
+    }
+  ]
+}

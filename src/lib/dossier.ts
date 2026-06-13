@@ -82,7 +82,7 @@ function hangingFacts(fen: string): string[] {
   }
 }
 
-function buildFacts(fen: string, playedSan: string, bestSan: string | null): PositionFacts {
+export function buildFacts(fen: string, playedSan: string | null, bestSan: string | null): PositionFacts {
   const played = moveFact(fen, playedSan);
   const best = moveFact(fen, bestSan);
   return {

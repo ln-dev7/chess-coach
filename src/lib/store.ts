@@ -8,6 +8,7 @@ import type {
   AnalysisSummary,
   GameRow,
   GeneratedLesson,
+  MasterAnnotation,
   PuzzleRow,
   Settings,
 } from "./types";
@@ -33,6 +34,7 @@ export const DEFAULT_SETTINGS: Settings = {
   engineMovetimeMs: 90,
   boardTheme: "classic",
   soundEnabled: true,
+  voiceEnabled: true,
 };
 
 export interface StoredAiKey {
@@ -47,6 +49,7 @@ interface PersistedState {
   puzzles: PuzzleRow[];
   lessons: GeneratedLesson[];
   aiLessons: AiLessonRow[];
+  masterAnnotations: MasterAnnotation[];
   apiKey: StoredAiKey | null;
   onboardedFlag: boolean;
 }
@@ -68,6 +71,8 @@ interface StoreState extends PersistedState {
   addAiLessonAction: (lesson: AiLessonRow) => void;
   setAiLessonCompletedAction: (id: string, completed: boolean) => void;
   removeAiLessonAction: (id: string) => void;
+  addMasterAnnotationAction: (annotation: MasterAnnotation) => void;
+  removeMasterAnnotationAction: (gameId: string, locale: "en" | "fr") => void;
   setOnboardedFlag: () => void;
   setApiKeyAction: (provider: AiProviderId, key: string) => void;
   clearApiKeyAction: () => void;
@@ -81,6 +86,7 @@ const initialPersisted: PersistedState = {
   puzzles: [],
   lessons: [],
   aiLessons: [],
+  masterAnnotations: [],
   apiKey: null,
   onboardedFlag: false,
 };
@@ -144,6 +150,24 @@ export const useStore = create<StoreState>()(
 
       removeAiLessonAction: (id) => set({ aiLessons: get().aiLessons.filter((l) => l.id !== id) }),
 
+      addMasterAnnotationAction: (annotation) =>
+        set({
+          masterAnnotations: [
+            annotation,
+            // replace any existing annotation for the same game+locale
+            ...get().masterAnnotations.filter(
+              (a) => !(a.gameId === annotation.gameId && a.locale === annotation.locale)
+            ),
+          ],
+        }),
+
+      removeMasterAnnotationAction: (gameId, locale) =>
+        set({
+          masterAnnotations: get().masterAnnotations.filter(
+            (a) => !(a.gameId === gameId && a.locale === locale)
+          ),
+        }),
+
       setOnboardedFlag: () => set({ onboardedFlag: true }),
 
       setApiKeyAction: (provider, key) => {
@@ -159,13 +183,24 @@ export const useStore = create<StoreState>()(
       name: STORE_KEY,
       version: 1,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ settings, games, analyses, puzzles, lessons, aiLessons, apiKey, onboardedFlag }) => ({
+      partialize: ({
         settings,
         games,
         analyses,
         puzzles,
         lessons,
         aiLessons,
+        masterAnnotations,
+        apiKey,
+        onboardedFlag,
+      }) => ({
+        settings,
+        games,
+        analyses,
+        puzzles,
+        lessons,
+        aiLessons,
+        masterAnnotations,
         apiKey,
         onboardedFlag,
       }),
@@ -186,6 +221,7 @@ export const useGames = () => useStore((s) => s.games);
 export const useAnalyses = () => useStore((s) => s.analyses);
 export const useLessons = () => useStore((s) => s.lessons);
 export const useAiLessons = () => useStore((s) => s.aiLessons);
+export const useMasterAnnotations = () => useStore((s) => s.masterAnnotations);
 export const useApiKey = () => useStore((s) => s.apiKey);
 export const useOnboardedFlag = () => useStore((s) => s.onboardedFlag);
 export const useStoreHydrated = () => useStore((s) => s.hydrated);
@@ -245,6 +281,7 @@ function readLegacy(): PersistedState | null {
     puzzles: readJSON<PuzzleRow[]>(LEGACY_KEYS.puzzles, []),
     lessons: readJSON<GeneratedLesson[]>(LEGACY_KEYS.lessons, []),
     aiLessons: readJSON<AiLessonRow[]>(LEGACY_KEYS.aiLessons, []),
+    masterAnnotations: [], // never existed in the legacy per-key layout
     apiKey: readLegacyApiKey(),
     onboardedFlag: localStorage.getItem(LEGACY_KEYS.onboarded) === "1",
   };

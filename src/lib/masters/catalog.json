@@ -1,0 +1,1066 @@
+[
+  {
+    "id": "anderssen-kieseritzky-1851",
+    "pgn": "[Event \"London\"]\n[Site \"London\"]\n[Date \"1851.06.21\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Adolf Anderssen\"]\n[Black \"Kieseritzky\"]\n[ECO \"C33\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"45\"]\n\n1.e4 e5 2.f4 exf4 3.Bc4 Qh4+ 4.Kf1 b5 5.Bxb5 Nf6 6.Nf3 Qh6\n7.d3 Nh5 8.Nh4 Qg5 9.Nf5 c6 10.g4 Nf6 11.Rg1 cxb5 12.h4 Qg6\n13.h5 Qg5 14.Qf3 Ng8 15.Bxf4 Qf6 16.Nc3 Bc5 17.Nd5 Qxb2 18.Bd6\nBxg1 {It is from this move that Black's defeat stems. Wilhelm\nSteinitz suggested in 1879 that a better move would be\n18... Qxa1+; likely moves to follow are 19. Ke2 Qb2 20. Kd2\nBxg1.} 19. e5 Qxa1+ 20. Ke2 Na6 21.Nxg7+ Kd8 22.Qf6+ Nxf6\n23.Be7# 1-0\n",
+    "title": "The Immortal Game",
+    "white": "Adolf Anderssen",
+    "black": "Kieseritzky",
+    "event": "London",
+    "year": 1851,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "romantic"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Anderssen gives up a bishop, both rooks and the queen — and mates with three minor pieces. The most famous game ever played.",
+      "fr": "Anderssen sacrifie un fou, ses deux tours et la dame — puis mate avec trois pièces mineures. La partie la plus célèbre de l'histoire."
+    }
+  },
+  {
+    "id": "anderssen-dufresne-1852",
+    "pgn": "[Event \"Casual Game\"]\n[Site \"Berlin GER\"]\n[Date \"1852.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Adolf Anderssen\"]\n[Black \"Jean Dufresne\"]\n[ECO \"C52\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"47\"]\n\n1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 Bxb4 5.c3 Ba5 6.d4 exd4 7.O-O\nd3 8.Qb3 Qf6 9.e5 Qg6 10.Re1 Nge7 11.Ba3 b5 12.Qxb5 Rb8 13.Qa4\nBb6 14.Nbd2 Bb7 15.Ne4 Qf5 16.Bxd3 Qh5 17.Nf6+ gxf6 18.exf6\nRg8 19.Rad1 Qxf3 20.Rxe7+ Nxe7 21.Qxd7+ Kxd7 22.Bf5+ Ke8\n23.Bd7+ Kf8 24.Bxe7# 1-0\n",
+    "title": "The Evergreen Game",
+    "white": "Adolf Anderssen",
+    "black": "Jean Dufresne",
+    "event": "Casual Game",
+    "year": 1852,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "romantic"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "A cascade of sacrifices crowned by a quiet, deadly queen move. Romantic chess at its peak.",
+      "fr": "Une cascade de sacrifices couronnée par un coup de dame tranquille et mortel. L'apogée du jeu romantique."
+    }
+  },
+  {
+    "id": "steinitz-bardeleben-1895",
+    "pgn": "[Event \"Hastings\"]\n[Site \"Hastings, England\"]\n[Date \"1895.08.17\"]\n[EventDate \"1895.08.05\"]\n[Round \"10\"]\n[Result \"1-0\"]\n[White \"Wilhelm Steinitz\"]\n[Black \"Curt von Bardeleben\"]\n[ECO \"C54\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"49\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4\nBb4+ 7. Nc3 d5 8. exd5 Nxd5 9. O-O Be6 10. Bg5 Be7 11. Bxd5\nBxd5 12. Nxd5 Qxd5 13. Bxe7 Nxe7 14. Re1 f6 15. Qe2 Qd7\n16. Rac1 c6 17. d5 cxd5 18. Nd4 Kf7 19. Ne6 Rhc8 20. Qg4 g6\n21. Ng5+ Ke8 22. Rxe7+ Kf8 23. Rf7+ Kg8 24. Rg7+ Kh8 25. Rxh7+\n{And black resigned at this point. As Steinitz demonstrated\nimmediately afterward, there is a mate in ten moves which can\nonly be averted by ruinous loss of material; analysis follows:\n...Kh8 25. Rxh7+ Kg8 26. Rg7+ Kh8 27. Qh4+ Kxg7 28. Qh7+ Kf8\n29. Qh8+ Ke7 30. Qg7+ Ke8 31. Qg8+ Ke7 32. Qf7+ Kd8 33. Qf8+\nQe8 34. Nf7+ Kd7 35. Qd6#} 1-0\n",
+    "title": "Steinitz's Combination",
+    "white": "Wilhelm Steinitz",
+    "black": "Curt von Bardeleben",
+    "event": "Hastings",
+    "year": 1895,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "calculation"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Steinitz keeps his rook en prise for moves on end, calculating a forced mate to the very last check.",
+      "fr": "Steinitz laisse sa tour en prise pendant plusieurs coups, calculant un mat forcé jusqu'au dernier échec."
+    }
+  },
+  {
+    "id": "rotlewi-rubinstein-1907",
+    "pgn": "[Event \"Lodz\"]\n[Site \"Lodz\"]\n[Date \"1907.12.26\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Georg Rotlewi\"]\n[Black \"Akiba Rubinstein\"]\n[ECO \"D32\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"50\"]\n\n1.d4 {Notes by Carl Schlechter and Dr. Savielly Tartakower.}\nd5 2.Nf3 e6 3.e3 c5 4.c4 Nc6 5.Nc3 Nf6 6.dxc5 {Tartakower:\nLess consistent than 6.a3 or 6.Bd3, maintaining as long as\npossible the tension in the center.} Bxc5 7.a3 a6 8.b4 Bd6\n9.Bb2 O-O 10.Qd2 {? Schlechter: A very bad place for the\nqueen. The best continuation is 10.cxd5 exd5 11.Be2, followed\nby O-O. *** Tartakower: Loss of time. The queen will soon have\nto seek a better square (14.Qe2). The most useful move is\n10.Qc2.} Qe7 {! Schlechter: A fine sacrifice of a pawn. If\n11.cxd5 exd5 12.Nxd5? Nxd5 13.Qxd5 Rd8! and Black has a strong\nattack.} 11.Bd3 {Schlechter: Better was 11.cxd5 exd5 12.Be2.}\ndxc4 12.Bxc4 b5 13.Bd3 Rd8 14.Qe2 Bb7 15.O-O Ne5 {!\nSchlechter: Introduced by Marshall and Schlechter in a similar\nposition with opposite colors, but here with the extra move\nRd8.} 16.Nxe5 Bxe5 {Tartakower: Threatening to win a pawn by\n17...Bxh2+ 18.Kxh2 Qd6+. White's next move provides against\nthis, but loosens the kingside defenses.} 17.f4 Bc7 18.e4 Rac8\n19.e5 Bb6+ 20.Kh1 Ng4 {!} 21.Be4 {Schlechter: There is no\ndefense; e.g., 21.Bxh7+ Kxh7 22.Qxg4 Rd2 etc.; or 21.h3 Qh4\n22.Qxg4 Qxg4 23.hxg4 Rxd3, threatening ...Rh3 mate and\n...Rxc3; or 21.Qxg4 Rxd3 22.Ne2 Rc2 23.Bc1 g6! threatening\n...h5; or 21.Ne4 Qh4 22.h3 (if 22.g3 Qxh2+ 23.Qxh2 Nxh2 and\nwins.) 22....Rxd3 23.Qxd3 Bxe4 24.Qxe4 Qg3 25.hxg4 Qh4+ mate.}\nQh4 22.g3 {Schlechter: Or 22.h3 Rxc3! 23.Bxc3 Bxe4 24.Qxg4\nQxg4 25.hxg4 Rd3 wins. *** Tartakower: The alternative 22.h3,\nparrying the mate, would lead to the following brilliant lines\nof play: 22...Rxc3! (an eliminating sacrifice, getting rid of\nthe knight, which overprotects the bishop on e4) 23.Bxc3 (or\n23.Qxg4 Rxh3+ 24.Qxh3 Qxh3+ 25.gxh3 Bxe4+ 26.Kh2 Rd2+ 27.Kg3\nRg2+ 28.Kh4 Bd8+ 29.Kh5 Bg6+ mate) 23...Bxe4+ 24.Qxg4 (if\n24.Qxe4 Qg3 25.hxg4 Qh4+ mate) 24...Qxg4 25.hxg4 Rd3 with the\ndouble threat of 26...Rh3+ mate and 26....Rxc3, and Black\nwins. Beautiful as are these variations, the continuation in\nthe text is still more splendid.} Rxc3 {!!} 23.gxh4 Rd2 {!!}\n24.Qxd2 Bxe4+ 25.Qg2 Rh3 {!} 0-1\n",
+    "title": "Rubinstein's Immortal",
+    "white": "Georg Rotlewi",
+    "black": "Akiba Rubinstein",
+    "event": "Lodz",
+    "year": 1907,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "harmony"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Rubinstein coordinates every piece into one overwhelming combination — a model of attacking harmony.",
+      "fr": "Rubinstein coordonne chaque pièce dans une combinaison écrasante — un modèle d'harmonie à l'attaque."
+    }
+  },
+  {
+    "id": "lasker-thomas-1912",
+    "pgn": "[Event \"London, England\"]\n[Site \"London, England\"]\n[Date \"1912.10.29\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Edward Lasker\"]\n[Black \"George Alan Thomas\"]\n[ECO \"A40\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"35\"]\n\n1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4\nfxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+\nKxh7 12. Nxf6+ Kh6 13. Neg4+ Kg5 14. h4+ Kf4 15. g3+ Kf3\n16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0\n",
+    "title": "The King Walk",
+    "white": "Edward Lasker",
+    "black": "George Alan Thomas",
+    "event": "London, England",
+    "year": 1912,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "king-hunt",
+      "mate"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "A queen sacrifice drags the black king up the board to be mated on g1 — a textbook king hunt.",
+      "fr": "Un sacrifice de dame entraîne le roi noir jusqu'à se faire mater en g1 — une chasse au roi d'école."
+    }
+  },
+  {
+    "id": "levitsky-marshall-1912",
+    "pgn": "[Event \"18th DSB Kongress\"]\n[Site \"Breslau GER\"]\n[Date \"1912.07.20\"]\n[EventDate \"1912.07.15\"]\n[Round \"6\"]\n[Result \"0-1\"]\n[White \"Stefan Levitsky\"]\n[Black \"Frank James Marshall\"]\n[ECO \"B23\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"46\"]\n\n1.d4 e6 2.e4 d5 3.Nc3 c5 4.Nf3 Nc6 5.exd5 exd5 6.Be2 Nf6 7.O-O\nBe7 8.Bg5 O-O 9.dxc5 Be6 10.Nd4 Bxc5 11.Nxe6 fxe6 12.Bg4 Qd6\n13.Bh3 Rae8 14.Qd2 Bb4 15.Bxf6 Rxf6 16.Rad1 Qc5 17.Qe2 Bxc3\n18.bxc3 Qxc3 19.Rxd5 Nd4 20.Qh5 Ref8 21.Re5 Rh6 22.Qg5 Rxh3\n23.Rc5 Qg3 0-1\n",
+    "title": "The Gold Coins Game",
+    "white": "Stefan Levitsky",
+    "black": "Frank James Marshall",
+    "event": "18th DSB Kongress",
+    "year": 1912,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "tactics",
+      "quiet-move"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Marshall's stunning queen move to g3 — spectators reportedly showered the board with gold coins.",
+      "fr": "Le coup de dame stupéfiant de Marshall en g3 — les spectateurs auraient couvert l'échiquier de pièces d'or."
+    }
+  },
+  {
+    "id": "glucksberg-najdorf-1929",
+    "pgn": "[Event \"Warsaw\"]\n[Site \"Warsaw\"]\n[Date \"1929.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Glucksberg\"]\n[Black \"Miguel Najdorf\"]\n[ECO \"A85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"44\"]\n\n1.d4 f5 2.c4 Nf6 3.Nc3 e6 4.Nf3 d5 5.e3 c6 6.Bd3 Bd6 7.O-O O-O\n8.Ne2 Nbd7 9.Ng5 Bxh2+ 10.Kh1 Ng4 11.f4 Qe8 12.g3 Qh5 13.Kg2\nBg1 14.Nxg1 Qh2+ 15.Kf3 e5 16.dxe5 Ndxe5+ 17.fxe5 Nxe5+ 18.Kf4\nNg6+ 19.Kf3 f4 20.exf4 Bg4+ 21.Kxg4 Ne5+ 22.fxe5 h5# 0-1\n",
+    "title": "The Polish Immortal",
+    "white": "Glucksberg",
+    "black": "Miguel Najdorf",
+    "event": "Warsaw",
+    "year": 1929,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "sacrifice",
+      "attack"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Najdorf sacrifices all four minor pieces to mate. Brilliance with no material left to spare.",
+      "fr": "Najdorf sacrifie ses quatre pièces mineures pour mater. Une brillance sans la moindre pièce de réserve."
+    }
+  },
+  {
+    "id": "byrne-fischer-1956",
+    "pgn": "[Event \"Third Rosenwald Trophy\"]\n[Site \"New York USA\"]\n[Date \"1956.10.17\"]\n[EventDate \"1956.10.07\"]\n[Round \"8\"]\n[Result \"0-1\"]\n[White \"Donald Byrne\"]\n[Black \"Robert James Fischer\"]\n[ECO \"D92\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"82\"]\n\n1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 O-O 5. Bf4 d5 6. Qb3 dxc4\n7. Qxc4 c6 8. e4 Nbd7 9. Rd1 Nb6 10. Qc5 Bg4 11. Bg5 {11. Be2\nfollowed by 12 O-O would have been more prudent. The bishop\nmove played allows a sudden crescendo of tactical points to be\nuncovered by Fischer. -- Wade} Na4 {!} 12. Qa3 {On 12. Nxa4\nNxe4 and White faces considerable difficulties.} Nxc3 {At\nfirst glance, one might think that this move only helps White\ncreate a stronger pawn center; however, Fischer's plan is\nquite the opposite. By eliminating the Knight on c3, it\nbecomes possible to sacrifice the exchange via Nxe4 and smash\nWhite's center, while the King remains trapped in the center.}\n13. bxc3 Nxe4 {The natural continuation of Black's plan.}\n14. Bxe7 Qb6 15. Bc4 Nxc3 16. Bc5 Rfe8+ 17. Kf1 Be6 {!! If\nthis is the game of the century, then 17...Be6!! must be the\ncounter of the century. Fischer offers his queen in exchange\nfor a fierce attack with his minor pieces. Declining this\noffer is not so easy: 18. Bxe6 leads to a 'Philidor Mate'\n(smothered mate) with ...Qb5+ 19. Kg1 Ne2+ 20. Kf1 Ng3+\n21. Kg1 Qf1+ 22. Rxf1 Ne2#. Other ways to decline the queen\nalso run into trouble: e.g., 18. Qxc3 Qxc5} 18. Bxb6 Bxc4+\n19. Kg1 Ne2+ 20. Kf1 Nxd4+ {This tactical scenario, where a\nking is repeatedly revealed to checks, is sometimes called a\n\"windmill.\"} 21. Kg1 Ne2+ 22. Kf1 Nc3+ 23. Kg1 axb6 24. Qb4\nRa4 25. Qxb6 Nxd1 26. h3 Rxa2 27. Kh2 Nxf2 28. Re1 Rxe1\n29. Qd8+ Bf8 30. Nxe1 Bd5 31. Nf3 Ne4 32. Qb8 b5 {Every piece\nand pawn of the black camp is defended. The white queen has\nnothing to do.} 33. h4 h5 34. Ne5 Kg7 35. Kg1 Bc5+ 36. Kf1\nNg3+ {Now Byrne is hopelessly entangled in Fischer's mating\nnet.} 37. Ke1 Bb4+ 38. Kd1 Bb3+ 39. Kc1 Ne2+ 40. Kb1 Nc3+\n41. Kc1 Rc2# 0-1\n",
+    "title": "The Game of the Century",
+    "white": "Donald Byrne",
+    "black": "Robert James Fischer",
+    "event": "Third Rosenwald Trophy",
+    "year": 1956,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "sacrifice",
+      "tactics",
+      "prodigy"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "13-year-old Bobby Fischer unleashes a windmill and a queen sacrifice against a leading master. Genius announced.",
+      "fr": "À 13 ans, Bobby Fischer déchaîne un moulin à vent et un sacrifice de dame contre un maître reconnu. Le génie se révèle."
+    }
+  },
+  {
+    "id": "tal-larsen-1965",
+    "pgn": "[Event \"Tal-Larsen Candidates Semifinal Match\"]\n[Site \"Bled YUG\"]\n[Date \"1965.08.08\"]\n[EventDate \"1965.07.23\"]\n[Round \"10\"]\n[White \"Mikhail Tal\"]\n[Black \"Bent Larsen\"]\n[Result \"1-0\"]\n[ECO \"B82\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[MovePly \"73\"]\n\n1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 d6 6.Be3 Nf6 7.f4\nBe7 8.Qf3 O-O 9.O-O-O Qc7 10.Ndb5 Qb8 11.g4 a6 12.Nd4 Nxd4\n13.Bxd4 b5 14.g5 Nd7 15.Bd3 b4 16.Nd5 {!} exd5 17.exd5 {The\npiece sacrifice is a positional one, since it has been used to\nerect an invisible barrier on the e-file. A number of squares\non it (e5 and e6) are controlled by white pawns, and a white\nrook will soon be moved to e1. -- Iakov Damsky} f5 18.Rde1 Rf7\n19.h4 Bb7 20.Bxf5 Rxf5 21.Rxe7 Ne5 22.Qe4 Qf8 23.fxe5 Rf4\n24.Qe3 Rf3 25.Qe2 Qxe7 26.Qxf3 dxe5 27.Re1 Rd8 28.Rxe5 Qd6\n29.Qf4 {! With this simple tactic 29 ...Bxd5 30. Re8+ White\nkeeps his two extra pawns. The finish is straightforward. --\nDamsky} Rf8 30.Qe4 b3 31.axb3 Rf1+ 32.Kd2 Qb4+ 33.c3 Qd6\n34.Bc5 Qxc5 35.Re8+ Rf8 36.Qe6+ Kh8 37.Qf7 1-0\n",
+    "title": "Tal's Attack",
+    "white": "Mikhail Tal",
+    "black": "Bent Larsen",
+    "event": "Tal-Larsen Candidates Semifinal Match",
+    "year": 1965,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "sacrifice",
+      "initiative"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "The magician from Riga sacrifices to rip open the king and never lets the initiative cool.",
+      "fr": "Le magicien de Riga sacrifie pour éventrer le roi et ne laisse jamais l'initiative retomber."
+    }
+  },
+  {
+    "id": "larsen-spassky-1970",
+    "pgn": "[Event \"USSR vs. Rest of the World\"]\n[Site \"Belgrade SRB\"]\n[Date \"1970.03.31\"]\n[EventDate \"1970.03.29\"]\n[Round \"2.1\"]\n[Result \"0-1\"]\n[White \"Bent Larsen\"]\n[Black \"Boris Spassky\"]\n[ECO \"A01\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"34\"]\n\n1. b3 e5 2. Bb2 Nc6 3. c4 Nf6 4. Nf3 e4 5. Nd4 Bc5 6. Nxc6\ndxc6 7. e3 Bf5 8. Qc2 Qe7 9. Be2 O-O-O 10. f4 Ng4 11. g3 h5\n12. h3 h4 13. hxg4 hxg3 14. Rg1 Rh1 15. Rxh1 g2 16. Rf1 Qh4+\n17. Kd1 gxf1=Q+ 0-1\n",
+    "title": "Spassky's Lightning",
+    "white": "Bent Larsen",
+    "black": "Boris Spassky",
+    "event": "USSR vs. Rest of the World",
+    "year": 1970,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "attack",
+      "miniature"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Spassky demolishes Larsen in 17 moves, finishing with a rook lift and ...Qxh2 mate threats.",
+      "fr": "Spassky démolit Larsen en 17 coups, concluant par une montée de tour et des menaces de mat ...Dxh2."
+    }
+  },
+  {
+    "id": "topalov-shirov-1998",
+    "pgn": "[Event \"Linares\"]\n[Site \"Linares ESP\"]\n[Date \"1998.03.04\"]\n[EventDate \"1998.02.22\"]\n[Round \"10\"]\n[Result \"0-1\"]\n[White \"Veselin Topalov\"]\n[Black \"Alexey Shirov\"]\n[ECO \"D85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"106\"]\n\n1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7\n7.Bb5+ c6 8.Ba4 O-O 9.Ne2 Nd7 10.O-O e5 11.f3 Qe7 12.Be3 Rd8\n13.Qc2 Nb6 14.Bb3 Be6 15.Rad1 Nc4 16.Bc1 b5 17.f4 exd4 18.Nxd4\nBg4 19.Rde1 Qc5 20.Kh1 a5 21.h3 Bd7 22.a4 bxa4 23.Ba2 Be8\n24.e5 Nb6 25.f5 Nd5 26.Bd2 Nb4 27.Qxa4 Nxa2 28.Qxa2 Bxe5\n29.fxg6 hxg6 30.Bg5 Rd5 31.Re3 Qd6 32.Qe2 Bd7 33.c4 Bxd4\n34.cxd5 Bxe3 35.Qxe3 Re8 36.Qc3 Qxd5 37.Bh6 Re5 38.Rf3 Qc5\n39.Qa1 Bf5 40.Re3 f6 41.Rxe5 Qxe5 42.Qa2+ Qd5 43.Qxd5+ cxd5\n44.Bd2 a4 45.Bc3 Kf7 46.h4 Ke6 47.Kg1 Bh3 48.gxh3 Kf5 49.Kf2\nKe4 50.Bxf6 d4 51.Be7 Kd3 52.Bc5 Kc4 53.Be7 Kb3 0-1\n",
+    "title": "Shirov's Bishop Sacrifice",
+    "white": "Veselin Topalov",
+    "black": "Alexey Shirov",
+    "event": "Linares",
+    "year": 1998,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "endgame",
+      "sacrifice",
+      "calculation"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "In an endgame, Shirov plays ...Bh3!! — one of the most famous moves ever, sacrificing a bishop for a passed pawn.",
+      "fr": "En finale, Shirov joue ...Fh3!! — l'un des coups les plus célèbres de l'histoire, un fou sacrifié pour un pion passé."
+    }
+  },
+  {
+    "id": "kasparov-topalov-1999",
+    "pgn": "[Event \"Hoogovens A Tournament\"]\n[Site \"Wijk aan Zee NED\"]\n[Date \"1999.01.20\"]\n[EventDate \"?\"]\n[Round \"4\"]\n[Result \"1-0\"]\n[White \"Garry Kasparov\"]\n[Black \"Veselin Topalov\"]\n[ECO \"B06\"]\n[WhiteElo \"2812\"]\n[BlackElo \"2700\"]\n[PlyCount \"87\"]\n\n1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2 c6 6. f3 b5\n7. Nge2 Nbd7 8. Bh6 Bxh6 9. Qxh6 Bb7 10. a3 e5 11. O-O-O Qe7\n12. Kb1 a6 13. Nc1 O-O-O 14. Nb3 exd4 15. Rxd4 c5 16. Rd1 Nb6\n17. g3 Kb8 18. Na5 Ba8 19. Bh3 d5 20. Qf4+ Ka7 21. Rhe1 d4\n22. Nd5 Nbxd5 23. exd5 Qd6 24. Rxd4 cxd4 25. Re7+ Kb6\n26. Qxd4+ Kxa5 27. b4+ Ka4 28. Qc3 Qxd5 29. Ra7 Bb7 30. Rxb7\nQc4 31. Qxf6 Kxa3 32. Qxa6+ Kxb4 33. c3+ Kxc3 34. Qa1+ Kd2\n35. Qb2+ Kd1 36. Bf1 Rd2 37. Rd7 Rxd7 38. Bxc4 bxc4 39. Qxh8\nRd3 40. Qa8 c3 41. Qa4+ Ke1 42. f4 f5 43. Kc1 Rd2 44. Qa7 1-0\n",
+    "title": "Kasparov's Immortal",
+    "white": "Garry Kasparov",
+    "black": "Veselin Topalov",
+    "event": "Hoogovens A Tournament",
+    "year": 1999,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "calculation"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "A rook sacrifice opens a king hunt across the whole board — perhaps the greatest game of the modern era.",
+      "fr": "Un sacrifice de tour ouvre une chasse au roi à travers tout l'échiquier — peut-être la plus grande partie de l'ère moderne."
+    }
+  },
+  {
+    "id": "hoffmann-petrov-1844",
+    "pgn": "[Event \"Warsaw m\"]\n[Site \"Warsaw\"]\n[Date \"1844.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"F Alexander Hoffmann\"]\n[Black \"Alexander Petrov\"]\n[ECO \"C53\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"40\"]\n\n1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.e5 Ne4 7.Bd5\nNxf2 8.Kxf2 dxc3+ 9.Kg3 cxb2 10.Bxb2 Ne7 11.Ng5 Nxd5 12.Nxf7\nO-O 13.Nxd8 Bf2+ 14.Kh3 d6+ 15.e6 Nf4+ 16.Kg4 Nxe6 17.Nxe6\nBxe6+ 18.Kg5 Rf5+ 19.Kg4 h5+ 20.Kh3 Rf3# 0-1\n",
+    "title": "F Alexander Hoffmann vs Alexander Petrov",
+    "white": "F Alexander Hoffmann",
+    "black": "Alexander Petrov",
+    "event": "Warsaw m",
+    "year": 1844,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "F Alexander Hoffmann vs Alexander Petrov — 1844.",
+      "fr": "F Alexander Hoffmann contre Alexander Petrov — 1844."
+    }
+  },
+  {
+    "id": "bird-morphy-1858",
+    "pgn": "[Event \"London\"]\n[Site \"London\"]\n[Date \"1858.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Henry Edward Bird\"]\n[Black \"Paul Morphy\"]\n[ECO \"C41\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"58\"]\n\n1.e4 e5 2.Nf3 d6 3.d4 f5 4.Nc3 fxe4 5.Nxe4 d5 6.Ng3 e4 7.Ne5\nNf6 8.Bg5 Bd6 9.Nh5 O-O 10.Qd2 Qe8 11.g4 Nxg4 12.Nxg4 Qxh5\n13.Ne5 Nc6 14.Be2 Qh3 15.Nxc6 bxc6 16.Be3 Rb8 17.O-O-O Rxf2\n18.Bxf2 Qa3 19.c3 Qxa2 20.b4 Qa1+ 21.Kc2 Qa4+ 22.Kb2 Bxb4\n23.cxb4 Rxb4+ 24.Qxb4 Qxb4+ 25.Kc2 e3 26.Bxe3 Bf5+ 27.Rd3 Qc4+\n28.Kd2 Qa2+ 29.Kd1 Qb1+ 0-1\n",
+    "title": "Henry Edward Bird vs Paul Morphy",
+    "white": "Henry Edward Bird",
+    "black": "Paul Morphy",
+    "event": "London",
+    "year": 1858,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Henry Edward Bird vs Paul Morphy — 1858.",
+      "fr": "Henry Edward Bird contre Paul Morphy — 1858."
+    }
+  },
+  {
+    "id": "hamppe-meitner-1872",
+    "pgn": "[Event \"Vienna\"]\n[Site \"Vienna\"]\n[Date \"1872.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1/2-1/2\"]\n[White \"Carl Hamppe\"]\n[Black \"Philipp Meitner\"]\n[ECO \"C25\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"36\"]\n\n1. e4 e5 2. Nc3 Bc5 3. Na4 Bxf2+ 4. Kxf2 Qh4+ 5. Ke3 Qf4+\n6. Kd3 d5 7. Kc3 Qxe4 8. Kb3 Na6 9. a3 Qxa4+ 10. Kxa4 Nc5+\n11. Kb4 a5+ 12. Kxc5 Ne7 13. Bb5+ Kd8 14. Bc6 b6+ 15. Kb5 Nxc6\n16. Kxc6 Bb7+ 17. Kb5 Ba6+ 18. Kc6 Bb7+ 1/2-1/2\n",
+    "title": "Carl Hamppe vs Philipp Meitner",
+    "white": "Carl Hamppe",
+    "black": "Philipp Meitner",
+    "event": "Vienna",
+    "year": 1872,
+    "result": "1/2-1/2",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Carl Hamppe vs Philipp Meitner — 1872.",
+      "fr": "Carl Hamppe contre Philipp Meitner — 1872."
+    }
+  },
+  {
+    "id": "steel-nn-1886",
+    "pgn": "[Event \"Calcutta\"]\n[Site \"Calcutta\"]\n[Date \"1886.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Robert Steel\"]\n[Black \"NN\"]\n[ECO \"C25\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"51\"]\n\n1.e4 e5 2.Nc3 Nc6 3.f4 exf4 4.d4 Qh4+ 5.Ke2 d5 6.exd5 Bg4+\n7.Nf3 O-O-O 8.dxc6 Bc5 9.cxb7+ Kb8 10.Nb5 Nf6 11.c3 Rhe8+\n12.Kd3 Bf5+ 13.Kc4 Be6+ 14.Kxc5 a5 15.Nxc7 Qh5+ 16.Ne5 Nd7+\n17.Kb5 Qxd1 18.Bxf4 Qxa1 19.Ka6 Nxe5 20.Nxe8 f6 21.dxe5 f5\n22.Be3 Rxe8 23.Bb5 Qxh1 24.Ba7+ Kc7 25.Bc5 Rd8 26.Ka7 1-0\n",
+    "title": "Robert Steel vs NN",
+    "white": "Robert Steel",
+    "black": "NN",
+    "event": "Calcutta",
+    "year": 1886,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Robert Steel vs NN — 1886.",
+      "fr": "Robert Steel contre NN — 1886."
+    }
+  },
+  {
+    "id": "reinisch-traxler-1890",
+    "pgn": "[Event \"Hostoun\"]\n[Site \"?\"]\n[Date \"1890.03.20\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"J Reinisch\"]\n[Black \"Karel Traxler\"]\n[ECO \"C57\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"34\"]\n\n1.e4 {Notes by Karel Traxler} e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 Bc5\n{An original combination that is better than it looks. A small\nmistake by white can give black a decisive attack. It is not\neasy to find the best defense against it in a practical game\nand it is probably theoretically correct. ... It somewhat\nresembles the Blackmar-Jerome gambit: 1.e4 e5 2.Nf3 Nc6 3.Bc4\nBc5 4.Bxf7+?! Kxf7 5.Nxe5+?!} 5.Nxf7 Bxf2+ 6.Ke2 {The best\ndefense is 6.Kf1! although after 6...Qe7 7.Nxh8 d5 8.exd5 Nd4\nBlack gets a strong attack.} Nd4+ 7.Kd3 b5 8.Bb3 Nxe4 9.Nxd8\n{White has no defense; the mating finale is pretty.} Nc5+\n10.Kc3 Ne2+ 11.Qxe2 Bd4+ 12.Kb4 a5+ 13.Kxb5 Ba6+ 14.Kxa5 Bd3+\n15.Kb4 Na6+ 16.Ka4 Nb4+ 17.Kxb4 c5# 0-1\n",
+    "title": "J Reinisch vs Karel Traxler",
+    "white": "J Reinisch",
+    "black": "Karel Traxler",
+    "event": "Hostoun",
+    "year": 1890,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "J Reinisch vs Karel Traxler — 1890.",
+      "fr": "J Reinisch contre Karel Traxler — 1890."
+    }
+  },
+  {
+    "id": "charousek-wollner-1893",
+    "pgn": "[Event \"Kaschau\"]\n[Site \"Kaschau\"]\n[Date \"1893.04.09\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Rudolf Rezso Charousek\"]\n[Black \"Jakob Wollner\"]\n[ECO \"C21\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"37\"]\n\n1.e4 e5 2.d4 exd4 3.c3 dxc3 4.Bc4 Nf6 5.Nf3 Bc5 6.Nxc3 d6\n7.O-O O-O 8.Ng5 h6 9.Nxf7 Rxf7 10.e5 Ng4 11.e6 Qh4 12.exf7+\nKf8 13.Bf4 Nxf2 14.Qe2 Ng4+ 15.Kh1 Bd7 16.Rae1 Nc6 17.Qe8+\nRxe8 18.fxe8=Q+ Bxe8 19.Bd6# 1-0\n",
+    "title": "Rudolf Rezso Charousek vs Jakob Wollner",
+    "white": "Rudolf Rezso Charousek",
+    "black": "Jakob Wollner",
+    "event": "Kaschau",
+    "year": 1893,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Rudolf Rezso Charousek vs Jakob Wollner — 1893.",
+      "fr": "Rudolf Rezso Charousek contre Jakob Wollner — 1893."
+    }
+  },
+  {
+    "id": "pillsbury-lasker-1896",
+    "pgn": "[Event \"St. Petersburg 1895-96\"]\n[Site \"Petersburg 1895-96\"]\n[Date \"1896.01.04\"]\n[EventDate \"1895.12.13\"]\n[Round \"10\"]\n[Result \"0-1\"]\n[White \"Harry Nelson Pillsbury\"]\n[Black \"Emanuel Lasker\"]\n[ECO \"D50\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"60\"]\n\n1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 c5 5. Bg5 cxd4 6. Qxd4 Nc6\n7. Qh4 Be7 8. O-O-O Qa5 9. e3 Bd7 10. Kb1 h6 11. cxd5 exd5\n12. Nd4 O-O 13. Bxf6 Bxf6 14. Qh5 Nxd4 15. exd4 Be6 16. f4\nRac8 17. f5 Rxc3 18. fxe6 Ra3 19. exf7+ Rxf7 20. bxa3 Qb6+\n21. Bb5 Qxb5+ 22. Ka1 Rc7 23. Rd2 Rc4 24. Rhd1 Rc3 25. Qf5 Qc4\n26. Kb2 Rxa3 27. Qe6+ Kh7 28. Kxa3 Qc3+ 29. Ka4 b5+ 30. Kxb5\nQc4+ 0-1\n",
+    "title": "Harry Nelson Pillsbury vs Emanuel Lasker",
+    "white": "Harry Nelson Pillsbury",
+    "black": "Emanuel Lasker",
+    "event": "St. Petersburg 1895-96",
+    "year": 1896,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Harry Nelson Pillsbury vs Emanuel Lasker — 1896.",
+      "fr": "Harry Nelson Pillsbury contre Emanuel Lasker — 1896."
+    }
+  },
+  {
+    "id": "maroczy-chigorin-1903",
+    "pgn": "[Event \"Vienna\"]\n[Site \"Vienna AUT\"]\n[Date \"1903.05.05\"]\n[EventDate \"1903.05.02\"]\n[Round \"3\"]\n[Result \"1-0\"]\n[White \"Geza Maroczy\"]\n[Black \"Mikhail Chigorin\"]\n[ECO \"C37\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"47\"]\n\n1. e4 e5 2. f4 exf4 3. Nf3 g5 4. Bc4 g4 5. Nc3 gxf3 6. Qxf3 d6\n7. d4 Be6 8. Nd5 c6 9. O-O cxd5 10. exd5 Bf5 11. Bxf4 Bg6\n12. Bb5+ Nd7 13. Rae1+ Be7 14. Bxd6 Kf8 15. Rxe7 Nxe7 16. Re1\nKg7 17. Bxe7 Qa5 18. Qe2 Nf8 19. Bf6+ Kg8 20. Qe5 h6 21. Bxh8\nf6 22. Qe7 Kxh8 23. Qxf6+ Kg8 24.Re7 1-0\n",
+    "title": "Geza Maroczy vs Mikhail Chigorin",
+    "white": "Geza Maroczy",
+    "black": "Mikhail Chigorin",
+    "event": "Vienna",
+    "year": 1903,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Geza Maroczy vs Mikhail Chigorin — 1903.",
+      "fr": "Geza Maroczy contre Mikhail Chigorin — 1903."
+    }
+  },
+  {
+    "id": "capablanca-arus-1912",
+    "pgn": "[Event \"Exhibition Match\"]\n[Site \"Havana\"]\n[Date \"1912.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Jose Raul Capablanca\"]\n[Black \"Jaime Baca Arus\"]\n[ECO \"D00\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"49\"]\n\n1. d4 d5 2. e3 e6 3. Bd3 c6 4. Nf3 Bd6 5. Nbd2 f5 6. c4 Qf6\n7. b3 Nh6 8. Bb2 O-O 9. Qc2 Nd7 10. h3 g6 11. O-O-O e5\n12. dxe5 Nxe5 13. cxd5 cxd5 14. Nc4 dxc4 15. Bxc4+ Nhf7\n16. Rxd6 Qxd6 17. Nxe5 Be6 18. Rd1 Qe7 19. Rd7 Bxd7 20. Nxd7\nRfc8 21. Qc3 Rxc4 22. bxc4 Nd6 23.Qh8+ Kf7 24.Ne5+ Ke6 25.Qxa8\n1-0\n",
+    "title": "Jose Raul Capablanca vs Jaime Baca Arus",
+    "white": "Jose Raul Capablanca",
+    "black": "Jaime Baca Arus",
+    "event": "Exhibition Match",
+    "year": 1912,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Jose Raul Capablanca vs Jaime Baca Arus — 1912.",
+      "fr": "Jose Raul Capablanca contre Jaime Baca Arus — 1912."
+    }
+  },
+  {
+    "id": "wagner-schoenmann-1919",
+    "pgn": "[Event \"Correspondence\"]\n[Site \"Correspondence\"]\n[Date \"1919.??.??\"]\n[EventDate \"?\"]\n[Round \"-\"]\n[Result \"1-0\"]\n[White \"Heinrich Wagner\"]\n[Black \"Wilhelm Schoenmann\"]\n[ECO \"D08\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"50\"]\n\n1. d4 { Game and comments by Italians IM Giorgio Porreca and\nAdriano Chicco - \"Il Libro completo degli scacchi\" 8a\ned. chapter XXIX: fianchetto bishop } 1... d5 2. c4 e5 3. dxe5\nd4 4. Nf3 Nc6 5. Nbd2 f6 6. e6 Bxe6 7. a3 a5 8. b3 f5 9. Bb2\nBc5 10. Qc2 Qe7 11. g3 O-O-O 12. Qd3 Nh6 13. Bg2 Ng4 14. O-O\nh5 { Here Black looks good, instead his position is almost\nlost! The clash between appareance and the rising in a few\nmoves reality makes White combo very nice. } 15. b4 { It looks\nlike a common pawn sac--it is instead the beginning of the\nend. } 15... axb4 { Black is forced to take, because if\n15...,Ba7 16.c5 and White's advantage became clear. } 16. axb4\nNxb4 { If 16...Bxb4 then d4 pawn is lost } 17. Qb3 Nc6 { White\nwas threatening at least 18. Ra8+ (or 18. h3!) with revenge on\nd4 pawn. } 18. Qb5 Bb6 19. Bxd4 { !! This sac depends by\nprevious one and allows the following, on move 21 } 19... Bxd4\n20. Nxd4 Rxd4 21. Qxb7+ { !! This sac is wonderfully possible,\nthanks to the strategic placement of Bg2. } 21... Kxb7\n22. Rfb1+ Kc8 23. Bxc6 Qa3 { To escape from mating net, in\nfact 23...,Kd8; 24. Rb8+,Bc8 and Rxc8+ } 24. Rb8+ { !! White\nfinds the most elegant way to end this genial match, little\nknown but that fully deserve to be considered a chess\nmasterpiece. } 24... Kxb8 25. Rxa3 {and Black resigned.} 1-0\n",
+    "title": "Heinrich Wagner vs Wilhelm Schoenmann",
+    "white": "Heinrich Wagner",
+    "black": "Wilhelm Schoenmann",
+    "event": "Correspondence",
+    "year": 1919,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Heinrich Wagner vs Wilhelm Schoenmann — 1919.",
+      "fr": "Heinrich Wagner contre Wilhelm Schoenmann — 1919."
+    }
+  },
+  {
+    "id": "adams-repetto-1920",
+    "pgn": "[Event \"New Orleans, USA\"]\n[Site \"New Orleans, USA\"]\n[Date \"1920.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Edwin Ziegler Adams\"]\n[Black \"Carlos Torre Repetto\"]\n[ECO \"C41\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"45\"]\n\n1. e4 e5 2. Nf3 d6 3. d4 exd4 4. Qxd4 Nc6 5. Bb5 Bd7 6. Bxc6\nBxc6 7. Nc3 Nf6 8. O-O Be7 9. Nd5 Bxd5 10. exd5 O-O 11. Bg5 c6\n12. c4 cxd5 13. cxd5 Re8 14. Rfe1 a5 15. Re2 Rc8 16. Rae1 Qd7\n17. Bxf6 Bxf6 18. Qg4 Qb5 19. Qc4 Qd7 20. Qc7 Qb5 21. a4 Qxa4\n22. Re4 Qb5 23. Qxb7 1-0\n",
+    "title": "Edwin Ziegler Adams vs Carlos Torre Repetto",
+    "white": "Edwin Ziegler Adams",
+    "black": "Carlos Torre Repetto",
+    "event": "New Orleans, USA",
+    "year": 1920,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Edwin Ziegler Adams vs Carlos Torre Repetto — 1920.",
+      "fr": "Edwin Ziegler Adams contre Carlos Torre Repetto — 1920."
+    }
+  },
+  {
+    "id": "alekhine-reti-1922",
+    "pgn": "[Event \"Vienna\"]\n[Site \"Vienna AUT\"]\n[Date \"1922.11.13\"]\n[EventDate \"1922.11.13\"]\n[Round \"1\"]\n[Result \"1/2-1/2\"]\n[White \"Alexander Alekhine\"]\n[Black \"Richard Reti\"]\n[ECO \"C77\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"118\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. Nc3 b5 6. Bb3 Bc5\n7. Nxe5 $1 Nxe5 8. d4 Bd6 9. dxe5 Bxe5 10. f4 $1 Bxc3+\n11. bxc3 O-O 12. e5 c5 $1 13. Ba3 $3 Qa5 14. O-O Qxa3 15. exf6\nc4 16. Qd5 Qa5 17. fxg7 Qb6+ 18. Kh1 Kxg7 19. Bxc4 $1 Bb7\n(19... bxc4 20. Qxa8 Bb7 21. Rab1 Qxb1 22. Qxf8+ Kxf8\n23. Rxb1) 20. Qe5+ Qf6 21. Bd3 Rfe8 $1 22. Qh5 h6 23. Qg4+ Kh8\n24. Qxd7 Re7 25. Qd4 Qxd4 26. cxd4 Rd8 $1 27. f5 $1 f6 $1\n28. Rae1 ( 28. Rf4 Rg7 29. Bf1 Rc8 $1 30. Rf2 Rc3) 28... Rg7\n29. Be4 Rxd4 30. Bxb7 Rxb7 31. Re6 Kg7 32. Rxa6 Rc4 33. Rf3\nRxc2 34. h3 Kf7 35. Rg3 Rf2 36. Rg6 Rxf5 37. Rxh6 Kg7 38. Rh4\nb4 39. Rg4+ Kf7 40. Rg3 Rfb5 41. Rb3 Kg6 42. Kh2 Rc5 43. Ra4\nRcb5 44. h4 R5b6 45. Kh3 Rb8 46. g3 f5 47. Ra5 Rc8 48. Rf3 Rf6\n49. Kg2 Rc3 50. Ra8 Rxf3 51. Kxf3 Rc6 52. Rb8 Rc4 53. Rb6+ Kg7\n54. h5 Rd4 55. Rc6 $1 Re4 56. Rg6+ Kf7 57. g4 Rxg4 $1 58. Rxg4\nfxg4+ 59. Kxg4 Kg7 1/2-1/2\n",
+    "title": "Alexander Alekhine vs Richard Reti",
+    "white": "Alexander Alekhine",
+    "black": "Richard Reti",
+    "event": "Vienna",
+    "year": 1922,
+    "result": "1/2-1/2",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Alexander Alekhine vs Richard Reti — 1922.",
+      "fr": "Alexander Alekhine contre Richard Reti — 1922."
+    }
+  },
+  {
+    "id": "bogoljubov-alekhine-1922",
+    "pgn": "[Event \"Hastings\"]\n[Site \"Hastings ENG\"]\n[Date \"1922.09.21\"]\n[EventDate \"1922.09.10\"]\n[Round \"10\"]\n[Result \"0-1\"]\n[White \"Efim Bogoljubov\"]\n[Black \"Alexander Alekhine\"]\n[ECO \"A90\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"106\"]\n\n1. d4 f5 2. c4 Nf6 3. g3 e6 4. Bg2 Bb4+ 5. Bd2 Bxd2+ 6. Nxd2\nNc6 7. Ngf3 O-O 8. O-O d6 9. Qb3 Kh8 10. Qc3 e5 11. e3 a5\n12. b3 Qe8 13. a3 Qh5 14. h4 Ng4 15. Ng5 Bd7 16. f3 Nf6 17. f4\ne4 18. Rfd1 h6 19. Nh3 d5 20. Nf1 Ne7 21. a4 Nc6 22. Rd2 Nb4\n23. Bh1 Qe8 24. Rg2 dxc4 25. bxc4 Bxa4 26. Nf2 Bd7 27. Nd2 b5\n28. Nd1 Nd3 29. Rxa5 b4 30. Rxa8 bxc3 31. Rxe8 c2 32. Rxf8+\nKh7 33. Nf2 c1=Q+ 34. Nf1 Ne1 35. Rh2 Qxc4 36. Rb8 Bb5\n37. Rxb5 Qxb5 38. g4 Nf3+ 39. Bxf3 exf3 40. gxf5 Qe2 41. d5\nKg8 42. h5 Kh7 43. e4 Nxe4 44. Nxe4 Qxe4 45. d6 cxd6 46. f6\ngxf6 47. Rd2 Qe2 48. Rxe2 fxe2 49. Kf2 exf1=Q+ 50. Kxf1 Kg7\n51. Ke2 Kf7 52. Ke3 Ke6 53. Ke4 d5+ 0-1\n",
+    "title": "Efim Bogoljubov vs Alexander Alekhine",
+    "white": "Efim Bogoljubov",
+    "black": "Alexander Alekhine",
+    "event": "Hastings",
+    "year": 1922,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Efim Bogoljubov vs Alexander Alekhine — 1922.",
+      "fr": "Efim Bogoljubov contre Alexander Alekhine — 1922."
+    }
+  },
+  {
+    "id": "saemisch-nimzowitsch-1923",
+    "pgn": "[Event \"Copenhagen\"]\n[Site \"Copenhagen, DEN\"]\n[Date \"1923.03.09\"]\n[EventDate \"1923.03.03\"]\n[Round \"6\"]\n[Result \"0-1\"]\n[White \"Friedrich Saemisch\"]\n[Black \"Aron Nimzowitsch\"]\n[ECO \"E18\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"50\"]\n\n1. d4 {Notes by Nimzowitsch's \"My System\"} Nf6 2. c4 e6 3. Nf3\nb6 4. g3 Bb7 5. Bg2 Be7 6. Nc3 O-O 7. O-O d5 8. Ne5 c6\n{Safeguards the position} 9. cxd5 cxd5 10. Bf4 a6 {Protects\nthe oupost station c4, i.e., by ...a6 and ...b5.} 11. Rc1 b5\n12. Qb3 Nc6 {The ghost! With noiseless steps he presses on\ntowards c4.} 13. Nxc6 {Samisch sacrifices two tempi (exchange\nof the tempo-eating Knight on e5 for the Knight which is\nalmost undeveloped) merely to be rid of the ghost.} Bxc6\n14. h3 Qd7 15. Kh2 Nh5 {I could have supplied him with as yet\na second ghost by ...Qb7 and ...Knight-d7-b6-c4, but I wished\nto turn my attention to the King's side.} 16. Bd2 f5 {!}\n17. Qd1 b4 {!} 18. Nb1 Bb5 19. Rg1 Bd6 20. e4 fxe4 {! This\nsacrifice, which has a quite surprising affect, is based upon\nthe following sober calculation: two Pawns and the 7th rank\nand an enemy Queen's wing which cannot be disentangled - all\nthis for only one piece!} 21. Qxh5 Rxf2 22. Qg5 Raf8 23. Kh1\nR8f5 24. Qe3 Bd3 25. Rce1 h6 {!! A brilliant move which\nannounces the Zugzwang. White has not a move left. If, e.g.,\nKh2 or g4, then R5f3. Black can now make waiting moves with\nhis King, and White must, willy-nilly, eventually throw\nhimself upon the sword.} 0-1\n",
+    "title": "Friedrich Saemisch vs Aron Nimzowitsch",
+    "white": "Friedrich Saemisch",
+    "black": "Aron Nimzowitsch",
+    "event": "Copenhagen",
+    "year": 1923,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Friedrich Saemisch vs Aron Nimzowitsch — 1923.",
+      "fr": "Friedrich Saemisch contre Aron Nimzowitsch — 1923."
+    }
+  },
+  {
+    "id": "reti-alekhine-1925",
+    "pgn": "[Event \"Baden Baden\"]\n[Site \"Baden Baden DEU\"]\n[Date \"1925.04.25\"]\n[EventDate \"1925.04.16\"]\n[Round \"8\"]\n[Result \"0-1\"]\n[White \"Richard Reti\"]\n[Black \"Alexander Alekhine\"]\n[ECO \"A00\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"80\"]\n\n1. g3 e5 2. Nf3 e4 3. Nd4 d5 4. d3 exd3 5. Qxd3 Nf6 6. Bg2\nBb4+ 7. Bd2 Bxd2+ 8. Nxd2 O-O 9. c4 Na6 10. cxd5 Nb4 11. Qc4\nNbxd5 12. N2b3 c6 13. O-O Re8 14. Rfd1 Bg4 15. Rd2 Qc8 16. Nc5\nBh3 17. Bf3 Bg4 18. Bg2 Bh3 19. Bf3 Bg4 20. Bh1 h5 21. b4 a6\n22. Rc1 h4 23. a4 hxg3 24. hxg3 Qc7 25. b5 axb5 26. axb5 Re3\n27. Nf3 cxb5 28. Qxb5 Nc3 29. Qxb7 Qxb7 30. Nxb7 Nxe2+ 31. Kh2\nNe4 32. Rc4 Nxf2 33. Bg2 Be6 34. Rcc2 Ng4+ 35. Kh3 Ne5+\n36. Kh2 Rxf3 37. Rxe2 Ng4+ 38. Kh3 Ne3+ 39. Kh2 Nxc2 40. Bxf3\nNd4 0-1\n",
+    "title": "Richard Reti vs Alexander Alekhine",
+    "white": "Richard Reti",
+    "black": "Alexander Alekhine",
+    "event": "Baden Baden",
+    "year": 1925,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Richard Reti vs Alexander Alekhine — 1925.",
+      "fr": "Richard Reti contre Alexander Alekhine — 1925."
+    }
+  },
+  {
+    "id": "nimzowitsch-systemsson-1927",
+    "pgn": "[Event \"Composition\"]\n[Site \"Copenhagen\"]\n[Date \"1927.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Aron Nimzowitsch\"]\n[Black \"Systemsson\"]\n[ECO \"C00\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"48\"]\n\n1.e4 {AN INGENIOUS EXAMPLE OF MY SYSTEM by Aaron Nimzowitsch -\nAnderssen started the sacrificial style, Morphy and Gruenfeld\nthe pure attacking style, Steinitz the positional style,\nTarrasch the scientific style, Lasker the style of styles,\nCapablanca the mechanical style, Alekhine a style as brilliant\nas sunlight. But it is a generally known fact that originality\nand modernism were introduced by me as my own personal\ninventions and enthusiastically imitated (without being fully\nunderstood) by the whole world of chess. For the ridiculously\nsmall sum of ten marks, the reader can confirm all this in my\nmonumental work, My System, published by B. Kagan. Before my\ntime, chess was so naive and undistinguished! One or two\nbrutal opening moves, each one involving a vulgar, obvious\nthreat, a common, banal sacrifice, a painfully elementary,\nbestially raw checkmate - such, more or less, was the course\nof chess games before my heyday set in. Then I appeared on the\nscene and the chess world paid heed. The hegemony of matter\nwas shattered at a stroke and the era of the spiritual\nbegan. Under my creative guidance, the chessmen, hitherto\nnothing but highwaymen, pirates and butcher boys, became\nsensitive artists and subtle instruments of immeasurable\nprofundity. But why waste words!--accompany me, dear reader to\nthe dizzy heights of the following game.} e6 2.h4 $1 {My very\noldest and latest thought in this opening. To the chess addict\nnurtured on spineless convention, this move comes like a slap\nin the face--but calm down, dear reader; after all, you cannot\nbe expected to understand such moves. (Forgive me - it is not\nyour fault, until now no one has opened your eyes and ears.)\nWait just a little while, and there will pass before you a\nmiracle of overprotection of more than earthly beauty. (I\nassume that I rightly surmise that you are quite familiar with\nmy great theory of overprotection.)} 2...d5 { Black of course\nhas no suspicion of What is coming and continues serenely in\nclassical style. } 3.e5 $1 {A move of elemental delicacy. (We\ndetest, as a matter of principle, such words as \"power\" and\n\"strength\"; in the first place, such banal expressions make us\nuncomfortable; and, in the second place, we like even less the\nbrutalizing tendency which such words imply.) Wherein lies the\nbeauty of 3.e5? Why is this move so strong? The answer is as\nsimple as it is astonishing. The move is strong because it is\nweak! Weak, that is, only in the traditional sense! In\nreality, that is to say, it is not the move but the Pawn on e5\nthat is weak--a tremendous difference! In former times, it is\ntrue, it was customary to reject any move which created a\nweakness. Today, thanks to me, this view is obsolete. For,\nlook, my dear reader, the fact that the Pawn on e5 is weak\nobliges White to protect the Pawn more and more until at last\nthe state of overprotection arises as it were of itself. But,\nas we have seen (cf. My System), overprotection is practically\nequivalent to victory. Hence it follows automatically that the\n\"weak\" move, 3.e5, is a certain road to triumph. The rest is\nmore or less a matter of technique. } 3...c5 { All according\nto a famous precedent.} 4.d4 {Here it is quite clear that it\nis more profitable for White first to provoke c5 and then play\nd4, rather than the other way round, which is the customary\ncourse. For, if White first plays d4, there follows c5 and\nWhite's d-pawn is under attack. But my clever transposition of\nmoves changes the situation completely. For now Black's c-pawn\nis suddenly attacked by White's d-pawn!} 4...cxd4 {What else\ncan Black do?} 5.h5 $1 {All very clever, original and\ndecisive! Of course the ordinary run of people who envy my\nevery spark of genius but cannot follow my line of reasoning\nfor even three paces, outdo themselves in sneering at me with\nthe poison-dripping epithet, \"bizarre.\" The text move creates\nconfusion in the whole Black army and prepares for the\nannihilating invasion by the Queen 18 moves later.} 5...Qb6\n{Naturally not 5...Nc6 6 Bb5! etc. Why should Black play the\nFrench Defence only to allow the Ruy Lopez Bishop move after\nall?!} 6.h6 $1 {An avaricious dullard would never hit on this\ndeeply conceived Pawn sacrifice.} 6...Nxh6 {After 6...gxh6,\nWhite has an even more comfortable game.} 7.Qh5 $1 {The reason\nfor this becomes clear after next move.} 7...g6 {Black\nthreatens to begin a successful siege of the weakling at e5\nwith Bg7. But White forestalls this.} 8.Qh2 $1 {To every\nfair-minded observer, this move must come as a revelation! All\nthe previous manoeuvres now become clear! White has completed\nhis development brilliantly and proceeds to overprotect\ne5. Against this, Black is helpless.} 8...Nf5 9.Bd3 {Note the\nsplendid cooperation of White's forces: while the e-pawn and\nthe King Bishop completely blockade Black's position, the\ndevelopment of the overprotective forces takes place behind\nthe broad backs of these sturdy blockaders.} 9...Nc6 10.Nf3\n{As a rule this is a routine move. But here it is strikingly\noriginal and as such occupies a place in the treasury of my\nintellectual property.} 10...h5 {Old stuff!} 11.b3 {A deep\ntrap, as will soon become apparent!} 11...Bg7 {How Black must\nhave rejoiced when he anticipated his formidable opponent in\nthe occupation of the long diagonal. But...} 12.Bf4 $1 {...how\nbitterly disappointed he must have been to realize that 11.b3\nhad only been a trap and Bb2 had not been intended at all. The\nposition of Black's Bishop at g7 is now quite\npointless. 11...Be7 would have been relatively better.}\n12...Bd7 13.Nbd2 Rc8 {Black no longer has any good moves!}\n14.Ke2 $1 {Again, an extraordinarily deep move. White sees\nthrough Black's plans, and in addition he prepares a\nparticularly powerful continuation of his strategy of\noverprotection.} 14...Nb4 {Just what White was waiting for.}\n15.Ne1 $1 {This was the point of his previous move! Black is\nnow forced to exchange off the attacking Bishop at d3. But,\nwith that, even White's King Knight enters the fray with\nfearful effect at d3, while the square f3 becomes available to\nthe Queen Knight. Surely a grandiose piece of strategy. The\nfact is that I'm a marvellous player, even if the whole chess\nworld bursts with envy.} 15...Nxd3 16.Nxd3 $1 {Naturally not\n16 cxd3? which would have been quite inconsistent. The Pawn on\nc2 is unimportant, and Black only wastes precious time by\ncapturing it.} 16...Rxc2 17.Rae1 $1 {White continues his\noverprotection without much ado.} 17...a5 {This counterattack\nhas no punch. Black would naturally like to get a passed Pawn\nplus a Rook on the seventh, but it is too late for that.}\n18.Kd1 $1 {Now the menaced Rook must scurry back, for capture\non a2 would be much too dangerous.} 18...Rc6 $1 {At last,\nBlack gets the right idea: overprotecting his Pawn at e6. But\nit is already too late.} 19.Re2 Ke7 {Introduced into\ntournament play by myself. See note to White's 14th move. The\nKing overprotects e6.} 20.Rhe1 Re8 $1 21.Nf3 $1 {Completing\nthe overprotection of e5 and thus deciding the fate of the\ngame. Black has no defence. Note the aesthetic effect created\nby White's position.} 21...Bf8 {Now Black threatens to\ncomplete the overprotection of e6 by playing Ng7. But White\nhas prepared a brilliant combination.} 22.g4 $1 {Much stronger\nthan the obvious Bg5+ etc.} 22...hxg4 23.Qh7 $1 {Now one\nclearly realizes the masterly understanding of position which\nwent into White's eighth move (Qh2!).} 23...gxf3 {Had Black\ncontinued overprotecting by 23...Ng7 there would have followed\n24.Bg5+ f6 25.Bxf6+ Kf7 26.Ng5 mate. Black's basic error was\nthat he started overprotecting much too late.} 24.Bg5# {One of\nmy best games! I am proud of it if only because Herr\nSystemsson is one of the strongest Scandinavian players. The\ngame made an overwhelming impression on the players and\nspectators as well as on my opponent. The game has become\nfamous in Denmark as \"the immortal overprotection game.\"} 1-0\n",
+    "title": "Aron Nimzowitsch vs Systemsson",
+    "white": "Aron Nimzowitsch",
+    "black": "Systemsson",
+    "event": "Composition",
+    "year": 1927,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Aron Nimzowitsch vs Systemsson — 1927.",
+      "fr": "Aron Nimzowitsch contre Systemsson — 1927."
+    }
+  },
+  {
+    "id": "khan-capablanca-1930",
+    "pgn": "[Event \"Hastings 1930/31\"]\n[Site \"Hastings ENG\"]\n[Date \"1930.12.31\"]\n[EventDate \"1930.12.29\"]\n[Round \"3\"]\n[Result \"1-0\"]\n[White \"Mir Sultan Khan\"]\n[Black \"Jose Raul Capablanca\"]\n[ECO \"E12\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"129\"]\n\n1.Nf3 Nf6 2.d4 b6 3.c4 Bb7 4.Nc3 e6 5.a3 d5 6.cxd5 exd5 7.Bg5\nBe7 8.e3 O-O 9.Bd3 Ne4 10.Bf4 Nd7 11.Qc2 f5 12.Nb5 Bd6 13.Nxd6\ncxd6 14.h4 Rc8 15.Qb3 Qe7 16.Nd2 Ndf6 17.Nxe4 fxe4 18.Be2 Rc6\n19.g4 Rfc8 20.g5 Ne8 21.Bg4 Rc1+ 22.Kd2 R8c2+ 23.Qxc2 Rxc2+\n24.Kxc2 Qc7+ 25.Kd2 Qc4 26.Be2 Qb3 27.Rab1 Kf7 28.Rhc1 Ke7\n29.Rc3 Qa4 30.b4 Qd7 31.Rbc1 a6 32.Rg1 Qa4 33.Rgc1 Qd7 34.h5\nKd8 35.R1c2 Qh3 36.Kc1 Qh4 37.Kb2 Qh3 38.Rc1 Qh4 39.R3c2 Qh3\n40.a4 Qh4 41.Ka3 Qh3 42.Bg3 Qf5 43.Bh4 g6 44.h6 Qd7 45.b5 a5\n46.Bg3 Qf5 47.Bf4 Qh3 48.Kb2 Qg2 49.Kb1 Qh3 50.Ka1 Qg2 51.Kb2\nQh3 52.Rg1 Bc8 53.Rc6 Qh4 54.Rgc1 Bg4 55.Bf1 Qh5 56.Re1 Qh1\n57.Rec1 Qh5 58.Kc3 Qh4 59.Bg3 Qxg5 60.Kd2 Qh5 61.Rxb6 Ke7\n62.Rb7+ Ke6 63.b6 Nf6 64.Bb5 Qh3 65.Rb8 1-0\n",
+    "title": "Mir Sultan Khan vs Jose Raul Capablanca",
+    "white": "Mir Sultan Khan",
+    "black": "Jose Raul Capablanca",
+    "event": "Hastings 1930/31",
+    "year": 1930,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Mir Sultan Khan vs Jose Raul Capablanca — 1930.",
+      "fr": "Mir Sultan Khan contre Jose Raul Capablanca — 1930."
+    }
+  },
+  {
+    "id": "korchmar-poliak-1931",
+    "pgn": "[Event \"Ukraine\"]\n[Site \"Ukraine\"]\n[Date \"1931.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Efim Korchmar\"]\n[Black \"Abram Borisovich Poliak\"]\n[ECO \"C62\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"45\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 d6 4. d4 Bd7 5. Nc3 Nf6 6. O-O Nxd4\n7. Bxd7+ Qxd7 8. Nxd4 exd4 9. Qxd4 Be7 10. Rd1 O-O 11. e5 Ne8\n12. Bf4 a5 13. Rd3 Ra6 14. Re1 Qf5 15. Nd5 Bd8 16. exd6 Nxd6\n17. Rg3 f6 18. Bh6 Rf7 19. Nb4 axb4 20. Qxd6 Qd7 21. Qd5 Kf8\n22. Rxg7 Qxd5 23. Rg8+ 1-0\n",
+    "title": "Efim Korchmar vs Abram Borisovich Poliak",
+    "white": "Efim Korchmar",
+    "black": "Abram Borisovich Poliak",
+    "event": "Ukraine",
+    "year": 1931,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Efim Korchmar vs Abram Borisovich Poliak — 1931.",
+      "fr": "Efim Korchmar contre Abram Borisovich Poliak — 1931."
+    }
+  },
+  {
+    "id": "ronde-kamstra-1938",
+    "pgn": "[Event \"Amsterdam Dutch Ch Prelim.\"]\n[Site \"?\"]\n[Date \"1938.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Chris De Ronde\"]\n[Black \"Hendrik Hermanus Kamstra\"]\n[ECO \"E80\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"99\"]\n\n1. c4 Nf6 2. Nc3 g6 3. e4 d6 4. d4 Bg7 5. f3 Nbd7 6. Be3 e5\n7. d5 a5 8. Qd2 b6 9. g4 Nc5 10. Nge2 h5 11. g5 Nfd7 12. Qc2\nNb8 13. O-O-O Nba6 14. a3 Bd7 15. Kb1 O-O 16. Nc1 Qe7 17. Be2\nRfe8 18. Rdg1 Qd8 19. h3 Qc8 20. Bf1 Re7 21. Rh2 Qb7 22. Bd3\nNxd3 23. Nxd3 Nc5 24. a4 Qc8 25. Nf2 Na6 26. Qd1 Nb4 27. Nb5\nQb7 28. Bd2 Na6 29. Qe1 Nc5 30. Be3 Nxa4 31. Ng4 hxg4 32. hxg4\nRee8 33. Qh4 Kf8 34. Qh7 Nc5 35. Nd4 exd4 36. Qxg7+ Kxg7\n37. Bxd4+ Re5 38. f4 Nxe4 39. fxe5 Nxg5 40. e6+ f6 41. Rf1 Rf8\n42. exd7 Qb8 43. Rxf6 Rxf6 44. Rf2 Ne4 45. Rxf6 Qd8 46. g5\nNxg5 47. Rxd6+ Kf8 48. Bf6 cxd6 49. Bxd8 Nf7 50. Bf6 1-0\n",
+    "title": "Chris De Ronde vs Hendrik Hermanus Kamstra",
+    "white": "Chris De Ronde",
+    "black": "Hendrik Hermanus Kamstra",
+    "event": "Amsterdam Dutch Ch Prelim.",
+    "year": 1938,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Chris De Ronde vs Hendrik Hermanus Kamstra — 1938.",
+      "fr": "Chris De Ronde contre Hendrik Hermanus Kamstra — 1938."
+    }
+  },
+  {
+    "id": "sliwa-bronstein-1957",
+    "pgn": "[Event \"Gotha\"]\n[Site \"It\"]\n[Date \"1957.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Bogdan Sliwa\"]\n[Black \"David Bronstein\"]\n[ECO \"A81\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"57\"]\n\n1. d4 f5 2. g3 g6 3. Bg2 Bg7 4. Nc3 Nf6 5. Bg5 Nc6 6. Qd2 d6\n7. h4 e6 8. O-O-O h6 9. Bf4 Bd7 10. e4 fxe4 11. Nxe4 Nd5\n12. Ne2 Qe7 13. c4 Nb6 14. c5 dxc5 15. Bxc7 O-O 16. Bd6 Qf7\n17. Bxf8 Rxf8 18. dxc5 Nd5 19. f4 Rd8 20. N2c3 Ndb4 21. Nd6\nQf8 22. Nxb7 Nd4 23. Nxd8 Bb5 24. Nxe6 Bd3 25. Bd5 Qf5\n26. Nxd4+ Qxd5 27. Nc2 Bxc3 28. bxc3 Qxa2 29. cxb4 1-0\n",
+    "title": "Bogdan Sliwa vs David Bronstein",
+    "white": "Bogdan Sliwa",
+    "black": "David Bronstein",
+    "event": "Gotha",
+    "year": 1957,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Bogdan Sliwa vs David Bronstein — 1957.",
+      "fr": "Bogdan Sliwa contre David Bronstein — 1957."
+    }
+  },
+  {
+    "id": "polugaevsky-nezhmetdinov-1958",
+    "pgn": "[Event \"Sochi 28th RSFSR ch\"]\n[Site \"Sochi 28th RSFSR ch\"]\n[Date \"1958.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Lev Polugaevsky\"]\n[Black \"Nezhmetdinov\"]\n[ECO \"A54\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"66\"]\n\n1. d4 Nf6 2. c4 d6 3. Nc3 e5 4. e4 exd4 5. Qxd4 Nc6 6. Qd2 g6\n7. b3 Bg7 8. Bb2 O-O 9. Bd3 Ng4 10. Nge2 Qh4 11. Ng3 Nge5\n12. O-O f5 13. f3 Bh6 14. Qd1 f4 15. Nge2 g5 16. Nd5 g4 17. g3\nfxg3 18. hxg3 Qh3 19. f4 Be6 20. Bc2 Rf7 21. Kf2 Qh2+ 22. Ke3\nBxd5 23. cxd5 Nb4 24. Rh1 Rxf4 25. Rxh2 Rf3+ 26. Kd4 Bg7\n27. a4 c5+ 28. dxc6 bxc6 29. Bd3 Nexd3+ 30. Kc4 d5+ 31. exd5\ncxd5+ 32. Kb5 Rb8+ 33. Ka5 Nc6+ 0-1\n",
+    "title": "Lev Polugaevsky vs Nezhmetdinov",
+    "white": "Lev Polugaevsky",
+    "black": "Nezhmetdinov",
+    "event": "Sochi 28th RSFSR ch",
+    "year": 1958,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Lev Polugaevsky vs Nezhmetdinov — 1958.",
+      "fr": "Lev Polugaevsky contre Nezhmetdinov — 1958."
+    }
+  },
+  {
+    "id": "spassky-bronstein-1960",
+    "pgn": "[Event \"USSR Championship\"]\n[Site \"Leningrad (RUS)\"]\n[Date \"1960.02.20\"]\n[EventDate \"1960.??.??\"]\n[Round \"16\"]\n[Result \"1-0\"]\n[White \"Boris Spassky\"]\n[Black \"David Bronstein\"]\n[ECO \"C36\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"45\"]\n\n1. e4 e5 2. f4 exf4 3. Nf3 d5 4. exd5 Bd6 5. Nc3 Ne7 6. d4 O-O\n7. Bd3 Nd7 8. O-O h6 9. Ne4 Nxd5 10. c4 Ne3 11. Bxe3 fxe3\n12. c5 Be7 13. Bc2 Re8 14. Qd3 e2 15. Nd6 {One of the deepest\nsacrifices this side of The Evergreen Game -- Soltis} Nf8\n16. Nxf7 exf1=Q+ 17. Rxf1 Bf5 18. Qxf5 Qd7 19. Qf4 Bf6\n20. N3e5 Qe7 21. Bb3 Bxe5 22. Nxe5+ Kh7 23. Qe4+ 1-0\n",
+    "title": "Boris Spassky vs David Bronstein",
+    "white": "Boris Spassky",
+    "black": "David Bronstein",
+    "event": "USSR Championship",
+    "year": 1960,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Boris Spassky vs David Bronstein — 1960.",
+      "fr": "Boris Spassky contre David Bronstein — 1960."
+    }
+  },
+  {
+    "id": "nn-bronstein-1961",
+    "pgn": "[Event \"Dream Game (composition)\"]\n[Site \"?\"]\n[Date \"1961.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"NN\"]\n[Black \"David Bronstein\"]\n[ECO \"E30\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"38\"]\n\n1. d4 {Bronstein reputedly played this game in his dream and\nwrote it down after waking up.} Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5\nh6 5. Bh4 Qe7 6. Nf3 d6 7. Qa4+ Nc6 8. d5 exd5 9. cxd5 Qe4\n10. Nd2 Qxh4 11. dxc6 O-O 12. a3 Ng4 13. g3 Qf6 14. axb4 Qxf2+\n15. Kd1 b5 16. Qb3 Be6 17. Qa3 Ne3+ 18. Kc1 Qe1+ 19. Nd1 Qxd1#\n0-1\n",
+    "title": "NN vs David Bronstein",
+    "white": "NN",
+    "black": "David Bronstein",
+    "event": "Dream Game (composition)",
+    "year": 1961,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "NN vs David Bronstein — 1961.",
+      "fr": "NN contre David Bronstein — 1961."
+    }
+  },
+  {
+    "id": "nezhmetdinov-chernikov-1962",
+    "pgn": "[Event \"Rostov\"]\n[Site \"Rostov\"]\n[Date \"1962.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Nezhmetdinov\"]\n[Black \"Oleg L Chernikov\"]\n[ECO \"B35\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"65\"]\n\n1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. Nc3 Bg7 6. Be3\nNf6 7. Bc4 O-O 8. Bb3 Ng4 9. Qxg4 Nxd4 10. Qh4 Qa5 11. O-O Bf6\n12. Qxf6 Ne2+ 13. Nxe2 exf6 14. Nc3 Re8 15. Nd5 Re6 16. Bd4\nKg7 17. Rad1 d6 18. Rd3 Bd7 19. Rf3 Bb5 20. Bc3 Qd8 21. Nxf6\nBe2 22. Nxh7+ Kg8 23. Rh3 Re5 24. f4 Bxf1 25. Kxf1 Rc8 26. Bd4\nb5 27. Ng5 Rc7 28. Bxf7+ Rxf7 29. Rh8+ Kxh8 30. Nxf7+ Kh7\n31. Nxd8 Rxe4 32. Nc6 Rxf4+ 33. Ke2 1-0\n",
+    "title": "Nezhmetdinov vs Oleg L Chernikov",
+    "white": "Nezhmetdinov",
+    "black": "Oleg L Chernikov",
+    "event": "Rostov",
+    "year": 1962,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Nezhmetdinov vs Oleg L Chernikov — 1962.",
+      "fr": "Nezhmetdinov contre Oleg L Chernikov — 1962."
+    }
+  },
+  {
+    "id": "byrne-fischer-1963",
+    "pgn": "[Event \"US Championship 1963/64\"]\n[Site \"New York City, NY USA\"]\n[Date \"1963.12.18\"]\n[EventDate \"1963.??.??\"]\n[Round \"3\"]\n[Result \"0-1\"]\n[White \"Robert Eugene Byrne\"]\n[Black \"Robert James Fischer\"]\n[ECO \"E60\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"42\"]\n\n1. d4 {Notes from various sources.} Nf6 2. c4 g6 3. g3 c6\n4. Bg2 d5 5. cxd5 {5.Qb3 maintains more tension. -- Fischer}\ncxd5 6. Nc3 Bg7 7. e3 O-O 8. Nge2 Nc6 9. O-O b6 10. b3 {It's\nhard for either side to introduce an imbalance into this\nessentially symmetrical variation. Deadeye equality also\nensues afer 10.Nf4 e6 11.b3 Ba6 12.Re1 Rc8 13.Ba3 Re8 14.Rc1\n(Stahlberg-Flohr, Kemeri 1937) -- Fischer} Ba6 11. Ba3 {After\nWhite's 11th move I should adjudicate his position as slightly\nsuperior, and at worst completely safe. To turn this into a\nmating position in eleven more moves is more witchcraft than\nchess! Quite honestly, I do not see the man who can stop Bobby\nat this time. -- K.F. Kirby, South African Chess Quarterly}\nRe8 12. Qd2 e5 {! I was a bit worried about weakening my QP,\nbut felt that the tremendous activity obtained by my minor\npieces would permit White no time to exploit it. 12...e6 would\nprobably lead to a draw. -- Fischer} 13. dxe5 Nxe5 14. Rfd1\n{\"Add another to those melancholy case histories entitled: The\nWrong Rook.\" -- Fischer ~ \"This is very much a case of 'the\nwrong rook'. One can understand Byrne's desire to break the\npin on the e2-knight, but this turns out to be less important\nthan other considerations. Fischer spends a lot of time and\nenergy analysing the superior 14. Rad1!, but still comes to\nthe conclusion that Black can keep the advantage.\" -- John\nNunn} Nd3 {Now it's all systems go for the Fischer rocket. --\nRobert Wade} 15. Qc2 {There is hardly any other defense to the\nthreat of ...Ne4. -- Fischer} Nxf2 {! The key to Black's\nprevious play. The complete justification for this sac does\nnot become apparent until White resigns! -- Fischer} 16. Kxf2\nNg4+ 17. Kg1 Nxe3 18. Qd2 {Byrne: As I sat pondering why\nFischer would choose such a line, because it was so obviously\nlost for Black, there suddenly comes...} Nxg2 {!! This\ndazzling move came as the shocker... the culminating\ncombination is of such depth that, even at the very moment at\nwhich I resigned, both grandmasters who were commenting on the\nplay for the spectators in a separate room believed I had a\nwon game! -- Robert Byrne} 19. Kxg2 d4 {!} 20. Nxd4 Bb7+ {The\nKing is at Black's mercy. -- Fischer} 21. Kf1 {In a room set\naside for commentaries on the games in progress, two\ngrandmasters were stating, for the benefit of the spectators,\nthat Byrne had a won game. Byrne's reply to Fischer's next\nmove must have been jaw dropping! -- Wade} Qd7 {And White\nresigns. Fischer writes: \"A bitter disappointment. I'd hoped\nfor 22.Qf2 Qh3+ 23.Kg1 Re1+!! 24.Rxe1 Bxd4 with mate to follow\nshortly.\"} 0-1\n",
+    "title": "Robert Eugene Byrne vs Robert James Fischer",
+    "white": "Robert Eugene Byrne",
+    "black": "Robert James Fischer",
+    "event": "US Championship 1963/64",
+    "year": 1963,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Robert Eugene Byrne vs Robert James Fischer — 1963.",
+      "fr": "Robert Eugene Byrne contre Robert James Fischer — 1963."
+    }
+  },
+  {
+    "id": "ofstad-uhlmann-1963",
+    "pgn": "[Event \"Halle\"]\n[Site \"zt\"]\n[Date \"1963.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Per Ofstad\"]\n[Black \"Wolfgang Uhlmann\"]\n[ECO \"C07\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"37\"]\n\n1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Qxd5 5.Ngf3 cxd4 6.Bc4 Qd6\n7.O-O Nc6 8.Re1 a6 9.a4 Qc7 10.Ne4 Bd7 11.Nxd4 Be7 12.Nf5 exf5\n13.Nd6+ Kf8 14.Nxf7 Be8 15.Qd5 Qa5 16.Qe6 Nd4 17.Ng5 Bxg5\n18.Qd6+ Be7 19.Rxe7 1-0\n",
+    "title": "Per Ofstad vs Wolfgang Uhlmann",
+    "white": "Per Ofstad",
+    "black": "Wolfgang Uhlmann",
+    "event": "Halle",
+    "year": 1963,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Per Ofstad vs Wolfgang Uhlmann — 1963.",
+      "fr": "Per Ofstad contre Wolfgang Uhlmann — 1963."
+    }
+  },
+  {
+    "id": "estrin-berliner-1965",
+    "pgn": "[Event \"corr-5\"]\n[Site \"corr-5\"]\n[Date \"1965.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Yakov Estrin\"]\n[Black \"Hans Berliner\"]\n[ECO \"C57\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"84\"]\n\n1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 b5 6.Bf1 Nd4 7.c3\nNxd5 8.Ne4 Qh4 9.Ng3 Bg4 10.f3 e4 11.cxd4 Bd6 12.Bxb5+ Kd8\n13.O-O exf3 14.Rxf3 Rb8 15.Be2 Bxf3 16.Bxf3 Qxd4+ 17.Kh1 Bxg3\n18.hxg3 Rb6 19.d3 Ne3 20.Bxe3 Qxe3 21.Bg4 h5 22.Bh3 g5 23.Nd2\ng4 24.Nc4 Qxg3 25.Nxb6 gxh3 26.Qf3 hxg2+ 27.Qxg2 Qxg2+ 28.Kxg2\ncxb6 29.Rf1 Ke7 30.Re1+ Kd6 31.Rf1 Rc8 32.Rxf7 Rc7 33.Rf2 Ke5\n34.a4 Kd4 35.a5 Kxd3 36.Rf3+ Kc2 37.b4 b5 38.a6 Rc4 39.Rf7\nRxb4 40.Rb7 Rg4+ 41.Kf3 b4 42.Rxa7 b3 0-1\n",
+    "title": "Yakov Estrin vs Hans Berliner",
+    "white": "Yakov Estrin",
+    "black": "Hans Berliner",
+    "event": "corr-5",
+    "year": 1965,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Yakov Estrin vs Hans Berliner — 1965.",
+      "fr": "Yakov Estrin contre Hans Berliner — 1965."
+    }
+  },
+  {
+    "id": "karpov-unzicker-1974",
+    "pgn": "[Event \"Nice\"]\n[Site \"Nice\"]\n[Date \"1974.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Anatoly Karpov\"]\n[Black \"Wolfgang Unzicker\"]\n[ECO \"C98\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"87\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5\n7. Bb3 d6 8. c3 O-O 9. h3 Na5 10. Bc2 c5 11. d4 Qc7 12. Nbd2\nNc6 13. d5 Nd8 14. a4 Rb8 15. axb5 axb5 16. b4 Nb7 17. Nf1 Bd7\n18. Be3 Ra8 19. Qd2 Rfc8 20. Bd3 g6 21. Ng3 Bf8 22. Ra2 c4\n23. Bb1 Qd8 24. Ba7 Ne8 25. Bc2 Nc7 26. Rea1 Qe7 27. Bb1 Be8\n28. Ne2 Nd8 29. Nh2 Bg7 30. f4 f6 31. f5 g5 32. Bc2 Bf7\n33. Ng3 Nb7 34. Bd1 h6 35. Bh5 Qe8 36. Qd1 Nd8 37. Ra3 Kf8\n38. R1a2 Kg8 39. Ng4 Kf8 40. Ne3 Kg8 41. Bxf7+ Nxf7 42. Qh5\nNd8 43. Qg6 Kf8 44. Nh5 1-0\n",
+    "title": "Anatoly Karpov vs Wolfgang Unzicker",
+    "white": "Anatoly Karpov",
+    "black": "Wolfgang Unzicker",
+    "event": "Nice",
+    "year": 1974,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Anatoly Karpov vs Wolfgang Unzicker — 1974.",
+      "fr": "Anatoly Karpov contre Wolfgang Unzicker — 1974."
+    }
+  },
+  {
+    "id": "wenzhe-donner-1978",
+    "pgn": "[Event \"Buenos Aires\"]\n[Site \"OL\"]\n[Date \"1978.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Liu Wenzhe\"]\n[Black \"Jan Hein Donner\"]\n[ECO \"B07\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"39\"]\n\n1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be2 Bg7 5. g4 h6 6. h3 c5\n7. d5 O-O 8. h4 e6 9. g5 hxg5 10. hxg5 Ne8 11. Qd3 exd5\n12. Nxd5 Nc6 13. Qg3 Be6 14. Qh4 f5 15. Qh7+ Kf7 16. Qxg6+\nKxg6 17. Bh5+ Kh7 18. Bf7+ Bh6 19. g6+ Kg7 20. Bxh6+ 1-0\n",
+    "title": "Liu Wenzhe vs Jan Hein Donner",
+    "white": "Liu Wenzhe",
+    "black": "Jan Hein Donner",
+    "event": "Buenos Aires",
+    "year": 1978,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Liu Wenzhe vs Jan Hein Donner — 1978.",
+      "fr": "Liu Wenzhe contre Jan Hein Donner — 1978."
+    }
+  },
+  {
+    "id": "karpov-kasparov-1985",
+    "pgn": "[Event \"Wch Moscow i 40/202; YB 4/91\"]\n[Site \"16\"]\n[Date \"1985.10.15\"]\n[EventDate \"?\"]\n[Round \"16\"]\n[Result \"0-1\"]\n[White \"Anatoly Karpov\"]\n[Black \"Garry Kasparov\"]\n[ECO \"B44\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"80\"]\n\n1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nb5 d6 6.c4 Nf6 7.N1c3\na6 8.Na3 d5 9.cxd5 exd5 10.exd5 Nb4 11.Be2 Bc5 12.O-O O-O\n13.Bf3 Bf5 14.Bg5 Re8 15.Qd2 b5 16.Rad1 Nd3 17.Nab1 h6 18.Bh4\nb4 19.Na4 Bd6 20.Bg3 Rc8 21.b3 g5 22.Bxd6 Qxd6 23.g3 Nd7\n24.Bg2 Qf6 25.a3 a5 26.axb4 axb4 27.Qa2 Bg6 28.d6 g4 29.Qd2\nKg7 30.f3 Qxd6 31.fxg4 Qd4+ 32.Kh1 Nf6 33.Rf4 Ne4 34.Qxd3 Nf2+\n35.Rxf2 Bxd3 36.Rfd2 Qe3 37.Rxd3 Rc1 38.Nb2 Qf2 39.Nd2 Rxd1+\n40.Nxd1 Re1+ 0-1\n",
+    "title": "Anatoly Karpov vs Garry Kasparov",
+    "white": "Anatoly Karpov",
+    "black": "Garry Kasparov",
+    "event": "Wch Moscow i 40/202; YB 4/91",
+    "year": 1985,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Anatoly Karpov vs Garry Kasparov — 1985.",
+      "fr": "Anatoly Karpov contre Garry Kasparov — 1985."
+    }
+  },
+  {
+    "id": "oll-ulibin-1989",
+    "pgn": "[Event \"Tbilisi\"]\n[Site \"Tbilisi\"]\n[Date \"1989.??.??\"]\n[EventDate \"?\"]\n[Round \"14\"]\n[Result \"1-0\"]\n[White \"Lembit Oll\"]\n[Black \"Mikhail Ulibin\"]\n[ECO \"C18\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"67\"]\n\n1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. e5 c5 5. a3 Bxc3+ 6. bxc3 Ne7\n7. Qg4 O-O 8. Bd3 Nbc6 9. Qh5 h6 10. Bxh6 gxh6 11. Qxh6 Nf5\n12. Bxf5 exf5 13. Nh3 f6 14. Qg6+ Kh8 15. Qh6+ Kg8 16. Qg6+\nKh8 17. O-O-O fxe5 18. Qh6+ Kg8 19. Qg6+ Kh8 20. Rd3 f4\n21. Qh6+ Kg8 22. Qg6+ Kh8 23. Qh6+ Kg8 24. Rg3+ fxg3 25. Qg6+\nKh8 26. hxg3 Qh4 27. gxh4 Bf5 28. Qh6+ Kg8 29. Ng5 exd4\n30. Rh3 Ne5 31. Rg3 Bg6 32. Ne6 Kf7 33. Nxf8 Rxf8 34. Qf4+ 1-0\n",
+    "title": "Lembit Oll vs Mikhail Ulibin",
+    "white": "Lembit Oll",
+    "black": "Mikhail Ulibin",
+    "event": "Tbilisi",
+    "year": 1989,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Lembit Oll vs Mikhail Ulibin — 1989.",
+      "fr": "Lembit Oll contre Mikhail Ulibin — 1989."
+    }
+  },
+  {
+    "id": "ivanchuk-yusupov-1991",
+    "pgn": "[Event \"Brussel\"]\n[Site \"Brussel\"]\n[Date \"1991.08.??\"]\n[EventDate \"?\"]\n[Round \"9\"]\n[Result \"0-1\"]\n[White \"Vassily Ivanchuk\"]\n[Black \"Artur Yusupov\"]\n[ECO \"E67\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"78\"]\n\n1.c4 e5 2.g3 d6 3.Bg2 g6 4.d4 Nd7 5.Nc3 Bg7 6.Nf3 Ngf6 7.O-O\nO-O 8.Qc2 Re8 9.Rd1 c6 10.b3 Qe7 11.Ba3 e4 12.Ng5 e3 13.f4 Nf8\n14.b4 Bf5 15.Qb3 h6 16.Nf3 Ng4 17.b5 g5 18.bxc6 bxc6 19.Ne5\ngxf4 20.Nxc6 Qg5 21.Bxd6 Ng6 22.Nd5 Qh5 23.h4 Nxh4 24.gxh4\nQxh4 25.Nde7+ Kh8 26.Nxf5 Qh2+ 27.Kf1 Re6 28.Qb7 Rg6 29.Qxa8+\nKh7 30.Qg8+ Kxg8 31.Nce7+ Kh7 32.Nxg6 fxg6 33.Nxg7 Nf2 34.Bxf4\nQxf4 35.Ne6 Qh2 36.Rdb1 Nh3 37.Rb7+ Kg8 38.Rb8+ Qxb8 39.Bxh3\nQg3 0-1\n",
+    "title": "Vassily Ivanchuk vs Artur Yusupov",
+    "white": "Vassily Ivanchuk",
+    "black": "Artur Yusupov",
+    "event": "Brussel",
+    "year": 1991,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Vassily Ivanchuk vs Artur Yusupov — 1991.",
+      "fr": "Vassily Ivanchuk contre Artur Yusupov — 1991."
+    }
+  },
+  {
+    "id": "serper-nikolaidis-1993",
+    "pgn": "[Event \"St Petersburg Open\"]\n[Site \"St Petersburg\"]\n[Date \"1993.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Grigory Serper\"]\n[Black \"Ioannis Nikolaidis\"]\n[ECO \"E70\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"95\"]\n\n1.c4 g6 2.e4 Bg7 3.d4 d6 4.Nc3 Nf6 5.Nge2 Nbd7 6.Ng3 c6 7.Be2\na6 8.Be3 h5 9.f3 b5 10.c5 dxc5 11.dxc5 Qc7 12.O-O h4 13.Nh1\nNh5 14.Qd2 e5 15.Nf2 Nf8 16.a4 b4 17.Nd5 cxd5 18.exd5 f5 19.d6\nQc6 20.Bb5 axb5 21.axb5 Qxb5 22.Rxa8 Qc6 23.Rfa1 f4 24.R1a7\nNd7 25.Rxc8+ Qxc8 26.Qd5 fxe3 27.Qe6+ Kf8 28.Rxd7 exf2+ 29.Kf1\nQe8 30.Rf7+ Qxf7 31.Qc8+ Qe8 32.d7 Kf7 33.dxe8=Q+ Rxe8 34.Qb7+\nRe7 35.c6 e4 36.c7 e3 37.Qd5+ Kf6 38.Qd6+ Kf7 39.Qd5+ Kf6\n40.Qd6+ Kf7 41.Qxe7+ Kxe7 42.c8=Q Bh6 43.Qc5+ Ke8 44.Qb5+ Kd8\n45.Qb6+ Kd7 46.Qxg6 e2+ 47.Kxf2 Be3+ 48.Ke1 1-0\n",
+    "title": "Grigory Serper vs Ioannis Nikolaidis",
+    "white": "Grigory Serper",
+    "black": "Ioannis Nikolaidis",
+    "event": "St Petersburg Open",
+    "year": 1993,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Grigory Serper vs Ioannis Nikolaidis — 1993.",
+      "fr": "Grigory Serper contre Ioannis Nikolaidis — 1993."
+    }
+  },
+  {
+    "id": "kamsky-kramnik-1994",
+    "pgn": "[Event \"Ch World (m) (cand.) (1/4)\"]\n[Site \"New York (USA)\"]\n[Date \"1994.06.??\"]\n[EventDate \"?\"]\n[Round \"1\"]\n[Result \"1-0\"]\n[White \"Gata Kamsky\"]\n[Black \"Vladimir Kramnik\"]\n[ECO \"D44\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"81\"]\n\n1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. Bg5 dxc4 6. e4 b5\n7. e5 h6 8. Bh4 g5 9. Nxg5 hxg5 10. Bxg5 Nbd7 11. exf6 Bb7\n12. g3 c5 13. d5 Qb6 14. Bg2 O-O-O 15. O-O b4 16. Na4 Qb5\n17. a3 Ne5 18. axb4 cxb4 19. Qd4 Nc6 20. dxc6 Rxd4 21. cxb7+\nKc7 22. Be3 e5 23. Nc3 bxc3 24. bxc3 Bc5 25. cxd4 Bxd4\n26. Rfb1 Qc5 27. Ra6 Rb8 28. Bc1 c3 29. Ba3 Qc4 30. Bd6+ Kd7\n31. Bc6+ Ke6 32. Bb5 Bxf2+ 33. Kxf2 Qd4+ 34. Kf1 Qe4 35. Re1\nQh1+ 36. Kf2 Qxh2+ 37. Kf3 Rxb7 38. Bxe5+ Rb6 39. Bc4+ Kd7\n40. Rxa7+ Kc8 41. Rc7+ 1-0\n",
+    "title": "Gata Kamsky vs Vladimir Kramnik",
+    "white": "Gata Kamsky",
+    "black": "Vladimir Kramnik",
+    "event": "Ch World (m) (cand.) (1/4)",
+    "year": 1994,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Gata Kamsky vs Vladimir Kramnik — 1994.",
+      "fr": "Gata Kamsky contre Vladimir Kramnik — 1994."
+    }
+  },
+  {
+    "id": "shirov-polgar-1994",
+    "pgn": "[Event \"Buenos Aires ARG\"]\n[Site \"Buenos Aires ARG\"]\n[Date \"1994.??.??\"]\n[EventDate \"?\"]\n[Round \"8\"]\n[Result \"0-1\"]\n[White \"Alexey Shirov\"]\n[Black \"Judit Polgar\"]\n[ECO \"B45\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"58\"]\n\n1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 d6 6.g4 a6 7.Be3\nNge7 8.Nb3 b5 9.f4 Bb7 10.Qf3 g5 11.fxg5 Ne5 12.Qg2 b4 13.Ne2\nh5 14.gxh5 Nf5 15.Bf2 Qxg5 16.Na5 Ne3 17.Qg3 Qxg3 18.Nxg3\nNxc2+ 19.Kd1 Nxa1 20.Nxb7 b3 21.axb3 Nxb3 22.Kc2 Nc5 23.Nxc5\ndxc5 24.Be1 Nf3 25.Bc3 Nd4+ 26.Kd3 Bd6 27.Bg2 Be5 28.Kc4 Ke7\n29.Ra1 Nc6 0-1\n",
+    "title": "Alexey Shirov vs Judit Polgar",
+    "white": "Alexey Shirov",
+    "black": "Judit Polgar",
+    "event": "Buenos Aires ARG",
+    "year": 1994,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Alexey Shirov vs Judit Polgar — 1994.",
+      "fr": "Alexey Shirov contre Judit Polgar — 1994."
+    }
+  },
+  {
+    "id": "ivanchuk-shirov-1996",
+    "pgn": "[Event \"Wijk aan Zee Hoogovens\"]\n[Site \"Wijk aan Zee NED\"]\n[Date \"1996.01.16\"]\n[EventDate \"1996.01.13\"]\n[Round \"3\"]\n[Result \"1-0\"]\n[White \"Vassily Ivanchuk\"]\n[Black \"Alexey Shirov\"]\n[ECO \"D44\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"69\"]\n\n1.d4 d5 2.c4 c6 3.Nc3 Nf6 4.Nf3 e6 5.Bg5 dxc4 6.e4 b5 7.e5 h6\n8.Bh4 g5 9.Nxg5 hxg5 10.Bxg5 Nbd7 11.exf6 Bb7 12.g3 c5 13.d5\nQb6 14.Bg2 O-O-O 15.O-O b4 16.Na4 Qb5 17.a3 exd5 18.axb4 cxb4\n19.Be3 Nc5 20.Qg4+ Rd7 21.Qg7 Bxg7 22.fxg7 Rg8 23.Nxc5 d4\n24.Bxb7+ Rxb7 25.Nxb7 Qb6 26.Bxd4 Qxd4 27.Rfd1 Qxb2 28.Nd6+\nKb8 29.Rdb1 Qxg7 30.Rxb4+ Kc7 31.Ra6 Rb8 32.Rxa7+ Kxd6 33.Rxb8\nQg4 34.Rd8+ Kc6 35.Ra1 1-0\n",
+    "title": "Vassily Ivanchuk vs Alexey Shirov",
+    "white": "Vassily Ivanchuk",
+    "black": "Alexey Shirov",
+    "event": "Wijk aan Zee Hoogovens",
+    "year": 1996,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Vassily Ivanchuk vs Alexey Shirov — 1996.",
+      "fr": "Vassily Ivanchuk contre Alexey Shirov — 1996."
+    }
+  },
+  {
+    "id": "kasparov-kramnik-1996",
+    "pgn": "[Event \"It (cat.19)\"]\n[Site \"Dos Hermanas (Spain)\"]\n[Date \"1996.??.??\"]\n[EventDate \"?\"]\n[Round \"6\"]\n[Result \"0-1\"]\n[White \"Garry Kasparov\"]\n[Black \"Vladimir Kramnik\"]\n[ECO \"D47\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"70\"]\n\n1.d4 d5 2.c4 c6 3.Nc3 Nf6 4.Nf3 e6 5.e3 Nbd7 6.Bd3 dxc4 7.Bxc4\nb5 8.Bd3 Bb7 9.O-O a6 10.e4 c5 11.d5 c4 12.Bc2 Qc7 13.Nd4 Nc5\n14.b4 cxb3 15.axb3 b4 16.Na4 Ncxe4 17.Bxe4 Nxe4 18.dxe6 Bd6\n19.exf7+ Qxf7 20.f3 Qh5 21.g3 O-O 22.fxe4 Qh3 23.Nf3 Bxg3\n24.Nc5 Rxf3 25.Rxf3 Qxh2+ 26.Kf1 Bc6 27.Bg5 Bb5+ 28.Nd3 Re8\n29.Ra2 Qh1+ 30.Ke2 Rxe4+ 31.Kd2 Qg2+ 32.Kc1 Qxa2 33.Rxg3 Qa1+\n34.Kc2 Qc3+ 35.Kb1 Rd4 0-1\n",
+    "title": "Garry Kasparov vs Vladimir Kramnik",
+    "white": "Garry Kasparov",
+    "black": "Vladimir Kramnik",
+    "event": "It (cat.19)",
+    "year": 1996,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Garry Kasparov vs Vladimir Kramnik — 1996.",
+      "fr": "Garry Kasparov contre Vladimir Kramnik — 1996."
+    }
+  },
+  {
+    "id": "atalik-sax-1997",
+    "pgn": "[Event \"Maroczy mem\"]\n[Site \"Szeged\"]\n[Date \"1997.11.14\"]\n[EventDate \"?\"]\n[Round \"3\"]\n[Result \"1-0\"]\n[White \"Suat Atalik\"]\n[Black \"Gyula Sax\"]\n[ECO \"E37\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"51\"]\n\n1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 d5 5.a3 Bxc3+ 6.Qxc3 Ne4\n7.Qc2 Nc6 8.e3 e5 9.cxd5 Qxd5 10.Bc4 Qa5+ 11.b4 Nxb4 12.Qxe4\nNc2+ 13.Ke2 Qe1+ 14.Kf3 Nxa1 15.Bb2 O-O 16.Kg3 Kh8 17.dxe5 Be6\n18.Nf3 Qxh1 19.Ng5 g6 20.Nxf7+ Rxf7 21.Bxe6 Rg7 22.Bf7 Rxf7\n23.e6+ Kg8 24.Qd4 Kf8 25.exf7 Kxf7 26.Qd7+ 1-0\n",
+    "title": "Suat Atalik vs Gyula Sax",
+    "white": "Suat Atalik",
+    "black": "Gyula Sax",
+    "event": "Maroczy mem",
+    "year": 1997,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Suat Atalik vs Gyula Sax — 1997.",
+      "fr": "Suat Atalik contre Gyula Sax — 1997."
+    }
+  },
+  {
+    "id": "jobava-bareev-2003",
+    "pgn": "[Event \"European Clubs Cup (Men)\"]\n[Site \"Rethymnon GRE\"]\n[Date \"2003.10.04\"]\n[EventDate \"2003.09.28\"]\n[Round \"7\"]\n[Result \"1-0\"]\n[White \"Baadur Jobava\"]\n[Black \"Evgeny Bareev\"]\n[ECO \"B19\"]\n[WhiteElo \"2596\"]\n[BlackElo \"2721\"]\n[PlyCount \"67\"]\n\n1. e4 c6 2. d4 d5 3. Nd2 dxe4 4. Nxe4 Bf5 5. Ng3 Bg6 6. h4 h6\n7. Nf3 Nd7 8. h5 Bh7 9. Bd3 Bxd3 10. Qxd3 Ngf6 11. Bd2 e6\n12. O-O-O Be7 13. Qe2 O-O 14. Kb1 c5 15. d5 exd5 16. Bxh6 gxh6\n17. Nf5 Re8 18. Nxh6+ Kf8 19. Ng5 Qb6 20. Qf3 Ne5 21. Qg3 Bd6\n22. Nf5 Qxb2+ 23. Kxb2 Nc4+ 24. Kb3 Bxg3 25. h6 Na5+ 26. Ka4\nb5+ 27. Kxa5 Bc7+ 28. Kxb5 Rab8+ 29. Ka4 Ne4 30. Rxd5 Nc3+\n31. Ka3 Nb5+ 32. Kb2 Nd4+ 33. Kc3 Nb5+ 34.Kd3 1-0\n",
+    "title": "Baadur Jobava vs Evgeny Bareev",
+    "white": "Baadur Jobava",
+    "black": "Evgeny Bareev",
+    "event": "European Clubs Cup (Men)",
+    "year": 2003,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Baadur Jobava vs Evgeny Bareev — 2003.",
+      "fr": "Baadur Jobava contre Evgeny Bareev — 2003."
+    }
+  },
+  {
+    "id": "carlsen-ernst-2004",
+    "pgn": "[Event \"Wijk aan Zee C Group\"]\n[Site \"Wijk aan Zee NED\"]\n[Date \"2004.01.24\"]\n[EventDate \"2004.01.10\"]\n[Round \"12\"]\n[Result \"1-0\"]\n[White \"Magnus Carlsen\"]\n[Black \"Sipke Ernst\"]\n[ECO \"B19\"]\n[WhiteElo \"2484\"]\n[BlackElo \"2474\"]\n[PlyCount \"57\"]\n\n1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 5. Ng3 Bg6 6. h4 h6\n7. Nf3 Nd7 8. h5 Bh7 9. Bd3 Bxd3 10. Qxd3 e6 11. Bf4 Ngf6\n12. O-O-O Be7 13. Ne4 Qa5 14. Kb1 O-O 15. Nxf6+ Nxf6 16. Ne5\nRad8 17. Qe2 c5 18. Ng6 fxg6 19. Qxe6+ Kh8 20. hxg6 Ng8\n21. Bxh6 gxh6 22. Rxh6+ Nxh6 23. Qxe7 Nf7 24. gxf7 Kg7 25. Rd3\nRd6 26. Rg3+ Rg6 27. Qe5+ Kxf7 28. Qf5+ Rf6 29. Qd7# 1-0\n",
+    "title": "Magnus Carlsen vs Sipke Ernst",
+    "white": "Magnus Carlsen",
+    "black": "Sipke Ernst",
+    "event": "Wijk aan Zee C Group",
+    "year": 2004,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Magnus Carlsen vs Sipke Ernst — 2004.",
+      "fr": "Magnus Carlsen contre Sipke Ernst — 2004."
+    }
+  },
+  {
+    "id": "kharlov-topalov-2004",
+    "pgn": "[Event \"FIDE World Championship\"]\n[Site \"Tripoli, Libya\"]\n[Date \"2004.06.29\"]\n[EventDate \"?\"]\n[Round \"5.2\"]\n[Result \"0-1\"]\n[White \"Andrei Kharlov\"]\n[Black \"Veselin Topalov\"]\n[ECO \"C24\"]\n[WhiteElo \"2593\"]\n[BlackElo \"2737\"]\n[PlyCount \"106\"]\n\n1. e4 e5 2. Bc4 Nf6 3. d3 c6 4. Nf3 Be7 5. O-O d6 6. a4 O-O\n7. Re1 Nbd7 8. Nc3 Nc5 9. d4 exd4 10. Nxd4 a5 11. Bf4 Ng4\n12. Be2 Nf6 13. Bf3 Re8 14. Qd2 g6 15. h3 Nfd7 16. Rad1 Bf8\n17. g4 Qb6 18. Bg2 Ne5 19. b3 Qb4 20. Nde2 f6 21. Be3 h5\n22. f4 Nxg4 23. hxg4 Bxg4 24. Qc1 f5 25. Rd4 Qb6 26. Qd2 Qc7\n27. Bf2 Re6 28. Rc4 Rae8 29. Nd4 Rxe4 30. Nxe4 Nxe4 31. Bxe4\nfxe4 32. Rc3 d5 33. Rg3 Bd6 34. Be3 Qd7 35. c3 Rf8 36. Rf1 b6\n37. Rf2 c5 38. Nb5 Bb8 39. Rfg2 g5 40. Rf2 Kg7 41. Qc1 Kg6\n42. Qf1 Rf5 43. Rgg2 Qf7 44. fxg5 Bf3 45. Rh2 Bxh2+ 46. Rxh2\nRf4 47. Bxf4 Qxf4 48. Rg2 h4 49. Qe1 e3 50. Rh2 Qxg5+ 51. Kf1\nh3 52. Qb1+ Be4 53. Qb2 Bd3+ 0-1\n",
+    "title": "Andrei Kharlov vs Veselin Topalov",
+    "white": "Andrei Kharlov",
+    "black": "Veselin Topalov",
+    "event": "FIDE World Championship",
+    "year": 2004,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Andrei Kharlov vs Veselin Topalov — 2004.",
+      "fr": "Andrei Kharlov contre Veselin Topalov — 2004."
+    }
+  },
+  {
+    "id": "kozul-rublevsky-2004",
+    "pgn": "[Event \"FIDE World Championship\"]\n[Site \"Tripoli, Libya\"]\n[Date \"2004.06.24\"]\n[EventDate \"?\"]\n[Round \"3.2\"]\n[Result \"1-0\"]\n[White \"Zdenko Kozul\"]\n[Black \"Sergei Rublevsky\"]\n[ECO \"D11\"]\n[WhiteElo \"2627\"]\n[BlackElo \"2671\"]\n[PlyCount \"93\"]\n\n1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. e3 a6 5. Nbd2 Bf5 6. Be2 e6\n7. O-O Bd6 8. c5 Bc7 9. b4 Nbd7 10. Bb2 Ne4 11. a4 Qf6\n12. Nxe4 dxe4 13. Nd2 Qh6 14. g3 Nf6 15. b5 Qh3 16. b6 Bd8\n17. f3 h5 18. Nxe4 Bxe4 19. Rf2 Ng4 20. Qe1 Nxf2 21. Qxf2 Bg6\n22. Bf1 Qf5 23. e4 Qg5 24. f4 Qe7 25. f5 Bh7 26. d5 O-O\n27. dxc6 bxc6 28. Be5 Qd7 29. Bd6 Be7 30. Rd1 Rfd8 31. Qf4\nBxd6 32. Rxd6 Qe7 33. Rxc6 Rd7 34. Bxa6 exf5 35. Rc7 g5 36. b7\nRf8 37. Rxd7 Qxd7 38. Qxg5+ Bg6 39. Qf4 Qd4+ 40. Kg2 Qb2+\n41. Kh3 fxe4 42. c6 Qb3 43. c7 Qe6+ 44. Kg2 Qa2+ 45. Qf2 Qd5\n46. b8=Q e3+ 47. Qf3 1-0\n",
+    "title": "Zdenko Kozul vs Sergei Rublevsky",
+    "white": "Zdenko Kozul",
+    "black": "Sergei Rublevsky",
+    "event": "FIDE World Championship",
+    "year": 2004,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Zdenko Kozul vs Sergei Rublevsky — 2004.",
+      "fr": "Zdenko Kozul contre Sergei Rublevsky — 2004."
+    }
+  },
+  {
+    "id": "kramnik-anand-2004",
+    "pgn": "[Event \"GMA\"]\n[Site \"Wijk aan Zee Corus Chess\"]\n[Date \"2004.01.20\"]\n[EventDate \"2004.01.10\"]\n[Round \"9\"]\n[Result \"1/2-1/2\"]\n[White \"Vladimir Kramnik\"]\n[Black \"Viswanathan Anand\"]\n[ECO \"B92\"]\n[WhiteElo \"2777\"]\n[BlackElo \"2766\"]\n[PlyCount \"49\"]\n\n1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2 e5\n7. Nb3 Be7 8. Bg5 Be6 9. Bxf6 Bxf6 10. Qd3 Nc6 11. O-O-O Be7\n12. Kb1 O-O 13. Nd5 Bg5 14. h4 Bxh4 15. g3 Bf6 16. Qf3 Bg5\n17. Qh5 h6 18. f4 Bf6 19. Nd2 Nd4 20. Bc4 Rc8 21. c3 Nb5\n22. f5 Bxd5 23. Bxd5 Rxc3 24. Qg6 Qb6 25. Rxh6 1/2-1/2\n",
+    "title": "Vladimir Kramnik vs Viswanathan Anand",
+    "white": "Vladimir Kramnik",
+    "black": "Viswanathan Anand",
+    "event": "GMA",
+    "year": 2004,
+    "result": "1/2-1/2",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Vladimir Kramnik vs Viswanathan Anand — 2004.",
+      "fr": "Vladimir Kramnik contre Viswanathan Anand — 2004."
+    }
+  },
+  {
+    "id": "adams-kasparov-2005",
+    "pgn": "[Event \"XXII Torneo Ciudad de Linares\"]\n[Site \"Linares ESP\"]\n[Date \"2005.03.08\"]\n[EventDate \"?\"]\n[Round \"12\"]\n[Result \"0-1\"]\n[White \"Michael Adams\"]\n[Black \"Garry Kasparov\"]\n[ECO \"B90\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"52\"]\n\n1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e6 7.Be2\nQc7 8.Qd2 b5 9.a3 Bb7 10.f3 Nc6 11.O-O-O b4 12.axb4 Nxb4 13.g4\nBe7 14.g5 Nd7 15.h4 Nc5 16.Kb1 Rb8 17.h5 O-O 18.g6 Bf6 19.Rdg1\nBa8 20.Bg5 Be5 21.gxh7+ Kxh7 22.Nb3 Nxc2 23.Nxc5 Na3+ 24.Ka2\nQxc5 25.Na4 Nc2 26.Kb1 Qa3 0-1\n",
+    "title": "Michael Adams vs Garry Kasparov",
+    "white": "Michael Adams",
+    "black": "Garry Kasparov",
+    "event": "XXII Torneo Ciudad de Linares",
+    "year": 2005,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Michael Adams vs Garry Kasparov — 2005.",
+      "fr": "Michael Adams contre Garry Kasparov — 2005."
+    }
+  },
+  {
+    "id": "anand-topalov-2005",
+    "pgn": "[Event \"Mtel Masters\"]\n[Site \"Sofia BUL\"]\n[Date \"2005.05.12\"]\n[EventDate \"2005.05.12\"]\n[Round \"1\"]\n[Result \"1/2-1/2\"]\n[White \"Viswanathan Anand\"]\n[Black \"Veselin Topalov\"]\n[ECO \"B90\"]\n[WhiteElo \"2785\"]\n[BlackElo \"2778\"]\n[PlyCount \"120\"]\n\n1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e6\n7. f3 b5 8. g4 h6 9. Qd2 b4 10. Na4 Nbd7 11. O-O-O Ne5 12. b3\nBd7 13. Nb2 d5 14. Bf4 Nxf3 15. Nxf3 Nxe4 16. Qd4 f6 17. Bd3\nBc5 18. Bxe4 Bxd4 19. Bg6+ Kf8 20. Rxd4 a5 21. Re1 Be8 22. Nh4\ne5 23. Rd2 a4 24. bxa4 Kg8 25. Bg3 d4 26. Rd3 h5 27. Bxe8 Qxe8\n28. g5 Rc8 29. g6 Rh6 30. Rxd4 Rxg6 31. Nxg6 Qxg6 32. Rd2 Rc3\n33. Red1 Kh7 34. Kb1 Qf5 35. Be1 Ra3 36. Rd6 Rh3 37. a5 Rxh2\n38. Rc1 Qe4 39. a6 Qa8 40. Bxb4 h4 41. Bc5 h3 42. Nd3 Rd2\n43. Rb6 h2 44. Nf2 Qd5 45. Be3 Re2 46. Rb3 f5 47. a7 Rxe3\n48. Rxe3 Qb7+ 49. Rb3 Qxa7 50. Nh1 f4 51. c4 e4 52. c5 e3\n53. c6 e2 54. c7 Qxc7 55. Rxc7 e1=Q+ 56. Rc1 Qe4+ 57. Ka1 Qd4+\n58. Kb1 Qe4+ 59. Ka1 Qd4+ 60. Kb1 Qe4+ 1/2-1/2\n",
+    "title": "Viswanathan Anand vs Veselin Topalov",
+    "white": "Viswanathan Anand",
+    "black": "Veselin Topalov",
+    "event": "Mtel Masters",
+    "year": 2005,
+    "result": "1/2-1/2",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Viswanathan Anand vs Veselin Topalov — 2005.",
+      "fr": "Viswanathan Anand contre Veselin Topalov — 2005."
+    }
+  },
+  {
+    "id": "landa-shaposhnikov-2005",
+    "pgn": "[Event \"TCh-RUS\"]\n[Site \"Sochi RUS\"]\n[Date \"2005.04.21\"]\n[EventDate \"2005.04.19\"]\n[Round \"3\"]\n[Result \"1-0\"]\n[White \"Konstantin Landa\"]\n[Black \"Evgeny Shaposhnikov\"]\n[ECO \"B19\"]\n[WhiteElo \"2571\"]\n[BlackElo \"2550\"]\n[PlyCount \"47\"]\n\n1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 5. Ng3 Bg6 6. h4 h6\n7. Nf3 Nd7 8. h5 Bh7 9. Bd3 Bxd3 10. Qxd3 e6 11. Bf4 Qa5+\n12. Bd2 Bb4 13. c3 Be7 14. c4 Qa6 15. O-O Rd8 16. b4 Ngf6\n17. a4 b6 18. Rfe1 O-O 19. Nf5 Rfe8 20. Nxg7 Kxg7 21. Rxe6\nfxe6 22. Bxh6+ Kh8 23. Bg7+ Kxg7 24. Qg6+ 1-0\n",
+    "title": "Konstantin Landa vs Evgeny Shaposhnikov",
+    "white": "Konstantin Landa",
+    "black": "Evgeny Shaposhnikov",
+    "event": "TCh-RUS",
+    "year": 2005,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Konstantin Landa vs Evgeny Shaposhnikov — 2005.",
+      "fr": "Konstantin Landa contre Evgeny Shaposhnikov — 2005."
+    }
+  },
+  {
+    "id": "karjakin-anand-2006",
+    "pgn": "[Event \"Corus Wijk aan Zee\"]\n[Site \"Wijk aan Zee\"]\n[Date \"2006.01.14\"]\n[EventDate \"?\"]\n[Round \"1\"]\n[Result \"0-1\"]\n[White \"Sergey Karjakin\"]\n[Black \"Viswanathan Anand\"]\n[ECO \"B90\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"74\"]\n\n1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5\n7. Nb3 Be6 8. f3 Be7 9. Qd2 O-O 10. O-O-O Nbd7 11. g4 b5\n12. g5 b4 13. Ne2 Ne8 14. f4 a5 15. f5 a4 16. Nbd4 exd4\n17. Nxd4 b3 18. Kb1 bxc2+ 19. Nxc2 Bb3 20. axb3 axb3 21. Na3\nNe5 22. h4 Ra5 23. Qc3 Qa8 24. Bg2 Nc7 25. Qxc7 Rc8 26. Qxe7\nNc4 27. g6 hxg6 28. fxg6 Nxa3+ 29. bxa3 Rxa3 30. gxf7+ Kh7\n31. f8=N+ Rxf8 32. Qxf8 Ra1+ 33. Kb2 Ra2+ 34. Kc3 Qa5+ 35. Kd3\nQb5+ 36. Kd4 Ra4+ 37. Kc3 Qc4+ 0-1\n",
+    "title": "Sergey Karjakin vs Viswanathan Anand",
+    "white": "Sergey Karjakin",
+    "black": "Viswanathan Anand",
+    "event": "Corus Wijk aan Zee",
+    "year": 2006,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Sergey Karjakin vs Viswanathan Anand — 2006.",
+      "fr": "Sergey Karjakin contre Viswanathan Anand — 2006."
+    }
+  },
+  {
+    "id": "topalov-aronian-2006",
+    "pgn": "[Event \"Corus Wijk aan Zee\"]\n[Site \"Wijk aan Zee NED\"]\n[Date \"2006.01.25\"]\n[EventDate \"?\"]\n[Round \"10\"]\n[Result \"1-0\"]\n[White \"Veselin Topalov\"]\n[Black \"Levon Aronian\"]\n[ECO \"E15\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"87\"]\n\n1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Ba6 5.b3 Bb4+ 6.Bd2 Be7 7.Bg2\nc6 8.Bc3 d5 9.Ne5 Nfd7 10.Nxd7 Nxd7 11.Nd2 O-O 12.O-O Nf6\n13.e4 b5 14.exd5 exd5 15.Re1 Rb8 16.c5 Bc8 17.Nf3 Ne4 18.Rxe4\ndxe4 19.Ne5 Qd5 20.Qe1 Bf5 21.g4 Bg6 22.f3 b4 23.fxe4 Qe6\n24.Bb2 Bf6 25.Nxc6 Qxc6 26.e5 Qa6 27.exf6 Rfe8 28.Qf1 Qe2\n29.Qf2 Qxg4 30.h3 Qg5 31.Bc1 Qh5 32.Bf4 Rbd8 33.c6 Be4 34.c7\nRc8 35.Re1 Qg6 36.Rxe4 Rxe4 37.d5 Rce8 38.d6 Re1+ 39.Kh2 Qf5\n40.Qg3 g6 41.Qg5 Qxg5 42.Bxg5 Rd1 43.Bc6 Re2+ 44.Kg3 1-0\n",
+    "title": "Veselin Topalov vs Levon Aronian",
+    "white": "Veselin Topalov",
+    "black": "Levon Aronian",
+    "event": "Corus Wijk aan Zee",
+    "year": 2006,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Veselin Topalov vs Levon Aronian — 2006.",
+      "fr": "Veselin Topalov contre Levon Aronian — 2006."
+    }
+  }
+]

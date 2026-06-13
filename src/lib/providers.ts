@@ -23,9 +23,13 @@ interface BuildOpts {
   user: string;
   /** Defaults to the provider's recommended model. */
   model?: string;
+  /** Max output tokens. Defaults to 4096; raise for long generations. */
+  maxTokens?: number;
   /** true when the call originates from the browser (BYOK). */
   browser: boolean;
 }
+
+const DEFAULT_MAX_TOKENS = 4096;
 
 export interface AiProvider {
   id: AiProviderId;
@@ -55,7 +59,7 @@ const anthropic: AiProvider = {
   defaultModel: ANTHROPIC_MODEL,
   consoleUrl: "https://console.anthropic.com/settings/keys",
   envVar: "ANTHROPIC_API_KEY",
-  buildRequest({ key, system, user, model, browser }) {
+  buildRequest({ key, system, user, model, maxTokens, browser }) {
     const headers: Record<string, string> = {
       "content-type": "application/json",
       "x-api-key": key,
@@ -67,7 +71,7 @@ const anthropic: AiProvider = {
       headers,
       body: {
         model: model || ANTHROPIC_MODEL,
-        max_tokens: 4096,
+        max_tokens: maxTokens ?? DEFAULT_MAX_TOKENS,
         system,
         messages: [{ role: "user", content: user }],
       },
@@ -86,7 +90,7 @@ const openai: AiProvider = {
   defaultModel: OPENAI_MODEL,
   consoleUrl: "https://platform.openai.com/api-keys",
   envVar: "OPENAI_API_KEY",
-  buildRequest({ key, system, user, model }) {
+  buildRequest({ key, system, user, model, maxTokens }) {
     return {
       url: "https://api.openai.com/v1/chat/completions",
       headers: {
@@ -95,7 +99,7 @@ const openai: AiProvider = {
       },
       body: {
         model: model || OPENAI_MODEL,
-        max_tokens: 4096,
+        max_tokens: maxTokens ?? DEFAULT_MAX_TOKENS,
         // Our prompt already asks for raw JSON; this hard-guarantees it.
         response_format: { type: "json_object" },
         messages: [
@@ -118,7 +122,7 @@ const gemini: AiProvider = {
   defaultModel: GEMINI_MODEL,
   consoleUrl: "https://aistudio.google.com/apikey",
   envVar: "GEMINI_API_KEY",
-  buildRequest({ key, system, user, model }) {
+  buildRequest({ key, system, user, model, maxTokens }) {
     const m = model || GEMINI_MODEL;
     return {
       url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`,
@@ -129,7 +133,10 @@ const gemini: AiProvider = {
       body: {
         system_instruction: { parts: [{ text: system }] },
         contents: [{ role: "user", parts: [{ text: user }] }],
-        generationConfig: { responseMimeType: "application/json", maxOutputTokens: 4096 },
+        generationConfig: {
+          responseMimeType: "application/json",
+          maxOutputTokens: maxTokens ?? DEFAULT_MAX_TOKENS,
+        },
       },
     };
   },
