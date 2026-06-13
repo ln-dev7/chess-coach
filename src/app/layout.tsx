@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Nav from "@/components/Nav";
 import OnboardingModal from "@/components/OnboardingModal";
 import { I18nProvider } from "@/lib/i18n";
+import { site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,9 +19,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chess Coach",
-  description:
-    "Fetches your chess.com and lichess games, analyzes them with Stockfish in your browser, and builds personalized lessons and puzzles from your weaknesses.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: site.title,
+    template: `%s · ${site.name}`,
+  },
+  description: site.description,
+  applicationName: site.name,
+  keywords: [...site.keywords],
+  authors: [{ name: "ln-dev7", url: site.github }],
+  creator: "ln-dev7",
+  publisher: "ln-dev7",
+  category: "education",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    url: siteUrl,
+    locale: site.locale,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    creator: site.twitter,
+    site: site.twitter,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -30,11 +69,30 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="fr"
+      lang="en"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          // Structured data for rich results — describes the free web app.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: site.name,
+              url: siteUrl,
+              description: site.description,
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web",
+              browserRequirements: "Requires JavaScript and WebAssembly.",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              author: { "@type": "Person", name: "ln-dev7", url: site.github },
+              inLanguage: ["en", "fr"],
+            }),
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <I18nProvider>
             <OnboardingModal />
