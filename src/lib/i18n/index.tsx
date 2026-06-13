@@ -1,12 +1,18 @@
 "use client";
 
-import { createContext, useContext, useSyncExternalStore } from "react";
+import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
+import { detectLocale } from "./detect";
 import en, { type Dict } from "./en";
 import fr from "./fr";
 
 export type Locale = "en" | "fr";
 const DICTS: Record<Locale, Dict> = { en, fr };
 const STORAGE_KEY = "cc:locale";
+
+/** True for any locale we actually ship a dictionary for (extensible via DICTS). */
+function isLocale(v: unknown): v is Locale {
+  return typeof v === "string" && Object.prototype.hasOwnProperty.call(DICTS, v);
+}
 
 interface I18n {
   locale: Locale;
@@ -31,9 +37,10 @@ function subscribe(cb: () => void) {
 }
 
 function getLocaleSnapshot(): Locale {
+  // An explicit, persisted choice always wins; otherwise detect intelligently.
   const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === "en" || stored === "fr") return stored;
-  return navigator.language.toLowerCase().startsWith("fr") ? "fr" : "en";
+  if (isLocale(stored)) return stored;
+  return detectLocale();
 }
 
 function setStoredLocale(l: Locale) {
@@ -44,6 +51,12 @@ function setStoredLocale(l: Locale) {
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const locale = useSyncExternalStore(subscribe, getLocaleSnapshot, () => "en" as Locale);
+
+  // Keep <html lang> in sync with the active locale (detected or chosen) for
+  // a11y/SEO. DOM-sync side effect — no setState involved.
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return (
     <I18nContext.Provider value={{ locale, setLocale: setStoredLocale, t: DICTS[locale] }}>
