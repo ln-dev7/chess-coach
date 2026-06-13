@@ -133,12 +133,14 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
   const cancelRef = useRef(false);
   const clean = (s: string) => s.replace(/[+#?!]/g, "");
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    // Reset on (re)mount — React StrictMode mounts/unmounts/remounts in dev,
+    // and a stale `true` here silently kills the playback loop.
+    cancelRef.current = false;
+    return () => {
       cancelRef.current = true;
-    },
-    []
-  );
+    };
+  }, []);
 
   const line = section.answerLine?.length ? section.answerLine : section.answerSan ?? [];
 
@@ -218,10 +220,13 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
               <button
                 onClick={playLine}
                 disabled={playing}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-violet-500/50 px-3 py-1.5 text-xs font-medium text-violet-600 dark:text-violet-300 hover:bg-violet-500/10 disabled:opacity-50 transition"
+                className={[
+                  "inline-flex items-center gap-1.5 rounded-lg border border-violet-500/50 px-3 py-1.5 text-xs font-medium text-violet-600 dark:text-violet-300 hover:bg-violet-500/10 disabled:opacity-60 transition",
+                  playing ? "animate-pulse" : "",
+                ].join(" ")}
               >
                 <Play className="size-3.5" />
-                {t.lessons.playLine}
+                {playing ? t.lessons.playingLine : t.lessons.playLine}
               </button>
               <span className="text-xs text-muted-foreground">
                 {t.lessons.lineLabel}: <strong className="text-foreground/80">{line.join(", ")}</strong>

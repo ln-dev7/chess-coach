@@ -119,6 +119,7 @@ const fr: Dict = {
     whyItWorks: "Pourquoi ça marche",
     theory: "Théorie",
     playLine: "Rejouer la séquence",
+    playingLine: "Lecture…",
     lineLabel: "Suite",
   },
   games: {

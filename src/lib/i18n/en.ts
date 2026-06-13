@@ -118,6 +118,7 @@ const en = {
     whyItWorks: "Why it works",
     theory: "Theory",
     playLine: "Replay the line",
+    playingLine: "Playing…",
     lineLabel: "Line",
   },
   games: {

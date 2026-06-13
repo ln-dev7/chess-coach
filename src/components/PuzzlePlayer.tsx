@@ -47,12 +47,14 @@ function SinglePuzzle({
   const [boardKey, setBoardKey] = useState(0);
   const cancelRef = useRef(false);
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    // Reset on (re)mount — React StrictMode mounts/unmounts/remounts in dev,
+    // and a stale `true` here silently kills the playback loop.
+    cancelRef.current = false;
+    return () => {
       cancelRef.current = true;
-    },
-    []
-  );
+    };
+  }, []);
 
   /** Solution and opponent replies, interleaved: [sol0, rep0, sol1, rep1, ...] */
   const sequence = useMemo(() => {
