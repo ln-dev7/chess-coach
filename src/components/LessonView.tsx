@@ -171,6 +171,16 @@ function BoardSection({ section }: { section: LessonSectionBoard }) {
       <h2 className="text-xl font-medium text-foreground">
         {section.heading ?? (section.exampleIndex ? t.lessons.fromYourGame(section.exampleIndex) : "")}
       </h2>
+
+      {section.theory && (
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="text-sm text-foreground/90 leading-relaxed">
+            <strong className="text-emerald-600 dark:text-emerald-400">📖 {t.lessons.theory}: </strong>
+            {section.theory}
+          </p>
+        </div>
+      )}
+
       <p className="text-sm text-muted-foreground">{section.task}</p>
       <Board
         key={boardKey}

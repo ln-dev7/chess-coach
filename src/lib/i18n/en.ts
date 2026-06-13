@@ -116,6 +116,7 @@ const en = {
     correct: "Correct!",
     wrong: "Not that one — try again",
     whyItWorks: "Why it works",
+    theory: "Theory",
     playLine: "Replay the line",
     lineLabel: "Line",
   },

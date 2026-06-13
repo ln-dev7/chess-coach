@@ -117,6 +117,7 @@ const fr: Dict = {
     correct: "Correct !",
     wrong: "Non, pas celui-là — réessaie",
     whyItWorks: "Pourquoi ça marche",
+    theory: "Théorie",
     playLine: "Rejouer la séquence",
     lineLabel: "Suite",
   },

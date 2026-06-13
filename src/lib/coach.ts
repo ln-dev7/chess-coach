@@ -30,8 +30,8 @@ CHESS ACCURACY — ZERO TOLERANCE:
 
 Hard rules:
 - Respond with ONLY a JSON object, no markdown fences, matching:
-{"title": string, "concept": string, "mission": string, "sections": [{"type":"text","heading":string,"body":string} | {"type":"board","heading":string,"positionId":string,"task":string,"explain":string,"overlays":{"whiteAttacks"?:bool,"blackAttacks"?:bool,"hanging"?:bool}} | {"type":"quiz","questions":[{"q":string,"choices":[string,string,string],"answerIdx":number,"explain":string}]}], "primarySource":{"label":string,"url":string}}
-- Boards: reference positions ONLY by their "id" from keyPositions ("p1", "p2"...). Use 2 to 4 boards, chosen to illustrate the single concept. In "task", describe what to look for WITHOUT revealing the move. In "explain" (1-3 sentences, shown only AFTER the player finds the move), teach WHY the move works — the facts rule applies to it too.
+{"title": string, "concept": string, "mission": string, "sections": [{"type":"text","heading":string,"body":string} | {"type":"board","heading":string,"positionId":string,"theory":string,"task":string,"explain":string,"overlays":{"whiteAttacks"?:bool,"blackAttacks"?:bool,"hanging"?:bool}} | {"type":"quiz","questions":[{"q":string,"choices":[string,string,string],"answerIdx":number,"explain":string}]}], "primarySource":{"label":string,"url":string}}
+- Boards: reference positions ONLY by their "id" from keyPositions ("p1", "p2"...). Use 2 to 4 boards, chosen to illustrate the single concept. In "theory" (1-2 sentences, shown BEFORE solving), give the strategic philosophy behind this step — the deeper principle at play — WITHOUT hinting at the move. In "task", describe what to look for WITHOUT revealing the move. In "explain" (1-3 sentences, shown only AFTER the player finds the move), teach WHY the move works — the facts rule applies to theory and explain too.
 - 1-2 text sections max, each under 120 words. Mission under 80 words.
 - Write every string in the language requested by the user message.`;
 
@@ -40,6 +40,7 @@ export interface ModelSection {
   heading?: string;
   body?: string;
   positionId?: string;
+  theory?: string;
   task?: string;
   explain?: string;
   overlays?: { whiteAttacks?: boolean; blackAttacks?: boolean; hanging?: boolean };
@@ -101,6 +102,7 @@ export function sanitize(
         fen: pos.fen, // dossier truth, never the model's
         orientation: pos.userSide,
         task: String(s.task ?? ""),
+        theory: typeof s.theory === "string" ? s.theory.slice(0, 400) : undefined,
         explain: typeof s.explain === "string" ? s.explain.slice(0, 600) : undefined,
         answerSan: pos.best ? [pos.best] : undefined,
         answerLine: pos.best ? [pos.best] : undefined,

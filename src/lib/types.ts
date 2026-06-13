@@ -97,6 +97,8 @@ export interface LessonSectionBoard {
   orientation: "w" | "b";
   task: string;
   answerSan?: string[]; // if present, board is in "find the move" mode
+  /** Short theory note shown BEFORE solving: the philosophy behind the choice (no spoilers). */
+  theory?: string;
   /** Full continuation (user + opponent moves interleaved) playable after success. */
   answerLine?: string[];
   /** Short theory note shown once the right move is found. */

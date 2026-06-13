@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useI18n, type Locale } from "@/lib/i18n";
@@ -17,6 +17,10 @@ const LOCALES: { value: Locale; flag: string; label: string }[] = [
 export default function Nav() {
   const pathname = usePathname();
   const { t, locale, setLocale } = useI18n();
+  const [open, setOpen] = useState(false);
+
+  // Close the burger menu on navigation.
+  useEffect(() => setOpen(false), [pathname]);
 
   const links = [
     { href: "/", label: t.nav.dashboard },
@@ -26,19 +30,33 @@ export default function Nav() {
     { href: "/settings", label: t.nav.settings },
   ];
 
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
   return (
     <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur">
-      {/* Mobile: 2 rows (logo + controls, then scrollable nav). Desktop: single row. */}
-      <div className="mx-auto max-w-5xl px-4 py-2 md:py-0 md:h-14 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-        <Link
-          href="/"
-          className="order-1 flex items-center gap-2 font-semibold text-foreground tracking-tight whitespace-nowrap"
-        >
+      <div className="mx-auto max-w-5xl px-4 h-14 flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-foreground tracking-tight whitespace-nowrap">
           <Logo className="w-5 h-5" />
           {t.app.name}
         </Link>
 
-        <div className="order-2 ml-auto flex items-center gap-2 md:order-3">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1 text-sm flex-1">
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={[
+                "rounded-md px-3 py-1.5 transition whitespace-nowrap",
+                isActive(l.href) ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground",
+              ].join(" ")}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="ml-auto flex items-center gap-2">
           <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
             <SelectTrigger className="h-8 w-[72px] md:w-[120px] text-xs" aria-label="Language">
               <SelectValue>
@@ -57,26 +75,37 @@ export default function Nav() {
             </SelectContent>
           </Select>
           <ThemeToggle />
-        </div>
 
-        <nav className="order-3 w-full -mx-1 px-1 overflow-x-auto md:order-2 md:w-auto md:flex-1 md:mx-0 md:px-0 flex items-center gap-1 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {links.map((l) => {
-            const active = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={[
-                  "rounded-md px-3 py-1.5 transition whitespace-nowrap",
-                  active ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground",
-                ].join(" ")}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Burger (mobile only) */}
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            aria-expanded={open}
+            className="md:hidden flex w-8 h-8 shrink-0 items-center justify-center rounded-lg border border-input text-muted-foreground hover:text-foreground hover:border-ring/60 transition"
+          >
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu panel */}
+      {open && (
+        <nav className="md:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-3 flex flex-col gap-1 text-sm">
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className={[
+                "rounded-lg px-3 py-2.5 transition",
+                isActive(l.href) ? "bg-accent text-accent-foreground font-medium" : "text-muted-foreground hover:text-foreground hover:bg-accent/50",
+              ].join(" ")}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

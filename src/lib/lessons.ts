@@ -23,8 +23,10 @@ interface LocalizedTemplate {
   concept: string;
   mission: (stats: GeneratedLesson["stats"]) => string;
   drill: string;
-  /** Theory note shown after the player finds the right move. */
+  /** Shown after the player finds the right move. */
   answerExplain: string;
+  /** Mini theory course shown BEFORE each board (cycled per example): the philosophy behind the choice. */
+  theorySteps: string[];
   quiz: { q: string; choices: string[]; answerIdx: number; explain: string }[];
   sourceLabel: string;
 }
@@ -56,6 +58,10 @@ const TEMPLATES: LessonTemplate[] = [
           "Flip on the overlays and find the move you should have played. Watch which beams you missed in the real game.",
         answerExplain:
           "The right move works because of the beams: count attackers vs defenders on the target square and the geometry does the rest. In the real game, one of those beams went unseen.",
+        theorySteps: [
+          "Strong players don't look at pieces — they look at what pieces CONTROL. A position is a force field, and every move redraws it. Before solving, trace the beams that hit the key squares.",
+          "Why count attackers vs defenders? Because tactics are arithmetic in costume: when the count on a square turns against you, the geometry eventually collects the debt.",
+        ],
         quiz: [
           {
             q: "A knight on e5 is attacked twice and defended once. What is its status?",
@@ -83,6 +89,10 @@ const TEMPLATES: LessonTemplate[] = [
           "Active les calques et trouve le coup que tu aurais dû jouer. Regarde quels rayons tu as ratés dans la vraie partie.",
         answerExplain:
           "Le bon coup fonctionne grâce aux rayons : compte les attaquants et les défenseurs de la case visée, la géométrie fait le reste. Dans la vraie partie, un de ces rayons est passé inaperçu.",
+        theorySteps: [
+          "Les joueurs forts ne regardent pas les pièces — ils regardent ce que les pièces CONTRÔLENT. Une position est un champ de forces, et chaque coup le redessine. Avant de résoudre, trace les rayons qui touchent les cases clés.",
+          "Pourquoi compter attaquants et défenseurs ? Parce que la tactique est de l'arithmétique déguisée : quand le compte d'une case tourne contre toi, la géométrie finit toujours par réclamer son dû.",
+        ],
         quiz: [
           {
             q: "Un cavalier en e5 est attaqué deux fois et défendu une fois. Quel est son statut ?",
@@ -118,6 +128,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Find the punishing capture or the saving move in these positions from your games.",
         answerExplain:
           "This move wins (or saves) material because the target piece had more attackers than defenders. Before every move, scan for pieces left without enough protection.",
+        theorySteps: [
+          "Every move abandons something: a square, a diagonal, a defender. Blunders rarely come from bad plans — they come from never auditing what the plan gives up. Audit first, plan second.",
+          "A piece is not 'defended' because it feels defended. Defense is a number — attackers minus defenders, in capture order. Train yourself to SEE that number instead of guessing it.",
+        ],
         quiz: [
           {
             q: "Your opponent just moved a defender away. What do you check first?",
@@ -137,6 +151,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Trouve la prise punitive ou le coup sauveur dans ces positions tirées de tes parties.",
         answerExplain:
           "Ce coup gagne (ou sauve) du matériel parce que la pièce visée avait plus d'attaquants que de défenseurs. Avant chaque coup, balaie les pièces insuffisamment protégées.",
+        theorySteps: [
+          "Chaque coup abandonne quelque chose : une case, une diagonale, un défenseur. Les gaffes viennent rarement d'un mauvais plan — elles viennent de ne jamais auditer ce que le plan abandonne. Auditer d'abord, planifier ensuite.",
+          "Une pièce n'est pas « défendue » parce qu'elle en a l'air. La défense est un nombre — attaquants moins défenseurs, dans l'ordre des prises. Entraîne-toi à VOIR ce nombre au lieu de le deviner.",
+        ],
         quiz: [
           {
             q: "Ton adversaire vient d'éloigner un défenseur. Que vérifies-tu en premier ?",
@@ -165,6 +183,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Each position below had a winning shot you didn't play. Checks, captures, threats — find it.",
         answerExplain:
           "The move is forcing: it limits the opponent's replies (check, capture or direct threat) so the advantage cannot slip away. Forcing moves first — always.",
+        theorySteps: [
+          "Why 'checks, captures, threats'? Because forcing moves shrink the tree: a check leaves only a handful of legal replies, so you can calculate ALL of them. Certainty first — master the lines you can fully control.",
+          "An advantage is perishable. +2 on the eval bar is not a trophy, it's a deadline: every quiet move hands the defender a tempo to coordinate. Conversion is urgency applied with precision.",
+        ],
         quiz: [
           {
             q: "What is the correct scan order when looking for tactics?",
@@ -184,6 +206,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Chaque position ci-dessous contenait un coup gagnant que tu n'as pas joué. Échecs, prises, menaces — trouve-le.",
         answerExplain:
           "Le coup est forcé : il limite les réponses adverses (échec, prise ou menace directe), donc l'avantage ne peut plus s'échapper. Les coups forcés d'abord — toujours.",
+        theorySteps: [
+          "Pourquoi « échecs, prises, menaces » ? Parce que les coups forcés réduisent l'arbre : un échec ne laisse qu'une poignée de réponses légales, donc tu peux TOUTES les calculer. La certitude d'abord — maîtrise les lignes que tu contrôles entièrement.",
+          "Un avantage est périssable. +2 à l'évaluation n'est pas un trophée, c'est une échéance : chaque coup tranquille offre au défenseur un tempo pour se coordonner. Convertir, c'est de l'urgence appliquée avec précision.",
+        ],
         quiz: [
           {
             q: "Quel est le bon ordre de balayage pour chercher une tactique ?",
@@ -212,6 +238,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "In these positions you allowed a fork. Find the move that denies the geometry instead.",
         answerExplain:
           "The right move breaks the fork geometry: it defends or relocates one of the two targets, so the double attack no longer wins anything.",
+        theorySteps: [
+          "Tactics don't appear — they are ENABLED. A fork needs preconditions: two loose targets on one geometry. The philosophy of prophylaxis: remove the preconditions and the tactic dies before it is born.",
+          "Each move, ask the opponent's question before your own: 'if it were their turn, what would they play?' Denying that wish is often worth more than advancing your plan.",
+        ],
         quiz: [
           {
             q: "What do all forks need to exist?",
@@ -231,6 +261,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Dans ces positions, tu as permis une fourchette. Trouve le coup qui refuse la géométrie.",
         answerExplain:
           "Le bon coup casse la géométrie de la fourchette : il défend ou déplace l'une des deux cibles, et la double attaque ne gagne plus rien.",
+        theorySteps: [
+          "Une tactique n'apparaît pas — elle est RENDUE POSSIBLE. Une fourchette a des préconditions : deux cibles non défendues sur une même géométrie. La philosophie de la prophylaxie : supprime les préconditions et la tactique meurt avant de naître.",
+          "À chaque coup, pose-toi la question de l'adversaire avant la tienne : « si c'était à lui de jouer, que ferait-il ? » Refuser son souhait vaut souvent plus qu'avancer ton propre plan.",
+        ],
         quiz: [
           {
             q: "De quoi toute fourchette a-t-elle besoin pour exister ?",
@@ -259,6 +293,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "In these positions you allowed mate. Find the defensive resource.",
         answerExplain:
           "The defensive resource removes the mating pattern itself — an escape square, a defender, or a trade of the key attacker. Patterns die when one ingredient is missing.",
+        theorySteps: [
+          "Club-level mates are patterns, not calculations: back rank, h-file battery, smothered knight. You don't out-calculate a pattern — you recognize its INGREDIENTS early: an open lane, a missing flight square.",
+          "King safety is a budget. Spending one tempo on luft or a defender feels passive, but it deletes entire families of tactics at once. Cheap insurance beats heroic defense.",
+        ],
         quiz: [
           {
             q: "What is the cheapest insurance against back-rank mates?",
@@ -278,6 +316,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Dans ces positions, tu as permis le mat. Trouve la ressource défensive.",
         answerExplain:
           "La ressource défensive supprime le schéma de mat lui-même — une case de fuite, un défenseur, ou l'échange de l'attaquant clé. Un schéma meurt dès qu'un ingrédient manque.",
+        theorySteps: [
+          "Les mats au niveau club sont des schémas, pas des calculs : couloir, batterie sur la colonne h, mat à l'étouffée. On ne calcule pas mieux qu'un schéma — on reconnaît ses INGRÉDIENTS tôt : un couloir ouvert, une case de fuite manquante.",
+          "La sécurité du roi est un budget. Dépenser un tempo pour un luft ou un défenseur semble passif, mais cela supprime des familles entières de tactiques d'un coup. Une assurance bon marché vaut mieux qu'une défense héroïque.",
+        ],
         quiz: [
           {
             q: "Quelle est l'assurance la moins chère contre le mat du couloir ?",
@@ -306,6 +348,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Count the capture sequences in these positions from your games — take or not?",
         answerExplain:
           "Count attackers vs defenders in value order: this move comes out ahead at the end of the sequence. If the count ends negative, the capture is wrong no matter how natural it looks.",
+        theorySteps: [
+          "A capture is not an event — it's the first move of a forced sequence. Never evaluate the first take; evaluate the LAST position of the sequence, once the smoke clears.",
+          "Order matters: capture with your cheapest piece first, and remember every recapture redraws the defense map elsewhere. The exchange you 'win' can lose the square it leaves behind.",
+        ],
         quiz: [
           {
             q: "Before any capture on a contested square, what do you count?",
@@ -325,6 +371,10 @@ const TEMPLATES: LessonTemplate[] = [
         drill: "Compte les séquences de prises dans ces positions tirées de tes parties — prendre ou pas ?",
         answerExplain:
           "Compte attaquants contre défenseurs par ordre de valeur : ce coup ressort gagnant en fin de séquence. Si le compte finit négatif, la prise est mauvaise, aussi naturelle semble-t-elle.",
+        theorySteps: [
+          "Une prise n'est pas un événement — c'est le premier coup d'une séquence forcée. N'évalue jamais la première prise ; évalue la DERNIÈRE position de la séquence, une fois la fumée dissipée.",
+          "L'ordre compte : prends avec ta pièce la moins chère d'abord, et souviens-toi que chaque reprise redessine la carte des défenses ailleurs. L'échange que tu « gagnes » peut perdre la case qu'il laisse derrière lui.",
+        ],
         quiz: [
           {
             q: "Avant toute prise sur une case disputée, que comptes-tu ?",
@@ -424,6 +474,7 @@ export function renderLesson(lesson: GeneratedLesson, locale: Locale): (LessonCo
         fen: ex.fen,
         orientation: ex.user_side,
         task: loc.drill,
+        theory: loc.theorySteps[i % loc.theorySteps.length],
         answerSan: ex.solution_san.slice(0, 1),
         answerLine: toLine(ex),
         explain: loc.answerExplain,
