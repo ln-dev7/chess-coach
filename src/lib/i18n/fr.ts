@@ -152,6 +152,8 @@ const fr: Dict = {
     apiKeyRemoved: "Clé supprimée",
     danger: "Données locales",
     clearData: "Effacer toutes les données locales",
+    clearTitle: "Effacer toutes les données locales ?",
+    clearDesc: "Parties, analyses, puzzles, leçons, réglages et ta clé API seront supprimés de ce navigateur. Cette action est irréversible.",
     cleared: "Données effacées",
     storageNote: "Tout est stocké dans ce navigateur (localStorage). Pas de compte, pas de serveur.",
   },

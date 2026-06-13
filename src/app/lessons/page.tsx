@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import AiLessonGenerator from "@/components/AiLessonGenerator";
+import ApiKeyField from "@/components/ApiKeyField";
 import DeleteLessonButton from "@/components/DeleteLessonButton";
 import GenerateLessonsButton from "@/components/GenerateLessonsButton";
 import { useI18n } from "@/lib/i18n";
@@ -14,6 +15,7 @@ export default function LessonsPage() {
   const { t, locale } = useI18n();
   const [lessons, setLessons] = useState<GeneratedLesson[] | null>(null);
   const [aiLessons, setAiLessons] = useState<AiLessonRow[]>([]);
+  const [keyVersion, setKeyVersion] = useState(0);
 
   const refresh = useCallback(() => {
     setLessons(loadLessons());
@@ -34,7 +36,16 @@ export default function LessonsPage() {
           <p className="text-sm text-muted-foreground max-w-2xl">{t.lessons.personalizedSub}</p>
         </div>
 
-        <AiLessonGenerator />
+        <AiLessonGenerator key={keyVersion} />
+
+        <details className="group">
+          <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground transition list-none">
+            🔑 {t.settings.apiKey}
+          </summary>
+          <div className="mt-3">
+            <ApiKeyField onChanged={() => setKeyVersion((v) => v + 1)} />
+          </div>
+        </details>
 
         {aiLessons.length > 0 && (
           <ul className="grid sm:grid-cols-2 gap-4">

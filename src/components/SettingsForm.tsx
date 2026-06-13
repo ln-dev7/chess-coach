@@ -1,28 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ApiKeyField from "./ApiKeyField";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { BOARD_THEMES } from "@/lib/board-themes";
 import { useI18n, type Locale } from "@/lib/i18n";
-import {
-  clearAllData,
-  clearApiKey,
-  DEFAULT_SETTINGS,
-  loadApiKey,
-  loadSettings,
-  saveApiKey,
-  saveSettings,
-} from "@/lib/storage";
+import { clearAllData, DEFAULT_SETTINGS, loadSettings, saveSettings } from "@/lib/storage";
 
 export default function SettingsForm() {
   const { t, locale, setLocale } = useI18n();
   const [form, setForm] = useState(DEFAULT_SETTINGS);
-  const [apiKey, setApiKey] = useState("");
-  const [hasKey, setHasKey] = useState(false);
-  const [state, setState] = useState<"idle" | "saved" | "cleared" | "keyRemoved">("idle");
+  const [state, setState] = useState<"idle" | "saved" | "cleared">("idle");
 
   useEffect(() => {
     setForm(loadSettings());
-    setHasKey(Boolean(loadApiKey()));
   }, []);
 
   function save(e: React.FormEvent) {
@@ -32,25 +33,13 @@ export default function SettingsForm() {
       analyzeLastN: Math.max(10, Math.min(500, Number(form.analyzeLastN) || 50)),
       engineMovetimeMs: Math.max(40, Math.min(2000, Number(form.engineMovetimeMs) || 90)),
     });
-    if (apiKey.trim()) {
-      saveApiKey(apiKey);
-      setApiKey("");
-      setHasKey(true);
-    }
     setState("saved");
-  }
-
-  function removeKey() {
-    clearApiKey();
-    setHasKey(false);
-    setApiKey("");
-    setState("keyRemoved");
   }
 
   function clearData() {
     clearAllData();
-    setForm(loadSettings());
-    setState("cleared");
+    // Back to a fresh start: home + onboarding modal.
+    window.location.href = "/";
   }
 
   const input =
@@ -153,31 +142,8 @@ export default function SettingsForm() {
         />
       </label>
 
-      <div className="flex flex-col gap-2 border-t border-border pt-5">
-        <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-          {t.settings.apiKey}
-          <input
-            type="password"
-            className={input}
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-            placeholder={hasKey ? "••••••••••••" : t.settings.apiKeyPlaceholder}
-            autoComplete="off"
-          />
-        </label>
-        <p className="text-xs text-muted-foreground/80 leading-relaxed">{t.settings.apiKeyNote}</p>
-        {hasKey && (
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-emerald-600 dark:text-emerald-400">✓ {t.settings.apiKeySaved}</span>
-            <button
-              type="button"
-              onClick={removeKey}
-              className="text-xs text-red-500 underline hover:text-red-400"
-            >
-              {t.settings.apiKeyRemove}
-            </button>
-          </div>
-        )}
+      <div className="border-t border-border pt-5">
+        <ApiKeyField />
       </div>
 
       <div className="flex items-center gap-3">
@@ -189,20 +155,30 @@ export default function SettingsForm() {
         </button>
         {state === "saved" && <span className="text-sm text-emerald-600 dark:text-emerald-400">✓ {t.settings.saved}</span>}
         {state === "cleared" && <span className="text-sm text-amber-600 dark:text-amber-400">{t.settings.cleared}</span>}
-        {state === "keyRemoved" && (
-          <span className="text-sm text-amber-600 dark:text-amber-400">{t.settings.apiKeyRemoved}</span>
-        )}
       </div>
 
       <div className="border-t border-border pt-5 flex flex-col gap-2">
         <p className="text-xs text-muted-foreground">{t.settings.storageNote}</p>
-        <button
-          type="button"
-          onClick={clearData}
-          className="self-start rounded-lg border border-red-900 text-red-500 hover:border-red-600 px-4 py-2 text-sm transition"
-        >
-          {t.settings.clearData}
-        </button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <button
+              type="button"
+              className="self-start rounded-lg border border-red-900 text-red-500 hover:border-red-600 px-4 py-2 text-sm transition"
+            >
+              {t.settings.clearData}
+            </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>{t.settings.clearTitle}</AlertDialogTitle>
+              <AlertDialogDescription>{t.settings.clearDesc}</AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>{t.lessons.cancel}</AlertDialogCancel>
+              <AlertDialogAction onClick={clearData}>{t.settings.clearData}</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </form>
   );

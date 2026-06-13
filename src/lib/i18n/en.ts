@@ -151,6 +151,8 @@ const en = {
     apiKeyRemoved: "Key removed",
     danger: "Local data",
     clearData: "Clear all local data",
+    clearTitle: "Clear all local data?",
+    clearDesc: "Games, analyses, puzzles, lessons, settings and your API key will be removed from this browser. This cannot be undone.",
     cleared: "Data cleared",
     storageNote: "Everything is stored in this browser (localStorage). No account, no server.",
   },
