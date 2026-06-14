@@ -37,57 +37,38 @@ export function pickVoice(locale: string, preferredURI?: string): SpeechSynthesi
 
 // --- active utterance tracking (one at a time) ---
 let activeId: string | null = null;
-let currentUtterance: SpeechSynthesisUtterance | null = null;
 const listeners = new Set<() => void>();
 function emit() {
   for (const l of listeners) l();
 }
 
-export interface SpeakOptions {
-  voiceURI?: string;
-  /**
-   * Fires ONLY when this utterance finishes naturally — never when it is stopped
-   * or superseded by another speak(). Used to auto-chain to the next block.
-   * Guarded by utterance identity so a browser that fires `onend` on cancel
-   * (rather than `onerror`) still won't chain after an interruption.
-   */
-  onEnd?: () => void;
-}
-
-export function speak(id: string, text: string, locale: string, opts: SpeakOptions = {}): void {
+export function speak(id: string, text: string, locale: string, voiceURI?: string): void {
   if (!isSpeechSupported() || !text.trim()) return;
   const synth = window.speechSynthesis;
+  synth.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = bcp47(locale);
-  const voice = pickVoice(locale, opts.voiceURI);
+  const voice = pickVoice(locale, voiceURI);
   if (voice) u.voice = voice;
   u.rate = 1;
   u.pitch = 1;
-  u.onend = () => {
-    if (u !== currentUtterance) return; // superseded or stopped → don't chain
-    currentUtterance = null;
-    activeId = null;
-    emit();
-    opts.onEnd?.();
+  const clear = () => {
+    if (activeId === id) {
+      activeId = null;
+      emit();
+    }
   };
-  u.onerror = () => {
-    if (u !== currentUtterance) return;
-    currentUtterance = null;
-    activeId = null;
-    emit();
-  };
-  currentUtterance = u;
+  u.onend = clear;
+  u.onerror = clear;
   activeId = id;
   emit();
-  synth.cancel();
   synth.speak(u);
 }
 
 export function stopSpeech(): void {
   if (!isSpeechSupported()) return;
-  currentUtterance = null; // any in-flight onend now sees it's not current → no chaining
-  activeId = null;
   window.speechSynthesis.cancel();
+  activeId = null;
   emit();
 }
 

@@ -11,48 +11,20 @@ import { useSettings } from "@/lib/store";
  * Web Speech API. Controlled: click to play, click again (or any other button)
  * to stop. Renders nothing when TTS is unsupported, disabled in Settings, or
  * there's no text.
- *
- * Pass `id` to share play/stop state with an external controller (e.g. a
- * block-by-block auto-reader). Pass `onPlay` to override what "play" does
- * (e.g. start a chained sequence); `onStop` is notified when the user stops.
  */
-export default function SpeakButton({
-  text,
-  id: idProp,
-  onPlay,
-  onStop,
-  className = "",
-}: {
-  text: string;
-  id?: string;
-  onPlay?: () => void;
-  onStop?: () => void;
-  className?: string;
-}) {
+export default function SpeakButton({ text, className = "" }: { text: string; className?: string }) {
   const { t, locale } = useI18n();
   const settings = useSettings();
-  const autoId = useId();
-  const id = idProp ?? autoId;
+  const id = useId();
   const activeId = useActiveSpeechId();
   const speaking = activeId === id;
 
   if (settings.voiceEnabled === false || !isSpeechSupported() || !text.trim()) return null;
 
-  function handleClick() {
-    if (speaking) {
-      stopSpeech();
-      onStop?.();
-    } else if (onPlay) {
-      onPlay();
-    } else {
-      speak(id, text, locale, { voiceURI: settings.voiceURI });
-    }
-  }
-
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={() => (speaking ? stopSpeech() : speak(id, text, locale, settings.voiceURI))}
       aria-label={speaking ? t.tts.stop : t.tts.readAloud}
       title={speaking ? t.tts.stop : t.tts.readAloud}
       className={[

@@ -10,8 +10,7 @@ import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { requestMasterAnnotation } from "@/lib/masters-client";
 import { useCoachAvailability } from "@/lib/coach-client";
-import { speak } from "@/lib/speech";
-import { useMasterAnnotations, useSettings } from "@/lib/store";
+import { useMasterAnnotations } from "@/lib/store";
 import { addMasterAnnotation } from "@/lib/storage";
 import { parsePgn } from "@/lib/pgn";
 import type { MasterGame } from "@/lib/types";
@@ -27,7 +26,6 @@ interface EngineStep {
 
 export default function MasterGameView({ game }: { game: MasterGame }) {
   const { t, locale } = useI18n();
-  const settings = useSettings();
   const parsed = useMemo(() => parsePgn(game.pgn), [game.pgn]);
   const annotations = useMasterAnnotations();
   const annotation = annotations.find((a) => a.gameId === game.id && a.locale === locale) ?? null;
@@ -35,7 +33,6 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
 
   const [plyIdx, setPlyIdx] = useState(0); // plies played so far (0 = start)
   const [playing, setPlaying] = useState(false);
-  const [engaged, setEngaged] = useState(false); // user clicked play → auto-read on advance
   const [generating, setGenerating] = useState(false);
   const [genError, setGenError] = useState("");
   // On-demand engine line from the current position (the only place evals appear).
@@ -50,31 +47,6 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
       cancelRef.current = true;
     };
   }, []);
-
-  // Explanation shown at the current position (intro at the start, else the note).
-  const speakId = `master:${game.id}:${plyIdx}`;
-  const displayedText = !annotation
-    ? ""
-    : plyIdx === 0
-    ? annotation.intro
-    : annotation.notes.find((n) => n.ply === plyIdx)?.reasoning ?? "";
-
-  // Auto-read when the position changes — but ONLY after the user has clicked
-  // play once ("engaged"); clicking stop un-engages, so further stepping stays
-  // silent. Never fires on mount (prevPly starts equal) nor during board
-  // auto-play. Latest values read from a ref so the effect only triggers on plyIdx.
-  const readRef = useRef({ engaged, playing, displayedText, speakId, locale, voiceURI: settings.voiceURI });
-  useEffect(() => {
-    readRef.current = { engaged, playing, displayedText, speakId, locale, voiceURI: settings.voiceURI };
-  });
-  const prevPlyRef = useRef(plyIdx);
-  useEffect(() => {
-    if (prevPlyRef.current === plyIdx) return;
-    prevPlyRef.current = plyIdx;
-    const s = readRef.current;
-    if (!s.engaged || s.playing || !s.displayedText) return;
-    speak(s.speakId, s.displayedText, s.locale, { voiceURI: s.voiceURI });
-  }, [plyIdx]);
 
   if (!parsed || !parsed.moves.length) {
     return <p className="text-muted-foreground">{t.masters.unreadable}</p>;
@@ -270,9 +242,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
               <button
                 onClick={generate}
                 disabled={generating || !ai.available}
-                className="self-start inline-flex items-center gap-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition"
+                className="self-start inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition"
               >
-                {generating ? <CometSpinner className="size-4" /> : <Sparkles className="size-4" />}
+                {generating ? <CometSpinner className="size-4 mr-1.5" /> : <Sparkles className="size-4 mr-1.5" />}
                 {generating ? t.masters.generating : t.masters.generateReasoning}
               </button>
             )}
@@ -284,15 +256,7 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
               <div className="rounded-xl border-l-4 border-violet-500 bg-card p-4">
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-foreground/90 leading-relaxed">{annotation.intro}</p>
-                  <SpeakButton
-                    text={annotation.intro}
-                    id={speakId}
-                    onPlay={() => {
-                      setEngaged(true);
-                      speak(speakId, annotation.intro, locale, { voiceURI: settings.voiceURI });
-                    }}
-                    onStop={() => setEngaged(false)}
-                  />
+                  <SpeakButton text={annotation.intro} />
                 </div>
               </div>
             ) : currentNote ? (
@@ -301,15 +265,7 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                   <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
                     {t.masters.moveLabel(Math.ceil(plyIdx / 2), moves[plyIdx - 1].san)}
                   </p>
-                  <SpeakButton
-                    text={currentNote.reasoning}
-                    id={speakId}
-                    onPlay={() => {
-                      setEngaged(true);
-                      speak(speakId, currentNote.reasoning, locale, { voiceURI: settings.voiceURI });
-                    }}
-                    onStop={() => setEngaged(false)}
-                  />
+                  <SpeakButton text={currentNote.reasoning} />
                 </div>
                 <p className="text-foreground/90 leading-relaxed whitespace-pre-line">{currentNote.reasoning}</p>
               </div>
@@ -319,9 +275,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
             <button
               onClick={generate}
               disabled={generating}
-              className="self-start inline-flex items-center gap-1.5 text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50"
+              className="self-start inline-flex items-center text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50"
             >
-              {generating && <CometSpinner className="size-3" />}
+              {generating && <CometSpinner className="size-3 mr-1.5" />}
               {generating ? t.masters.generating : t.masters.regenerate}
             </button>
             {genError && <p className="text-sm text-red-500">{genError}</p>}
