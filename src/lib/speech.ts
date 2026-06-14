@@ -42,17 +42,39 @@ function emit() {
   for (const l of listeners) l();
 }
 
-export function speak(id: string, text: string, locale: string, voiceURI?: string): void {
-  if (!isSpeechSupported() || !text.trim()) return;
+// Hold a reference to the utterance being spoken. Chrome can garbage-collect an
+// utterance that is only referenced by its internal queue, which makes speech
+// never start (the classic "button animates but nothing is heard"). Keeping it
+// here prevents that.
+let current: SpeechSynthesisUtterance | null = null;
+let keepAlive: ReturnType<typeof setInterval> | null = null;
+let watchdog: ReturnType<typeof setTimeout> | null = null;
+
+function clearTimers() {
+  if (keepAlive) {
+    clearInterval(keepAlive);
+    keepAlive = null;
+  }
+  if (watchdog) {
+    clearTimeout(watchdog);
+    watchdog = null;
+  }
+}
+
+function startUtterance(id: string, text: string, locale: string, voiceURI?: string): void {
   const synth = window.speechSynthesis;
-  synth.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = bcp47(locale);
   const voice = pickVoice(locale, voiceURI);
   if (voice) u.voice = voice;
   u.rate = 1;
   u.pitch = 1;
+  u.volume = 1;
+  current = u;
+
   const clear = () => {
+    clearTimers();
+    current = null;
     if (activeId === id) {
       activeId = null;
       emit();
@@ -60,14 +82,68 @@ export function speak(id: string, text: string, locale: string, voiceURI?: strin
   };
   u.onend = clear;
   u.onerror = clear;
+  u.onstart = () => {
+    // Real audio has begun: drop the "didn't start" watchdog.
+    if (watchdog) {
+      clearTimeout(watchdog);
+      watchdog = null;
+    }
+  };
+
   activeId = id;
   emit();
   synth.speak(u);
+
+  // Chrome silently pauses synthesis after ~15s; nudging resume() keeps long
+  // lesson / master texts playing to the end.
+  keepAlive = setInterval(() => {
+    if (!synth.speaking) {
+      clearTimers();
+      return;
+    }
+    synth.resume();
+  }, 10000);
+
+  // If audio never actually starts (no usable voice, blocked engine…), don't
+  // leave the button pulsing forever — reset shortly after. Reading `current`
+  // here also keeps the utterance reachable (Chrome's anti-GC requirement).
+  watchdog = setTimeout(() => {
+    if (current === u && activeId === id && !synth.speaking) clear();
+  }, 3500);
+}
+
+export function speak(id: string, text: string, locale: string, voiceURI?: string): void {
+  if (!isSpeechSupported() || !text.trim()) return;
+  const synth = window.speechSynthesis;
+  clearTimers();
+  synth.cancel();
+
+  const begin = () => startUtterance(id, text, locale, voiceURI);
+
+  // On first use the browser may not have loaded its voices yet; speaking then
+  // can be silent. Wait for them (with a fallback) before starting.
+  if (!synth.getVoices().length) {
+    const onVoices = () => {
+      synth.removeEventListener("voiceschanged", onVoices);
+      begin();
+    };
+    synth.addEventListener("voiceschanged", onVoices);
+    setTimeout(() => {
+      synth.removeEventListener("voiceschanged", onVoices);
+      if (activeId !== id) begin();
+    }, 300);
+    return;
+  }
+
+  // Dodge Chrome's cancel()->speak() race: let the cancel settle first.
+  setTimeout(begin, 0);
 }
 
 export function stopSpeech(): void {
   if (!isSpeechSupported()) return;
+  clearTimers();
   window.speechSynthesis.cancel();
+  current = null;
   activeId = null;
   emit();
 }
