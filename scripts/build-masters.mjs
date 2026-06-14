@@ -1,24 +1,29 @@
 // Build the bundled catalog of iconic master games.
 //
-// Run manually (NOT wired into build, so it never depends on the network at
-// build/CI time):  node scripts/build-masters.mjs
+// Full rebuild (fetches the historic source + merges curated modern games):
+//   node scripts/build-masters.mjs
 //
 // It fetches a clean, well-tagged collection of famous games, splits it into
 // individual games, VALIDATES every one through chess.js (the same engine the
 // runtime uses via parsePgn — illegal/truncated games are rejected), applies
-// the curated overlays from masters-seed.json, and writes
-// src/lib/masters/catalog.json. A bad game hard-fails the script so it can
-// never reach the app.
+// the curated overlays from masters-seed.json, then appends the curated modern
+// `extraGames` (long classical games not present in the historic source, each
+// carrying its own movetext + metadata, validated the same way), and writes
+// src/lib/masters/catalog.json sorted by `iconic` (most iconic first). A bad
+// game hard-fails the script so it can never reach the app.
+//
+// If you only changed/added `extraGames` (no need to refetch the historic
+// source), run the offline merge instead: node scripts/merge-extra-masters.mjs
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { Chess } from "chess.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const SEED = JSON.parse(readFileSync(join(__dirname, "masters-seed.json"), "utf8"));
-const OUT = join(ROOT, "src/lib/masters/catalog.json");
+export const SEED = JSON.parse(readFileSync(join(__dirname, "masters-seed.json"), "utf8"));
+export const OUT = join(ROOT, "src/lib/masters/catalog.json");
 
 const MIN_PLIES = 10;
 
@@ -88,6 +93,16 @@ function findOverlay(headers) {
   );
 }
 
+/** Iconic score for an already-built catalog entry, matched against overlays. */
+export function overlayIconicFor(entry, seed = SEED) {
+  const w = (entry.white || "").toLowerCase();
+  const b = (entry.black || "").toLowerCase();
+  const o = (seed.overlays || []).find(
+    (ov) => w.includes(ov.white.toLowerCase()) && b.includes(ov.black.toLowerCase())
+  );
+  return o?.iconic ?? 0;
+}
+
 function yearOf(headers) {
   const y = Number((headers.Date || headers.EventDate || "").slice(0, 4));
   return Number.isFinite(y) && y > 1400 ? y : null;
@@ -97,6 +112,60 @@ function winnerSide(result) {
   if (result === "1-0") return "w";
   if (result === "0-1") return "b";
   return "w";
+}
+
+/** Most iconic first; ties broken by year then id for a stable, reproducible order. */
+export function sortCatalog(catalog) {
+  return catalog.sort(
+    (a, b) => (b.iconic ?? 0) - (a.iconic ?? 0) || (a.year ?? 0) - (b.year ?? 0) || a.id.localeCompare(b.id)
+  );
+}
+
+/** Build a full PGN string for a curated inline game from its metadata + movetext. */
+function extraPgn(extra) {
+  const date = extra.year ? `${extra.year}.??.??` : "????.??.??";
+  const headers = [
+    `[Event "${extra.event ?? "?"}"]`,
+    `[Site "?"]`,
+    `[Date "${date}"]`,
+    `[Round "?"]`,
+    `[White "${extra.white}"]`,
+    `[Black "${extra.black}"]`,
+    `[Result "${extra.result ?? "*"}"]`,
+  ].join("\n");
+  return `${headers}\n\n${extra.moves.trim()}\n`;
+}
+
+/** Build one catalog entry from a curated inline game (validated like fetched games). */
+function buildExtraEntry(extra, seenIds) {
+  const pgn = extraPgn(extra);
+  validate(pgn, { White: extra.white, Black: extra.black, Result: extra.result });
+  const id = extra.id || slugify(`${lastName(extra.white)}-${lastName(extra.black)}-${extra.year ?? "x"}`);
+  if (seenIds.has(id)) throw new Error(`duplicate id "${id}" for ${extra.white} vs ${extra.black}`);
+  seenIds.add(id);
+  return {
+    id,
+    pgn,
+    title: extra.title ?? `${extra.white} vs ${extra.black}`,
+    white: extra.white,
+    black: extra.black,
+    event: extra.event ?? null,
+    year: extra.year ?? 0,
+    result: extra.result ?? "*",
+    studySide: extra.studySide ?? winnerSide(extra.result),
+    tags: extra.tags ?? [],
+    sourceUrl: extra.sourceUrl ?? null,
+    teaser: {
+      en: extra.teaser_en ?? `${extra.white} vs ${extra.black}${extra.year ? ` — ${extra.year}` : ""}.`,
+      fr: extra.teaser_fr ?? `${extra.white} contre ${extra.black}${extra.year ? ` — ${extra.year}` : ""}.`,
+    },
+    iconic: extra.iconic ?? 0,
+  };
+}
+
+/** Build catalog entries for all curated inline games. Throws on any invalid game. */
+export function buildExtraEntries(seed = SEED, seenIds = new Set()) {
+  return (seed.extraGames || []).map((extra) => buildExtraEntry(extra, seenIds));
 }
 
 async function main() {
@@ -149,28 +218,32 @@ async function main() {
         en: overlay?.teaser_en ?? `${white} vs ${black}${year ? ` — ${year}` : ""}.`,
         fr: overlay?.teaser_fr ?? `${white} contre ${black}${year ? ` — ${year}` : ""}.`,
       },
+      iconic: overlay?.iconic ?? 0,
     });
   }
 
+  // Append curated modern games (validated the same way).
+  const extras = buildExtraEntries(SEED, seenIds);
+  catalog.push(...extras);
+
   if (!catalog.length) throw new Error("no valid games produced");
-  // Iconic (overlaid) games first, then by year.
-  catalog.sort((a, b) => {
-    const ao = a.tags.length ? 0 : 1;
-    const bo = b.tags.length ? 0 : 1;
-    return ao - bo || a.year - b.year;
-  });
+  sortCatalog(catalog);
 
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, JSON.stringify(catalog, null, 2) + "\n");
   console.log(`\nWrote ${catalog.length} games → ${OUT}`);
-  console.log(`Curated (with teaser/tags): ${catalog.filter((g) => g.tags.length).length}`);
+  console.log(`  historic: ${catalog.length - extras.length} · curated modern: ${extras.length}`);
+  console.log(`  with an iconic score: ${catalog.filter((g) => g.iconic > 0).length}`);
   if (errors.length) {
     console.log(`\nSkipped ${errors.length} unparseable game(s):`);
     for (const e of errors) console.log(`  - ${e}`);
   }
 }
 
-main().catch((e) => {
-  console.error("BUILD FAILED:", e.message);
-  process.exit(1);
-});
+// Only run the full (networked) rebuild when invoked directly.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => {
+    console.error("BUILD FAILED:", e.message);
+    process.exit(1);
+  });
+}

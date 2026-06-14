@@ -18,130 +18,8 @@
     "teaser": {
       "en": "Anderssen gives up a bishop, both rooks and the queen — and mates with three minor pieces. The most famous game ever played.",
       "fr": "Anderssen sacrifie un fou, ses deux tours et la dame — puis mate avec trois pièces mineures. La partie la plus célèbre de l'histoire."
-    }
-  },
-  {
-    "id": "anderssen-dufresne-1852",
-    "pgn": "[Event \"Casual Game\"]\n[Site \"Berlin GER\"]\n[Date \"1852.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Adolf Anderssen\"]\n[Black \"Jean Dufresne\"]\n[ECO \"C52\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"47\"]\n\n1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 Bxb4 5.c3 Ba5 6.d4 exd4 7.O-O\nd3 8.Qb3 Qf6 9.e5 Qg6 10.Re1 Nge7 11.Ba3 b5 12.Qxb5 Rb8 13.Qa4\nBb6 14.Nbd2 Bb7 15.Ne4 Qf5 16.Bxd3 Qh5 17.Nf6+ gxf6 18.exf6\nRg8 19.Rad1 Qxf3 20.Rxe7+ Nxe7 21.Qxd7+ Kxd7 22.Bf5+ Ke8\n23.Bd7+ Kf8 24.Bxe7# 1-0\n",
-    "title": "The Evergreen Game",
-    "white": "Adolf Anderssen",
-    "black": "Jean Dufresne",
-    "event": "Casual Game",
-    "year": 1852,
-    "result": "1-0",
-    "studySide": "w",
-    "tags": [
-      "sacrifice",
-      "attack",
-      "romantic"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "A cascade of sacrifices crowned by a quiet, deadly queen move. Romantic chess at its peak.",
-      "fr": "Une cascade de sacrifices couronnée par un coup de dame tranquille et mortel. L'apogée du jeu romantique."
-    }
-  },
-  {
-    "id": "steinitz-bardeleben-1895",
-    "pgn": "[Event \"Hastings\"]\n[Site \"Hastings, England\"]\n[Date \"1895.08.17\"]\n[EventDate \"1895.08.05\"]\n[Round \"10\"]\n[Result \"1-0\"]\n[White \"Wilhelm Steinitz\"]\n[Black \"Curt von Bardeleben\"]\n[ECO \"C54\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"49\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4\nBb4+ 7. Nc3 d5 8. exd5 Nxd5 9. O-O Be6 10. Bg5 Be7 11. Bxd5\nBxd5 12. Nxd5 Qxd5 13. Bxe7 Nxe7 14. Re1 f6 15. Qe2 Qd7\n16. Rac1 c6 17. d5 cxd5 18. Nd4 Kf7 19. Ne6 Rhc8 20. Qg4 g6\n21. Ng5+ Ke8 22. Rxe7+ Kf8 23. Rf7+ Kg8 24. Rg7+ Kh8 25. Rxh7+\n{And black resigned at this point. As Steinitz demonstrated\nimmediately afterward, there is a mate in ten moves which can\nonly be averted by ruinous loss of material; analysis follows:\n...Kh8 25. Rxh7+ Kg8 26. Rg7+ Kh8 27. Qh4+ Kxg7 28. Qh7+ Kf8\n29. Qh8+ Ke7 30. Qg7+ Ke8 31. Qg8+ Ke7 32. Qf7+ Kd8 33. Qf8+\nQe8 34. Nf7+ Kd7 35. Qd6#} 1-0\n",
-    "title": "Steinitz's Combination",
-    "white": "Wilhelm Steinitz",
-    "black": "Curt von Bardeleben",
-    "event": "Hastings",
-    "year": 1895,
-    "result": "1-0",
-    "studySide": "w",
-    "tags": [
-      "attack",
-      "calculation"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "Steinitz keeps his rook en prise for moves on end, calculating a forced mate to the very last check.",
-      "fr": "Steinitz laisse sa tour en prise pendant plusieurs coups, calculant un mat forcé jusqu'au dernier échec."
-    }
-  },
-  {
-    "id": "rotlewi-rubinstein-1907",
-    "pgn": "[Event \"Lodz\"]\n[Site \"Lodz\"]\n[Date \"1907.12.26\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Georg Rotlewi\"]\n[Black \"Akiba Rubinstein\"]\n[ECO \"D32\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"50\"]\n\n1.d4 {Notes by Carl Schlechter and Dr. Savielly Tartakower.}\nd5 2.Nf3 e6 3.e3 c5 4.c4 Nc6 5.Nc3 Nf6 6.dxc5 {Tartakower:\nLess consistent than 6.a3 or 6.Bd3, maintaining as long as\npossible the tension in the center.} Bxc5 7.a3 a6 8.b4 Bd6\n9.Bb2 O-O 10.Qd2 {? Schlechter: A very bad place for the\nqueen. The best continuation is 10.cxd5 exd5 11.Be2, followed\nby O-O. *** Tartakower: Loss of time. The queen will soon have\nto seek a better square (14.Qe2). The most useful move is\n10.Qc2.} Qe7 {! Schlechter: A fine sacrifice of a pawn. If\n11.cxd5 exd5 12.Nxd5? Nxd5 13.Qxd5 Rd8! and Black has a strong\nattack.} 11.Bd3 {Schlechter: Better was 11.cxd5 exd5 12.Be2.}\ndxc4 12.Bxc4 b5 13.Bd3 Rd8 14.Qe2 Bb7 15.O-O Ne5 {!\nSchlechter: Introduced by Marshall and Schlechter in a similar\nposition with opposite colors, but here with the extra move\nRd8.} 16.Nxe5 Bxe5 {Tartakower: Threatening to win a pawn by\n17...Bxh2+ 18.Kxh2 Qd6+. White's next move provides against\nthis, but loosens the kingside defenses.} 17.f4 Bc7 18.e4 Rac8\n19.e5 Bb6+ 20.Kh1 Ng4 {!} 21.Be4 {Schlechter: There is no\ndefense; e.g., 21.Bxh7+ Kxh7 22.Qxg4 Rd2 etc.; or 21.h3 Qh4\n22.Qxg4 Qxg4 23.hxg4 Rxd3, threatening ...Rh3 mate and\n...Rxc3; or 21.Qxg4 Rxd3 22.Ne2 Rc2 23.Bc1 g6! threatening\n...h5; or 21.Ne4 Qh4 22.h3 (if 22.g3 Qxh2+ 23.Qxh2 Nxh2 and\nwins.) 22....Rxd3 23.Qxd3 Bxe4 24.Qxe4 Qg3 25.hxg4 Qh4+ mate.}\nQh4 22.g3 {Schlechter: Or 22.h3 Rxc3! 23.Bxc3 Bxe4 24.Qxg4\nQxg4 25.hxg4 Rd3 wins. *** Tartakower: The alternative 22.h3,\nparrying the mate, would lead to the following brilliant lines\nof play: 22...Rxc3! (an eliminating sacrifice, getting rid of\nthe knight, which overprotects the bishop on e4) 23.Bxc3 (or\n23.Qxg4 Rxh3+ 24.Qxh3 Qxh3+ 25.gxh3 Bxe4+ 26.Kh2 Rd2+ 27.Kg3\nRg2+ 28.Kh4 Bd8+ 29.Kh5 Bg6+ mate) 23...Bxe4+ 24.Qxg4 (if\n24.Qxe4 Qg3 25.hxg4 Qh4+ mate) 24...Qxg4 25.hxg4 Rd3 with the\ndouble threat of 26...Rh3+ mate and 26....Rxc3, and Black\nwins. Beautiful as are these variations, the continuation in\nthe text is still more splendid.} Rxc3 {!!} 23.gxh4 Rd2 {!!}\n24.Qxd2 Bxe4+ 25.Qg2 Rh3 {!} 0-1\n",
-    "title": "Rubinstein's Immortal",
-    "white": "Georg Rotlewi",
-    "black": "Akiba Rubinstein",
-    "event": "Lodz",
-    "year": 1907,
-    "result": "0-1",
-    "studySide": "b",
-    "tags": [
-      "sacrifice",
-      "attack",
-      "harmony"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "Rubinstein coordinates every piece into one overwhelming combination — a model of attacking harmony.",
-      "fr": "Rubinstein coordonne chaque pièce dans une combinaison écrasante — un modèle d'harmonie à l'attaque."
-    }
-  },
-  {
-    "id": "lasker-thomas-1912",
-    "pgn": "[Event \"London, England\"]\n[Site \"London, England\"]\n[Date \"1912.10.29\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Edward Lasker\"]\n[Black \"George Alan Thomas\"]\n[ECO \"A40\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"35\"]\n\n1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4\nfxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+\nKxh7 12. Nxf6+ Kh6 13. Neg4+ Kg5 14. h4+ Kf4 15. g3+ Kf3\n16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0\n",
-    "title": "The King Walk",
-    "white": "Edward Lasker",
-    "black": "George Alan Thomas",
-    "event": "London, England",
-    "year": 1912,
-    "result": "1-0",
-    "studySide": "w",
-    "tags": [
-      "attack",
-      "king-hunt",
-      "mate"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "A queen sacrifice drags the black king up the board to be mated on g1 — a textbook king hunt.",
-      "fr": "Un sacrifice de dame entraîne le roi noir jusqu'à se faire mater en g1 — une chasse au roi d'école."
-    }
-  },
-  {
-    "id": "levitsky-marshall-1912",
-    "pgn": "[Event \"18th DSB Kongress\"]\n[Site \"Breslau GER\"]\n[Date \"1912.07.20\"]\n[EventDate \"1912.07.15\"]\n[Round \"6\"]\n[Result \"0-1\"]\n[White \"Stefan Levitsky\"]\n[Black \"Frank James Marshall\"]\n[ECO \"B23\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"46\"]\n\n1.d4 e6 2.e4 d5 3.Nc3 c5 4.Nf3 Nc6 5.exd5 exd5 6.Be2 Nf6 7.O-O\nBe7 8.Bg5 O-O 9.dxc5 Be6 10.Nd4 Bxc5 11.Nxe6 fxe6 12.Bg4 Qd6\n13.Bh3 Rae8 14.Qd2 Bb4 15.Bxf6 Rxf6 16.Rad1 Qc5 17.Qe2 Bxc3\n18.bxc3 Qxc3 19.Rxd5 Nd4 20.Qh5 Ref8 21.Re5 Rh6 22.Qg5 Rxh3\n23.Rc5 Qg3 0-1\n",
-    "title": "The Gold Coins Game",
-    "white": "Stefan Levitsky",
-    "black": "Frank James Marshall",
-    "event": "18th DSB Kongress",
-    "year": 1912,
-    "result": "0-1",
-    "studySide": "b",
-    "tags": [
-      "tactics",
-      "quiet-move"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "Marshall's stunning queen move to g3 — spectators reportedly showered the board with gold coins.",
-      "fr": "Le coup de dame stupéfiant de Marshall en g3 — les spectateurs auraient couvert l'échiquier de pièces d'or."
-    }
-  },
-  {
-    "id": "glucksberg-najdorf-1929",
-    "pgn": "[Event \"Warsaw\"]\n[Site \"Warsaw\"]\n[Date \"1929.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Glucksberg\"]\n[Black \"Miguel Najdorf\"]\n[ECO \"A85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"44\"]\n\n1.d4 f5 2.c4 Nf6 3.Nc3 e6 4.Nf3 d5 5.e3 c6 6.Bd3 Bd6 7.O-O O-O\n8.Ne2 Nbd7 9.Ng5 Bxh2+ 10.Kh1 Ng4 11.f4 Qe8 12.g3 Qh5 13.Kg2\nBg1 14.Nxg1 Qh2+ 15.Kf3 e5 16.dxe5 Ndxe5+ 17.fxe5 Nxe5+ 18.Kf4\nNg6+ 19.Kf3 f4 20.exf4 Bg4+ 21.Kxg4 Ne5+ 22.fxe5 h5# 0-1\n",
-    "title": "The Polish Immortal",
-    "white": "Glucksberg",
-    "black": "Miguel Najdorf",
-    "event": "Warsaw",
-    "year": 1929,
-    "result": "0-1",
-    "studySide": "b",
-    "tags": [
-      "sacrifice",
-      "attack"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "Najdorf sacrifices all four minor pieces to mate. Brilliance with no material left to spare.",
-      "fr": "Najdorf sacrifie ses quatre pièces mineures pour mater. Une brillance sans la moindre pièce de réserve."
-    }
+    },
+    "iconic": 100
   },
   {
     "id": "byrne-fischer-1956",
@@ -162,69 +40,8 @@
     "teaser": {
       "en": "13-year-old Bobby Fischer unleashes a windmill and a queen sacrifice against a leading master. Genius announced.",
       "fr": "À 13 ans, Bobby Fischer déchaîne un moulin à vent et un sacrifice de dame contre un maître reconnu. Le génie se révèle."
-    }
-  },
-  {
-    "id": "tal-larsen-1965",
-    "pgn": "[Event \"Tal-Larsen Candidates Semifinal Match\"]\n[Site \"Bled YUG\"]\n[Date \"1965.08.08\"]\n[EventDate \"1965.07.23\"]\n[Round \"10\"]\n[White \"Mikhail Tal\"]\n[Black \"Bent Larsen\"]\n[Result \"1-0\"]\n[ECO \"B82\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[MovePly \"73\"]\n\n1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 d6 6.Be3 Nf6 7.f4\nBe7 8.Qf3 O-O 9.O-O-O Qc7 10.Ndb5 Qb8 11.g4 a6 12.Nd4 Nxd4\n13.Bxd4 b5 14.g5 Nd7 15.Bd3 b4 16.Nd5 {!} exd5 17.exd5 {The\npiece sacrifice is a positional one, since it has been used to\nerect an invisible barrier on the e-file. A number of squares\non it (e5 and e6) are controlled by white pawns, and a white\nrook will soon be moved to e1. -- Iakov Damsky} f5 18.Rde1 Rf7\n19.h4 Bb7 20.Bxf5 Rxf5 21.Rxe7 Ne5 22.Qe4 Qf8 23.fxe5 Rf4\n24.Qe3 Rf3 25.Qe2 Qxe7 26.Qxf3 dxe5 27.Re1 Rd8 28.Rxe5 Qd6\n29.Qf4 {! With this simple tactic 29 ...Bxd5 30. Re8+ White\nkeeps his two extra pawns. The finish is straightforward. --\nDamsky} Rf8 30.Qe4 b3 31.axb3 Rf1+ 32.Kd2 Qb4+ 33.c3 Qd6\n34.Bc5 Qxc5 35.Re8+ Rf8 36.Qe6+ Kh8 37.Qf7 1-0\n",
-    "title": "Tal's Attack",
-    "white": "Mikhail Tal",
-    "black": "Bent Larsen",
-    "event": "Tal-Larsen Candidates Semifinal Match",
-    "year": 1965,
-    "result": "1-0",
-    "studySide": "w",
-    "tags": [
-      "attack",
-      "sacrifice",
-      "initiative"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "The magician from Riga sacrifices to rip open the king and never lets the initiative cool.",
-      "fr": "Le magicien de Riga sacrifie pour éventrer le roi et ne laisse jamais l'initiative retomber."
-    }
-  },
-  {
-    "id": "larsen-spassky-1970",
-    "pgn": "[Event \"USSR vs. Rest of the World\"]\n[Site \"Belgrade SRB\"]\n[Date \"1970.03.31\"]\n[EventDate \"1970.03.29\"]\n[Round \"2.1\"]\n[Result \"0-1\"]\n[White \"Bent Larsen\"]\n[Black \"Boris Spassky\"]\n[ECO \"A01\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"34\"]\n\n1. b3 e5 2. Bb2 Nc6 3. c4 Nf6 4. Nf3 e4 5. Nd4 Bc5 6. Nxc6\ndxc6 7. e3 Bf5 8. Qc2 Qe7 9. Be2 O-O-O 10. f4 Ng4 11. g3 h5\n12. h3 h4 13. hxg4 hxg3 14. Rg1 Rh1 15. Rxh1 g2 16. Rf1 Qh4+\n17. Kd1 gxf1=Q+ 0-1\n",
-    "title": "Spassky's Lightning",
-    "white": "Bent Larsen",
-    "black": "Boris Spassky",
-    "event": "USSR vs. Rest of the World",
-    "year": 1970,
-    "result": "0-1",
-    "studySide": "b",
-    "tags": [
-      "attack",
-      "miniature"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "Spassky demolishes Larsen in 17 moves, finishing with a rook lift and ...Qxh2 mate threats.",
-      "fr": "Spassky démolit Larsen en 17 coups, concluant par une montée de tour et des menaces de mat ...Dxh2."
-    }
-  },
-  {
-    "id": "topalov-shirov-1998",
-    "pgn": "[Event \"Linares\"]\n[Site \"Linares ESP\"]\n[Date \"1998.03.04\"]\n[EventDate \"1998.02.22\"]\n[Round \"10\"]\n[Result \"0-1\"]\n[White \"Veselin Topalov\"]\n[Black \"Alexey Shirov\"]\n[ECO \"D85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"106\"]\n\n1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7\n7.Bb5+ c6 8.Ba4 O-O 9.Ne2 Nd7 10.O-O e5 11.f3 Qe7 12.Be3 Rd8\n13.Qc2 Nb6 14.Bb3 Be6 15.Rad1 Nc4 16.Bc1 b5 17.f4 exd4 18.Nxd4\nBg4 19.Rde1 Qc5 20.Kh1 a5 21.h3 Bd7 22.a4 bxa4 23.Ba2 Be8\n24.e5 Nb6 25.f5 Nd5 26.Bd2 Nb4 27.Qxa4 Nxa2 28.Qxa2 Bxe5\n29.fxg6 hxg6 30.Bg5 Rd5 31.Re3 Qd6 32.Qe2 Bd7 33.c4 Bxd4\n34.cxd5 Bxe3 35.Qxe3 Re8 36.Qc3 Qxd5 37.Bh6 Re5 38.Rf3 Qc5\n39.Qa1 Bf5 40.Re3 f6 41.Rxe5 Qxe5 42.Qa2+ Qd5 43.Qxd5+ cxd5\n44.Bd2 a4 45.Bc3 Kf7 46.h4 Ke6 47.Kg1 Bh3 48.gxh3 Kf5 49.Kf2\nKe4 50.Bxf6 d4 51.Be7 Kd3 52.Bc5 Kc4 53.Be7 Kb3 0-1\n",
-    "title": "Shirov's Bishop Sacrifice",
-    "white": "Veselin Topalov",
-    "black": "Alexey Shirov",
-    "event": "Linares",
-    "year": 1998,
-    "result": "0-1",
-    "studySide": "b",
-    "tags": [
-      "endgame",
-      "sacrifice",
-      "calculation"
-    ],
-    "sourceUrl": null,
-    "teaser": {
-      "en": "In an endgame, Shirov plays ...Bh3!! — one of the most famous moves ever, sacrificing a bishop for a passed pawn.",
-      "fr": "En finale, Shirov joue ...Fh3!! — l'un des coups les plus célèbres de l'histoire, un fou sacrifié pour un pion passé."
-    }
+    },
+    "iconic": 99
   },
   {
     "id": "kasparov-topalov-1999",
@@ -245,7 +62,616 @@
     "teaser": {
       "en": "A rook sacrifice opens a king hunt across the whole board — perhaps the greatest game of the modern era.",
       "fr": "Un sacrifice de tour ouvre une chasse au roi à travers tout l'échiquier — peut-être la plus grande partie de l'ère moderne."
-    }
+    },
+    "iconic": 98
+  },
+  {
+    "id": "aronian-anand-2013",
+    "pgn": "[Event \"Tata Steel, Wijk aan Zee\"]\n[Site \"?\"]\n[Date \"2013.??.??\"]\n[Round \"?\"]\n[White \"Levon Aronian\"]\n[Black \"Viswanathan Anand\"]\n[Result \"0-1\"]\n\n1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6 5. e3 Nbd7 6. Bd3 dxc4 7. Bxc4 b5 8. Bd3 Bd6 9. O-O O-O 10. Qc2 Bb7 11. a3 Rc8 12. Ng5 c5 13. Nxh7 Ng4 14. f4 cxd4 15. exd4 Bc5 16. Be2 Nde5 17. Bxg4 Bxd4+ 18. Kh1 Nxg4 19. Nxf8 f5 20. Ng6 Qf6 21. h3 Qxg6 22. Qe2 Qh5 23. Qd3 Be3 0-1\n",
+    "title": "Anand's Immortal",
+    "white": "Levon Aronian",
+    "black": "Viswanathan Anand",
+    "event": "Tata Steel, Wijk aan Zee",
+    "year": 2013,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "modern",
+      "classical",
+      "sacrifice",
+      "attack"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1704763",
+    "teaser": {
+      "en": "Anand develops at blinding speed and sacrifices a knight then a bishop to smash open Aronian's king — hailed as 'Anand's Immortal'.",
+      "fr": "Anand développe à une vitesse fulgurante et sacrifie un cavalier puis un fou pour éventrer le roi d'Aronian — surnommée « l'Immortelle d'Anand »."
+    },
+    "iconic": 96
+  },
+  {
+    "id": "anderssen-dufresne-1852",
+    "pgn": "[Event \"Casual Game\"]\n[Site \"Berlin GER\"]\n[Date \"1852.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Adolf Anderssen\"]\n[Black \"Jean Dufresne\"]\n[ECO \"C52\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"47\"]\n\n1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 Bxb4 5.c3 Ba5 6.d4 exd4 7.O-O\nd3 8.Qb3 Qf6 9.e5 Qg6 10.Re1 Nge7 11.Ba3 b5 12.Qxb5 Rb8 13.Qa4\nBb6 14.Nbd2 Bb7 15.Ne4 Qf5 16.Bxd3 Qh5 17.Nf6+ gxf6 18.exf6\nRg8 19.Rad1 Qxf3 20.Rxe7+ Nxe7 21.Qxd7+ Kxd7 22.Bf5+ Ke8\n23.Bd7+ Kf8 24.Bxe7# 1-0\n",
+    "title": "The Evergreen Game",
+    "white": "Adolf Anderssen",
+    "black": "Jean Dufresne",
+    "event": "Casual Game",
+    "year": 1852,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "romantic"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "A cascade of sacrifices crowned by a quiet, deadly queen move. Romantic chess at its peak.",
+      "fr": "Une cascade de sacrifices couronnée par un coup de dame tranquille et mortel. L'apogée du jeu romantique."
+    },
+    "iconic": 95
+  },
+  {
+    "id": "weiyi-bruzon-2015",
+    "pgn": "[Event \"Hainan Danzhou GM\"]\n[Site \"?\"]\n[Date \"2015.??.??\"]\n[Round \"?\"]\n[White \"Wei Yi\"]\n[Black \"Lazaro Bruzon Batista\"]\n[Result \"1-0\"]\n\n1. e4 c5 2. Nf3 e6 3. Nc3 a6 4. Be2 Nc6 5. d4 cxd4 6. Nxd4 Qc7 7. O-O Nf6 8. Be3 Be7 9. f4 d6 10. Kh1 O-O 11. Qe1 Nxd4 12. Bxd4 b5 13. Qg3 Bb7 14. a3 Rad8 15. Rae1 Rd7 16. Bd3 Qd8 17. Qh3 g6 18. f5 e5 19. Be3 Re8 20. fxg6 hxg6 21. Nd5 Nxd5 22. Rxf7 Kxf7 23. Qh7+ Ke6 24. exd5+ Kxd5 25. Be4+ Kxe4 26. Qf7 Bf6 27. Bd2+ Kd4 28. Be3+ Ke4 29. Qb3 Kf5 30. Rf1+ Kg4 31. Qd3 Bxg2+ 32. Kxg2 Qa8+ 33. Kg1 Bg5 34. Qe2+ Kh4 35. Bf2+ Kh3 36. Be1 1-0\n",
+    "title": "The 21st-Century Immortal",
+    "white": "Wei Yi",
+    "black": "Lazaro Bruzon Batista",
+    "event": "Hainan Danzhou GM",
+    "year": 2015,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "king-hunt",
+      "sacrifice"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1795096",
+    "teaser": {
+      "en": "16-year-old Wei Yi plays Rxf7!! and chases the black king across the whole board with a sequence of quiet, deadly moves.",
+      "fr": "À 16 ans, Wei Yi joue Txf7!! et traque le roi noir d'un bout à l'autre de l'échiquier par une série de coups tranquilles et mortels."
+    },
+    "iconic": 94
+  },
+  {
+    "id": "rotlewi-rubinstein-1907",
+    "pgn": "[Event \"Lodz\"]\n[Site \"Lodz\"]\n[Date \"1907.12.26\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Georg Rotlewi\"]\n[Black \"Akiba Rubinstein\"]\n[ECO \"D32\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"50\"]\n\n1.d4 {Notes by Carl Schlechter and Dr. Savielly Tartakower.}\nd5 2.Nf3 e6 3.e3 c5 4.c4 Nc6 5.Nc3 Nf6 6.dxc5 {Tartakower:\nLess consistent than 6.a3 or 6.Bd3, maintaining as long as\npossible the tension in the center.} Bxc5 7.a3 a6 8.b4 Bd6\n9.Bb2 O-O 10.Qd2 {? Schlechter: A very bad place for the\nqueen. The best continuation is 10.cxd5 exd5 11.Be2, followed\nby O-O. *** Tartakower: Loss of time. The queen will soon have\nto seek a better square (14.Qe2). The most useful move is\n10.Qc2.} Qe7 {! Schlechter: A fine sacrifice of a pawn. If\n11.cxd5 exd5 12.Nxd5? Nxd5 13.Qxd5 Rd8! and Black has a strong\nattack.} 11.Bd3 {Schlechter: Better was 11.cxd5 exd5 12.Be2.}\ndxc4 12.Bxc4 b5 13.Bd3 Rd8 14.Qe2 Bb7 15.O-O Ne5 {!\nSchlechter: Introduced by Marshall and Schlechter in a similar\nposition with opposite colors, but here with the extra move\nRd8.} 16.Nxe5 Bxe5 {Tartakower: Threatening to win a pawn by\n17...Bxh2+ 18.Kxh2 Qd6+. White's next move provides against\nthis, but loosens the kingside defenses.} 17.f4 Bc7 18.e4 Rac8\n19.e5 Bb6+ 20.Kh1 Ng4 {!} 21.Be4 {Schlechter: There is no\ndefense; e.g., 21.Bxh7+ Kxh7 22.Qxg4 Rd2 etc.; or 21.h3 Qh4\n22.Qxg4 Qxg4 23.hxg4 Rxd3, threatening ...Rh3 mate and\n...Rxc3; or 21.Qxg4 Rxd3 22.Ne2 Rc2 23.Bc1 g6! threatening\n...h5; or 21.Ne4 Qh4 22.h3 (if 22.g3 Qxh2+ 23.Qxh2 Nxh2 and\nwins.) 22....Rxd3 23.Qxd3 Bxe4 24.Qxe4 Qg3 25.hxg4 Qh4+ mate.}\nQh4 22.g3 {Schlechter: Or 22.h3 Rxc3! 23.Bxc3 Bxe4 24.Qxg4\nQxg4 25.hxg4 Rd3 wins. *** Tartakower: The alternative 22.h3,\nparrying the mate, would lead to the following brilliant lines\nof play: 22...Rxc3! (an eliminating sacrifice, getting rid of\nthe knight, which overprotects the bishop on e4) 23.Bxc3 (or\n23.Qxg4 Rxh3+ 24.Qxh3 Qxh3+ 25.gxh3 Bxe4+ 26.Kh2 Rd2+ 27.Kg3\nRg2+ 28.Kh4 Bd8+ 29.Kh5 Bg6+ mate) 23...Bxe4+ 24.Qxg4 (if\n24.Qxe4 Qg3 25.hxg4 Qh4+ mate) 24...Qxg4 25.hxg4 Rd3 with the\ndouble threat of 26...Rh3+ mate and 26....Rxc3, and Black\nwins. Beautiful as are these variations, the continuation in\nthe text is still more splendid.} Rxc3 {!!} 23.gxh4 Rd2 {!!}\n24.Qxd2 Bxe4+ 25.Qg2 Rh3 {!} 0-1\n",
+    "title": "Rubinstein's Immortal",
+    "white": "Georg Rotlewi",
+    "black": "Akiba Rubinstein",
+    "event": "Lodz",
+    "year": 1907,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "sacrifice",
+      "attack",
+      "harmony"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Rubinstein coordinates every piece into one overwhelming combination — a model of attacking harmony.",
+      "fr": "Rubinstein coordonne chaque pièce dans une combinaison écrasante — un modèle d'harmonie à l'attaque."
+    },
+    "iconic": 92
+  },
+  {
+    "id": "topalov-shirov-1998",
+    "pgn": "[Event \"Linares\"]\n[Site \"Linares ESP\"]\n[Date \"1998.03.04\"]\n[EventDate \"1998.02.22\"]\n[Round \"10\"]\n[Result \"0-1\"]\n[White \"Veselin Topalov\"]\n[Black \"Alexey Shirov\"]\n[ECO \"D85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"106\"]\n\n1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7\n7.Bb5+ c6 8.Ba4 O-O 9.Ne2 Nd7 10.O-O e5 11.f3 Qe7 12.Be3 Rd8\n13.Qc2 Nb6 14.Bb3 Be6 15.Rad1 Nc4 16.Bc1 b5 17.f4 exd4 18.Nxd4\nBg4 19.Rde1 Qc5 20.Kh1 a5 21.h3 Bd7 22.a4 bxa4 23.Ba2 Be8\n24.e5 Nb6 25.f5 Nd5 26.Bd2 Nb4 27.Qxa4 Nxa2 28.Qxa2 Bxe5\n29.fxg6 hxg6 30.Bg5 Rd5 31.Re3 Qd6 32.Qe2 Bd7 33.c4 Bxd4\n34.cxd5 Bxe3 35.Qxe3 Re8 36.Qc3 Qxd5 37.Bh6 Re5 38.Rf3 Qc5\n39.Qa1 Bf5 40.Re3 f6 41.Rxe5 Qxe5 42.Qa2+ Qd5 43.Qxd5+ cxd5\n44.Bd2 a4 45.Bc3 Kf7 46.h4 Ke6 47.Kg1 Bh3 48.gxh3 Kf5 49.Kf2\nKe4 50.Bxf6 d4 51.Be7 Kd3 52.Bc5 Kc4 53.Be7 Kb3 0-1\n",
+    "title": "Shirov's Bishop Sacrifice",
+    "white": "Veselin Topalov",
+    "black": "Alexey Shirov",
+    "event": "Linares",
+    "year": 1998,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "endgame",
+      "sacrifice",
+      "calculation"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "In an endgame, Shirov plays ...Bh3!! — one of the most famous moves ever, sacrificing a bishop for a passed pawn.",
+      "fr": "En finale, Shirov joue ...Fh3!! — l'un des coups les plus célèbres de l'histoire, un fou sacrifié pour un pion passé."
+    },
+    "iconic": 90
+  },
+  {
+    "id": "bai-ding-2017",
+    "pgn": "[Event \"Chinese Chess League\"]\n[Site \"?\"]\n[Date \"2017.??.??\"]\n[Round \"?\"]\n[White \"Jinshi Bai\"]\n[Black \"Ding Liren\"]\n[Result \"0-1\"]\n\n1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3 O-O 5. Bg5 c5 6. e3 cxd4 7. Qxd4 Nc6 8. Qd3 h6 9. Bh4 d5 10. Rd1 g5 11. Bg3 Ne4 12. Nd2 Nc5 13. Qc2 d4 14. Nf3 e5 15. Nxe5 dxc3 16. Rxd8 cxb2+ 17. Ke2 Rxd8 18. Qxb2 Na4 19. Qc2 Nc3+ 20. Kf3 Rd4 21. h3 h5 22. Bh2 g4+ 23. Kg3 Rd2 24. Qb3 Ne4+ 25. Kh4 Be7+ 26. Kxh5 Kg7 27. Bf4 Bf5 28. Bh6+ Kh7 29. Qxb7 Rxf2 30. Bg5 Rh8 31. Nxf7 Bg6+ 32. Kxg4 Ne5+ 0-1\n",
+    "title": "The Chinese Immortal",
+    "white": "Jinshi Bai",
+    "black": "Ding Liren",
+    "event": "Chinese Chess League",
+    "year": 2017,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "modern",
+      "classical",
+      "sacrifice",
+      "king-hunt"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1891363",
+    "teaser": {
+      "en": "Ding answers with a queen offer and two stunning rook moves, hunting the white king with the minor pieces in just 32 moves.",
+      "fr": "Ding réplique par une offre de dame et deux coups de tour stupéfiants, traquant le roi blanc avec ses pièces légères en seulement 32 coups."
+    },
+    "iconic": 89
+  },
+  {
+    "id": "levitsky-marshall-1912",
+    "pgn": "[Event \"18th DSB Kongress\"]\n[Site \"Breslau GER\"]\n[Date \"1912.07.20\"]\n[EventDate \"1912.07.15\"]\n[Round \"6\"]\n[Result \"0-1\"]\n[White \"Stefan Levitsky\"]\n[Black \"Frank James Marshall\"]\n[ECO \"B23\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"46\"]\n\n1.d4 e6 2.e4 d5 3.Nc3 c5 4.Nf3 Nc6 5.exd5 exd5 6.Be2 Nf6 7.O-O\nBe7 8.Bg5 O-O 9.dxc5 Be6 10.Nd4 Bxc5 11.Nxe6 fxe6 12.Bg4 Qd6\n13.Bh3 Rae8 14.Qd2 Bb4 15.Bxf6 Rxf6 16.Rad1 Qc5 17.Qe2 Bxc3\n18.bxc3 Qxc3 19.Rxd5 Nd4 20.Qh5 Ref8 21.Re5 Rh6 22.Qg5 Rxh3\n23.Rc5 Qg3 0-1\n",
+    "title": "The Gold Coins Game",
+    "white": "Stefan Levitsky",
+    "black": "Frank James Marshall",
+    "event": "18th DSB Kongress",
+    "year": 1912,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "tactics",
+      "quiet-move"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Marshall's stunning queen move to g3 — spectators reportedly showered the board with gold coins.",
+      "fr": "Le coup de dame stupéfiant de Marshall en g3 — les spectateurs auraient couvert l'échiquier de pièces d'or."
+    },
+    "iconic": 88
+  },
+  {
+    "id": "dubov-karjakin-2020",
+    "pgn": "[Event \"Russian Championship Superfinal\"]\n[Site \"?\"]\n[Date \"2020.??.??\"]\n[Round \"?\"]\n[White \"Daniil Dubov\"]\n[Black \"Sergey Karjakin\"]\n[Result \"1-0\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. b4 Bb6 7. e5 Ne4 8. Bd5 Nxc3 9. Nxc3 dxc3 10. Bg5 Ne7 11. O-O h6 12. Bh4 O-O 13. Re1 Qe8 14. Bb3 a5 15. Bf6 a4 16. Bc4 Ng6 17. Qd3 d5 18. exd6 Be6 19. Qxg6 fxg6 20. Rxe6 Qf7 21. Bxc3 Kh8 22. Re4 Qf5 23. Re7 Rg8 24. Bxg8 Rxg8 25. dxc7 Qc2 26. Be5 Bxf2+ 27. Kh1 Bb6 28. h3 Kh7 29. Re1 a3 30. Kh2 g5 31. Nd4 Qc4 32. Nf5 Qxb4 33. Rc1 Kg6 34. Rxg7+ Kxf5 35. Rxg8 Bxc7 36. Bxc7 Qb2 37. Rc5+ Ke4 38. Rd8 1-0\n",
+    "title": "Dubov's Immortal",
+    "white": "Daniil Dubov",
+    "black": "Sergey Karjakin",
+    "event": "Russian Championship Superfinal",
+    "year": 2020,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "sacrifice",
+      "attack"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=2015531",
+    "teaser": {
+      "en": "In a romantic Italian, Dubov throws everything at the king and sacrifices his queen to keep the attack roaring.",
+      "fr": "Dans une Italienne romantique, Dubov jette toutes ses forces sur le roi et sacrifie sa dame pour entretenir l'attaque."
+    },
+    "iconic": 87
+  },
+  {
+    "id": "glucksberg-najdorf-1929",
+    "pgn": "[Event \"Warsaw\"]\n[Site \"Warsaw\"]\n[Date \"1929.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"0-1\"]\n[White \"Glucksberg\"]\n[Black \"Miguel Najdorf\"]\n[ECO \"A85\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"44\"]\n\n1.d4 f5 2.c4 Nf6 3.Nc3 e6 4.Nf3 d5 5.e3 c6 6.Bd3 Bd6 7.O-O O-O\n8.Ne2 Nbd7 9.Ng5 Bxh2+ 10.Kh1 Ng4 11.f4 Qe8 12.g3 Qh5 13.Kg2\nBg1 14.Nxg1 Qh2+ 15.Kf3 e5 16.dxe5 Ndxe5+ 17.fxe5 Nxe5+ 18.Kf4\nNg6+ 19.Kf3 f4 20.exf4 Bg4+ 21.Kxg4 Ne5+ 22.fxe5 h5# 0-1\n",
+    "title": "The Polish Immortal",
+    "white": "Glucksberg",
+    "black": "Miguel Najdorf",
+    "event": "Warsaw",
+    "year": 1929,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "sacrifice",
+      "attack"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Najdorf sacrifices all four minor pieces to mate. Brilliance with no material left to spare.",
+      "fr": "Najdorf sacrifie ses quatre pièces mineures pour mater. Une brillance sans la moindre pièce de réserve."
+    },
+    "iconic": 86
+  },
+  {
+    "id": "tal-larsen-1965",
+    "pgn": "[Event \"Tal-Larsen Candidates Semifinal Match\"]\n[Site \"Bled YUG\"]\n[Date \"1965.08.08\"]\n[EventDate \"1965.07.23\"]\n[Round \"10\"]\n[White \"Mikhail Tal\"]\n[Black \"Bent Larsen\"]\n[Result \"1-0\"]\n[ECO \"B82\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[MovePly \"73\"]\n\n1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 d6 6.Be3 Nf6 7.f4\nBe7 8.Qf3 O-O 9.O-O-O Qc7 10.Ndb5 Qb8 11.g4 a6 12.Nd4 Nxd4\n13.Bxd4 b5 14.g5 Nd7 15.Bd3 b4 16.Nd5 {!} exd5 17.exd5 {The\npiece sacrifice is a positional one, since it has been used to\nerect an invisible barrier on the e-file. A number of squares\non it (e5 and e6) are controlled by white pawns, and a white\nrook will soon be moved to e1. -- Iakov Damsky} f5 18.Rde1 Rf7\n19.h4 Bb7 20.Bxf5 Rxf5 21.Rxe7 Ne5 22.Qe4 Qf8 23.fxe5 Rf4\n24.Qe3 Rf3 25.Qe2 Qxe7 26.Qxf3 dxe5 27.Re1 Rd8 28.Rxe5 Qd6\n29.Qf4 {! With this simple tactic 29 ...Bxd5 30. Re8+ White\nkeeps his two extra pawns. The finish is straightforward. --\nDamsky} Rf8 30.Qe4 b3 31.axb3 Rf1+ 32.Kd2 Qb4+ 33.c3 Qd6\n34.Bc5 Qxc5 35.Re8+ Rf8 36.Qe6+ Kh8 37.Qf7 1-0\n",
+    "title": "Tal's Attack",
+    "white": "Mikhail Tal",
+    "black": "Bent Larsen",
+    "event": "Tal-Larsen Candidates Semifinal Match",
+    "year": 1965,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "sacrifice",
+      "initiative"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "The magician from Riga sacrifices to rip open the king and never lets the initiative cool.",
+      "fr": "Le magicien de Riga sacrifie pour éventrer le roi et ne laisse jamais l'initiative retomber."
+    },
+    "iconic": 85
+  },
+  {
+    "id": "navara-wojtaszek-2015",
+    "pgn": "[Event \"Biel\"]\n[Site \"?\"]\n[Date \"2015.??.??\"]\n[Round \"?\"]\n[White \"David Navara\"]\n[Black \"Radoslaw Wojtaszek\"]\n[Result \"1-0\"]\n\n1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. h3 Be7 9. g4 d5 10. exd5 Nxd5 11. Bg2 Nxe3 12. Qxd8+ Bxd8 13. fxe3 Bh4+ 14. Kf1 Nc6 15. Nc5 Bc4+ 16. Kg1 O-O-O 17. b3 Bg5 18. Re1 Bh4 19. Rb1 Bg5 20. Kf2 Bh4+ 21. Kf3 e4+ 22. Kf4 g5+ 23. Kf5 Rhe8 24. Rhd1 Re5+ 25. Kf6 Rg8 26. bxc4 Rg6+ 27. Kxf7 Re7+ 28. Kf8 Rf6+ 29. Kg8 Rg6+ 30. Kh8 Rf6 31. Rf1 Bf2 32. Rxf2 Rxf2 33. Rf1 Rxg2 34. Rf8+ Kc7 35. Nd5+ Kd6 36. Nxe7 Kxc5 37. Rf5+ Kxc4 38. Nxc6 bxc6 39. Rxg5 Rg3 40. h4 h6 41. Rg6 Rxe3 42. Kg7 Rg3 43. Kxh6 e3 44. Kg5 Kd5 45. Kf4 Rh3 46. h5 c5 47. Rg5+ Kd4 48. Re5 1-0\n",
+    "title": "The King Walk to h8",
+    "white": "David Navara",
+    "black": "Radoslaw Wojtaszek",
+    "event": "Biel",
+    "year": 2015,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "king-hunt",
+      "calculation"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1795647",
+    "teaser": {
+      "en": "In the middlegame Navara marches his king from f1 all the way to h8 — all calculated at home — in one of the greatest king walks ever.",
+      "fr": "En plein milieu de partie, Navara promène son roi de f1 jusqu'à h8 — tout calculé à la maison — dans l'une des plus grandes marches de roi de l'histoire."
+    },
+    "iconic": 85
+  },
+  {
+    "id": "lasker-thomas-1912",
+    "pgn": "[Event \"London, England\"]\n[Site \"London, England\"]\n[Date \"1912.10.29\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Edward Lasker\"]\n[Black \"George Alan Thomas\"]\n[ECO \"A40\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"35\"]\n\n1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4\nfxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+\nKxh7 12. Nxf6+ Kh6 13. Neg4+ Kg5 14. h4+ Kf4 15. g3+ Kf3\n16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0\n",
+    "title": "The King Walk",
+    "white": "Edward Lasker",
+    "black": "George Alan Thomas",
+    "event": "London, England",
+    "year": 1912,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "king-hunt",
+      "mate"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "A queen sacrifice drags the black king up the board to be mated on g1 — a textbook king hunt.",
+      "fr": "Un sacrifice de dame entraîne le roi noir jusqu'à se faire mater en g1 — une chasse au roi d'école."
+    },
+    "iconic": 84
+  },
+  {
+    "id": "carlsen-anand-2014",
+    "pgn": "[Event \"World Championship, Sochi\"]\n[Site \"?\"]\n[Date \"2014.??.??\"]\n[Round \"?\"]\n[White \"Magnus Carlsen\"]\n[Black \"Viswanathan Anand\"]\n[Result \"1-0\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. d4 Nd6 6. Bxc6 dxc6 7. dxe5 Nf5 8. Qxd8+ Kxd8 9. h3 Bd7 10. Nc3 h6 11. b3 Kc8 12. Bb2 c5 13. Rad1 b6 14. Rfe1 Be6 15. Nd5 g5 16. c4 Kb7 17. Kh2 a5 18. a4 Ne7 19. g4 Ng6 20. Kg3 Be7 21. Nd2 Rhd8 22. Ne4 Bf8 23. Nef6 b5 24. Bc3 bxa4 25. bxa4 Kc6 26. Kf3 Rdb8 27. Ke4 Rb4 28. Bxb4 cxb4 29. Nh5 Kb7 30. f4 gxf4 31. Nhxf4 Nxf4 32. Nxf4 Bxc4 33. Rd7 Ra6 34. Nd5 Rc6 35. Rxf7 Bc5 36. Rxc7+ Rxc7 37. Nxc7 Kc6 38. Nb5 Bxb5 39. axb5+ Kxb5 40. e6 b3 41. Kd3 Be7 42. h4 a4 43. g5 hxg5 44. hxg5 a3 45. Kc3 1-0\n",
+    "title": "Carlsen Clinches the 2014 Title",
+    "white": "Magnus Carlsen",
+    "black": "Viswanathan Anand",
+    "event": "World Championship, Sochi",
+    "year": 2014,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "endgame"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1778970",
+    "teaser": {
+      "en": "The final game of the 2014 match: Carlsen squeezes a Berlin endgame to defend his crown against Anand.",
+      "fr": "La dernière partie du match 2014 : Carlsen presse une finale berlinoise pour défendre sa couronne face à Anand."
+    },
+    "iconic": 84
+  },
+  {
+    "id": "larsen-spassky-1970",
+    "pgn": "[Event \"USSR vs. Rest of the World\"]\n[Site \"Belgrade SRB\"]\n[Date \"1970.03.31\"]\n[EventDate \"1970.03.29\"]\n[Round \"2.1\"]\n[Result \"0-1\"]\n[White \"Bent Larsen\"]\n[Black \"Boris Spassky\"]\n[ECO \"A01\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"34\"]\n\n1. b3 e5 2. Bb2 Nc6 3. c4 Nf6 4. Nf3 e4 5. Nd4 Bc5 6. Nxc6\ndxc6 7. e3 Bf5 8. Qc2 Qe7 9. Be2 O-O-O 10. f4 Ng4 11. g3 h5\n12. h3 h4 13. hxg4 hxg3 14. Rg1 Rh1 15. Rxh1 g2 16. Rf1 Qh4+\n17. Kd1 gxf1=Q+ 0-1\n",
+    "title": "Spassky's Lightning",
+    "white": "Bent Larsen",
+    "black": "Boris Spassky",
+    "event": "USSR vs. Rest of the World",
+    "year": 1970,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "attack",
+      "miniature"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Spassky demolishes Larsen in 17 moves, finishing with a rook lift and ...Qxh2 mate threats.",
+      "fr": "Spassky démolit Larsen en 17 coups, concluant par une montée de tour et des menaces de mat ...Dxh2."
+    },
+    "iconic": 83
+  },
+  {
+    "id": "carlsen-anand-2013",
+    "pgn": "[Event \"World Championship, Chennai\"]\n[Site \"?\"]\n[Date \"2013.??.??\"]\n[Round \"?\"]\n[White \"Magnus Carlsen\"]\n[Black \"Viswanathan Anand\"]\n[Result \"1-0\"]\n\n1. c4 e6 2. d4 d5 3. Nc3 c6 4. e4 dxe4 5. Nxe4 Bb4+ 6. Nc3 c5 7. a3 Ba5 8. Nf3 Nf6 9. Be3 Nc6 10. Qd3 cxd4 11. Nxd4 Ng4 12. O-O-O Nxe3 13. fxe3 Bc7 14. Nxc6 bxc6 15. Qxd8+ Bxd8 16. Be2 Ke7 17. Bf3 Bd7 18. Ne4 Bb6 19. c5 f5 20. cxb6 fxe4 21. b7 Rab8 22. Bxe4 Rxb7 23. Rhf1 Rb5 24. Rf4 g5 25. Rf3 h5 26. Rdf1 Be8 27. Bc2 Rc5 28. Rf6 h4 29. e4 a5 30. Kd2 Rb5 31. b3 Bh5 32. Kc3 Rc5+ 33. Kb2 Rd8 34. R1f2 Rd4 35. Rh6 Bd1 36. Bb1 Rb5 37. Kc3 c5 38. Rb2 e5 39. Rg6 a4 40. Rxg5 Rxb3+ 41. Rxb3 Bxb3 42. Rxe5+ Kd6 43. Rh5 Rd1 44. e5+ Kd5 45. Bh7 Rc1+ 46. Kb2 Rg1 47. Bg8+ Kc6 48. Rh6+ Kd7 49. Bxb3 axb3 50. Kxb3 Rxg2 51. Rxh4 Ke6 52. a4 Kxe5 53. a5 Kd6 54. Rh7 Kd5 55. a6 c4+ 56. Kc3 Ra2 57. a7 Kc5 58. h4 1-0\n",
+    "title": "Carlsen's First World Title Win",
+    "white": "Magnus Carlsen",
+    "black": "Viswanathan Anand",
+    "event": "World Championship, Chennai",
+    "year": 2013,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "endgame"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1737319",
+    "teaser": {
+      "en": "The technical grind that broke the deadlock in Chennai and launched 22-year-old Carlsen toward his first world title.",
+      "fr": "Le broyage technique qui débloqua le match de Chennai et lança Carlsen, 22 ans, vers son premier titre mondial."
+    },
+    "iconic": 83
+  },
+  {
+    "id": "steinitz-bardeleben-1895",
+    "pgn": "[Event \"Hastings\"]\n[Site \"Hastings, England\"]\n[Date \"1895.08.17\"]\n[EventDate \"1895.08.05\"]\n[Round \"10\"]\n[Result \"1-0\"]\n[White \"Wilhelm Steinitz\"]\n[Black \"Curt von Bardeleben\"]\n[ECO \"C54\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"49\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4\nBb4+ 7. Nc3 d5 8. exd5 Nxd5 9. O-O Be6 10. Bg5 Be7 11. Bxd5\nBxd5 12. Nxd5 Qxd5 13. Bxe7 Nxe7 14. Re1 f6 15. Qe2 Qd7\n16. Rac1 c6 17. d5 cxd5 18. Nd4 Kf7 19. Ne6 Rhc8 20. Qg4 g6\n21. Ng5+ Ke8 22. Rxe7+ Kf8 23. Rf7+ Kg8 24. Rg7+ Kh8 25. Rxh7+\n{And black resigned at this point. As Steinitz demonstrated\nimmediately afterward, there is a mate in ten moves which can\nonly be averted by ruinous loss of material; analysis follows:\n...Kh8 25. Rxh7+ Kg8 26. Rg7+ Kh8 27. Qh4+ Kxg7 28. Qh7+ Kf8\n29. Qh8+ Ke7 30. Qg7+ Ke8 31. Qg8+ Ke7 32. Qf7+ Kd8 33. Qf8+\nQe8 34. Nf7+ Kd7 35. Qd6#} 1-0\n",
+    "title": "Steinitz's Combination",
+    "white": "Wilhelm Steinitz",
+    "black": "Curt von Bardeleben",
+    "event": "Hastings",
+    "year": 1895,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "attack",
+      "calculation"
+    ],
+    "sourceUrl": null,
+    "teaser": {
+      "en": "Steinitz keeps his rook en prise for moves on end, calculating a forced mate to the very last check.",
+      "fr": "Steinitz laisse sa tour en prise pendant plusieurs coups, calculant un mat forcé jusqu'au dernier échec."
+    },
+    "iconic": 82
+  },
+  {
+    "id": "gukesh-ding-2024",
+    "pgn": "[Event \"World Championship, Singapore\"]\n[Site \"?\"]\n[Date \"2024.??.??\"]\n[Round \"?\"]\n[White \"Gukesh D\"]\n[Black \"Ding Liren\"]\n[Result \"1-0\"]\n\n1. Nf3 d5 2. c4 d4 3. b4 c5 4. e3 Nf6 5. a3 Bg4 6. exd4 cxd4 7. h3 Bxf3 8. Qxf3 Qc7 9. d3 a5 10. b5 Nbd7 11. g3 Nc5 12. Bg2 Nfd7 13. O-O Ne5 14. Qf4 Rd8 15. Rd1 g6 16. a4 h5 17. b6 Qd6 18. Ba3 Bh6 19. Bxc5 Qxc5 20. Qe4 Nc6 21. Na3 Rd7 22. Nc2 Qxb6 23. Rab1 Qc7 24. Rb5 O-O 25. Na1 Rb8 26. Nb3 e6 27. Nc5 Re7 28. Rdb1 Qc8 29. Qxc6 1-0\n",
+    "title": "The Youngest World Champion",
+    "white": "Gukesh D",
+    "black": "Ding Liren",
+    "event": "World Championship, Singapore",
+    "year": 2024,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "positional"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=2810303",
+    "teaser": {
+      "en": "From Gukesh's 2024 title match against Ding Liren — at 18 he became the youngest undisputed World Chess Champion.",
+      "fr": "Issue du match du titre 2024 de Gukesh contre Ding Liren — à 18 ans, il devint le plus jeune champion du monde incontesté."
+    },
+    "iconic": 82
+  },
+  {
+    "id": "kramnik-aronian-2018",
+    "pgn": "[Event \"Candidates, Berlin\"]\n[Site \"?\"]\n[Date \"2018.??.??\"]\n[Round \"?\"]\n[White \"Vladimir Kramnik\"]\n[Black \"Levon Aronian\"]\n[Result \"1-0\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Nc3 Nf6 5. d3 a6 6. Nd5 Nxd5 7. Bxd5 d6 8. Be3 Bxe3 9. fxe3 O-O 10. O-O Nb8 11. b4 Nd7 12. Qd2 c6 13. Bb3 a5 14. a3 Nf6 15. h3 h6 16. Rab1 b5 17. Qc3 Bd7 18. Rf2 Qb6 19. Re1 Rfe8 20. Nh4 c5 21. Ref1 cxb4 22. Qe1 d5 23. axb4 dxe4 24. bxa5 Rxa5 25. Ng6 Be6 26. Nxe5 exd3 27. Rxf6 gxf6 28. Rxf6 d2 29. Qg3+ Kf8 30. Rf1 Ra7 31. Ng6+ Kg7 32. Nf4+ Kh8 33. Nh5 f6 34. Nxf6 Rf8 35. Qf4 Rh7 36. Qe5 Qc7 37. Ne8+ 1-0\n",
+    "title": "Kramnik's Candidates Brilliancy",
+    "white": "Vladimir Kramnik",
+    "black": "Levon Aronian",
+    "event": "Candidates, Berlin",
+    "year": 2018,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "sacrifice",
+      "attack"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1916003",
+    "teaser": {
+      "en": "Kramnik gives up an exchange and a pawn for a relentless attack Grischuk called 'unbelievable from start to finish'.",
+      "fr": "Kramnik abandonne qualité et pion pour une attaque implacable que Grischuk a qualifiée d'« incroyable du début à la fin »."
+    },
+    "iconic": 81
+  },
+  {
+    "id": "anand-gelfand-2012",
+    "pgn": "[Event \"World Championship, Moscow\"]\n[Site \"?\"]\n[Date \"2012.??.??\"]\n[Round \"?\"]\n[White \"Viswanathan Anand\"]\n[Black \"Boris Gelfand\"]\n[Result \"1-0\"]\n\n1. d4 Nf6 2. c4 g6 3. f3 c5 4. d5 d6 5. e4 Bg7 6. Ne2 O-O 7. Nec3 Nh5 8. Bg5 Bf6 9. Bxf6 exf6 10. Qd2 f5 11. exf5 Bxf5 12. g4 Re8+ 13. Kd1 Bxb1 14. Rxb1 Qf6 15. gxh5 Qxf3+ 16. Kc2 Qxh1 17. Qf2 1-0\n",
+    "title": "The 17-Move Knockout",
+    "white": "Viswanathan Anand",
+    "black": "Boris Gelfand",
+    "event": "World Championship, Moscow",
+    "year": 2012,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "miniature"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1666558",
+    "teaser": {
+      "en": "Anand traps the queen with Qf2 and Gelfand resigns after 17 moves — the fastest decisive game in World Championship history.",
+      "fr": "Anand piège la dame par Df2 et Gelfand abandonne au 17e coup — la partie décisive la plus rapide de l'histoire des championnats du monde."
+    },
+    "iconic": 80
+  },
+  {
+    "id": "topalov-caruana-2014",
+    "pgn": "[Event \"Sinquefield Cup, Saint Louis\"]\n[Site \"?\"]\n[Date \"2014.??.??\"]\n[Round \"?\"]\n[White \"Veselin Topalov\"]\n[Black \"Fabiano Caruana\"]\n[Result \"0-1\"]\n\n1. Nf3 Nf6 2. c4 c5 3. Nc3 Nc6 4. g3 d5 5. cxd5 Nxd5 6. Bg2 Nc7 7. O-O e5 8. a3 Rb8 9. d3 Be7 10. Be3 O-O 11. Rc1 Bd7 12. Nd2 Nd4 13. Nc4 f6 14. f4 exf4 15. Bxf4 Nde6 16. Bd2 b6 17. g4 Be8 18. Be1 b5 19. Ne3 Bd6 20. Ncd5 Nxd5 21. Bxd5 Bf7 22. Nf5 Be5 23. Qd2 Nd4 24. Bxf7+ Rxf7 25. Rd1 Nxf5 26. gxf5 Qd4+ 27. Bf2 Qg4+ 28. Kh1 c4 29. Qc2 Re8 30. dxc4 Qh5 31. h4 Qg4 32. Qd3 bxc4 33. Qe3 Rfe7 34. b3 Bb2 0-1\n",
+    "title": "Caruana Opens 7/7",
+    "white": "Veselin Topalov",
+    "black": "Fabiano Caruana",
+    "event": "Sinquefield Cup, Saint Louis",
+    "year": 2014,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "modern",
+      "classical",
+      "attack",
+      "tactics"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1772616",
+    "teaser": {
+      "en": "The opening win of Caruana's legendary 7-out-of-7 start at the 2014 Sinquefield Cup, one of the great tournament performances.",
+      "fr": "La première victoire du légendaire départ à 7 sur 7 de Caruana à la Sinquefield Cup 2014, l'une des grandes performances de tournoi de l'histoire."
+    },
+    "iconic": 79
+  },
+  {
+    "id": "ding-nepomniachtchi-2023",
+    "pgn": "[Event \"World Championship, Astana\"]\n[Site \"?\"]\n[Date \"2023.??.??\"]\n[Round \"?\"]\n[White \"Ding Liren\"]\n[Black \"Ian Nepomniachtchi\"]\n[Result \"1-0\"]\n\n1. d4 Nf6 2. Nf3 d5 3. Bf4 c5 4. e3 Nc6 5. Nbd2 cxd4 6. exd4 Bf5 7. c3 e6 8. Bb5 Bd6 9. Bxd6 Qxd6 10. O-O O-O 11. Re1 h6 12. Ne5 Ne7 13. a4 a6 14. Bf1 Nd7 15. Nxd7 Qxd7 16. a5 Qc7 17. Qf3 Rfc8 18. Ra3 Bg6 19. Nb3 Nc6 20. Qg3 Qe7 21. h4 Re8 22. Nc5 e5 23. Rb3 Nxa5 24. Rxe5 Qf6 25. Ra3 Nc4 26. Bxc4 dxc4 27. h5 Bc2 28. Nxb7 Qb6 29. Nd6 Rxe5 30. Qxe5 Qxb2 31. Ra5 Kh7 32. Rc5 Qc1+ 33. Kh2 f6 34. Qg3 a5 35. Nxc4 a4 36. Ne3 Bb1 37. Rc7 Rg8 38. Nd5 Kh8 39. Ra7 a3 40. Ne7 Rf8 41. d5 a2 42. Qc7 Kh7 43. Ng6 Rg8 44. Qf7 1-0\n",
+    "title": "Ding on the Road to the Title",
+    "white": "Ding Liren",
+    "black": "Ian Nepomniachtchi",
+    "event": "World Championship, Astana",
+    "year": 2023,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "positional"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=2477747",
+    "teaser": {
+      "en": "A classical win from the 2023 match that ended with Ding Liren becoming the 17th World Chess Champion.",
+      "fr": "Une victoire classique du match 2023 au terme duquel Ding Liren devint le 17e champion du monde."
+    },
+    "iconic": 78
+  },
+  {
+    "id": "gelfand-nakamura-2010",
+    "pgn": "[Event \"World Team Championship, Bursa\"]\n[Site \"?\"]\n[Date \"2010.??.??\"]\n[Round \"?\"]\n[White \"Boris Gelfand\"]\n[Black \"Hikaru Nakamura\"]\n[Result \"0-1\"]\n\n1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. O-O Nc6 8. d5 Ne7 9. Nd2 Ne8 10. b4 f5 11. c5 Nf6 12. f3 f4 13. Nc4 g5 14. a4 Ng6 15. Ba3 Rf7 16. b5 dxc5 17. Bxc5 h5 18. a5 g4 19. b6 g3 20. Kh1 Bf8 21. d6 axb6 22. Bg1 Nh4 23. Re1 Nxg2 24. dxc7 Nxe1 25. Qxe1 g2+ 26. Kxg2 Rg7+ 27. Kh1 Bh3 28. Bf1 Qd3 29. Nxe5 Bxf1 30. Qxf1 Qxc3 31. Rc1 Qxe5 32. c8=Q Rxc8 33. Rxc8 Qe6 0-1\n",
+    "title": "Nakamura's King's Indian",
+    "white": "Boris Gelfand",
+    "black": "Hikaru Nakamura",
+    "event": "World Team Championship, Bursa",
+    "year": 2010,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "modern",
+      "classical",
+      "attack",
+      "sacrifice"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1567841",
+    "teaser": {
+      "en": "A model King's Indian attack: Nakamura storms the kingside and insists on a knight sacrifice on g2 to break through.",
+      "fr": "Une attaque modèle de l'Est-Indienne : Nakamura déferle sur l'aile roi et impose un sacrifice de cavalier en g2 pour percer."
+    },
+    "iconic": 76
+  },
+  {
+    "id": "mamedyarov-kramnik-2018",
+    "pgn": "[Event \"Candidates, Berlin\"]\n[Site \"?\"]\n[Date \"2018.??.??\"]\n[Round \"?\"]\n[White \"Shakhriyar Mamedyarov\"]\n[Black \"Vladimir Kramnik\"]\n[Result \"1-0\"]\n\n1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 c5 7. Rb1 Be7 8. Bb5+ Bd7 9. Bd3 cxd4 10. cxd4 Nc6 11. Be2 Rc8 12. Nf3 Qa5+ 13. Bd2 Bb4 14. Rb2 Bxd2+ 15. Qxd2 Qxd2+ 16. Kxd2 Na5 17. Rbb1 Ke7 18. Rhc1 f6 19. h4 Rhd8 20. Bd3 a6 21. Ke3 b5 22. g4 Be8 23. Ng1 Nc6 24. Ne2 Rd6 25. Rd1 Rcd8 26. Bc2 Na5 27. Bd3 Nc6 28. Bc2 h5 29. g5 fxg5 30. e5 R6d7 31. hxg5 h4 32. g6 Na5 33. Rbc1 Rc7 34. Bd3 Rdc8 35. Rxc7+ Rxc7 36. Rh1 Nc4+ 37. Kf4 Nb2 38. Be4 b4 39. Rxh4 Nd1 40. f3 Nc3 41. Nxc3 bxc3 42. Rh2 Rc8 43. Ke3 Bb5 44. f4 Bc4 45. Rh7 Rg8 46. a3 a5 47. Bc2 Kd7 48. d5 Bxd5 49. Kd4 Ba2 50. Kxc3 Kc6 51. Rh2 Kc5 52. Rd2 Rh8 53. Rd7 Rh3+ 54. Kb2 Bd5 55. Rxg7 Kd4 56. Rh7 Rg3 57. Rh5 Rg2 58. Rg5 Rf2 59. g7 Be4 60. g8=Q Rxc2+ 61. Kb3 Rc3+ 62. Ka4 Rc5 63. Rg2 Bf3 64. Qd8+ 1-0\n",
+    "title": "Mamedyarov Outplays Kramnik",
+    "white": "Shakhriyar Mamedyarov",
+    "black": "Vladimir Kramnik",
+    "event": "Candidates, Berlin",
+    "year": 2018,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "positional",
+      "endgame"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1915068",
+    "teaser": {
+      "en": "A long, high-level Candidates battle in which Mamedyarov grinds down Kramnik with precise pressure.",
+      "fr": "Une longue bataille de haut niveau au tournoi des Candidats où Mamedyarov broie Kramnik par une pression précise."
+    },
+    "iconic": 74
+  },
+  {
+    "id": "firouzja-caruana-2020",
+    "pgn": "[Event \"Norway Chess, Stavanger\"]\n[Site \"?\"]\n[Date \"2020.??.??\"]\n[Round \"?\"]\n[White \"Alireza Firouzja\"]\n[Black \"Fabiano Caruana\"]\n[Result \"1-0\"]\n\n1. Nf3 d5 2. d4 Nf6 3. e3 c5 4. dxc5 e6 5. b4 a5 6. c3 axb4 7. cxb4 b6 8. Bb5+ Bd7 9. Bxd7+ Qxd7 10. a4 bxc5 11. b5 Bd6 12. Bb2 O-O 13. Nbd2 c4 14. Qc2 Qc7 15. O-O Nbd7 16. Bc3 Nc5 17. a5 Nfe4 18. b6 Qb7 19. Bd4 Nxd2 20. Nxd2 Nd3 21. Rfb1 Ra6 22. Rb5 Rc8 23. Rab1 h6 24. g3 Be7 25. e4 e5 26. Bc3 Bc5 27. Rxc5 Nxc5 28. exd5 Qxd5 29. Qf5 Rd8 30. Rb5 f6 31. b7 Qd6 32. Qc8 Nxb7 33. Qxb7 Qc6 34. Qxc6 Rxc6 35. Rb6 Rc7 36. a6 Ra8 37. Ne4 Rca7 38. Nc5 Rc8 39. Rb5 h5 40. h4 Kh7 41. Kg2 Kg6 42. Kf3 Kf5 43. Ke3 Rc6 44. Bb4 c3 45. Bxc3 Kg6 46. Bb4 Raxa6 47. Nxa6 Rxa6 48. Rb7 Ra8 49. Ke4 Rd8 50. Bc5 Ra8 51. Kd5 Ra5 52. Ra7 Rb5 53. Kc6 Rb2 54. Kd5 Rb5 55. Kc4 Rb8 56. Rc7 Ra8 57. Kd5 Ra2 58. Ke6 Ra6+ 59. Ke7 Kf5 60. Kf7 g5 61. Be3 gxh4 62. gxh4 Kg4 63. Rc4+ Kf3 64. Kg6 e4 65. Kxh5 f5 66. Kg5 Ra5 67. Bf4 Kxf2 68. Rc2+ Kf3 69. Rc3+ Ke2 70. h5 Ra1 71. h6 Rh1 72. Kxf5 Kf2 73. Kxe4 1-0\n",
+    "title": "The Teenager Beats World No. 2",
+    "white": "Alireza Firouzja",
+    "black": "Fabiano Caruana",
+    "event": "Norway Chess, Stavanger",
+    "year": 2020,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "endgame",
+      "calculation"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=2010689",
+    "teaser": {
+      "en": "17-year-old Firouzja outlasts Caruana in a marathon, precisely calculated endgame at Norway Chess.",
+      "fr": "À 17 ans, Firouzja vient à bout de Caruana dans une finale marathon, calculée avec précision, à Norway Chess."
+    },
+    "iconic": 73
+  },
+  {
+    "id": "praggnanandhaa-carlsen-2023",
+    "pgn": "[Event \"FIDE World Cup, Baku\"]\n[Site \"?\"]\n[Date \"2023.??.??\"]\n[Round \"?\"]\n[White \"R Praggnanandhaa\"]\n[Black \"Magnus Carlsen\"]\n[Result \"0-1\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d3 Bc5 5. a4 d6 6. O-O a5 7. Be3 Bxe3 8. fxe3 O-O 9. Nbd2 Ne7 10. Nh4 c6 11. Qe1 d5 12. Bb3 Qd6 13. Qg3 Nh5 14. Qg5 g6 15. Nf5 Bxf5 16. exf5 Kg7 17. Kh1 Qf6 18. Qxf6+ Nxf6 19. fxg6 hxg6 20. e4 dxe4 21. dxe4 Rad8 22. Rf2 Rd4 23. Raf1 Neg8 24. c3 Rd7 25. Re2 Re7 26. Bc2 Nd7 27. Nc4 Ra8 28. g4 f6 29. Rg2 Nh6 30. g5 fxg5 31. Rxg5 Nf7 32. Rg2 Re6 33. Rd2 Rf6 34. Rxf6 Nxf6 35. b4 axb4 36. cxb4 Kf8 37. Kg2 Ke7 38. a5 Rh8 39. Re2 Nh5 40. Kg1 Nf4 41. Rd2 Rh3 42. a6 bxa6 43. Ba4 Rc3 44. Na5 Ng5 45. Rc2 Ngh3+ 46. Kf1 Ra3 47. Nxc6+ Kf6 0-1\n",
+    "title": "World Cup Final: Carlsen Prevails",
+    "white": "R Praggnanandhaa",
+    "black": "Magnus Carlsen",
+    "event": "FIDE World Cup, Baku",
+    "year": 2023,
+    "result": "0-1",
+    "studySide": "b",
+    "tags": [
+      "modern",
+      "classical",
+      "world-championship",
+      "endgame"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=2560969",
+    "teaser": {
+      "en": "From the 2023 World Cup final: Carlsen squeezes a win with Black against the 18-year-old Praggnanandhaa.",
+      "fr": "Issue de la finale de la Coupe du monde 2023 : Carlsen arrache la victoire avec les Noirs face au jeune Praggnanandhaa (18 ans)."
+    },
+    "iconic": 72
+  },
+  {
+    "id": "vachier-lagrave-nepomniachtchi-2017",
+    "pgn": "[Event \"Sinquefield Cup, Saint Louis\"]\n[Site \"?\"]\n[Date \"2017.??.??\"]\n[Round \"?\"]\n[White \"Maxime Vachier-Lagrave\"]\n[Black \"Ian Nepomniachtchi\"]\n[Result \"1-0\"]\n\n1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2 e5 7. Nf3 Be7 8. Bg5 Nbd7 9. a4 O-O 10. Nd2 Nc5 11. Bxf6 Bxf6 12. Nc4 Be7 13. a5 Rb8 14. Nb6 Nd7 15. Ncd5 Nxb6 16. Nxb6 Be6 17. Bc4 Qc7 18. Qd3 Bd8 19. c3 Qc6 20. Bd5 Qe8 21. Bxe6 Qxe6 22. Nd5 f5 23. O-O Rc8 24. Rfd1 fxe4 25. Qxe4 Qf5 26. Qe2 Kh8 27. c4 Bh4 28. g3 Bg5 29. Ra3 Rce8 30. h4 Bd8 31. b4 Qg6 32. h5 Qf5 33. Ne3 Qe6 34. Rad3 Be7 35. Nd5 Bd8 36. Rf3 Rxf3 37. Qxf3 Kg8 38. Kg2 e4 39. Qe2 Qe5 40. Ne3 Bg5 41. Rd5 Qf6 42. Nf5 Re6 43. c5 dxc5 44. Qc4 Qf7 45. Rxc5 h6 46. Rc8+ Kh7 47. g4 Re7 48. Qd4 Re6 49. Qd5 g6 50. hxg6+ Kxg6 51. Rf8 Qxf8 52. Qxe6+ 1-0\n",
+    "title": "MVL's Najdorf Mastery",
+    "white": "Maxime Vachier-Lagrave",
+    "black": "Ian Nepomniachtchi",
+    "event": "Sinquefield Cup, Saint Louis",
+    "year": 2017,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "positional",
+      "tactics"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1883735",
+    "teaser": {
+      "en": "Vachier-Lagrave outplays Nepomniachtchi from a Najdorf structure on the way to winning the 2017 Sinquefield Cup.",
+      "fr": "Vachier-Lagrave surclasse Nepomniachtchi depuis une structure Najdorf et s'achemine vers la victoire à la Sinquefield Cup 2017."
+    },
+    "iconic": 70
+  },
+  {
+    "id": "nepomniachtchi-nakamura-2019",
+    "pgn": "[Event \"Sinquefield Cup, St Louis\"]\n[Site \"?\"]\n[Date \"2019.??.??\"]\n[Round \"?\"]\n[White \"Ian Nepomniachtchi\"]\n[Black \"Hikaru Nakamura\"]\n[Result \"1-0\"]\n\n1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. Nc3 Be7 5. Bf4 O-O 6. e3 c5 7. dxc5 Bxc5 8. cxd5 Nxd5 9. Nxd5 exd5 10. Bd3 Bb4+ 11. Nd2 Nc6 12. O-O Be7 13. Rc1 Qb6 14. Qc2 Nb4 15. Bxh7+ Kh8 16. Qc7 Qxc7 17. Rxc7 Bd8 18. Bd6 Bxc7 19. Bxf8 a5 20. Bb1 Be5 21. b3 Bg4 22. Bc5 Rc8 23. Bb6 Nxa2 24. Bxa2 Rc2 25. Nf3 Bxf3 26. gxf3 Rxa2 27. Rd1 Ra1 28. Rxa1 Bxa1 29. Bxa5 f5 30. Kf1 Kg8 31. Ke2 Kf7 32. Kd3 Be5 33. Bc3 Bd6 34. e4 dxe4+ 35. fxe4 Ke6 36. Bxg7 Bxh2 37. Bd4 b5 38. Bb6 Be5 39. Ke3 Bb2 40. Bd4 Bc1+ 41. Kd3 Ba3 42. Bb6 Bb2 43. Bc7 Bf6 44. Ba5 Be5 45. Bb4 Bf6 46. Bc5 Be5 47. Ba7 Bf6 48. Bd4 Be7 49. Ke3 Bg5+ 50. f4 Be7 51. Bb6 Ba3 52. Kd3 Bc1 53. Bc7 Bb2 54. Bb8 Bf6 55. Ke3 Bb2 56. Be5 Bc1+ 57. Kd3 b4 58. Bb8 Kf6 59. Bd6 Ke6 60. Be5 Ba3 61. Bd4 Bc1 62. Be3 Bb2 63. Bd2 fxe4+ 64. Kxe4 Ba3 65. Kd4 Kf5 66. Kd5 Kf6 67. Kc5 Kf5 68. Kb5 Ke4 69. Bxb4 1-0\n",
+    "title": "Nepomniachtchi Grinds Down Nakamura",
+    "white": "Ian Nepomniachtchi",
+    "black": "Hikaru Nakamura",
+    "event": "Sinquefield Cup, St Louis",
+    "year": 2019,
+    "result": "1-0",
+    "studySide": "w",
+    "tags": [
+      "modern",
+      "classical",
+      "sacrifice",
+      "endgame"
+    ],
+    "sourceUrl": "https://www.chessgames.com/perl/chessgame?gid=1971728",
+    "teaser": {
+      "en": "Nepomniachtchi sacrifices on h7 to win material, then converts a long, instructive minor-piece endgame.",
+      "fr": "Nepomniachtchi sacrifie en h7 pour gagner du matériel, puis convertit une longue finale de pièces légères très instructive."
+    },
+    "iconic": 66
   },
   {
     "id": "hoffmann-petrov-1844",
@@ -262,7 +688,8 @@
     "teaser": {
       "en": "F Alexander Hoffmann vs Alexander Petrov — 1844.",
       "fr": "F Alexander Hoffmann contre Alexander Petrov — 1844."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "bird-morphy-1858",
@@ -279,7 +706,8 @@
     "teaser": {
       "en": "Henry Edward Bird vs Paul Morphy — 1858.",
       "fr": "Henry Edward Bird contre Paul Morphy — 1858."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "hamppe-meitner-1872",
@@ -296,7 +724,8 @@
     "teaser": {
       "en": "Carl Hamppe vs Philipp Meitner — 1872.",
       "fr": "Carl Hamppe contre Philipp Meitner — 1872."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "steel-nn-1886",
@@ -313,7 +742,8 @@
     "teaser": {
       "en": "Robert Steel vs NN — 1886.",
       "fr": "Robert Steel contre NN — 1886."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "reinisch-traxler-1890",
@@ -330,7 +760,8 @@
     "teaser": {
       "en": "J Reinisch vs Karel Traxler — 1890.",
       "fr": "J Reinisch contre Karel Traxler — 1890."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "charousek-wollner-1893",
@@ -347,7 +778,8 @@
     "teaser": {
       "en": "Rudolf Rezso Charousek vs Jakob Wollner — 1893.",
       "fr": "Rudolf Rezso Charousek contre Jakob Wollner — 1893."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "pillsbury-lasker-1896",
@@ -364,7 +796,8 @@
     "teaser": {
       "en": "Harry Nelson Pillsbury vs Emanuel Lasker — 1896.",
       "fr": "Harry Nelson Pillsbury contre Emanuel Lasker — 1896."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "maroczy-chigorin-1903",
@@ -381,7 +814,8 @@
     "teaser": {
       "en": "Geza Maroczy vs Mikhail Chigorin — 1903.",
       "fr": "Geza Maroczy contre Mikhail Chigorin — 1903."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "capablanca-arus-1912",
@@ -398,7 +832,8 @@
     "teaser": {
       "en": "Jose Raul Capablanca vs Jaime Baca Arus — 1912.",
       "fr": "Jose Raul Capablanca contre Jaime Baca Arus — 1912."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "wagner-schoenmann-1919",
@@ -415,7 +850,8 @@
     "teaser": {
       "en": "Heinrich Wagner vs Wilhelm Schoenmann — 1919.",
       "fr": "Heinrich Wagner contre Wilhelm Schoenmann — 1919."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "adams-repetto-1920",
@@ -432,7 +868,8 @@
     "teaser": {
       "en": "Edwin Ziegler Adams vs Carlos Torre Repetto — 1920.",
       "fr": "Edwin Ziegler Adams contre Carlos Torre Repetto — 1920."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "alekhine-reti-1922",
@@ -449,7 +886,8 @@
     "teaser": {
       "en": "Alexander Alekhine vs Richard Reti — 1922.",
       "fr": "Alexander Alekhine contre Richard Reti — 1922."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "bogoljubov-alekhine-1922",
@@ -466,7 +904,8 @@
     "teaser": {
       "en": "Efim Bogoljubov vs Alexander Alekhine — 1922.",
       "fr": "Efim Bogoljubov contre Alexander Alekhine — 1922."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "saemisch-nimzowitsch-1923",
@@ -483,7 +922,8 @@
     "teaser": {
       "en": "Friedrich Saemisch vs Aron Nimzowitsch — 1923.",
       "fr": "Friedrich Saemisch contre Aron Nimzowitsch — 1923."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "reti-alekhine-1925",
@@ -500,7 +940,8 @@
     "teaser": {
       "en": "Richard Reti vs Alexander Alekhine — 1925.",
       "fr": "Richard Reti contre Alexander Alekhine — 1925."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "nimzowitsch-systemsson-1927",
@@ -517,7 +958,8 @@
     "teaser": {
       "en": "Aron Nimzowitsch vs Systemsson — 1927.",
       "fr": "Aron Nimzowitsch contre Systemsson — 1927."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "khan-capablanca-1930",
@@ -534,7 +976,8 @@
     "teaser": {
       "en": "Mir Sultan Khan vs Jose Raul Capablanca — 1930.",
       "fr": "Mir Sultan Khan contre Jose Raul Capablanca — 1930."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "korchmar-poliak-1931",
@@ -551,7 +994,8 @@
     "teaser": {
       "en": "Efim Korchmar vs Abram Borisovich Poliak — 1931.",
       "fr": "Efim Korchmar contre Abram Borisovich Poliak — 1931."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "ronde-kamstra-1938",
@@ -568,7 +1012,8 @@
     "teaser": {
       "en": "Chris De Ronde vs Hendrik Hermanus Kamstra — 1938.",
       "fr": "Chris De Ronde contre Hendrik Hermanus Kamstra — 1938."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "sliwa-bronstein-1957",
@@ -585,7 +1030,8 @@
     "teaser": {
       "en": "Bogdan Sliwa vs David Bronstein — 1957.",
       "fr": "Bogdan Sliwa contre David Bronstein — 1957."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "polugaevsky-nezhmetdinov-1958",
@@ -602,7 +1048,8 @@
     "teaser": {
       "en": "Lev Polugaevsky vs Nezhmetdinov — 1958.",
       "fr": "Lev Polugaevsky contre Nezhmetdinov — 1958."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "spassky-bronstein-1960",
@@ -619,7 +1066,8 @@
     "teaser": {
       "en": "Boris Spassky vs David Bronstein — 1960.",
       "fr": "Boris Spassky contre David Bronstein — 1960."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "nn-bronstein-1961",
@@ -636,7 +1084,8 @@
     "teaser": {
       "en": "NN vs David Bronstein — 1961.",
       "fr": "NN contre David Bronstein — 1961."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "nezhmetdinov-chernikov-1962",
@@ -653,7 +1102,8 @@
     "teaser": {
       "en": "Nezhmetdinov vs Oleg L Chernikov — 1962.",
       "fr": "Nezhmetdinov contre Oleg L Chernikov — 1962."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "byrne-fischer-1963",
@@ -670,7 +1120,8 @@
     "teaser": {
       "en": "Robert Eugene Byrne vs Robert James Fischer — 1963.",
       "fr": "Robert Eugene Byrne contre Robert James Fischer — 1963."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "ofstad-uhlmann-1963",
@@ -687,7 +1138,8 @@
     "teaser": {
       "en": "Per Ofstad vs Wolfgang Uhlmann — 1963.",
       "fr": "Per Ofstad contre Wolfgang Uhlmann — 1963."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "estrin-berliner-1965",
@@ -704,7 +1156,8 @@
     "teaser": {
       "en": "Yakov Estrin vs Hans Berliner — 1965.",
       "fr": "Yakov Estrin contre Hans Berliner — 1965."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "karpov-unzicker-1974",
@@ -721,7 +1174,8 @@
     "teaser": {
       "en": "Anatoly Karpov vs Wolfgang Unzicker — 1974.",
       "fr": "Anatoly Karpov contre Wolfgang Unzicker — 1974."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "wenzhe-donner-1978",
@@ -738,7 +1192,8 @@
     "teaser": {
       "en": "Liu Wenzhe vs Jan Hein Donner — 1978.",
       "fr": "Liu Wenzhe contre Jan Hein Donner — 1978."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "karpov-kasparov-1985",
@@ -755,7 +1210,8 @@
     "teaser": {
       "en": "Anatoly Karpov vs Garry Kasparov — 1985.",
       "fr": "Anatoly Karpov contre Garry Kasparov — 1985."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "oll-ulibin-1989",
@@ -772,7 +1228,8 @@
     "teaser": {
       "en": "Lembit Oll vs Mikhail Ulibin — 1989.",
       "fr": "Lembit Oll contre Mikhail Ulibin — 1989."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "ivanchuk-yusupov-1991",
@@ -789,7 +1246,8 @@
     "teaser": {
       "en": "Vassily Ivanchuk vs Artur Yusupov — 1991.",
       "fr": "Vassily Ivanchuk contre Artur Yusupov — 1991."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "serper-nikolaidis-1993",
@@ -806,7 +1264,8 @@
     "teaser": {
       "en": "Grigory Serper vs Ioannis Nikolaidis — 1993.",
       "fr": "Grigory Serper contre Ioannis Nikolaidis — 1993."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "kamsky-kramnik-1994",
@@ -823,7 +1282,8 @@
     "teaser": {
       "en": "Gata Kamsky vs Vladimir Kramnik — 1994.",
       "fr": "Gata Kamsky contre Vladimir Kramnik — 1994."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "shirov-polgar-1994",
@@ -840,7 +1300,8 @@
     "teaser": {
       "en": "Alexey Shirov vs Judit Polgar — 1994.",
       "fr": "Alexey Shirov contre Judit Polgar — 1994."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "ivanchuk-shirov-1996",
@@ -857,7 +1318,8 @@
     "teaser": {
       "en": "Vassily Ivanchuk vs Alexey Shirov — 1996.",
       "fr": "Vassily Ivanchuk contre Alexey Shirov — 1996."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "kasparov-kramnik-1996",
@@ -874,7 +1336,8 @@
     "teaser": {
       "en": "Garry Kasparov vs Vladimir Kramnik — 1996.",
       "fr": "Garry Kasparov contre Vladimir Kramnik — 1996."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "atalik-sax-1997",
@@ -891,7 +1354,8 @@
     "teaser": {
       "en": "Suat Atalik vs Gyula Sax — 1997.",
       "fr": "Suat Atalik contre Gyula Sax — 1997."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "jobava-bareev-2003",
@@ -908,7 +1372,8 @@
     "teaser": {
       "en": "Baadur Jobava vs Evgeny Bareev — 2003.",
       "fr": "Baadur Jobava contre Evgeny Bareev — 2003."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "carlsen-ernst-2004",
@@ -925,7 +1390,8 @@
     "teaser": {
       "en": "Magnus Carlsen vs Sipke Ernst — 2004.",
       "fr": "Magnus Carlsen contre Sipke Ernst — 2004."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "kharlov-topalov-2004",
@@ -942,7 +1408,8 @@
     "teaser": {
       "en": "Andrei Kharlov vs Veselin Topalov — 2004.",
       "fr": "Andrei Kharlov contre Veselin Topalov — 2004."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "kozul-rublevsky-2004",
@@ -959,7 +1426,8 @@
     "teaser": {
       "en": "Zdenko Kozul vs Sergei Rublevsky — 2004.",
       "fr": "Zdenko Kozul contre Sergei Rublevsky — 2004."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "kramnik-anand-2004",
@@ -976,7 +1444,8 @@
     "teaser": {
       "en": "Vladimir Kramnik vs Viswanathan Anand — 2004.",
       "fr": "Vladimir Kramnik contre Viswanathan Anand — 2004."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "adams-kasparov-2005",
@@ -993,7 +1462,8 @@
     "teaser": {
       "en": "Michael Adams vs Garry Kasparov — 2005.",
       "fr": "Michael Adams contre Garry Kasparov — 2005."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "anand-topalov-2005",
@@ -1010,7 +1480,8 @@
     "teaser": {
       "en": "Viswanathan Anand vs Veselin Topalov — 2005.",
       "fr": "Viswanathan Anand contre Veselin Topalov — 2005."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "landa-shaposhnikov-2005",
@@ -1027,7 +1498,8 @@
     "teaser": {
       "en": "Konstantin Landa vs Evgeny Shaposhnikov — 2005.",
       "fr": "Konstantin Landa contre Evgeny Shaposhnikov — 2005."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "karjakin-anand-2006",
@@ -1044,7 +1516,8 @@
     "teaser": {
       "en": "Sergey Karjakin vs Viswanathan Anand — 2006.",
       "fr": "Sergey Karjakin contre Viswanathan Anand — 2006."
-    }
+    },
+    "iconic": 0
   },
   {
     "id": "topalov-aronian-2006",
@@ -1061,6 +1534,7 @@
     "teaser": {
       "en": "Veselin Topalov vs Levon Aronian — 2006.",
       "fr": "Veselin Topalov contre Levon Aronian — 2006."
-    }
+    },
+    "iconic": 0
   }
 ]

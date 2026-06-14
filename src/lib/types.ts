@@ -208,6 +208,8 @@ export interface MasterGame {
   tags: string[];
   sourceUrl: string | null;
   teaser: { en: string; fr: string };
+  /** Iconicity score (0-100). The catalog is sorted by this, most iconic first. */
+  iconic?: number;
 }
 
 /** One ply's generated reasoning. */
