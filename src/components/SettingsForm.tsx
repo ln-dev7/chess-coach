@@ -208,7 +208,7 @@ function SettingsFormInner() {
               </Select>
               <button
                 type="button"
-                onClick={() => speak("settings-preview", t.app.tagline, locale, form.voiceURI)}
+                onClick={() => speak("settings-preview", t.app.tagline, locale, { voiceURI: form.voiceURI })}
                 className="rounded-lg border border-input px-3 h-9 text-sm text-foreground/80 hover:border-ring/60 transition whitespace-nowrap"
               >
                 {t.settings.voicePreview}
