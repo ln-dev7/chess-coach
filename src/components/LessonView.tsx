@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import { ChevronLeft, ChevronRight, Play, Telescope } from "lucide-react";
 import Board from "./Board";
@@ -9,8 +9,6 @@ import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { renderLesson } from "@/lib/lessons";
 import { useLessonSounds } from "@/lib/sound/lesson-sounds";
-import { isSpeechSupported, speak } from "@/lib/speech";
-import { useSettings } from "@/lib/store";
 import { setAiLessonCompleted, setLessonCompleted } from "@/lib/storage";
 import type {
   AiLessonRow,
@@ -65,48 +63,9 @@ function LessonContentView({
   initialCompleted: boolean;
   onComplete: () => void;
 }) {
-  const { t, locale } = useI18n();
-  const settings = useSettings();
+  const { t } = useI18n();
   const sounds = useLessonSounds();
   const [completed, setCompleted] = useState(initialCompleted);
-
-  // Ordered readable prose blocks (concept/mission + text sections). The first
-  // is auto-read on open, then each block chains to the next when it finishes
-  // naturally; starting any block stops the previous one.
-  const blocks = useMemo(() => {
-    const arr: { id: string; text: string }[] = [
-      { id: "lb:concept", text: `${content.concept}. ${content.mission}` },
-    ];
-    content.sections.forEach((s, i) => {
-      if (s.type === "text" && s.body) {
-        arr.push({ id: `lb:text:${i}`, text: `${s.heading ? s.heading + ". " : ""}${s.body}` });
-      }
-    });
-    return arr;
-  }, [content]);
-  const blockIndexById = useMemo(() => new Map(blocks.map((b, i) => [b.id, i])), [blocks]);
-
-  // Ref-routed recursion so the chained onEnd always calls the latest playFrom.
-  const playFromRef = useRef<(i: number) => void>(() => {});
-  const playFrom = useCallback(
-    (i: number) => {
-      const b = blocks[i];
-      if (!b) return;
-      speak(b.id, b.text, locale, { voiceURI: settings.voiceURI, onEnd: () => playFromRef.current(i + 1) });
-    },
-    [blocks, locale, settings.voiceURI]
-  );
-  useEffect(() => {
-    playFromRef.current = playFrom;
-  }, [playFrom]);
-
-  const voiceOn = settings.voiceEnabled !== false && isSpeechSupported();
-  const startedRef = useRef(false);
-  useEffect(() => {
-    if (startedRef.current || !voiceOn || !blocks.length) return;
-    startedRef.current = true;
-    playFrom(0); // auto-read the first block on open
-  }, [voiceOn, blocks, playFrom]);
 
   function markDone() {
     setCompleted(true);
@@ -129,7 +88,7 @@ function LessonContentView({
               <strong className="text-emerald-600 dark:text-emerald-400">{t.lessons.mentalModel}: </strong>
               {content.concept}
             </p>
-            <SpeakButton text={`${content.concept}. ${content.mission}`} id="lb:concept" onPlay={() => playFrom(0)} />
+            <SpeakButton text={`${content.concept}. ${content.mission}`} />
           </div>
         </div>
         <p className="text-sm text-muted-foreground italic leading-relaxed">{content.mission}</p>
@@ -146,11 +105,7 @@ function LessonContentView({
                 ) : (
                   <span />
                 )}
-                <SpeakButton
-                  text={`${s.heading ? s.heading + ". " : ""}${s.body}`}
-                  id={`lb:text:${i}`}
-                  onPlay={() => playFrom(blockIndexById.get(`lb:text:${i}`) ?? 0)}
-                />
+                <SpeakButton text={`${s.heading ? s.heading + ". " : ""}${s.body}`} />
               </div>
               <p className="text-foreground/90 leading-relaxed">{s.body}</p>
             </section>

@@ -37,112 +37,38 @@ export function pickVoice(locale: string, preferredURI?: string): SpeechSynthesi
 
 // --- active utterance tracking (one at a time) ---
 let activeId: string | null = null;
-let currentUtterance: SpeechSynthesisUtterance | null = null;
-let speakSeq = 0; // bumped on every speak/stop to invalidate deferred starts
 const listeners = new Set<() => void>();
 function emit() {
   for (const l of listeners) l();
 }
 
-export interface SpeakOptions {
-  voiceURI?: string;
-  /** Called only when the utterance finishes NATURALLY (not on stop / supersede). */
-  onEnd?: () => void;
-}
-
-/**
- * Run `cb` once the browser's voice list is populated. The very first speak()
- * after a page load usually races voice loading (getVoices() is empty and
- * fills in asynchronously); speaking before then is silently dropped by Chrome
- * and Safari — the utterance never starts and onend/onerror never fire, so the
- * UI looks "speaking" forever with no sound. We wait for `voiceschanged`, with
- * a timeout fallback for engines that never emit it (some Safari/Firefox).
- */
-function whenVoicesReady(cb: () => void): void {
-  const synth = window.speechSynthesis;
-  if (synth.getVoices().length) {
-    cb();
-    return;
-  }
-  let fired = false;
-  const fire = () => {
-    if (fired) return;
-    fired = true;
-    synth.removeEventListener("voiceschanged", fire);
-    cb();
-  };
-  synth.addEventListener("voiceschanged", fire);
-  setTimeout(fire, 500); // fallback: speak with the default voice rather than stay silent
-}
-
-export function speak(id: string, text: string, locale: string, opts: SpeakOptions = {}): void {
+export function speak(id: string, text: string, locale: string, voiceURI?: string): void {
   if (!isSpeechSupported() || !text.trim()) return;
   const synth = window.speechSynthesis;
-  const seq = ++speakSeq;
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = bcp47(locale);
+  const voice = pickVoice(locale, voiceURI);
+  if (voice) u.voice = voice;
+  u.rate = 1;
+  u.pitch = 1;
+  const clear = () => {
+    if (activeId === id) {
+      activeId = null;
+      emit();
+    }
+  };
+  u.onend = clear;
+  u.onerror = clear;
   activeId = id;
   emit();
-
-  const start = () => {
-    if (seq !== speakSeq) return; // a newer speak()/stop() superseded this one
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = bcp47(locale);
-    const voice = pickVoice(locale, opts.voiceURI);
-    if (voice) u.voice = voice;
-    u.onend = () => {
-      if (u !== currentUtterance) return; // superseded or stopped
-      currentUtterance = null;
-      activeId = null;
-      emit();
-      opts.onEnd?.(); // natural end → caller may chain to the next block
-    };
-    u.onerror = () => {
-      if (u !== currentUtterance) return;
-      currentUtterance = null;
-      activeId = null;
-      emit();
-    };
-    // Set as current BEFORE cancel() so a cancelled prior utterance's onend
-    // sees it's no longer current and doesn't chain. Then cancel + speak in the
-    // same tick — the plain, proven path that works in Chrome.
-    currentUtterance = u;
-    synth.cancel();
-    synth.speak(u);
-  };
-
-  whenVoicesReady(start);
-}
-
-// --- warm voices on first interaction ---
-// Trigger async voice loading early, on the first user gesture, so the voice
-// list is populated by the time anything is read aloud. We deliberately do NOT
-// speak a priming utterance here: leaving one queued would make the next
-// speak()'s cancel()+speak() hit Chrome's "drop the new utterance" bug and play
-// nothing. Chrome allows programmatic speak() without a gesture anyway.
-let warmed = false;
-export function installSpeechUnlock(): () => void {
-  if (!isSpeechSupported() || warmed || typeof document === "undefined") return () => {};
-  const events = ["pointerdown", "keydown", "touchstart"] as const;
-  const remove = () => events.forEach((e) => document.removeEventListener(e, warm));
-  function warm() {
-    if (warmed) return;
-    warmed = true;
-    try {
-      window.speechSynthesis.getVoices();
-    } catch {
-      /* no-op */
-    }
-    remove();
-  }
-  events.forEach((e) => document.addEventListener(e, warm));
-  return remove;
+  synth.speak(u);
 }
 
 export function stopSpeech(): void {
   if (!isSpeechSupported()) return;
-  speakSeq++; // invalidate any pending deferred start
-  currentUtterance = null; // prevents any pending onEnd from chaining
-  activeId = null;
   window.speechSynthesis.cancel();
+  activeId = null;
   emit();
 }
 
