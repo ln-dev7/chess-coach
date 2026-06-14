@@ -23,6 +23,7 @@ import { useCoachAvailability } from "@/lib/coach-client";
 import { useMasterAnnotations } from "@/lib/store";
 import { addMasterAnnotation } from "@/lib/storage";
 import { parsePgn } from "@/lib/pgn";
+import { stopSpeech } from "@/lib/speech";
 import type { MasterGame } from "@/lib/types";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -59,6 +60,12 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
       cancelRef.current = true;
     };
   }, []);
+
+  // Stop any read-aloud when the move changes (next/prev/jump or auto-play),
+  // so the voice never narrates a position you've already left.
+  useEffect(() => {
+    stopSpeech();
+  }, [plyIdx]);
 
   if (!parsed || !parsed.moves.length) {
     return <p className="text-muted-foreground">{t.masters.unreadable}</p>;
