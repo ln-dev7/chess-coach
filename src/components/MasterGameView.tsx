@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import { ChevronLeft, ChevronRight, Play, SkipBack, SkipForward, Sparkles, Square, Telescope } from "lucide-react";
+import ApiKeyField from "./ApiKeyField";
 import Board from "./Board";
 import SpeakButton from "./SpeakButton";
 import { CometSpinner } from "./ui/comet-spinner";
@@ -237,7 +238,10 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
           <div className="rounded-xl border border-violet-500/40 bg-violet-500/5 p-5 flex flex-col gap-3">
             <p className="text-sm text-foreground/90">{t.masters.noReasoningYet}</p>
             {ai.ready && !ai.available ? (
-              <p className="text-sm text-amber-600 dark:text-amber-200">{t.lessons.aiUnavailable}</p>
+              <div className="flex flex-col gap-4">
+                <p className="text-sm text-amber-600 dark:text-amber-200">{t.lessons.aiUnavailable}</p>
+                <ApiKeyField />
+              </div>
             ) : (
               <button
                 onClick={generate}

@@ -8,6 +8,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CometSpinner } from "@/components/ui/comet-spinner";
+import ApiKeyField from "@/components/ApiKeyField";
 import { requestAiLesson, useCoachAvailability } from "@/lib/coach-client";
 import { buildDossier, type DossierOptions } from "@/lib/dossier";
 import { useI18n } from "@/lib/i18n";
@@ -58,9 +59,12 @@ export default function AiLessonGenerator() {
   if (!ready) return null;
   if (!configured) {
     return (
-      <p className="rounded-lg border border-amber-600/40 bg-amber-500/10 px-4 py-3 text-sm text-amber-600 dark:text-amber-200 leading-relaxed">
-        {t.lessons.aiUnavailable}
-      </p>
+      <div className="flex flex-col gap-4">
+        <p className="rounded-lg border border-amber-600/40 bg-amber-500/10 px-4 py-3 text-sm text-amber-600 dark:text-amber-200 leading-relaxed">
+          {t.lessons.aiUnavailable}
+        </p>
+        <ApiKeyField />
+      </div>
     );
   }
 

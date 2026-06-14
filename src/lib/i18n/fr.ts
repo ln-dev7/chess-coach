@@ -82,7 +82,7 @@ const fr: Dict = {
     personalizedSub: "Rédigées par ton coach IA depuis tes propres parties — choisis un thème, une période ou une plage d'Elo pour une leçon encore plus ciblée.",
     classic: "Leçons classiques",
     classicSub: "Leçons à base de modèles, construites depuis ton profil de faiblesses. Toujours disponibles, sans clé API.",
-    aiUnavailable: "Coach IA indisponible — ajoute ta propre clé API (Anthropic, OpenAI ou Google) dans les Réglages (elle reste dans ton navigateur), ou configure-en une côté serveur. Les leçons classiques ci-dessous fonctionnent toujours.",
+    aiUnavailable: "Coach IA indisponible — ajoute ta propre clé API (Anthropic, OpenAI ou Google) ci-dessous (elle reste dans ton navigateur), ou configure-en une côté serveur. Les leçons classiques fonctionnent toujours.",
     options: "Options",
     dateFrom: "Du",
     dateTo: "Au",

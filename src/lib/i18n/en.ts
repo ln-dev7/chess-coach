@@ -81,7 +81,7 @@ const en = {
     personalizedSub: "Written by your AI coach from your own games — pick a theme, period or rating range for sharper focus.",
     classic: "Classic lessons",
     classicSub: "Template lessons built from your weakness profile. Always available, no API key needed.",
-    aiUnavailable: "AI coach unavailable — add your own API key (Anthropic, OpenAI or Google) in Settings (it stays in your browser), or set one on the server. Classic lessons below still work.",
+    aiUnavailable: "AI coach unavailable — add your own API key (Anthropic, OpenAI or Google) below (it stays in your browser), or set one on the server. Classic lessons below still work.",
     options: "Options",
     dateFrom: "From",
     dateTo: "To",
