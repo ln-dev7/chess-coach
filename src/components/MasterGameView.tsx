@@ -295,10 +295,10 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
               <button
                 onClick={generate}
                 disabled={generating || !ai.available}
-                className="self-start inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition gap-1.5"
+                className="self-start inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition gap-3"
               >
                 {generating ? (
-                  <CometSpinner className="size-4" />
+                  <CometSpinner className="size-3" />
                 ) : (
                   <Sparkles className="size-4" />
                 )}
@@ -345,7 +345,7 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
             <button
               onClick={generate}
               disabled={generating}
-              className="self-start inline-flex items-center text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50 gap-1.5"
+              className="self-start inline-flex items-center text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50 gap-3"
             >
               {generating && <CometSpinner className="size-3" />}
               <span className="inline-block">

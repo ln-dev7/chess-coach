@@ -84,7 +84,7 @@ function GameLessonButton({
               : "text-muted-foreground/40 cursor-not-allowed",
           ].join(" ")}
         >
-          {isBusy ? <CometSpinner className="size-4" /> : <BookOpen className="size-4" />}
+          {isBusy ? <CometSpinner className="size-3" /> : <BookOpen className="size-4" />}
         </button>
       </TooltipTrigger>
       <TooltipContent>
@@ -135,8 +135,8 @@ export default function GamesTable({ games, showStatus = false }: { games: GameR
                 </td>
                 <td className="py-2 pr-4 text-muted-foreground">
                   {busyId === g.id ? (
-                    <span className="inline-flex items-center text-violet-500 dark:text-violet-400 gap-1.5">
-                      <CometSpinner className="size-3.5" />
+                    <span className="inline-flex items-center text-violet-500 dark:text-violet-400 gap-3">
+                      <CometSpinner className="size-3" />
                       <span className="inline-block">{t.games.generatingLesson}</span>
                     </span>
                   ) : (
