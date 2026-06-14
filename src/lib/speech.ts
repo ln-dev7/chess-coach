@@ -88,8 +88,6 @@ export function speak(id: string, text: string, locale: string, opts: SpeakOptio
     u.lang = bcp47(locale);
     const voice = pickVoice(locale, opts.voiceURI);
     if (voice) u.voice = voice;
-    u.rate = 1;
-    u.pitch = 1;
     u.onend = () => {
       if (u !== currentUtterance) return; // superseded or stopped
       currentUtterance = null;
@@ -103,57 +101,39 @@ export function speak(id: string, text: string, locale: string, opts: SpeakOptio
       activeId = null;
       emit();
     };
+    // Set as current BEFORE cancel() so a cancelled prior utterance's onend
+    // sees it's no longer current and doesn't chain. Then cancel + speak in the
+    // same tick — the plain, proven path that works in Chrome.
     currentUtterance = u;
-    // Defend against Chrome leaving the engine in a stuck "paused" state after
-    // a previous cancel() — without resume(), speak() is queued but never starts.
-    try {
-      synth.resume();
-    } catch {
-      /* no-op */
-    }
+    synth.cancel();
     synth.speak(u);
   };
 
-  const begin = () => whenVoicesReady(start);
-
-  if (synth.speaking || synth.pending) {
-    // Chrome bug: cancel() immediately followed by speak() drops the new
-    // utterance. Detach the old one, cancel, then start on a later tick.
-    currentUtterance = null;
-    synth.cancel();
-    setTimeout(begin, 110);
-  } else {
-    begin();
-  }
+  whenVoicesReady(start);
 }
 
-// --- engine unlock (autoplay policy) ---
-// Safari (and stricter Chrome modes) refuse speechSynthesis.speak() unless it
-// was first triggered inside a user gesture. Auto-read fires from a useEffect,
-// which is NOT a gesture, so it stays silent. We unlock the engine once on the
-// first interaction anywhere: a zero-volume utterance inside the gesture
-// "primes" it, after which programmatic auto-reads are allowed for the session
-// (client-side navigation keeps the same document, so it stays unlocked).
-let unlocked = false;
+// --- warm voices on first interaction ---
+// Trigger async voice loading early, on the first user gesture, so the voice
+// list is populated by the time anything is read aloud. We deliberately do NOT
+// speak a priming utterance here: leaving one queued would make the next
+// speak()'s cancel()+speak() hit Chrome's "drop the new utterance" bug and play
+// nothing. Chrome allows programmatic speak() without a gesture anyway.
+let warmed = false;
 export function installSpeechUnlock(): () => void {
-  if (!isSpeechSupported() || unlocked || typeof document === "undefined") return () => {};
-  const synth = window.speechSynthesis;
+  if (!isSpeechSupported() || warmed || typeof document === "undefined") return () => {};
   const events = ["pointerdown", "keydown", "touchstart"] as const;
-  const remove = () => events.forEach((e) => document.removeEventListener(e, unlock));
-  function unlock() {
-    if (unlocked) return;
-    unlocked = true;
+  const remove = () => events.forEach((e) => document.removeEventListener(e, warm));
+  function warm() {
+    if (warmed) return;
+    warmed = true;
     try {
-      synth.getVoices(); // kick off async voice loading early
-      const u = new SpeechSynthesisUtterance(" ");
-      u.volume = 0;
-      synth.speak(u);
+      window.speechSynthesis.getVoices();
     } catch {
       /* no-op */
     }
     remove();
   }
-  events.forEach((e) => document.addEventListener(e, unlock));
+  events.forEach((e) => document.addEventListener(e, warm));
   return remove;
 }
 
