@@ -154,7 +154,13 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
       {/* Board + controls */}
       <div className="flex flex-col gap-3 lg:w-[420px] lg:flex-none">
-        <Board fen={fen} lastMove={lastMove} orientation={game.studySide} interactive={false} />
+        <Board
+          fen={fen}
+          lastMove={lastMove}
+          orientation={game.studySide}
+          interactive={false}
+          showOverlayControls={false}
+        />
 
         <div className="flex items-center justify-center gap-2">
           <StepBtn onClick={() => goTo(0)} disabled={plyIdx === 0} label={t.masters.first}>
