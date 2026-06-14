@@ -30,9 +30,9 @@ export default function Nav() {
 
   const links = [
     { href: "/", label: t.nav.dashboard },
-    { href: "/games", label: t.nav.games },
-    { href: "/masters", label: t.nav.masters },
     { href: "/lessons", label: t.nav.lessons },
+    { href: "/masters", label: t.nav.masters },
+    { href: "/games", label: t.nav.games },
     { href: "/settings", label: t.nav.settings },
   ];
 
