@@ -37,38 +37,75 @@ export function pickVoice(locale: string, preferredURI?: string): SpeechSynthesi
 
 // --- active utterance tracking (one at a time) ---
 let activeId: string | null = null;
+let currentUtterance: SpeechSynthesisUtterance | null = null;
+let speakSeq = 0; // bumped on every speak/stop to invalidate deferred starts
 const listeners = new Set<() => void>();
 function emit() {
   for (const l of listeners) l();
 }
 
-export function speak(id: string, text: string, locale: string, voiceURI?: string): void {
+export interface SpeakOptions {
+  voiceURI?: string;
+  /** Called only when the utterance finishes NATURALLY (not on stop / supersede). */
+  onEnd?: () => void;
+}
+
+export function speak(id: string, text: string, locale: string, opts: SpeakOptions = {}): void {
   if (!isSpeechSupported() || !text.trim()) return;
   const synth = window.speechSynthesis;
-  synth.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = bcp47(locale);
-  const voice = pickVoice(locale, voiceURI);
-  if (voice) u.voice = voice;
-  u.rate = 1;
-  u.pitch = 1;
-  const clear = () => {
-    if (activeId === id) {
-      activeId = null;
-      emit();
-    }
-  };
-  u.onend = clear;
-  u.onerror = clear;
+  const seq = ++speakSeq;
   activeId = id;
   emit();
-  synth.speak(u);
+
+  const start = () => {
+    if (seq !== speakSeq) return; // a newer speak()/stop() superseded this one
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = bcp47(locale);
+    const voice = pickVoice(locale, opts.voiceURI);
+    if (voice) u.voice = voice;
+    u.rate = 1;
+    u.pitch = 1;
+    u.onend = () => {
+      if (u !== currentUtterance) return; // superseded or stopped
+      currentUtterance = null;
+      activeId = null;
+      emit();
+      opts.onEnd?.(); // natural end → caller may chain to the next block
+    };
+    u.onerror = () => {
+      if (u !== currentUtterance) return;
+      currentUtterance = null;
+      activeId = null;
+      emit();
+    };
+    currentUtterance = u;
+    // Defend against Chrome leaving the engine in a stuck "paused" state after
+    // a previous cancel() — without resume(), speak() is queued but never starts.
+    try {
+      synth.resume();
+    } catch {
+      /* no-op */
+    }
+    synth.speak(u);
+  };
+
+  if (synth.speaking || synth.pending) {
+    // Chrome bug: cancel() immediately followed by speak() drops the new
+    // utterance. Detach the old one, cancel, then start on a later tick.
+    currentUtterance = null;
+    synth.cancel();
+    setTimeout(start, 110);
+  } else {
+    start();
+  }
 }
 
 export function stopSpeech(): void {
   if (!isSpeechSupported()) return;
-  window.speechSynthesis.cancel();
+  speakSeq++; // invalidate any pending deferred start
+  currentUtterance = null; // prevents any pending onEnd from chaining
   activeId = null;
+  window.speechSynthesis.cancel();
   emit();
 }
 
