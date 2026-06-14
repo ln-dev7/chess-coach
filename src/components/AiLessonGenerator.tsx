@@ -142,10 +142,10 @@ export default function AiLessonGenerator() {
         <button
           onClick={generate}
           disabled={state === "busy"}
-          className="inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-60 px-4 py-2 text-sm font-medium text-white transition"
+          className="inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-60 px-4 py-2 text-sm font-medium text-white transition gap-1.5"
         >
-          {state === "busy" && <CometSpinner className="size-4 mr-1.5" />}
-          {state === "busy" ? t.lessons.aiGenerating : t.lessons.aiGenerate}
+          {state === "busy" && <CometSpinner className="size-4" />}
+          <span className="inline-block">{state === "busy" ? t.lessons.aiGenerating : t.lessons.aiGenerate}</span>
         </button>
         <button
           onClick={() => setOpen(!open)}

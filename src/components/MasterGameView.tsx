@@ -2,7 +2,16 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
-import { ChevronLeft, ChevronRight, Play, SkipBack, SkipForward, Sparkles, Square, Telescope } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  SkipBack,
+  SkipForward,
+  Sparkles,
+  Square,
+  Telescope,
+} from "lucide-react";
 import ApiKeyField from "./ApiKeyField";
 import Board from "./Board";
 import SpeakButton from "./SpeakButton";
@@ -29,7 +38,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
   const { t, locale } = useI18n();
   const parsed = useMemo(() => parsePgn(game.pgn), [game.pgn]);
   const annotations = useMasterAnnotations();
-  const annotation = annotations.find((a) => a.gameId === game.id && a.locale === locale) ?? null;
+  const annotation =
+    annotations.find((a) => a.gameId === game.id && a.locale === locale) ??
+    null;
   const ai = useCoachAvailability();
 
   const [plyIdx, setPlyIdx] = useState(0); // plies played so far (0 = start)
@@ -57,7 +68,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
   const total = moves.length;
   const fen = fens[plyIdx];
   const lastUci = plyIdx > 0 ? moves[plyIdx - 1].uci : null;
-  const lastMove = lastUci ? { from: lastUci.slice(0, 2), to: lastUci.slice(2, 4) } : null;
+  const lastMove = lastUci
+    ? { from: lastUci.slice(0, 2), to: lastUci.slice(2, 4) }
+    : null;
   const currentNote = annotation?.notes.find((n) => n.ply === plyIdx) ?? null;
 
   function goTo(i: number) {
@@ -101,7 +114,11 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
         if (!ev.bestUci) break;
         let m;
         try {
-          m = c.move({ from: ev.bestUci.slice(0, 2), to: ev.bestUci.slice(2, 4), promotion: ev.bestUci[4] });
+          m = c.move({
+            from: ev.bestUci.slice(0, 2),
+            to: ev.bestUci.slice(2, 4),
+            promotion: ev.bestUci[4],
+          });
         } catch {
           break;
         }
@@ -146,10 +163,18 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
         />
 
         <div className="flex items-center justify-center gap-2">
-          <StepBtn onClick={() => goTo(0)} disabled={plyIdx === 0} label={t.masters.first}>
+          <StepBtn
+            onClick={() => goTo(0)}
+            disabled={plyIdx === 0}
+            label={t.masters.first}
+          >
             <SkipBack className="size-4" />
           </StepBtn>
-          <StepBtn onClick={() => goTo(plyIdx - 1)} disabled={plyIdx === 0} label={t.masters.prev}>
+          <StepBtn
+            onClick={() => goTo(plyIdx - 1)}
+            disabled={plyIdx === 0}
+            label={t.masters.prev}
+          >
             <ChevronLeft className="size-4" />
           </StepBtn>
           <button
@@ -162,19 +187,33 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                 : "border-emerald-500/50 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-500/10",
             ].join(" ")}
           >
-            {playing ? <Square className="size-3.5" /> : <Play className="size-3.5" />}
+            {playing ? (
+              <Square className="size-3.5" />
+            ) : (
+              <Play className="size-3.5" />
+            )}
             {playing ? t.masters.stopAutoplay : t.masters.autoplay}
           </button>
-          <StepBtn onClick={() => goTo(plyIdx + 1)} disabled={plyIdx >= total} label={t.masters.next}>
+          <StepBtn
+            onClick={() => goTo(plyIdx + 1)}
+            disabled={plyIdx >= total}
+            label={t.masters.next}
+          >
             <ChevronRight className="size-4" />
           </StepBtn>
-          <StepBtn onClick={() => goTo(total)} disabled={plyIdx >= total} label={t.masters.last}>
+          <StepBtn
+            onClick={() => goTo(total)}
+            disabled={plyIdx >= total}
+            label={t.masters.last}
+          >
             <SkipForward className="size-4" />
           </StepBtn>
         </div>
 
         <p className="text-center text-xs text-muted-foreground tabular-nums">
-          {plyIdx === 0 ? t.masters.startPosition : `${Math.ceil(plyIdx / 2)}${plyIdx % 2 ? "." : "…"} ${moves[plyIdx - 1].san}`}
+          {plyIdx === 0
+            ? t.masters.startPosition
+            : `${Math.ceil(plyIdx / 2)}${plyIdx % 2 ? "." : "…"} ${moves[plyIdx - 1].san}`}
           {" · "}
           {plyIdx}/{total}
         </p>
@@ -187,7 +226,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
               onClick={() => goTo(i + 1)}
               className={[
                 "rounded px-1.5 py-0.5 text-[11px] font-mono transition",
-                plyIdx === i + 1 ? "bg-emerald-600 text-white" : "text-foreground/80 hover:bg-accent",
+                plyIdx === i + 1
+                  ? "bg-emerald-600 text-white"
+                  : "text-foreground/80 hover:bg-accent",
               ].join(" ")}
             >
               {i % 2 === 0 ? `${i / 2 + 1}.` : ""}
@@ -225,31 +266,47 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
       {/* Reasoning */}
       <div className="flex-1 flex flex-col gap-4 min-w-0">
         <div>
-          <h2 className="text-xl font-semibold text-foreground">{game.title}</h2>
+          <h2 className="text-xl font-semibold text-foreground">
+            {game.title}
+          </h2>
           <p className="text-sm text-muted-foreground">
             {game.white} – {game.black}
             {game.event ? ` · ${game.event}` : ""}
             {game.year ? ` · ${game.year}` : ""}
           </p>
-          <p className="text-xs text-muted-foreground/80 mt-1">{t.masters.studyingAs(studyingName)}</p>
+          <p className="text-xs text-muted-foreground/80 mt-1">
+            {t.masters.studyingAs(studyingName)}
+          </p>
         </div>
 
         {!annotation ? (
           <div className="rounded-xl border border-violet-500/40 bg-violet-500/5 p-5 flex flex-col gap-3">
-            <p className="text-sm text-foreground/90">{t.masters.noReasoningYet}</p>
+            <p className="text-sm text-foreground/90">
+              {t.masters.noReasoningYet}
+            </p>
             {ai.ready && !ai.available ? (
               <div className="flex flex-col gap-4">
-                <p className="text-sm text-amber-600 dark:text-amber-200">{t.lessons.aiUnavailable}</p>
+                <p className="text-sm text-amber-600 dark:text-amber-200">
+                  {t.lessons.aiUnavailable}
+                </p>
                 <ApiKeyField />
               </div>
             ) : (
               <button
                 onClick={generate}
                 disabled={generating || !ai.available}
-                className="self-start inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition"
+                className="self-start inline-flex items-center rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition gap-1.5"
               >
-                {generating ? <CometSpinner className="size-4 mr-1.5" /> : <Sparkles className="size-4 mr-1.5" />}
-                {generating ? t.masters.generating : t.masters.generateReasoning}
+                {generating ? (
+                  <CometSpinner className="size-4" />
+                ) : (
+                  <Sparkles className="size-4" />
+                )}
+                <span className="inline-block">
+                  {generating
+                    ? t.masters.generating
+                    : t.masters.generateReasoning}
+                </span>
               </button>
             )}
             {genError && <p className="text-sm text-red-500">{genError}</p>}
@@ -259,7 +316,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
             {plyIdx === 0 ? (
               <div className="rounded-xl border-l-4 border-violet-500 bg-card p-4">
                 <div className="flex items-start justify-between gap-3">
-                  <p className="text-foreground/90 leading-relaxed">{annotation.intro}</p>
+                  <p className="text-foreground/90 leading-relaxed">
+                    {annotation.intro}
+                  </p>
                   <SpeakButton text={annotation.intro} />
                 </div>
               </div>
@@ -267,29 +326,42 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
               <div className="rounded-xl border-l-4 border-emerald-500 bg-card p-4 flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-3">
                   <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                    {t.masters.moveLabel(Math.ceil(plyIdx / 2), moves[plyIdx - 1].san)}
+                    {t.masters.moveLabel(
+                      Math.ceil(plyIdx / 2),
+                      moves[plyIdx - 1].san,
+                    )}
                   </p>
                   <SpeakButton text={currentNote.reasoning} />
                 </div>
-                <p className="text-foreground/90 leading-relaxed whitespace-pre-line">{currentNote.reasoning}</p>
+                <p className="text-foreground/90 leading-relaxed whitespace-pre-line">
+                  {currentNote.reasoning}
+                </p>
               </div>
             ) : (
-              <p className="text-sm text-muted-foreground italic">{t.masters.noteForMove}</p>
+              <p className="text-sm text-muted-foreground italic">
+                {t.masters.noteForMove}
+              </p>
             )}
             <button
               onClick={generate}
               disabled={generating}
-              className="self-start inline-flex items-center text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50"
+              className="self-start inline-flex items-center text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50 gap-1.5"
             >
-              {generating && <CometSpinner className="size-3 mr-1.5" />}
-              {generating ? t.masters.generating : t.masters.regenerate}
+              {generating && <CometSpinner className="size-3" />}
+              <span className="inline-block">
+                {generating ? t.masters.generating : t.masters.regenerate}
+              </span>
             </button>
             {genError && <p className="text-sm text-red-500">{genError}</p>}
           </>
         )}
 
         {game.sourceUrl && (
-          <a href={game.sourceUrl} target="_blank" className="text-xs text-muted-foreground underline">
+          <a
+            href={game.sourceUrl}
+            target="_blank"
+            className="text-xs text-muted-foreground underline"
+          >
             {t.masters.source}
           </a>
         )}

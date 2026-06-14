@@ -135,9 +135,9 @@ export default function GamesTable({ games, showStatus = false }: { games: GameR
                 </td>
                 <td className="py-2 pr-4 text-muted-foreground">
                   {busyId === g.id ? (
-                    <span className="inline-flex items-center text-violet-500 dark:text-violet-400">
-                      <CometSpinner className="size-3.5 mr-1.5" />
-                      {t.games.generatingLesson}
+                    <span className="inline-flex items-center text-violet-500 dark:text-violet-400 gap-1.5">
+                      <CometSpinner className="size-3.5" />
+                      <span className="inline-block">{t.games.generatingLesson}</span>
                     </span>
                   ) : (
                     g.opening_name ?? g.eco ?? "—"
