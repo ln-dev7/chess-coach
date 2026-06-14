@@ -167,6 +167,7 @@ const en = {
     voiceAuto: "Automatic (best available)",
     voicePreview: "Preview",
     voiceUnsupported: "Your browser has no speech voices available.",
+    voiceAutoplay: "Auto-play the next block",
     aiProvider: "AI provider",
     apiKey: "API key (optional — unlocks the AI coach)",
     apiKeyNote:

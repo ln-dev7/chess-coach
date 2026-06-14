@@ -215,6 +215,20 @@ function SettingsFormInner() {
               </button>
             </div>
           ))}
+        {(form.voiceEnabled ?? true) && speechSupported && (
+          <label className="flex items-center gap-2 pt-1 text-xs text-muted-foreground/90 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={form.voiceAutoplay ?? true}
+              onChange={(e) => {
+                setForm({ ...form, voiceAutoplay: e.target.checked });
+                saveSettings({ ...loadSettings(), voiceAutoplay: e.target.checked });
+              }}
+              className="size-3.5 accent-emerald-600"
+            />
+            {t.settings.voiceAutoplay}
+          </label>
+        )}
       </div>
 
       <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">

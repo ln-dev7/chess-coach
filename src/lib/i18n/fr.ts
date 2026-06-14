@@ -168,6 +168,7 @@ const fr: Dict = {
     voiceAuto: "Automatique (meilleure dispo)",
     voicePreview: "Écouter",
     voiceUnsupported: "Aucune voix de synthèse n'est disponible dans ton navigateur.",
+    voiceAutoplay: "Enchaîner automatiquement les blocs",
     aiProvider: "Fournisseur IA",
     apiKey: "Clé API (optionnelle — débloque le coach IA)",
     apiKeyNote:

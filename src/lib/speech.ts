@@ -42,6 +42,46 @@ function emit() {
   for (const l of listeners) l();
 }
 
+// --- chained playback (auto-advance) ---
+// Speakable targets register themselves (a DOM node + how to play them). When an
+// utterance finishes NATURALLY (not stopped or interrupted), we auto-start the
+// next registered target in document order, so a lesson reads itself through.
+interface SpeakTarget {
+  el: HTMLElement;
+  play: () => void;
+}
+const targets = new Map<string, SpeakTarget>();
+
+// Whether finishing a block auto-starts the next one. Synced from settings.
+let chainEnabled = true;
+export function setSpeechChaining(on: boolean): void {
+  chainEnabled = on;
+}
+
+/** Register a speakable target. Returns an unregister cleanup. */
+export function registerSpeakTarget(id: string, el: HTMLElement, play: () => void): () => void {
+  targets.set(id, { el, play });
+  return () => {
+    if (targets.get(id)?.el === el) targets.delete(id);
+  };
+}
+
+/** The next still-mounted target after `id`, in document order, or null. */
+function nextTargetAfter(id: string): SpeakTarget | null {
+  const cur = targets.get(id);
+  if (!cur || !cur.el.isConnected) return null;
+  let best: SpeakTarget | null = null;
+  for (const t of targets.values()) {
+    if (t.el === cur.el || !t.el.isConnected) continue;
+    const pos = cur.el.compareDocumentPosition(t.el);
+    if (!(pos & Node.DOCUMENT_POSITION_FOLLOWING)) continue; // only nodes after cur
+    if (!best || best.el.compareDocumentPosition(t.el) & Node.DOCUMENT_POSITION_PRECEDING) {
+      best = t; // keep the closest following node
+    }
+  }
+  return best;
+}
+
 // Hold a reference to the utterance being spoken. Chrome can garbage-collect an
 // utterance that is only referenced by its internal queue, which makes speech
 // never start (the classic "button animates but nothing is heard"). Keeping it
@@ -72,16 +112,26 @@ function startUtterance(id: string, text: string, locale: string, voiceURI?: str
   u.volume = 1;
   current = u;
 
-  const clear = () => {
+  const finish = (natural: boolean) => {
     clearTimers();
     current = null;
-    if (activeId === id) {
+    const wasActive = activeId === id;
+    if (wasActive) {
       activeId = null;
       emit();
     }
+    // Chain to the next block only when this utterance ended on its own (not
+    // stopped by the user and not interrupted by starting another block).
+    if (natural && wasActive && chainEnabled) {
+      const next = nextTargetAfter(id);
+      if (next) {
+        next.el.scrollIntoView({ behavior: "smooth", block: "center" });
+        next.play();
+      }
+    }
   };
-  u.onend = clear;
-  u.onerror = clear;
+  u.onend = () => finish(true);
+  u.onerror = () => finish(false);
   u.onstart = () => {
     // Real audio has begun: drop the "didn't start" watchdog.
     if (watchdog) {
@@ -108,7 +158,7 @@ function startUtterance(id: string, text: string, locale: string, voiceURI?: str
   // leave the button pulsing forever — reset shortly after. Reading `current`
   // here also keeps the utterance reachable (Chrome's anti-GC requirement).
   watchdog = setTimeout(() => {
-    if (current === u && activeId === id && !synth.speaking) clear();
+    if (current === u && activeId === id && !synth.speaking) finish(false);
   }, 3500);
 }
 

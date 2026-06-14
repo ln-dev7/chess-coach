@@ -171,6 +171,8 @@ export interface Settings {
   voiceEnabled?: boolean;
   /** Preferred speech-synthesis voice (voiceURI). Empty = auto-pick the best. */
   voiceURI?: string;
+  /** When read-aloud finishes a block on its own, auto-start the next one. Defaults to on. */
+  voiceAutoplay?: boolean;
 }
 
 /** A lesson written by the AI coach. Text is in `locale` (generated in the site language). */

@@ -36,6 +36,7 @@ export const DEFAULT_SETTINGS: Settings = {
   boardTheme: "classic",
   soundEnabled: true,
   voiceEnabled: true,
+  voiceAutoplay: true,
 };
 
 export interface StoredAiKey {
