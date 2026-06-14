@@ -5,6 +5,7 @@ import { Chess } from "chess.js";
 import { ChevronLeft, ChevronRight, Play, SkipBack, SkipForward, Sparkles, Square, Telescope } from "lucide-react";
 import Board from "./Board";
 import SpeakButton from "./SpeakButton";
+import { CometSpinner } from "./ui/comet-spinner";
 import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { requestMasterAnnotation } from "@/lib/masters-client";
@@ -271,7 +272,7 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                 disabled={generating || !ai.available}
                 className="self-start inline-flex items-center gap-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-medium text-white transition"
               >
-                <Sparkles className="size-4" />
+                {generating ? <CometSpinner className="size-4" /> : <Sparkles className="size-4" />}
                 {generating ? t.masters.generating : t.masters.generateReasoning}
               </button>
             )}
@@ -318,8 +319,9 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
             <button
               onClick={generate}
               disabled={generating}
-              className="self-start text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50"
+              className="self-start inline-flex items-center gap-1.5 text-xs text-muted-foreground underline hover:text-foreground disabled:opacity-50"
             >
+              {generating && <CometSpinner className="size-3" />}
               {generating ? t.masters.generating : t.masters.regenerate}
             </button>
             {genError && <p className="text-sm text-red-500">{genError}</p>}

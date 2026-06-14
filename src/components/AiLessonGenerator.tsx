@@ -7,6 +7,7 @@ import type { DateRange } from "react-day-picker";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CometSpinner } from "@/components/ui/comet-spinner";
 import { requestAiLesson, useCoachAvailability } from "@/lib/coach-client";
 import { buildDossier, type DossierOptions } from "@/lib/dossier";
 import { useI18n } from "@/lib/i18n";
@@ -137,8 +138,9 @@ export default function AiLessonGenerator() {
         <button
           onClick={generate}
           disabled={state === "busy"}
-          className="rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-60 px-4 py-2 text-sm font-medium text-white transition"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-60 px-4 py-2 text-sm font-medium text-white transition"
         >
+          {state === "busy" && <CometSpinner className="size-4" />}
           {state === "busy" ? t.lessons.aiGenerating : t.lessons.aiGenerate}
         </button>
         <button

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BookOpen } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { CometSpinner } from "@/components/ui/comet-spinner";
 import { requestAiLesson, useCoachAvailability } from "@/lib/coach-client";
 import { buildDossier } from "@/lib/dossier";
 import { useI18n } from "@/lib/i18n";
@@ -75,15 +76,15 @@ function GameLessonButton({
           disabled={!analyzed || locked || isBusy}
           aria-label={t.games.aiLesson}
           className={[
-            "rounded-md p-1.5 transition",
+            "inline-flex items-center justify-center rounded-md p-1.5 transition",
             isBusy
-              ? "text-violet-500 animate-pulse"
+              ? "text-violet-500"
               : analyzed && !locked
               ? "text-violet-500 dark:text-violet-400 hover:bg-violet-500/10"
               : "text-muted-foreground/40 cursor-not-allowed",
           ].join(" ")}
         >
-          <BookOpen className="size-4" />
+          {isBusy ? <CometSpinner className="size-4" /> : <BookOpen className="size-4" />}
         </button>
       </TooltipTrigger>
       <TooltipContent>
@@ -134,7 +135,8 @@ export default function GamesTable({ games, showStatus = false }: { games: GameR
                 </td>
                 <td className="py-2 pr-4 text-muted-foreground">
                   {busyId === g.id ? (
-                    <span className="text-violet-500 dark:text-violet-400 animate-pulse">
+                    <span className="inline-flex items-center gap-1.5 text-violet-500 dark:text-violet-400">
+                      <CometSpinner className="size-3.5" />
                       {t.games.generatingLesson}
                     </span>
                   ) : (
