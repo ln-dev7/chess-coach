@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { hydrateStore } from "@/lib/store";
-import { stopSpeech } from "@/lib/speech";
+import { installSpeechUnlock, stopSpeech } from "@/lib/speech";
 
 /**
  * Reads persisted state into the Zustand store once, on the client after mount.
@@ -17,6 +17,7 @@ export default function StoreHydrator() {
 
   useEffect(() => {
     hydrateStore();
+    return installSpeechUnlock(); // unlock TTS on first user gesture (autoplay policy)
   }, []);
 
   useEffect(() => () => stopSpeech(), [pathname]);

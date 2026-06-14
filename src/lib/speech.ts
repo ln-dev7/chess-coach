@@ -50,6 +50,31 @@ export interface SpeakOptions {
   onEnd?: () => void;
 }
 
+/**
+ * Run `cb` once the browser's voice list is populated. The very first speak()
+ * after a page load usually races voice loading (getVoices() is empty and
+ * fills in asynchronously); speaking before then is silently dropped by Chrome
+ * and Safari — the utterance never starts and onend/onerror never fire, so the
+ * UI looks "speaking" forever with no sound. We wait for `voiceschanged`, with
+ * a timeout fallback for engines that never emit it (some Safari/Firefox).
+ */
+function whenVoicesReady(cb: () => void): void {
+  const synth = window.speechSynthesis;
+  if (synth.getVoices().length) {
+    cb();
+    return;
+  }
+  let fired = false;
+  const fire = () => {
+    if (fired) return;
+    fired = true;
+    synth.removeEventListener("voiceschanged", fire);
+    cb();
+  };
+  synth.addEventListener("voiceschanged", fire);
+  setTimeout(fire, 500); // fallback: speak with the default voice rather than stay silent
+}
+
 export function speak(id: string, text: string, locale: string, opts: SpeakOptions = {}): void {
   if (!isSpeechSupported() || !text.trim()) return;
   const synth = window.speechSynthesis;
@@ -89,15 +114,47 @@ export function speak(id: string, text: string, locale: string, opts: SpeakOptio
     synth.speak(u);
   };
 
+  const begin = () => whenVoicesReady(start);
+
   if (synth.speaking || synth.pending) {
     // Chrome bug: cancel() immediately followed by speak() drops the new
     // utterance. Detach the old one, cancel, then start on a later tick.
     currentUtterance = null;
     synth.cancel();
-    setTimeout(start, 110);
+    setTimeout(begin, 110);
   } else {
-    start();
+    begin();
   }
+}
+
+// --- engine unlock (autoplay policy) ---
+// Safari (and stricter Chrome modes) refuse speechSynthesis.speak() unless it
+// was first triggered inside a user gesture. Auto-read fires from a useEffect,
+// which is NOT a gesture, so it stays silent. We unlock the engine once on the
+// first interaction anywhere: a zero-volume utterance inside the gesture
+// "primes" it, after which programmatic auto-reads are allowed for the session
+// (client-side navigation keeps the same document, so it stays unlocked).
+let unlocked = false;
+export function installSpeechUnlock(): () => void {
+  if (!isSpeechSupported() || unlocked || typeof document === "undefined") return () => {};
+  const synth = window.speechSynthesis;
+  const events = ["pointerdown", "keydown", "touchstart"] as const;
+  const remove = () => events.forEach((e) => document.removeEventListener(e, unlock));
+  function unlock() {
+    if (unlocked) return;
+    unlocked = true;
+    try {
+      synth.getVoices(); // kick off async voice loading early
+      const u = new SpeechSynthesisUtterance(" ");
+      u.volume = 0;
+      synth.speak(u);
+    } catch {
+      /* no-op */
+    }
+    remove();
+  }
+  events.forEach((e) => document.addEventListener(e, unlock));
+  return remove;
 }
 
 export function stopSpeech(): void {
