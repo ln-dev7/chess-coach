@@ -13,6 +13,17 @@ import {
 } from "@/lib/speech";
 import { useSettings } from "@/lib/store";
 
+interface SpeakButtonProps {
+  text: string;
+  className?: string;
+  /** Called when the USER starts playback by clicking (not on auto-chain). */
+  onUserStart?: () => void;
+  /** Called when the USER stops playback by clicking the button. */
+  onUserStop?: () => void;
+  /** Receives a replay handle (or null on unmount) so a parent can replay this block. */
+  registerControl?: (play: (() => void) | null) => void;
+}
+
 /**
  * A small speaker button that reads `text` aloud in the current locale via the
  * Web Speech API. Controlled: click to play, click again (or any other button)
@@ -22,7 +33,13 @@ import { useSettings } from "@/lib/store";
  * Each button registers itself as a chained-playback target so that, when its
  * audio finishes on its own, the next speakable block starts automatically.
  */
-export default function SpeakButton({ text, className = "" }: { text: string; className?: string }) {
+export default function SpeakButton({
+  text,
+  className = "",
+  onUserStart,
+  onUserStop,
+  registerControl,
+}: SpeakButtonProps) {
   const { t, locale } = useI18n();
   const settings = useSettings();
   const id = useId();
@@ -30,7 +47,7 @@ export default function SpeakButton({ text, className = "" }: { text: string; cl
   const speaking = activeId === id;
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  // Keep the latest props so the registered play() always reads current values.
+  // Keep the latest props so the registered play()/control always read current values.
   const latest = useRef({ text, locale, voiceURI: settings.voiceURI });
   useEffect(() => {
     latest.current = { text, locale, voiceURI: settings.voiceURI };
@@ -43,6 +60,8 @@ export default function SpeakButton({ text, className = "" }: { text: string; cl
 
   const enabled = settings.voiceEnabled !== false && isSpeechSupported() && Boolean(text.trim());
 
+  const play = () => speak(id, latest.current.text, latest.current.locale, latest.current.voiceURI);
+
   useEffect(() => {
     const el = btnRef.current;
     if (!enabled || !el) return;
@@ -51,13 +70,28 @@ export default function SpeakButton({ text, className = "" }: { text: string; cl
     );
   }, [enabled, id]);
 
+  // Expose a replay handle to an optional parent (e.g. masters follow-mode).
+  useEffect(() => {
+    if (!enabled || !registerControl) return;
+    registerControl(() => speak(id, latest.current.text, latest.current.locale, latest.current.voiceURI));
+    return () => registerControl(null);
+  }, [enabled, id, registerControl]);
+
   if (!enabled) return null;
 
   return (
     <button
       ref={btnRef}
       type="button"
-      onClick={() => (speaking ? stopSpeech() : speak(id, text, locale, settings.voiceURI))}
+      onClick={() => {
+        if (speaking) {
+          stopSpeech();
+          onUserStop?.();
+        } else {
+          play();
+          onUserStart?.();
+        }
+      }}
       aria-label={speaking ? t.tts.stop : t.tts.readAloud}
       title={speaking ? t.tts.stop : t.tts.readAloud}
       className={[

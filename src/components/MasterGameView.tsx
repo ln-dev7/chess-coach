@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import {
   ChevronLeft,
@@ -20,7 +20,7 @@ import { Engine } from "@/lib/engine";
 import { useI18n } from "@/lib/i18n";
 import { requestMasterAnnotation } from "@/lib/masters-client";
 import { useCoachAvailability } from "@/lib/coach-client";
-import { useMasterAnnotations } from "@/lib/store";
+import { useMasterAnnotations, useSettings } from "@/lib/store";
 import { addMasterAnnotation } from "@/lib/storage";
 import { parsePgn } from "@/lib/pgn";
 import { stopSpeech } from "@/lib/speech";
@@ -43,6 +43,7 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
     annotations.find((a) => a.gameId === game.id && a.locale === locale) ??
     null;
   const ai = useCoachAvailability();
+  const settings = useSettings();
 
   const [plyIdx, setPlyIdx] = useState(0); // plies played so far (0 = start)
   const [playing, setPlaying] = useState(false);
@@ -61,11 +62,28 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
     };
   }, []);
 
-  // Stop any read-aloud when the move changes (next/prev/jump or auto-play),
-  // so the voice never narrates a position you've already left.
+  // Read-aloud "follow mode": once the user starts the voice (and hasn't stopped
+  // it themselves), navigating to another move stops the current narration and,
+  // if the new move has readable text, plays it automatically.
+  const followRef = useRef(false);
+  const currentPlay = useRef<(() => void) | null>(null);
+  const registerControl = useCallback((play: (() => void) | null) => {
+    currentPlay.current = play;
+  }, []);
+  const onUserStart = useCallback(() => {
+    followRef.current = true;
+  }, []);
+  const onUserStop = useCallback(() => {
+    followRef.current = false;
+  }, []);
+
   useEffect(() => {
     stopSpeech();
-  }, [plyIdx]);
+    if (!followRef.current || settings.voiceAutoplay === false) return;
+    // Let the new move's SpeakButton register its replay handle first.
+    const tmo = setTimeout(() => currentPlay.current?.(), 80);
+    return () => clearTimeout(tmo);
+  }, [plyIdx, settings.voiceAutoplay]);
 
   if (!parsed || !parsed.moves.length) {
     return <p className="text-muted-foreground">{t.masters.unreadable}</p>;
@@ -326,7 +344,12 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                   <p className="text-foreground/90 leading-relaxed">
                     {annotation.intro}
                   </p>
-                  <SpeakButton text={annotation.intro} />
+                  <SpeakButton
+                    text={annotation.intro}
+                    onUserStart={onUserStart}
+                    onUserStop={onUserStop}
+                    registerControl={registerControl}
+                  />
                 </div>
               </div>
             ) : currentNote ? (
@@ -338,7 +361,12 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                       moves[plyIdx - 1].san,
                     )}
                   </p>
-                  <SpeakButton text={currentNote.reasoning} />
+                  <SpeakButton
+                    text={currentNote.reasoning}
+                    onUserStart={onUserStart}
+                    onUserStop={onUserStop}
+                    registerControl={registerControl}
+                  />
                 </div>
                 <p className="text-foreground/90 leading-relaxed whitespace-pre-line">
                   {currentNote.reasoning}
