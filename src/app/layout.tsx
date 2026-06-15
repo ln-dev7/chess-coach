@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Github, Twitter } from "lucide-react";
 import { ThemeProvider } from "next-themes";
 import Nav from "@/components/Nav";
@@ -127,6 +128,7 @@ export default function RootLayout({
             </footer>
           </I18nProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
