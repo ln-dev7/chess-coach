@@ -103,7 +103,17 @@ export default function RootLayout({
             <div className="flex-1">{children}</div>
             <footer className="border-t border-border py-6">
               <div className="mx-auto max-w-5xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground/70">
-                <span>Chess Coach · Stockfish WASM · MIT</span>
+                <span>
+                  Chess Coach by{" "}
+                  <a
+                    href="https://www.chess.com/member/ln_dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground underline transition"
+                  >
+                    LN Dev
+                  </a>
+                </span>
                 <div className="flex items-center gap-5">
                   <a
                     href="https://github.com/ln-dev7/chess-coach"
