@@ -7,6 +7,7 @@ import {
   parseMastersText,
   sanitizeMasterAnnotation,
 } from "@/lib/masters";
+import { aiCodeFromStatus } from "@/lib/errors";
 import { AI_PROVIDERS, type AiProvider, modelEnvVar } from "@/lib/providers";
 import type { MasterGame } from "@/lib/types";
 
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
   const resolved = resolveServerProvider();
   if (!resolved) {
     return NextResponse.json(
-      { error: "No AI key configured. Add a provider key in Settings or on the server." },
+      { code: "aiNoKey", error: "No AI key configured. Add a provider key in Settings or on the server." },
       { status: 500 }
     );
   }
@@ -63,14 +64,14 @@ export async function POST(req: NextRequest) {
     if (!res.ok) {
       const detail = await res.text();
       return NextResponse.json(
-        { error: `${provider.label} API error (${res.status}): ${detail.slice(0, 300)}` },
+        { code: aiCodeFromStatus(res.status), error: `${provider.label} API error (${res.status}): ${detail.slice(0, 300)}` },
         { status: 502 }
       );
     }
 
     const data = await res.json();
     const parsed = parseMastersText(provider.extractText(data));
-    if (!parsed) return NextResponse.json({ error: "Model did not return valid JSON." }, { status: 502 });
+    if (!parsed) return NextResponse.json({ code: "aiBadResponse", error: "Model did not return valid JSON." }, { status: 502 });
 
     const annotation = sanitizeMasterAnnotation(parsed, {
       gameId: game.id,
@@ -78,10 +79,10 @@ export async function POST(req: NextRequest) {
       plyCount: plies.length,
       createdAt: new Date().toISOString(),
     });
-    if (!annotation) return NextResponse.json({ error: "Model output failed validation." }, { status: 502 });
+    if (!annotation) return NextResponse.json({ code: "aiBadResponse", error: "Model output failed validation." }, { status: 502 });
 
     return NextResponse.json({ annotation });
   } catch (e) {
-    return NextResponse.json({ error: (e as Error).message }, { status: 500 });
+    return NextResponse.json({ code: "unknown", error: (e as Error).message }, { status: 500 });
   }
 }

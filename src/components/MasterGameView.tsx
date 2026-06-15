@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import { Chess } from "chess.js";
 import {
   ChevronLeft,
@@ -23,6 +24,7 @@ import { useCoachAvailability } from "@/lib/coach-client";
 import { useMasterAnnotations, useSettings } from "@/lib/store";
 import { addMasterAnnotation } from "@/lib/storage";
 import { parsePgn } from "@/lib/pgn";
+import { describeError } from "@/lib/errors";
 import { stopSpeech } from "@/lib/speech";
 import type { MasterGame } from "@/lib/types";
 
@@ -48,7 +50,6 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
   const [plyIdx, setPlyIdx] = useState(0); // plies played so far (0 = start)
   const [playing, setPlaying] = useState(false);
   const [generating, setGenerating] = useState(false);
-  const [genError, setGenError] = useState("");
   // On-demand engine line from the current position (the only place evals appear).
   const [engineLine, setEngineLine] = useState<EngineStep[] | null>(null);
   const [computing, setComputing] = useState(false);
@@ -162,12 +163,11 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
   async function generate() {
     if (generating) return;
     setGenerating(true);
-    setGenError("");
     try {
       const result = await requestMasterAnnotation({ game, locale });
       addMasterAnnotation(result);
     } catch (e) {
-      setGenError((e as Error).message || t.masters.genError);
+      toast.error(describeError(e, t));
     } finally {
       setGenerating(false);
     }
@@ -334,7 +334,6 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                 </span>
               </button>
             )}
-            {genError && <p className="text-sm text-red-500">{genError}</p>}
           </div>
         ) : (
           <>
@@ -387,7 +386,6 @@ export default function MasterGameView({ game }: { game: MasterGame }) {
                 {generating ? t.masters.generating : t.masters.regenerate}
               </span>
             </button>
-            {genError && <p className="text-sm text-red-500">{genError}</p>}
           </>
         )}
 

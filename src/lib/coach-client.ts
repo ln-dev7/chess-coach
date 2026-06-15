@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { buildUserContent, parseModelText, sanitize, SYSTEM_PROMPT } from "./coach";
 import type { CoachingDossier } from "./dossier";
+import { AppError, aiErrorFromStatus } from "./errors";
 import { getProvider } from "./providers";
 import { useApiKey, useStoreHydrated } from "./store";
 import { loadAiKey } from "./storage";
@@ -65,7 +66,7 @@ export async function requestAiLesson(args: CoachRequest): Promise<LessonContent
       body: JSON.stringify(args),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error ?? "Generation failed");
+    if (!res.ok) throw new AppError(data.code ?? "aiGeneric", data.error);
     return data.lesson;
   }
 
@@ -86,14 +87,14 @@ export async function requestAiLesson(args: CoachRequest): Promise<LessonContent
 
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`${provider.label} API error (${res.status}): ${detail.slice(0, 200)}`);
+    throw aiErrorFromStatus(res.status, `${provider.label} ${res.status}: ${detail.slice(0, 120)}`);
   }
 
   const data = await res.json();
   const text = provider.extractText(data);
   const parsed = parseModelText(text);
-  if (!parsed) throw new Error("Model did not return valid JSON.");
+  if (!parsed) throw new AppError("aiBadResponse");
   const lesson = sanitize(parsed, args.dossier);
-  if (!lesson) throw new Error("Model output failed validation.");
+  if (!lesson) throw new AppError("aiBadResponse");
   return lesson;
 }

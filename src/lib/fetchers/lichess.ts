@@ -1,3 +1,4 @@
+import { AppError } from "../errors";
 import { lichessSpeedToTimeClass, resultForUser } from "../pgn";
 import type { GameRow, Platform } from "../types";
 
@@ -26,6 +27,8 @@ export async function fetchLichessGames(username: string, maxGames = 300): Promi
     username
   )}?max=${maxGames}&pgnInJson=true&opening=true&perfType=ultraBullet,bullet,blitz,rapid,classical,correspondence`;
   const res = await fetch(url, { headers: { Accept: "application/x-ndjson" } });
+  if (res.status === 404) throw new AppError("syncUserNotFound");
+  if (res.status === 429) throw new AppError("syncRateLimit");
   if (!res.ok) return [];
   const text = await res.text();
   const lower = username.toLowerCase();

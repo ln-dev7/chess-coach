@@ -8,6 +8,7 @@ import {
   parseMastersText,
   sanitizeMasterAnnotation,
 } from "./masters";
+import { AppError, aiErrorFromStatus } from "./errors";
 import { getProvider } from "./providers";
 import { loadAiKey } from "./storage";
 import type { MasterAnnotation, MasterGame } from "./types";
@@ -36,7 +37,7 @@ export async function requestMasterAnnotation(args: {
       body: JSON.stringify({ game, locale }),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error ?? "Generation failed");
+    if (!res.ok) throw new AppError(data.code ?? "aiGeneric", data.error);
     return data.annotation;
   }
 
@@ -53,18 +54,18 @@ export async function requestMasterAnnotation(args: {
   const res = await fetch(url, { method: "POST", headers, body: JSON.stringify(body) });
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`${provider.label} API error (${res.status}): ${detail.slice(0, 200)}`);
+    throw aiErrorFromStatus(res.status, `${provider.label} ${res.status}: ${detail.slice(0, 120)}`);
   }
 
   const data = await res.json();
   const parsed = parseMastersText(provider.extractText(data));
-  if (!parsed) throw new Error("Model did not return valid JSON.");
+  if (!parsed) throw new AppError("aiBadResponse");
   const annotation = sanitizeMasterAnnotation(parsed, {
     gameId: game.id,
     locale,
     plyCount: plies.length,
     createdAt: new Date().toISOString(),
   });
-  if (!annotation) throw new Error("Model output failed validation.");
+  if (!annotation) throw new AppError("aiBadResponse");
   return annotation;
 }

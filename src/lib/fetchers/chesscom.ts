@@ -1,3 +1,4 @@
+import { AppError } from "../errors";
 import { normalizeTimeClass, openingNameFromEcoUrl, resultForUser } from "../pgn";
 import type { GameRow, Platform } from "../types";
 
@@ -30,10 +31,12 @@ async function getJson<T>(url: string): Promise<T | null> {
  * until `maxGames` standard-rules games are collected.
  */
 export async function fetchChesscomGames(username: string, maxGames = 300): Promise<GameRow[]> {
-  const archives = await getJson<{ archives: string[] }>(
-    `${BASE}/player/${encodeURIComponent(username)}/games/archives`
-  );
-  if (!archives) return [];
+  const res = await fetch(`${BASE}/player/${encodeURIComponent(username)}/games/archives`);
+  if (res.status === 404) throw new AppError("syncUserNotFound");
+  if (res.status === 429) throw new AppError("syncRateLimit");
+  if (!res.ok) return [];
+  const archives = (await res.json()) as { archives: string[] };
+  if (!archives?.archives?.length) return [];
 
   const out: GameRow[] = [];
   const lower = username.toLowerCase();

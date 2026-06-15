@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { CalendarIcon, Settings2 } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 import { Calendar } from "@/components/ui/calendar";
@@ -11,6 +12,7 @@ import { CometSpinner } from "@/components/ui/comet-spinner";
 import ApiKeyField from "@/components/ApiKeyField";
 import { requestAiLesson, useCoachAvailability } from "@/lib/coach-client";
 import { buildDossier, type DossierOptions } from "@/lib/dossier";
+import { describeError } from "@/lib/errors";
 import { useI18n } from "@/lib/i18n";
 import { addAiLesson, loadAiLessons, loadAnalyses, loadGames } from "@/lib/storage";
 import type { AiLessonRow, MoveIssue } from "@/lib/types";
@@ -46,8 +48,7 @@ export default function AiLessonGenerator() {
   const router = useRouter();
   const { available: configured, ready } = useCoachAvailability();
   const [open, setOpen] = useState(false);
-  const [state, setState] = useState<"idle" | "busy" | "error">("idle");
-  const [msg, setMsg] = useState("");
+  const [state, setState] = useState<"idle" | "busy">("idle");
   const [form, setForm] = useState({
     eloMin: "",
     eloMax: "",
@@ -69,11 +70,20 @@ export default function AiLessonGenerator() {
   }
 
   async function generate() {
+    const analyses = loadAnalyses();
+    const analyzedGames = loadGames().filter((g) => analyses[g.id]);
+
+    // No analysis run yet → point the user to the home page to analyze first.
+    if (analyzedGames.length === 0) {
+      toast.error(t.errors.needAnalysis, {
+        action: { label: t.errors.goHome, onClick: () => router.push("/") },
+      });
+      return;
+    }
+
     setState("busy");
-    setMsg("");
     try {
-      const analyses = loadAnalyses();
-      let games = loadGames().filter((g) => analyses[g.id]);
+      let games = analyzedGames;
 
       // Platform / date / OPPONENT rating filters.
       if (form.platform !== "all") games = games.filter((g) => g.platform === form.platform);
@@ -97,7 +107,11 @@ export default function AiLessonGenerator() {
       if (filter) opts.issueFilter = filter;
 
       const dossier = buildDossier(games, subset, opts);
-      if (!dossier.keyPositions.length) throw new Error(t.lessons.noMatches);
+      if (!dossier.keyPositions.length) {
+        setState("idle");
+        toast.error(t.errors.noMatchesFilters);
+        return;
+      }
 
       const focusParts: string[] = [];
       const topicFocus = TOPIC_FOCUS[form.topic];
@@ -128,8 +142,8 @@ export default function AiLessonGenerator() {
       setState("idle");
       router.push(`/lessons/${row.id}`);
     } catch (e) {
-      setMsg((e as Error).message);
-      setState("error");
+      setState("idle");
+      toast.error(describeError(e, t));
     }
   }
 
@@ -160,7 +174,6 @@ export default function AiLessonGenerator() {
         >
           <Settings2 className="size-4" />
         </button>
-        {msg && <span className="text-sm text-red-500">{msg}</span>}
       </div>
 
       {open && (

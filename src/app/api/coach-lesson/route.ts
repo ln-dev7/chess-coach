@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { buildUserContent, parseModelText, sanitize, SYSTEM_PROMPT } from "@/lib/coach";
 import type { CoachingDossier } from "@/lib/dossier";
+import { aiCodeFromStatus } from "@/lib/errors";
 import { AI_PROVIDERS, type AiProvider, modelEnvVar } from "@/lib/providers";
 
 export const maxDuration = 60;
@@ -43,6 +44,7 @@ export async function POST(req: NextRequest) {
   if (!resolved) {
     return NextResponse.json(
       {
+        code: "aiNoKey",
         error:
           "No AI key configured. Add ANTHROPIC_API_KEY, OPENAI_API_KEY or GEMINI_API_KEY to .env.local (see .env.example), or set your own key in Settings.",
       },
@@ -55,7 +57,10 @@ export async function POST(req: NextRequest) {
   try {
     const payload = (await req.json()) as Body;
     if (!payload?.dossier?.keyPositions?.length) {
-      return NextResponse.json({ error: "Empty dossier — analyze some games first." }, { status: 400 });
+      return NextResponse.json(
+        { code: "needAnalysis", error: "Empty dossier — analyze some games first." },
+        { status: 400 }
+      );
     }
 
     const { url, headers, body } = provider.buildRequest({
@@ -75,7 +80,7 @@ export async function POST(req: NextRequest) {
     if (!res.ok) {
       const detail = await res.text();
       return NextResponse.json(
-        { error: `${provider.label} API error (${res.status}): ${detail.slice(0, 300)}` },
+        { code: aiCodeFromStatus(res.status), error: `${provider.label} API error (${res.status}): ${detail.slice(0, 300)}` },
         { status: 502 }
       );
     }
@@ -84,16 +89,16 @@ export async function POST(req: NextRequest) {
     const text = provider.extractText(data);
     const parsed = parseModelText(text);
     if (!parsed) {
-      return NextResponse.json({ error: "Model did not return valid JSON." }, { status: 502 });
+      return NextResponse.json({ code: "aiBadResponse", error: "Model did not return valid JSON." }, { status: 502 });
     }
 
     const lesson = sanitize(parsed, payload.dossier);
     if (!lesson) {
-      return NextResponse.json({ error: "Model output failed validation." }, { status: 502 });
+      return NextResponse.json({ code: "aiBadResponse", error: "Model output failed validation." }, { status: 502 });
     }
 
     return NextResponse.json({ lesson });
   } catch (e) {
-    return NextResponse.json({ error: (e as Error).message }, { status: 500 });
+    return NextResponse.json({ code: "unknown", error: (e as Error).message }, { status: 500 });
   }
 }

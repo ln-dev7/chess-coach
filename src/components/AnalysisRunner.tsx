@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 import { Engine } from "@/lib/engine";
 import { summarizeGame, type PositionEval } from "@/lib/analysis";
 import { resolveAnalysisParams } from "@/lib/analysis-modes";
+import { describeError } from "@/lib/errors";
 import { useI18n } from "@/lib/i18n";
 import { parsePgn } from "@/lib/pgn";
 import {
@@ -99,6 +101,7 @@ export default function AnalysisRunner({
     } catch (e) {
       setStatus("error");
       setLabel((e as Error).message);
+      toast.error(describeError(e, t));
     } finally {
       engine.destroy();
       onProgress?.();
