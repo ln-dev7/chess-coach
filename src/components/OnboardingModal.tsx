@@ -74,7 +74,7 @@ export default function OnboardingModal() {
                 setChesscom(e.target.value);
                 setError(false);
               }}
-              placeholder="magnus_carlsen"
+              placeholder="ln_dev"
               autoFocus
             />
           </label>
@@ -87,7 +87,7 @@ export default function OnboardingModal() {
                 setLichess(e.target.value);
                 setError(false);
               }}
-              placeholder="DrNykterstein"
+              placeholder="ln_dev7"
             />
           </label>
 
